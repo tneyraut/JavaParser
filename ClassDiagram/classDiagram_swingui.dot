@@ -1,0 +1,65 @@
+digraph ClassDiagram {
+	 fontname = "Bitstream Vera Sans"
+	 fontsize = 8
+
+	 node [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+		 shape = "record"
+	 ]
+
+	 edge [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+	 ]
+
+	 AboutDialog [
+		 label = "{AboutDialog||# AboutDialog(JFrame) : \l# actionPerformed(ActionEvent) : \l# windowClosing(WindowEvent) : \l# createLogo() : JLabel\l}"
+	 ]
+
+	 CounterPanel [
+		 label = "{CounterPanel|- fNumberOfErrors : JTextField\l- fNumberOfFailures : JTextField\l- fNumberOfRuns : JTextField\l- fFailureIcon : Icon\l- fErrorIcon : Icon\l- fTotal : int\l|# CounterPanel() : \l# createOutputField(int) : JTextField\l# addToGrid(Component, int, int, int, int, double, double, int, int, Insets) : \l# reset() : \l# setTotal(int) : \l# setRunValue(int) : \l# setErrorValue(int) : \l# setFailureValue(int) : \l# setLabelValue(JTextField, int) : \l}"
+	 ]
+
+	 StackEntryRenderer [
+		 label = "{StackEntryRenderer|# fList : JList\l- fLines : Vector\l|# null() : \l# getElementAt(int) : Object\l# getSize() : int\l# setTrace(String) : \l# clear() : \l# scan(String) : \l# null() : \l# getListCellRendererComponent(JList, Object, int, boolean, boolean) : Component\l# getComponent() : Component\l# showFailure(TestFailure) : \l# clear() : \l# getModel() : StackTraceListModel\l}"
+	 ]
+
+	 FailureListCellRenderer [
+		 label = "{FailureListCellRenderer|# fFailureList : JList\l# fRunContext : TestRunContext\l- fFailureIcon : Icon\l- fErrorIcon : Icon\l|# null() : \l# FailureListCellRenderer() : \l# loadIcons() : \l# getListCellRendererComponent(JList, Object, int, boolean, boolean) : Component\l# FailureRunView(TestRunContext) : \l# valueChanged(ListSelectionEvent) : \l# getSelectedTest() : Test\l# activate() : \l# addTab(JTabbedPane) : \l# revealFailure(Test) : \l# aboutToStart(Test, TestResult) : \l# runFinished(Test, TestResult) : \l# testSelected() : \l}"
+	 ]
+
+	 ProgressBar [
+		 label = "{ProgressBar|# fError : boolean\l|# ProgressBar() : \l# getStatusColor() : Color\l# reset() : \l# start(int) : \l# step(int, boolean) : \l}"
+	 ]
+
+	 StatusLine [
+		 label = "{StatusLine|+ PLAIN_FONT : Font\l+ BOLD_FONT : Font\l|# StatusLine(int) : \l# showInfo(String) : \l# showError(String) : \l# clear() : \l}"
+	 ]
+
+	 TestHierarchyRunView [
+		 label = "{TestHierarchyRunView|# fTreeBrowser : TestSuitePanel\l# fTestContext : TestRunContext\l|# TestHierarchyRunView(TestRunContext) : \l# valueChanged(TreeSelectionEvent) : \l# addTab(JTabbedPane) : \l# getSelectedTest() : Test\l# activate() : \l# revealFailure(Test) : \l# aboutToStart(Test, TestResult) : \l# runFinished(Test, TestResult) : \l# testSelected() : \l}"
+	 ]
+
+	 TestRunContext [
+		 label = "{TestRunContext||# handleTestSelected(Test) : \l# getFailures() : ListModel\l}"
+	 ]
+
+	 TestRunner [
+		 label = "{TestRunner|- GAP : int\l- HISTORY_LENGTH : int\l# fFrame : JFrame\l- fRunner : Thread\l- fTestResult : TestResult\l- fSuiteCombo : JComboBox\l- fProgressIndicator : ProgressBar\l- fFailures : DefaultListModel\l- fLogo : JLabel\l- fCounterPanel : CounterPanel\l- fRun : JButton\l- fQuitButton : JButton\l- fRerunButton : JButton\l- fStatusLine : StatusLine\l- fFailureView : FailureDetailView\l- fTestViewTab : JTabbedPane\l- fUseLoadingRunner : JCheckBox\l- fTestRunViews : Vector\l- TESTCOLLECTOR_KEY : String\l- FAILUREDETAILVIEW_KEY : String\l|# TestRunner() : \l# main(String) : \l# run(Class) : \l# testFailed(int, Test, Throwable) : \l# run() : \l# testStarted(String) : \l# testEnded(String) : \l# run() : \l# setSuite(String) : \l# addToHistory(String) : \l# pruneHistory() : \l# appendFailure(Test, Throwable) : \l# revealFailure(Test) : \l# aboutToStart(Test) : \l# runFinished(Test) : \l# run() : \l# createCounterPanel() : CounterPanel\l# createFailedPanel() : JPanel\l# actionPerformed(ActionEvent) : \l# createFailureDetailView() : FailureDetailView\l# createJUnitMenu() : JMenu\l# actionPerformed(ActionEvent) : \l# actionPerformed(ActionEvent) : \l# createFrame() : JFrame\l# windowClosing(WindowEvent) : \l# createLogo() : JLabel\l# createMenus(JMenuBar) : \l# createUseLoaderCheckBox() : JCheckBox\l# createQuitButton() : JButton\l# actionPerformed(ActionEvent) : \l# createRunButton() : JButton\l# actionPerformed(ActionEvent) : \l# createBrowseButton() : Component\l# actionPerformed(ActionEvent) : \l# createStatusLine() : StatusLine\l# createSuiteCombo() : JComboBox\l# keyTyped(KeyEvent) : \l# itemStateChanged(ItemEvent) : \l# createTestRunViews() : JTabbedPane\l# stateChanged(ChangeEvent) : \l# testViewChanged() : \l# createTestResult() : TestResult\l# createUI(String) : JFrame\l# addGrid(JPanel, Component, int, int, int, int, double, int) : \l# getSuiteText() : String\l# getFailures() : ListModel\l# insertUpdate(DocumentEvent) : \l# browseTestClasses() : \l# createTestCollector() : TestCollector\l# loadFrameIcon() : Image\l# loadHistory(JComboBox) : \l# getSettingsFile() : File\l# postInfo(String) : \l# run() : \l# postStatus(String) : \l# run() : \l# removeUpdate(DocumentEvent) : \l# rerun() : \l# rerunTest(Test) : \l# reset() : \l# runFailed(String) : \l# runSuite() : \l# shouldReload() : boolean\l# runTest(Test) : \l# doRunTest(Test) : \l# run() : \l# saveHistory() : \l# setButtonLabel(JButton, String) : \l# run() : \l# handleTestSelected(Test) : \l# showFailureDetail(Test) : \l# showInfo(String) : \l# showStatus(String) : \l# start(String) : \l# start(Test) : \l# run() : \l# synchUI() : \l# run() : \l# terminate() : \l# textChanged() : \l# clearStatus() : \l# getIconResource(Class, String) : Icon\l# about() : \l}"
+	 ]
+
+	 TestRunView [
+		 label = "{TestRunView||# getSelectedTest() : Test\l# activate() : \l# revealFailure(Test) : \l# addTab(JTabbedPane) : \l# aboutToStart(Test, TestResult) : \l# runFinished(Test, TestResult) : \l}"
+	 ]
+
+	 ParallelSwapper [
+		 label = "{ParallelSwapper|- fCancel : JButton\l- fOk : JButton\l- fList : JList\l- fScrolledList : JScrollPane\l- fDescription : JLabel\l- fSelectedItem : String\l# fLeafIcon : Icon\l# fSuiteIcon : Icon\l# fOther : Vector\l|# null() : \l# TestCellRenderer() : \l# getListCellRendererComponent(JList, Object, int, boolean, boolean) : Component\l# displayString(String) : String\l# matchesKey(String, char) : boolean\l# typeIndex(String) : int\l# null() : \l# mouseClicked(MouseEvent) : \l# null() : \l# keyTyped(KeyEvent) : \l# TestSelector(Frame, TestCollector) : \l# centerWindow(Component) : \l# addListeners() : \l# actionPerformed(ActionEvent) : \l# actionPerformed(ActionEvent) : \l# valueChanged(ListSelectionEvent) : \l# windowClosing(WindowEvent) : \l# defineLayout() : \l# checkEnableOK(ListSelectionEvent) : \l# okSelected() : \l# isEmpty() : boolean\l# keySelectTestClass(char) : \l# getSelectedItem() : String\l# createTestList(TestCollector) : Vector\l# null() : \l# ParallelSwapper(Vector) : \l# swap(Vector, int, int) : \l}"
+	 ]
+
+	 TestTreeCellRenderer [
+		 label = "{TestTreeCellRenderer|- fTree : JTree\l- fScrollTree : JScrollPane\l- fModel : TestTreeModel\l- fErrorIcon : Icon\l- fOkIcon : Icon\l- fFailureIcon : Icon\l|# null() : \l# TestTreeCellRenderer() : \l# loadIcons() : \l# stripParenthesis(Object) : String\l# getTreeCellRendererComponent(JTree, Object, boolean, boolean, boolean, int, boolean) : Component\l# TestSuitePanel() : \l# addError(Test, Throwable) : \l# addFailure(Test, AssertionFailedError) : \l# endTest(Test) : \l# startTest(Test) : \l# getSelectedTest() : Test\l# getTree() : JTree\l# showTestTree(Test) : \l# fireTestChanged(Test, boolean) : \l# run() : \l}"
+	 ]
+
+	 TestTreeModel [
+		 label = "{TestTreeModel|- fRoot : Test\l- fModelListeners : Vector\l- fFailures : Hashtable\l- fErrors : Hashtable\l- fRunTests : Hashtable\l|# TestTreeModel(Test) : \l# addTreeModelListener(TreeModelListener) : \l# removeTreeModelListener(TreeModelListener) : \l# findTest(Test, Test, Vector) : int\l# fireNodeChanged(TreePath, int) : \l# getChild(Object, int) : Object\l# getChildCount(Object) : int\l# getIndexOfChild(Object, Object) : int\l# getRoot() : Object\l# isLeaf(Object) : boolean\l# isTestSuite(Object) : TestSuite\l# valueForPathChanged(TreePath, Object) : \l# addFailure(Test) : \l# addError(Test) : \l# addRunTest(Test) : \l# wasRun(Test

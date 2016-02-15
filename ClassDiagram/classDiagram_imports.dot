@@ -1,0 +1,61 @@
+digraph ClassDiagram {
+	 fontname = "Bitstream Vera Sans"
+	 fontsize = 8
+
+	 node [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+		 shape = "record"
+	 ]
+
+	 edge [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+	 ]
+
+	 Conflicts [
+		 label = "{Conflicts|# typeConflicts : Set\l# staticConflicts : Set\l- onDemandComputer : OnDemandComputer\l- typeConflictFinder : TypeConflictingSimpleNameFinder\l- staticConflictFinder : StaticConflictingSimpleNameFinder\l- implicitImportContainers : Set\l|# null() : \l# Conflicts(Set, Set) : \l+ toString() : String\l# ConflictIdentifier(OnDemandComputer, TypeConflictingSimpleNameFinder, StaticConflictingSimpleNameFinder, Set) : \l# identifyConflicts(Set, Set, Set, Set, IProgressMonitor) : Conflicts\l# extractContainerNames(Collection, boolean) : Collection\l# extractOnDemandContainerNames(Collection, boolean) : Collection\l# findConflictingSimpleNames(ConflictingSimpleNameFinder, Set, boolean, Set, IProgressMonitor) : Set\l}"
+	 ]
+
+	 ConflictingSimpleNameFinder [
+		 label = "{ConflictingSimpleNameFinder||# findConflictingSimpleNames(Set, Set, IProgressMonitor) : Set\l}"
+	 ]
+
+	 ImportAdder [
+		 label = "{ImportAdder||# addImports(Collection, Collection) : List\l}"
+	 ]
+
+	 ImportComment [
+		 label = "{ImportComment|# region : IRegion\l# succeedingLineDelimiters : int\l|# ImportComment(IRegion, int) : \l}"
+	 ]
+
+	 ImportComparator [
+		 label = "{ImportComparator|- importGroupComparator : Comparator\l- typeContainerComparator : Comparator\l- staticContainerComparator : Comparator\l- qualifiedNameComparator : Comparator\l|# createQualifiedNameComparator() : Comparator\l+ compare(ImportName, ImportName) : int\l# ImportComparator(ImportGroupComparator, Comparator, Comparator) : \l+ compare(ImportName, ImportName) : int\l}"
+	 ]
+
+	 ImportDeclarationWriter [
+		 label = "{ImportDeclarationWriter|- insertSpaceBeforeSemicolon : boolean\l|# ImportDeclarationWriter(boolean) : \l# writeImportDeclaration(ImportName) : String\l}"
+	 ]
+
+	 ImportEdits [
+		 label = "{ImportEdits|- originalImportIterator : Iterator\l# currentOriginalImport : OriginalImportEntry\l# currentPosition : int\l# leadingDelimiterEdits : Collection\l# commentAndDeclarationEdits : Collection\l- lineDelimiter : String\l- twoLineDelimiters : String\l- fixAllLineDelimiters : boolean\l- lineDelimitersBetweenImportGroups : int\l- importGroupComparator : ImportGroupComparator\l- commentReassigner : RemovedImportCommentReassigner\l- originalPrecedingImports : Map\l- originalImportEntries : List\l- rewriteSite : RewriteSite\l- declarationWriter : ImportDeclarationWriter\l|# null() : \l# OriginalImportsCursor(int, Collection) : \l# advance() : \l# null() : \l# ImportEdits(Collection, Collection) : \l# mapPrecedingImports(Collection) : Map\l# containsFloatingComment(Iterable) : boolean\l# ImportEditor(String, boolean, int, ImportGroupComparator, List, RewriteSite, ImportDeclarationWriter) : \l# createTextEdit(Collection) : TextEdit\l# createDelimiter(int) : String\l# determineEditsForImports(IRegion, Collection) : Collection\l# placeResultantImports(OriginalImportsCursor, Collection, Map) : Collection\l# placeNewImport(ImportEntry, int) : ImportEdits\l# moveOriginalImport(OriginalImportEntry, int) : ImportEdits\l# preserveStationaryImport(OriginalImportEntry) : ImportEdits\l# determineNewDelimiter(ImportEntry, ImportEntry, Collection) : String\l# needsStandardDelimiter(ImportEntry, ImportEntry, boolean) : boolean\l# relocateComments(Collection, int) : Collection\l# deleteRemainingText(IRegion, Collection) : Collection\l+ compare(TextEdit, TextEdit) : int\l}"
+	 ]
+
+	 ImportEntry [
+		 label = "{ImportEntry|# importName : ImportName\l# isOriginal : boolean\l# asOriginalImportEntry : OriginalImportEntry\l|# ImportEntry(ImportName) : \l}"
+	 ]
+
+	 IndexedImportGroups [
+		 label = "{IndexedImportGroups|- name : String\l- index : int\l- prefix : ImportGroup\l# typeImportGroupsByName : NavigableMap\l# staticImportGroupByName : NavigableMap\l- MATCH_ALL : String\l- STATIC_PREFIX : String\l- STATIC_MATCH_ALL : String\l- memoizedImportOrder : List\l- memoizedIndexedImportGroups : IndexedImportGroups\l- indexedImportGroups : IndexedImportGroups\l|# null() : \l# ImportGroup(String, int, ImportGroup) : \l+ toString() : String\l# getName() : String\l# getIndex() : int\l# getPrefix() : ImportGroup\l# null() : \l# IndexedImportGroups(NavigableMap, NavigableMap) : \l# includeMatchAllImportGroups(List) : List\l# indexImportOrder(List) : IndexedImportGroups\l# mapImportGroups(Map) : NavigableMap\l# isWholeSegmentPrefix(String, String) : boolean\l# ImportGroupComparator(List) : \l+ compare(ImportName, ImportName) : int\l# determineSortPosition(ImportName) : int\l}"
+	 ]
+
+	 ImportName [
+		 label = "{ImportName|+ isStatic : boolean\l+ containerName : String\l+ simpleName : String\l+ qualifiedName : String\l|# createFor(ImportDeclaration) : ImportName\l# createOnDemand(boolean, String) : ImportName\l# createFor(boolean, String) : ImportName\l# ImportName(boolean, String, String) : \l+ toString() : String\l+ hashCode() : int\l+ equals(Object) : boolean\l# isOnDemand() : boolean\l# getContainerOnDemand() : ImportName\l}"
+	 ]
+
+	 RewriteResult [
+		 label = "{RewriteResult|- textEdit : TextEdit\l- createdImports : Set\l- originalImportEntries : List\l- originalImportsList : List\l- originalImportsSet : Set\l- importDeclarationWriter : ImportDeclarationWriter\l- importAdder : ImportAdder\l- importsToAdd : Set\l- importsToRemove : Set\l- reportAllResultantImportsAsCreated : boolean\l- typeExplicitSimpleNames : Set\l- staticExplicitSimpleNames : Set\l- implicitImportContainerNames : Set\l- conflictIdentifier : ConflictIdentifier\l- onDemandComputer : OnDemandComputer\l- importsByNameIdentity : Map\l- lineDelimiter : String\l- importEditor : ImportEditor\l|# null() : \l# RewriteResult(TextEdit, Set) : \l# getTextEdit() : TextEdit\l# getCreatedImports() : String\l# getCreatedStaticImports() : String\l# extractQualifiedNames(boolean, Collection) : String\l# getBlankLinesBetweenImportGroups(IJavaProject) : int\l# shouldInsertSpaceBeforeSemicolon(IJavaProject) : boolean\l# readOriginalImports(CompilationUnit) : List\l# selectImportComments(CompilationUnit, List, int, int, int) : List\l# determineRewriteSite(CompilationUnit, List) : RewriteSite\l# determineImportsRegion(List) : IRegion\l# determineSurroundingRegion(CompilationUnit, IRegion) : IRegion\l# mapTopLevelNodes(CompilationUnit) : NavigableMap\l# mapImportsByNameIdentity(List) : Map\l# subtractImports(Collection, Set) : List\l# ImportRewriteAnalyzer(ICompilationUnit, CompilationUnit, ImportRewriteConfiguration) : \l# addImport(boolean, String) : \l# removeImport(boolean, String) : \l# requireExplicitImport(boolean, String) : \l# analyzeRewrite(IProgressMonitor) : RewriteResult\l# computeImportOrder(IProgressMonitor) : List\l# determineTouchedContainers() : Set\l# identifyImplicitImports(Collection, Set) : Set\l# matchExistingOrCreateNew(Collection) : List\l# computeDelta(Collection, Collection) : ImportsDelta\l}"
+	 ]
+
+	 Builder [
+		 label = "{Builder|# shouldRemoveOriginalImports : boolean\l# shouldFixAllLineDelimiters : boolean\l# createImportAdder : ImportAdder\l# createContainerComparator : Comparator\l# determineImplicitImportContainers : Set\l# originalImportHandling : OriginalImportHandling\l# typeContainerSorting : ImportContainerSorting\l# staticContainerSorting : ImportContainerSorting\l# implicitImportIdentification : ImplicitImportIdentification\l# importOrder : List\l# typeOnDemandThreshold : Integer\l# staticOnDemandThreshold : Integer\l# originalImportHandling : OriginalImportHandling\l# typeContainerSorting : ImportContainerSorting\l# staticContainerSorting : ImportContainerSorting\l# implicitImportIdentification : ImplicitImportIdentification\l# importOrder : List\l# typeOnDemandThreshold : int\l# staticOnDemandThreshold : int\l|# null() : \l+ shouldRemoveOriginalImports() : boolean\l+ shouldFixAllLineDelimiters() : boolean\l+ createImportAdder(Comparator) : ImportAdder\l+ shouldRemoveOriginalImports() : boolean\l+ shouldFixAllLineDelimiters() : boolean\l+ createImportAdder(Comparator, Comparator) : ImportAdder\l# null() : \l+ 

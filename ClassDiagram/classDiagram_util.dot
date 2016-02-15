@@ -1,0 +1,1177 @@
+digraph ClassDiagram {
+	 fontname = "Bitstream Vera Sans"
+	 fontsize = 8
+
+	 node [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+		 shape = "record"
+	 ]
+
+	 edge [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+	 ]
+
+	 AccessFilter [
+		 label = "{AccessFilter|+ FILTER_PUBLIC : DeclarationFilter\l+ FILTER_PROTECTED : DeclarationFilter\l+ FILTER_PUBLIC_OR_PROTECTED : DeclarationFilter\l+ FILTER_PACKAGE : DeclarationFilter\l+ FILTER_PRIVATE : DeclarationFilter\l- mod1 : Modifier\l- mod2 : Modifier\l|# DeclarationFilter() : \l# getFilter(Collection) : DeclarationFilter\l# matches(Declaration) : boolean\l# getFilter(Class) : DeclarationFilter\l# matches(Declaration) : boolean\l# and(DeclarationFilter) : DeclarationFilter\l# matches(Declaration) : boolean\l# or(DeclarationFilter) : DeclarationFilter\l# matches(Declaration) : boolean\l# not() : DeclarationFilter\l# matches(Declaration) : boolean\l# matches(Declaration) : boolean\l# null(Collection) : \l# null(Collection, Class) : \l# null() : \l# AccessFilter() : \l# AccessFilter(Modifier) : \l# AccessFilter(Modifier, Modifier) : \l# matches(Declaration) : boolean\l}"
+	 ]
+
+	 Declarations [
+		 label = "{Declarations||# hides(MemberDeclaration, MemberDeclaration) : boolean\l# overrides(MethodDeclaration, MethodDeclaration) : boolean\l}"
+	 ]
+
+	 DeclarationScanner [
+		 label = "{DeclarationScanner|# pre : DeclarationVisitor\l# post : DeclarationVisitor\l|# DeclarationScanner(DeclarationVisitor, DeclarationVisitor) : \l# visitDeclaration(Declaration) : \l# visitPackageDeclaration(PackageDeclaration) : \l# visitMemberDeclaration(MemberDeclaration) : \l# visitTypeDeclaration(TypeDeclaration) : \l# visitClassDeclaration(ClassDeclaration) : \l# visitEnumDeclaration(EnumDeclaration) : \l# visitInterfaceDeclaration(InterfaceDeclaration) : \l# visitAnnotationTypeDeclaration(AnnotationTypeDeclaration) : \l# visitFieldDeclaration(FieldDeclaration) : \l# visitEnumConstantDeclaration(EnumConstantDeclaration) : \l# visitExecutableDeclaration(ExecutableDeclaration) : \l# visitConstructorDeclaration(ConstructorDeclaration) : \l# visitMethodDeclaration(MethodDeclaration) : \l# visitAnnotationTypeElementDeclaration(AnnotationTypeElementDeclaration) : \l# visitParameterDeclaration(ParameterDeclaration) : \l# visitTypeParameterDeclaration(TypeParameterDeclaration) : \l}"
+	 ]
+
+	 DeclarationVisitor [
+		 label = "{DeclarationVisitor||# visitDeclaration(Declaration) : \l# visitPackageDeclaration(PackageDeclaration) : \l# visitMemberDeclaration(MemberDeclaration) : \l# visitTypeDeclaration(TypeDeclaration) : \l# visitClassDeclaration(ClassDeclaration) : \l# visitEnumDeclaration(EnumDeclaration) : \l# visitInterfaceDeclaration(InterfaceDeclaration) : \l# visitAnnotationTypeDeclaration(AnnotationTypeDeclaration) : \l# visitFieldDeclaration(FieldDeclaration) : \l# visitEnumConstantDeclaration(EnumConstantDeclaration) : \l# visitExecutableDeclaration(ExecutableDeclaration) : \l# visitConstructorDeclaration(ConstructorDeclaration) : \l# visitMethodDeclaration(MethodDeclaration) : \l# visitAnnotationTypeElementDeclaration(AnnotationTypeElementDeclaration) : \l# visitParameterDeclaration(ParameterDeclaration) : \l# visitTypeParameterDeclaration(TypeParameterDeclaration) : \l}"
+	 ]
+
+	 DeclarationVisitors [
+		 label = "{DeclarationVisitors|+ NO_OP : DeclarationVisitor\l|# DeclarationVisitors() : \l# getDeclarationScanner(DeclarationVisitor, DeclarationVisitor) : DeclarationVisitor\l# getSourceOrderDeclarationScanner(DeclarationVisitor, DeclarationVisitor) : DeclarationVisitor\l}"
+	 ]
+
+	 SimpleDeclarationVisitor [
+		 label = "{SimpleDeclarationVisitor||# SimpleDeclarationVisitor() : \l# visitDeclaration(Declaration) : \l# visitPackageDeclaration(PackageDeclaration) : \l# visitMemberDeclaration(MemberDeclaration) : \l# visitTypeDeclaration(TypeDeclaration) : \l# visitClassDeclaration(ClassDeclaration) : \l# visitEnumDeclaration(EnumDeclaration) : \l# visitInterfaceDeclaration(InterfaceDeclaration) : \l# visitAnnotationTypeDeclaration(AnnotationTypeDeclaration) : \l# visitFieldDeclaration(FieldDeclaration) : \l# visitEnumConstantDeclaration(EnumConstantDeclaration) : \l# visitExecutableDeclaration(ExecutableDeclaration) : \l# visitConstructorDeclaration(ConstructorDeclaration) : \l# visitMethodDeclaration(MethodDeclaration) : \l# visitAnnotationTypeElementDeclaration(AnnotationTypeElementDeclaration) : \l# visitParameterDeclaration(ParameterDeclaration) : \l# visitTypeParameterDeclaration(TypeParameterDeclaration) : \l}"
+	 ]
+
+	 SimpleTypeVisitor [
+		 label = "{SimpleTypeVisitor||# SimpleTypeVisitor() : \l# visitTypeMirror(TypeMirror) : \l# visitPrimitiveType(PrimitiveType) : \l# visitVoidType(VoidType) : \l# visitReferenceType(ReferenceType) : \l# visitDeclaredType(DeclaredType) : \l# visitClassType(ClassType) : \l# visitEnumType(EnumType) : \l# visitInterfaceType(InterfaceType) : \l# visitAnnotationType(AnnotationType) : \l# visitArrayType(ArrayType) : \l# visitTypeVariable(TypeVariable) : \l# visitWildcardType(WildcardType) : \l}"
+	 ]
+
+	 DeclPartialOrder [
+		 label = "{DeclPartialOrder|- value : int\l# comparator : java\l|# null() : \l# SourceOrderComparator() : \l# equals(Declaration, Declaration) : boolean\l# null() : \l# staticAdjust(Declaration) : int\l# DeclPartialOrder() : \l# getValue() : int\l+ visitTypeParameterDeclaration(TypeParameterDeclaration) : \l+ visitEnumConstantDeclaration(EnumConstantDeclaration) : \l+ visitClassDeclaration(ClassDeclaration) : \l+ visitInterfaceDeclaration(InterfaceDeclaration) : \l+ visitEnumDeclaration(EnumDeclaration) : \l+ visitAnnotationTypeDeclaration(AnnotationTypeDeclaration) : \l+ visitFieldDeclaration(FieldDeclaration) : \l+ visitConstructorDeclaration(ConstructorDeclaration) : \l+ visitMethodDeclaration(MethodDeclaration) : \l# compareEqualPosition(Declaration, Declaration) : int\l# compare(Declaration, Declaration) : int\l# SourceOrderDeclScanner(DeclarationVisitor, DeclarationVisitor) : \l# visitTypeDeclaration(TypeDeclaration) : \l# visitClassDeclaration(ClassDeclaration) : \l# visitExecutableDeclaration(ExecutableDeclaration) : \l}"
+	 ]
+
+	 SourcePosition [
+		 label = "{SourcePosition||# file() : File\l# line() : int\l# column() : int\l}"
+	 ]
+
+	 Types [
+		 label = "{Types||# isSubtype(TypeMirror, TypeMirror) : boolean\l# isAssignable(TypeMirror, TypeMirror) : boolean\l# getErasure(TypeMirror) : TypeMirror\l# getPrimitiveType(PrimitiveType) : PrimitiveType\l# getVoidType() : VoidType\l# getArrayType(TypeMirror) : ArrayType\l# getTypeVariable(TypeParameterDeclaration) : TypeVariable\l# getWildcardType(Collection, Collection) : WildcardType\l# getDeclaredType(TypeDeclaration, TypeMirror) : DeclaredType\l# getDeclaredType(DeclaredType, TypeDeclaration, TypeMirror) : DeclaredType\l}"
+	 ]
+
+	 TypeVisitor [
+		 label = "{TypeVisitor||# visitTypeMirror(TypeMirror) : \l# visitPrimitiveType(PrimitiveType) : \l# visitVoidType(VoidType) : \l# visitReferenceType(ReferenceType) : \l# visitDeclaredType(DeclaredType) : \l# visitClassType(ClassType) : \l# visitEnumType(EnumType) : \l# visitInterfaceType(InterfaceType) : \l# visitAnnotationType(AnnotationType) : \l# visitArrayType(ArrayType) : \l# visitTypeVariable(TypeVariable) : \l# visitWildcardType(WildcardType) : \l}"
+	 ]
+
+	 AnnotationScanner [
+		 label = "{AnnotationScanner|# getNext : int\l|# null() : \l# AnnotationScanner() : \l# containsAnnotations() : boolean\l}"
+	 ]
+
+	 AptCorePreferenceInitializer [
+		 label = "{AptCorePreferenceInitializer||+ initializeDefaultPreferences() : \l}"
+	 ]
+
+	 CharArrayAnnotationScanner [
+		 label = "{CharArrayAnnotationScanner|- _data : char\l- index : int\l|# CharArrayAnnotationScanner(char) : \l+ getNext() : int\l}"
+	 ]
+
+	 DeclarationsUtil [
+		 label = "{DeclarationsUtil||# hides(MemberDeclaration, MemberDeclaration) : boolean\l# isVisibleForHiding(ITypeBinding, ITypeBinding, int) : boolean\l# overrides(MethodDeclaration, MethodDeclaration) : boolean\l# getBinding(MemberDeclaration) : IBinding\l# getDeclaringClass(IBinding) : ITypeBinding\l}"
+	 ]
+
+	 Factory [
+		 label = "{Factory|- NULL_BINDING_NAME : String\l+ DUMMY_BYTE : Byte\l+ DUMMY_CHAR : Character\l+ DUMMY_DOUBLE : Double\l+ DUMMY_FLOAT : Float\l+ DUMMY_INTEGER : Integer\l+ DUMMY_LONG : Long\l+ DUMMY_SHORT : Short\l|# createReferenceType(ITypeBinding, BaseProcessorEnv) : TypeDeclarationImpl\l# createDeclaration(IBinding, BaseProcessorEnv) : EclipseDeclarationImpl\l# createDeclaration(ASTNode, IFile, BaseProcessorEnv) : EclipseDeclarationImpl\l# createTypeMirror(ITypeBinding, BaseProcessorEnv) : EclipseMirrorType\l# createParameterDeclaration(SingleVariableDeclaration, IFile, BaseProcessorEnv) : ParameterDeclaration\l# createParameterDeclaration(ExecutableDeclarationImpl, int, ITypeBinding, BaseProcessorEnv) : ParameterDeclaration\l# createAnnotationMirror(IAnnotationBinding, EclipseDeclarationImpl, BaseProcessorEnv) : AnnotationMirror\l# createDefaultValue(Object, AnnotationElementDeclarationImpl, BaseProcessorEnv) : AnnotationValue\l# createDefaultValue(Object, ASTBasedAnnotationElementDeclarationImpl, BaseProcessorEnv) : AnnotationValue\l# createAnnotationMemberValue(Object, String, AnnotationMirrorImpl, BaseProcessorEnv, TypeMirror) : AnnotationValue\l# createAnnotationValueFromDOMValue(Object, String, int, EclipseMirrorObject, BaseProcessorEnv) : AnnotationValue\l# convertDOMValueToMirrorValue(Object, String, EclipseMirrorObject, EclipseDeclarationImpl, BaseProcessorEnv, TypeMirror) : Object\l# getMatchingDummyValue(Class) : Object\l# performNecessaryPrimitiveTypeConversion(Class, Object, boolean) : Object\l# getJavaLangClass_Primitive(PrimitiveType) : Class\l# performNecessaryTypeConversion(TypeMirror, Object, String, EclipseMirrorObject, BaseProcessorEnv) : Object\l# createErrorInterfaceType(ITypeBinding) : InterfaceType\l# createErrorClassType(ITypeBinding) : ClassType\l# createErrorClassType(String) : ClassType\l# createErrorAnnotationType(ITypeBinding) : AnnotationType\l# createErrorAnnotationType(String) : AnnotationType\l# createErrorArrayType(String, int) : ArrayType\l}"
+	 ]
+
+	 FactoryContainer [
+		 label = "{FactoryContainer|+ getId : String\l+ getType : FactoryType\l+ exists : boolean\l# loadFactoryNames : Map\l# _factoryNames : Map\l|# null() : \l+ toString() : String\l# getFactoryNames() : Map\l+ hashCode() : int\l+ equals(Object) : boolean\l}"
+	 ]
+
+	 Attributes [
+		 label = "{Attributes|- _enabled : boolean\l- _runInBatchMode : boolean\l- _path : Map\l|# null() : \l# Attributes(boolean, boolean) : \l# Attributes(Attributes) : \l# equals(Object) : boolean\l# hashCode() : int\l# isEnabled() : boolean\l# runInBatchMode() : boolean\l# setEnabled(boolean) : \l# setRunInBatchMode(boolean) : \l# addExternalJar(File) : \l# removeExternalJar(File) : \l# addVarJar(IPath) : \l# removeVarJar(IPath) : \l# addWkspJar(IPath) : \l# removeWkspJar(IPath) : \l# enablePlugin(String) : \l# disablePlugin(String) : \l# addEntryToHead(FactoryContainer, boolean, boolean) : \l# setContainers(Map) : \l# internalAdd(FactoryContainer, Attributes) : \l# getEnabledContainers() : Map\l# getAllContainers() : Map\l+ equals(Object) : boolean\l}"
+	 ]
+
+	 FactoryPathUtil [
+		 label = "{FactoryPathUtil|- FACTORYPATH_TAG : String\l- FACTORYPATH_ENTRY_TAG : String\l- KIND : String\l- ID : String\l- ENABLED : String\l- RUN_IN_BATCH_MODE : String\l- FACTORYPATH_FILE : String\l- INDENT : String\l|# FactoryPathUtil() : \l# isFactoryPathFile(IResource) : boolean\l# readFactoryPathFile(IJavaProject) : Map\l# saveFactoryPathFile(IJavaProject, Map) : \l# encodeFactoryPath(Map) : String\l# newExtJarFactoryContainer(File) : FactoryContainer\l# newWkspJarFactoryContainer(IPath) : FactoryContainer\l# newVarJarFactoryContainer(IPath) : FactoryContainer\l# decodeFactoryPath(String) : Map\l# getFileForWorkspace() : File\l# getIFileForProject(IJavaProject) : IFile\l# doesFactoryPathFileExist(IJavaProject) : boolean\l# calculatePath(IJavaProject) : Map\l# updatePluginContainers(Map, boolean) : \l# getDefaultFactoryPath(IJavaProject) : IFactoryPath\l# getFactoryPath(IJavaProject) : FactoryPath\l# setFactoryPath(IJavaProject, FactoryPath) : \l}"
+	 ]
+
+	 FileSystemUtil [
+		 label = "{FileSystemUtil||# FileSystemUtil() : \l# deleteDerivedResources(IResource) : boolean\l# deleteResource(IResource) : \l# mkdirs(File) : \l# makeDerivedParentFolders(IContainer) : \l# getContentsOfIFile(IFile) : String\l# getContentsOfFile(File) : String\l# getContents(InputStream) : String\l# writeStringToIFile(IFile, String) : \l# writeStringToFile(File, String) : \l# compareStreams(InputStream, InputStream) : boolean\l}"
+	 ]
+
+	 InputStreamAnnotationScanner [
+		 label = "{InputStreamAnnotationScanner|- input : InputStream\l|# InputStreamAnnotationScanner(InputStream) : \l+ getNext() : int\l}"
+	 ]
+
+	 ManyToMany [
+		 label = "{ManyToMany|- _forward : Map\l- _reverse : Map\l- _dirty : boolean\l|# clear() : boolean\l# clearDirtyBit() : \l# containsKey(T1) : boolean\l# containsKeyValuePair(T1, T2) : boolean\l# containsValue(T2) : boolean\l# getKeys(T2) : Set\l# getValues(T1) : Set\l# getKeySet() : Set\l# getValueSet() : Set\l# isDirty() : boolean\l# keyHasOtherValues(T1, T2) : boolean\l# put(T1, T2) : boolean\l# remove(T1, T2) : boolean\l# removeKey(T1) : boolean\l# removeValue(T2) : boolean\l# valueHasOtherKeys(T2, T1) : boolean\l# checkIntegrity() : boolean\l}"
+	 ]
+
+	 Messages [
+		 label = "{Messages|- BUNDLE_NAME : String\l+ FactoryPathUtil_status_ioException : String\l+ FactoryPathUtil_status_couldNotParse : String\l+ FactoryPathUtil_status_parserConfigError : String\l|# Messages() : \l# null() : \l}"
+	 ]
+
+	 PackageUtil [
+		 label = "{PackageUtil||# PackageUtil() : \l# getPackageFragments(String, BaseProcessorEnv) : IPackageFragment\l}"
+	 ]
+
+	 ReaderAnnotationScanner [
+		 label = "{ReaderAnnotationScanner|- _reader : InputStreamReader\l|# ReaderAnnotationScanner(InputStreamReader) : \l+ getNext() : int\l}"
+	 ]
+
+	 ScannerUtil [
+		 label = "{ScannerUtil|- SINGLE_BYTE_ENCODING_ARRAY : String\l- SINGLE_BYTE_ENCODINGS : Set\l|# hasAnnotationInstance(IFile) : boolean\l# hasAnnotationInstance(ICompilationUnit) : boolean\l# hasAnnotationInstance(char) : boolean\l# null() : \l}"
+	 ]
+
+	 SourcePositionImpl [
+		 label = "{SourcePositionImpl|- _startingOffset : int\l- _length : int\l- _line : int\l- _column : int\l- _decl : EclipseMirrorObject\l|# SourcePositionImpl(int, int, int, int, EclipseDeclarationImpl) : \l# SourcePositionImpl(int, int, int, int, AnnotationValueImpl) : \l# SourcePositionImpl(int, int, int, int, AnnotationMirrorImpl) : \l# line() : int\l# column() : int\l# file() : File\l# getStartingOffset() : int\l# getEndingOffset() : int\l# getLength() : int\l# getResource() : IFile\l# toString() : String\l}"
+	 ]
+
+	 TypesUtil [
+		 label = "{TypesUtil|- NO_ARGS : String\l- _env : BaseProcessorEnv\l|# main(String) : \l# TypesUtil(BaseProcessorEnv) : \l# getArrayType(TypeMirror) : ArrayType\l# findMemberType(ITypeBinding, String) : ITypeBinding\l# getDeclaredType(DeclaredType, TypeDeclaration, TypeMirror) : com\l# getDeclaredType(TypeDeclaration, TypeMirror) : com\l# getErasure(TypeMirror) : TypeMirror\l# getPrimitiveType(PrimitiveType) : PrimitiveType\l# getTypeVariable(TypeParameterDeclaration) : TypeVariable\l# getVoidType() : VoidType\l# getWildcardType(Collection, Collection) : WildcardType\l# isAssignable(TypeMirror, TypeMirror) : boolean\l# isSubtype(TypeMirror, TypeMirror) : boolean\l# getTypeBinding(TypeMirror) : ITypeBinding\l# getTypeBinding(TypeDeclaration) : ITypeBinding\l}"
+	 ]
+
+	 EndingOffsetFinder [
+		 label = "{EndingOffsetFinder|- _annotations : List\l- _result : Map\l- _anno : Annotation\l- _result : ASTNode\l- _sortedStartingOffset : int\l- _endingOffsets : int\l|# null() : \l# AnnotationVisitor(List) : \l# visit(MarkerAnnotation) : boolean\l# visit(SingleMemberAnnotation) : boolean\l# visit(NormalAnnotation) : boolean\l# visit(Block) : boolean\l# visit(DoStatement) : boolean\l# visit(ForStatement) : boolean\l# visit(IfStatement) : boolean\l# visit(TryStatement) : boolean\l# reset() : \l# null() : \l# AnnotatedNodeVisitor(Map) : \l# visit(org) : boolean\l# visit(org) : boolean\l# visit(org) : boolean\l# visit(org) : boolean\l# visit(org) : boolean\l# visit(org) : boolean\l# visit(MethodDeclaration) : boolean\l# visit(AnnotationTypeMemberDeclaration) : boolean\l# visitBodyDeclaration(BodyDeclaration) : \l# visit(SingleVariableDeclaration) : boolean\l# visit(Block) : boolean\l# visit(MarkerAnnotation) : boolean\l# visit(NormalAnnotation) : boolean\l# visit(SingleMemberAnnotation) : boolean\l# null() : \l# DeclarationFinder(Annotation) : \l# getAnnotatedNode() : ASTNode\l# visit(AnnotationTypeDeclaration) : boolean\l# visit(AnnotationTypeMemberDeclaration) : boolean\l# visit(EnumDeclaration) : boolean\l# visit(EnumConstantDeclaration) : boolean\l# visit(FieldDeclaration) : boolean\l# visit(MethodDeclaration) : boolean\l# visit(TypeDeclaration) : boolean\l# visit(SingleVariableDeclaration) : boolean\l# internalVisit(ASTNode) : boolean\l# visit(Block) : boolean\l# visit(MarkerAnnotation) : boolean\l# visit(NormalAnnotation) : boolean\l# visit(SingleMemberAnnotation) : boolean\l# null() : \l# EndingOffsetFinder(int) : \l# preVisit(ASTNode) : \l# getEndingOffset(int) : int\l}"
+	 ]
+
+	 ProcessorOptionsParser [
+		 label = "{ProcessorOptionsParser|- PATHVAR_TOKEN : String\l- PATHVAR_ROOT : String\l- PATHVAR_PROJECTROOT : String\l# _s : String\l# _start : int\l# _hasVal : boolean\l|# AptConfig() : \l# addProcessorOption(IJavaProject, String, String) : \l# removeProcessorOption(IJavaProject, String) : \l# getProcessorOptions(IJavaProject) : Map\l# resolveVarPath(IJavaProject, String) : String\l# addProjectClasspath(IWorkspaceRoot, IJavaProject, Set, Set) : \l# convertPathCollectionToString(Collection) : String\l# setProcessorOptions(Map, IJavaProject) : \l# isAutomaticProcessorOption(String) : boolean\l# getRawProcessorOptions(IJavaProject) : Map\l# getOldStyleRawProcessorOptions(IJavaProject) : Map\l# null() : \l# ProcessorOptionsParser(String) : \l# parse() : Map\l# parseKey() : String\l# parseVal() : String\l# removeOldStyleSettings(IScopeContext) : \l# dispose() : \l# initialize() : \l# isEnabled(IJavaProject) : boolean\l# setEnabled(IJavaProject, boolean) : \l# shouldProcessDuringReconcile(IJavaProject) : boolean\l# setProcessDuringReconcile(IJavaProject, boolean) : \l# getBoolean(IJavaProject, String) : boolean\l# getDefaultFactoryPath(IJavaProject) : IFactoryPath\l# getFactoryPath(IJavaProject) : IFactoryPath\l# setFactoryPath(IJavaProject, IFactoryPath) : \l# hasProjectSpecificFactoryPath(IJavaProject) : boolean\l# getString(IJavaProject, String) : String\l# getGenSrcDir(IJavaProject) : String\l# setGenSrcDir(IJavaProject, String) : \l# validateGenSrcDir(IJavaProject, String) : boolean\l# setBoolean(IJavaProject, String, boolean) : \l# setString(IJavaProject, String, String) : \l# flushPreference(String, IEclipsePreferences) : \l}"
+	 ]
+
+	 AptPreferenceConstants [
+		 label = "{AptPreferenceConstants|+ APT_STRING_BASE : String\l+ APT_GENSRCDIR : String\l+ APT_PROCESSOROPTIONS : String\l+ APT_RECONCILEENABLED : String\l+ APT_PROCESSANNOTATIONS : String\l+ APT_ENABLED : String\l+ ENABLED : String\l+ DISABLED : String\l+ APT_NULLVALUE : String\l+ DEFAULT_GENERATED_SOURCE_FOLDER_NAME : String\l+ RTTG_ENABLED_OPTION : String\l+ PROCESSING_IN_EDITOR_DISABLED_OPTION : String\l+ DEFAULT_OPTIONS_MAP : Map\l+ OPTION_NAMES : String\l+ NSETTINGS : int\l|# null() : \l}"
+	 ]
+
+	 AptUtil [
+		 label = "{AptUtil||# AptUtil() : \l# getFactoryForAnnotation(String, IJavaProject) : AnnotationProcessorFactory\l}"
+	 ]
+
+	 EclipseMessager [
+		 label = "{EclipseMessager||# APT_PROBLEM_ID() : int\l# APT_QUICK_FIX_PROBLEM_ID() : int\l# printError(ASTNode, String) : \l# printWarning(ASTNode, String) : \l# printNotice(ASTNode, String) : \l# printFixableError(SourcePosition, String, String, String) : \l# printFixableWarning(SourcePosition, String, String, String) : \l# printFixableNotice(SourcePosition, String, String, String) : \l# printFixableError(String, String, String) : \l# printFixableWarning(String, String, String) : \l# printFixableNotice(String, String, String) : \l}"
+	 ]
+
+	 IFactoryPath [
+		 label = "{IFactoryPath||# addExternalJar(File) : \l# removeExternalJar(File) : \l# addWkspJar(IPath) : \l# removeWkspJar(IPath) : \l# addVarJar(IPath) : \l# removeVarJar(IPath) : \l# enablePlugin(String) : \l# disablePlugin(String) : \l}"
+	 ]
+
+	 ExceptionHandler [
+		 label = "{ExceptionHandler|- fgInstance : ExceptionHandler\l|# log(Throwable, String) : \l# handle(CoreException, String, String) : \l# handle(CoreException, Shell, String, String) : \l# handle(InvocationTargetException, String, String) : \l# handle(InvocationTargetException, Shell, String, String) : \l# perform(CoreException, Shell, String, String) : \l# perform(InvocationTargetException, Shell, String, String) : \l# displayMessageDialog(Throwable, String, Shell, String, String) : \l}"
+	 ]
+
+	 IAptHelpContextIds [
+		 label = "{IAptHelpContextIds||# PREFIX() : String\l# ADVANCED_FACTORYPATH_OPTIONS_DIALOG() : String\l# PROCESSOR_OPTION_INPUT_DIALOG() : String\l# APTCONFIGURATION_PREFERENCE_PAGE() : String\l# FACTORYPATH_PREFERENCE_PAGE() : String\l}"
+	 ]
+
+	 Messages [
+		 label = "{Messages|- BUNDLE_NAME : String\l+ ExceptionHandler_seeErrorLog : String\l|# Messages() : \l# null() : \l}"
+	 ]
+
+	 Archive [
+		 label = "{Archive|+ UNKNOWN_ARCHIVE : Archive\l# zipFile : ZipFile\l# file : File\l# packagesCache : Hashtable\l|# Archive() : \l# Archive(File) : \l# initialize() : \l# getArchiveFileObject(String, Charset) : ArchiveFileObject\l# contains(String) : boolean\l# allPackages() : Set\l# getTypes(String) : List\l# flush() : \l# close() : \l+ toString() : String\l}"
+	 ]
+
+	 ArchiveFileObject [
+		 label = "{ArchiveFileObject|- entryName : String\l- file : File\l- zipFile : ZipFile\l- charset : Charset\l|# ArchiveFileObject(File, String, Charset) : \l+ finalize() : \l+ getAccessLevel() : Modifier\l+ getKind() : Kind\l+ getNestingKind() : NestingKind\l+ isNameCompatible(String, Kind) : boolean\l+ delete() : boolean\l+ equals(Object) : boolean\l+ hashCode() : int\l+ getCharContent(boolean) : CharSequence\l+ getLastModified() : long\l+ getName() : String\l+ openInputStream() : InputStream\l+ openOutputStream() : OutputStream\l+ openReader(boolean) : Reader\l+ openWriter() : Writer\l+ toUri() : URI\l+ toString() : String\l}"
+	 ]
+
+	 EclipseFileManager [
+		 label = "{EclipseFileManager|- NO_EXTENSION : String\l# HAS_EXT_DIRS : int\l# HAS_BOOTCLASSPATH : int\l# HAS_ENDORSED_DIRS : int\l# HAS_PROCESSORPATH : int\l# archivesCache : Map\l# charset : Charset\l# locale : Locale\l# locations : Map\l# flags : int\l+ bundle : ResourceBundle\l|# EclipseFileManager(Locale, Charset) : \l+ close() : \l# collectAllMatchingFiles(File, String, Set, boolean, ArrayList) : \l# concatFiles(Iterable, Iterable) : Iterable\l+ flush() : \l# getArchive(File) : Archive\l+ getClassLoader(Location) : ClassLoader\l# getPathsFrom(String) : Iterable\l# getDefaultBootclasspath() : Iterable\l# getDefaultClasspath() : Iterable\l# getEndorsedDirsFrom(String) : Iterable\l# getExtdirsFrom(String) : Iterable\l# getExtension(File) : String\l# getExtension(String) : String\l+ getFileForInput(Location, String, String) : FileObject\l# normalizedFileName(String, String) : String\l+ getFileForOutput(Location, String, String, FileObject) : FileObject\l+ getJavaFileForInput(Location, String, Kind) : JavaFileObject\l+ getJavaFileForOutput(Location, String, Kind, FileObject) : JavaFileObject\l+ getJavaFileObjects(File) : Iterable\l+ getJavaFileObjects(String) : Iterable\l+ getJavaFileObjectsFromFiles(Iterable) : Iterable\l+ getJavaFileObjectsFromStrings(Iterable) : Iterable\l# getKind(File) : Kind\l# getKind(String) : Kind\l+ getLocation(Location) : Iterable\l# getOutputDir(String) : Iterable\l+ handleOption(String, Iterator) : boolean\l+ hasLocation(Location) : boolean\l+ inferBinaryName(Location, JavaFileObject) : String\l# isArchive(File) : boolean\l+ isSameFile(FileObject, FileObject) : boolean\l+ isSupportedOption(String) : int\l+ list(Location, String, Set, boolean) : Iterable\l# normalized(String) : String\l# prependFiles(Iterable, Iterable) : Iterable\l+ setLocation(Location, Iterable) : \l# setLocale(Locale) : \l+ processPathEntries(int, ArrayList, String, String, boolean, boolean) : \l+ addNewEntry(ArrayList, String, ArrayList, String, String, boolean, boolean) : \l# bind(String, String) : String\l# bind(String, String) : String\l}"
+	 ]
+
+	 EclipseFileObject [
+		 label = "{EclipseFileObject|- f : File\l- charset : Charset\l- parentsExist : boolean\l|# EclipseFileObject(String, URI, Kind, Charset) : \l# getAccessLevel() : Modifier\l# getNestingKind() : NestingKind\l# delete() : boolean\l# equals(Object) : boolean\l# getCharContent(boolean) : CharSequence\l# getLastModified() : long\l# getName() : String\l# hashCode() : int\l# openInputStream() : InputStream\l# openOutputStream() : OutputStream\l# openReader(boolean) : Reader\l# openWriter() : Writer\l+ toString() : String\l# ensureParentDirectoriesExist() : \l}"
+	 ]
+
+	 ManyToMany [
+		 label = "{ManyToMany|- _forward : Map\l- _reverse : Map\l- _dirty : boolean\l|# clear() : boolean\l# clearDirtyBit() : \l# containsKey(T1) : boolean\l# containsKeyValuePair(T1, T2) : boolean\l# containsValue(T2) : boolean\l# getKeys(T2) : Set\l# getValues(T1) : Set\l# getKeySet() : Set\l# getValueSet() : Set\l# isDirty() : boolean\l# keyHasOtherValues(T1, T2) : boolean\l# put(T1, T2) : boolean\l# remove(T1, T2) : boolean\l# removeKey(T1) : boolean\l# removeValue(T2) : boolean\l# valueHasOtherKeys(T2, T1) : boolean\l# checkIntegrity() : boolean\l}"
+	 ]
+
+	 Options [
+		 label = "{Options|- ZERO_ARGUMENT_OPTIONS : Set\l- ONE_ARGUMENT_OPTIONS : Set\l- FILE_MANAGER_OPTIONS : Set\l|# null() : \l# processOptionsFileManager(String) : int\l# processOptions(String) : int\l}"
+	 ]
+
+	 EncodingErrorCollector [
+		 label = "{EncodingErrorCollector|+ LINE_SEPARATOR : String\l# position : int\l# length : int\l# encodingErrors : ArrayList\l# fileObject : FileObject\l# encoding : String\l|# null() : \l# EncodingError(int, int) : \l# getSource(char) : String\l# null() : \l# EncodingErrorCollector(FileObject, String) : \l# collect(int, int) : \l# reportAllEncodingErrors(String) : \l# getInputStreamAsCharArray(InputStream, int, String) : char\l# getCharContents(FileObject, boolean, byte, String) : CharSequence\l# reportEncodingError(EncodingErrorCollector, int, int) : \l}"
+	 ]
+
+	 CompoundNameVector [
+		 label = "{CompoundNameVector|# INITIAL_SIZE : int\l+ size : int\l# maxSize : int\l# elements : char\l|# CompoundNameVector() : \l# add(char) : \l# addAll(char) : \l# contains(char) : boolean\l# elementAt(int) : char\l# remove(char) : char\l# removeAll() : \l# toString() : String\l}"
+	 ]
+
+	 FloatUtil [
+		 label = "{FloatUtil|- DOUBLE_FRACTION_WIDTH : int\l- DOUBLE_PRECISION : int\l- MAX_DOUBLE_EXPONENT : int\l- MIN_NORMALIZED_DOUBLE_EXPONENT : int\l- MIN_UNNORMALIZED_DOUBLE_EXPONENT : int\l- DOUBLE_EXPONENT_BIAS : int\l- DOUBLE_EXPONENT_SHIFT : int\l- SINGLE_FRACTION_WIDTH : int\l- SINGLE_PRECISION : int\l- MAX_SINGLE_EXPONENT : int\l- MIN_NORMALIZED_SINGLE_EXPONENT : int\l- MIN_UNNORMALIZED_SINGLE_EXPONENT : int\l- SINGLE_EXPONENT_BIAS : int\l- SINGLE_EXPONENT_SHIFT : int\l|# valueOfHexFloatLiteral(char) : float\l# valueOfHexDoubleLiteral(char) : double\l# convertHexFloatingPointLiteralToBits(char) : long\l}"
+	 ]
+
+	 GenericXMLWriter [
+		 label = "{GenericXMLWriter|- XML_VERSION : String\l- lineSeparator : String\l- tab : int\l|# appendEscapedChar(StringBuffer, char) : \l# getEscaped(String) : String\l# getReplacement(char) : String\l# GenericXMLWriter(OutputStream, String, boolean) : \l# GenericXMLWriter(Writer, String, boolean) : \l# endTag(String, boolean, boolean) : \l# printString(String, boolean, boolean) : \l# printTabulation() : \l# printTag(String, HashMap, boolean, boolean, boolean) : \l# compare(Object, Object) : int\l# startTag(String, boolean) : \l}"
+	 ]
+
+	 HashSetOfInt [
+		 label = "{HashSetOfInt|+ set : int\l+ elementSize : int\l# threshold : int\l|# HashSetOfInt() : \l# HashSetOfInt(int) : \l# clone() : Object\l# contains(int) : boolean\l# add(int) : int\l# remove(int) : int\l# rehash() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 HashtableOfInt [
+		 label = "{HashtableOfInt|+ keyTable : int\l+ valueTable : Object\l+ elementSize : int\l# threshold : int\l|# HashtableOfInt() : \l# HashtableOfInt(int) : \l# containsKey(int) : boolean\l# get(int) : Object\l# put(int, Object) : Object\l# rehash() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 HashtableOfIntValues [
+		 label = "{HashtableOfIntValues|+ NO_VALUE : int\l+ keyTable : char\l+ valueTable : int\l+ elementSize : int\l# threshold : int\l|# HashtableOfIntValues() : \l# HashtableOfIntValues(int) : \l# clone() : Object\l# containsKey(char) : boolean\l# get(char) : int\l# put(char, int) : int\l# removeKey(char) : int\l# rehash() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 HashtableOfLong [
+		 label = "{HashtableOfLong|+ keyTable : long\l+ valueTable : Object\l+ elementSize : int\l# threshold : int\l|# HashtableOfLong() : \l# HashtableOfLong(int) : \l# containsKey(long) : boolean\l# get(long) : Object\l# put(long, Object) : Object\l# rehash() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 HashtableOfObject [
+		 label = "{HashtableOfObject|+ keyTable : char\l+ valueTable : Object\l+ elementSize : int\l# threshold : int\l|# HashtableOfObject() : \l# HashtableOfObject(int) : \l# clear() : \l# clone() : Object\l# containsKey(char) : boolean\l# get(char) : Object\l# put(char, Object) : Object\l# putUnsafely(char, Object) : \l# removeKey(char) : Object\l# rehash() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 HashtableOfObjectToInt [
+		 label = "{HashtableOfObjectToInt|+ keyTable : Object\l+ valueTable : int\l+ elementSize : int\l# threshold : int\l|# HashtableOfObjectToInt() : \l# HashtableOfObjectToInt(int) : \l# clone() : Object\l# containsKey(Object) : boolean\l# get(Object) : int\l# keysToArray(Object) : \l# put(Object, int) : int\l# removeKey(Object) : int\l# rehash() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 HashtableOfObjectToIntArray [
+		 label = "{HashtableOfObjectToIntArray|+ keyTable : Object\l+ valueTable : int\l+ elementSize : int\l# threshold : int\l|# HashtableOfObjectToIntArray() : \l# HashtableOfObjectToIntArray(int) : \l# clone() : Object\l# containsKey(Object) : boolean\l# get(Object) : int\l# keysToArray(Object) : \l# put(Object, int) : int\l# removeKey(Object) : int\l# rehash() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 HashtableOfPackage [
+		 label = "{HashtableOfPackage|+ keyTable : char\l+ valueTable : PackageBinding\l+ elementSize : int\l# threshold : int\l|# HashtableOfPackage() : \l# HashtableOfPackage(int) : \l# containsKey(char) : boolean\l# get(char) : PackageBinding\l# put(char, PackageBinding) : PackageBinding\l# rehash() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 HashtableOfType [
+		 label = "{HashtableOfType|+ keyTable : char\l+ valueTable : ReferenceBinding\l+ elementSize : int\l# threshold : int\l|# HashtableOfType() : \l# HashtableOfType(int) : \l# containsKey(char) : boolean\l# get(char) : ReferenceBinding\l# getput(char, ReferenceBinding) : ReferenceBinding\l# put(char, ReferenceBinding) : ReferenceBinding\l# rehash() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 ManifestAnalyzer [
+		 label = "{ManifestAnalyzer|- START : int\l- CLASSPATH_HEADER_TOKEN : char\l- classpathSectionsCount : int\l- calledFilesNames : ArrayList\l|# analyzeManifestContents(InputStream) : boolean\l# addCurrentTokenJarWhenNecessary(StringBuffer) : boolean\l# getClasspathSectionsCount() : int\l# getCalledFileNames() : List\l}"
+	 ]
+
+	 MessagesProperties [
+		 label = "{MessagesProperties|- MOD_EXPECTED : int\l- MOD_MASK : int\l- serialVersionUID : long\l- fields : Map\l- nlSuffixes : String\l- EXTENSION : String\l- BUNDLE_NAME : String\l+ compilation_unresolvedProblem : String\l+ compilation_unresolvedProblems : String\l+ compilation_request : String\l+ compilation_loadBinary : String\l+ compilation_process : String\l+ compilation_write : String\l+ compilation_done : String\l+ compilation_units : String\l+ compilation_unit : String\l+ compilation_internalError : String\l+ compilation_beginningToCompile : String\l+ compilation_processing : String\l+ output_isFile : String\l+ output_notValidAll : String\l+ output_notValid : String\l+ problem_noSourceInformation : String\l+ problem_atLine : String\l+ abort_invalidAttribute : String\l+ abort_invalidExceptionAttribute : String\l+ abort_invalidOpcode : String\l+ abort_missingCode : String\l+ abort_againstSourceModel : String\l+ accept_cannot : String\l+ parser_incorrectPath : String\l+ parser_moveFiles : String\l+ parser_syntaxRecovery : String\l+ parser_regularParse : String\l+ parser_missingFile : String\l+ parser_corruptedFile : String\l+ parser_endOfFile : String\l+ parser_endOfConstructor : String\l+ parser_endOfMethod : String\l+ parser_endOfInitializer : String\l+ ast_missingCode : String\l+ constant_cannotCastedInto : String\l+ constant_cannotConvertedTo : String\l|# null() : \l# MessagesProperties(Field, String) : \l# put(Object, Object) : Object\l# Messages() : \l# null() : \l# bind(String) : String\l# bind(String, Object) : String\l# bind(String, Object, Object) : String\l# bind(String, Object) : String\l# buildVariants(String) : String\l# initializeMessages(String, Class) : \l# load(String, ClassLoader, Field) : \l}"
+	 ]
+
+	 ObjectVector [
+		 label = "{ObjectVector|# INITIAL_SIZE : int\l+ size : int\l# maxSize : int\l# elements : Object\l|# ObjectVector() : \l# ObjectVector(int) : \l# add(Object) : \l# addAll(Object) : \l# addAll(ObjectVector) : \l# containsIdentical(Object) : boolean\l# contains(Object) : boolean\l# copyInto(Object) : \l# copyInto(Object, int) : \l# elementAt(int) : Object\l# find(Object) : Object\l# remove(Object) : Object\l# removeAll() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 SimpleLookupTable [
+		 label = "{SimpleLookupTable|+ keyTable : Object\l+ valueTable : Object\l+ elementSize : int\l+ threshold : int\l|# SimpleLookupTable() : \l# SimpleLookupTable(int) : \l# clone() : Object\l# containsKey(Object) : boolean\l# get(Object) : Object\l# getKey(Object) : Object\l# keyForValue(Object) : Object\l# put(Object, Object) : Object\l# removeKey(Object) : Object\l# removeValue(Object) : \l# rehash() : \l# toString() : String\l}"
+	 ]
+
+	 SimpleNameVector [
+		 label = "{SimpleNameVector|# INITIAL_SIZE : int\l+ size : int\l# maxSize : int\l# elements : char\l|# SimpleNameVector() : \l# add(char) : \l# addAll(char) : \l# copyInto(Object) : \l# contains(char) : boolean\l# elementAt(int) : char\l# remove(char) : char\l# removeAll() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 SimpleSet [
+		 label = "{SimpleSet|+ values : Object\l+ elementSize : int\l+ threshold : int\l|# SimpleSet() : \l# SimpleSet(int) : \l# add(Object) : Object\l# addIfNotIncluded(Object) : Object\l# asArray(Object) : \l# clear() : \l# clone() : Object\l# includes(Object) : boolean\l# remove(Object) : Object\l# rehash() : \l# toString() : String\l}"
+	 ]
+
+	 SimpleSetOfCharArray [
+		 label = "{SimpleSetOfCharArray|+ values : char\l+ elementSize : int\l+ threshold : int\l|# SimpleSetOfCharArray() : \l# SimpleSetOfCharArray(int) : \l# add(char) : Object\l# asArray(Object) : \l# clear() : \l# clone() : Object\l# get(char) : char\l# includes(char) : boolean\l# remove(char) : char\l# rehash() : \l# toString() : String\l}"
+	 ]
+
+	 Sorting [
+		 label = "{Sorting||# sortTypes(ReferenceBinding) : ReferenceBinding\l# sort(ReferenceBinding, int, ReferenceBinding, int) : int\l# sortSuper(ReferenceBinding, ReferenceBinding, ReferenceBinding, int) : int\l# concreteFirst(MethodBinding, int) : MethodBinding\l# abstractFirst(MethodBinding, int) : MethodBinding\l# sortInferenceVariables(InferenceVariable) : \l+ compare(InferenceVariable, InferenceVariable) : int\l}"
+	 ]
+
+	 SuffixConstants [
+		 label = "{SuffixConstants||# EXTENSION_class() : String\l# EXTENSION_CLASS() : String\l# EXTENSION_java() : String\l# EXTENSION_JAVA() : String\l# SUFFIX_STRING_class() : String\l# SUFFIX_STRING_CLASS() : String\l# SUFFIX_STRING_java() : String\l# SUFFIX_STRING_JAVA() : String\l# SUFFIX_class() : char\l# SUFFIX_CLASS() : char\l# SUFFIX_java() : char\l# SUFFIX_JAVA() : char\l}"
+	 ]
+
+	 Displayable [
+		 label = "{Displayable|+ C_BOOLEAN : char\l+ C_BYTE : char\l+ C_CHAR : char\l+ C_DOUBLE : char\l+ C_FLOAT : char\l+ C_INT : char\l+ C_SEMICOLON : char\l+ C_COLON : char\l+ C_LONG : char\l+ C_SHORT : char\l+ C_VOID : char\l+ C_TYPE_VARIABLE : char\l+ C_STAR : char\l+ C_EXCEPTION_START : char\l+ C_EXTENDS : char\l+ C_SUPER : char\l+ C_DOT : char\l+ C_DOLLAR : char\l+ C_ARRAY : char\l+ C_RESOLVED : char\l+ C_UNRESOLVED : char\l+ C_NAME_END : char\l+ C_PARAM_START : char\l+ C_PARAM_END : char\l+ C_GENERIC_START : char\l+ C_GENERIC_END : char\l+ C_CAPTURE : char\l- DEFAULT_READING_SIZE : int\l- DEFAULT_WRITING_SIZE : int\l+ UTF_8 : String\l+ LINE_SEPARATOR : String\l+ EMPTY_STRING : String\l+ EMPTY_INT_ARRAY : int\l|# null() : \l# displayString(Object) : String\l# buildAllDirectoriesInto(String, String) : String\l# bytesToChar(byte, String) : char\l# computeOuterMostVisibility(TypeDeclaration, int) : int\l# getFileByteContent(File) : byte\l# getFileCharContent(File, String) : char\l# getFileOutputStream(boolean, String, String) : FileOutputStream\l# getInputStreamAsByteArray(InputStream, int) : byte\l# getInputStreamAsCharArray(InputStream, int, String) : char\l# getExceptionSummary(Throwable) : String\l# getLineNumber(int, int, int, int) : int\l# getZipEntryByteContent(ZipEntry, ZipFile) : byte\l# hashCode(Object) : int\l# isPotentialZipArchive(String) : boolean\l# isClassFileName(char) : boolean\l# isClassFileName(String) : boolean\l# isExcluded(char, char, char, boolean) : boolean\l# isJavaFileName(char) : boolean\l# isJavaFileName(String) : boolean\l# reverseQuickSort(char, int, int) : \l# reverseQuickSort(char, int, int, int) : \l# searchColumnNumber(int, int, int) : int\l# toBoolean(boolean) : Boolean\l# toString(Object) : String\l# displayString(Object) : String\l# toString(Object, Displayable) : String\l# writeToDisk(boolean, String, String, ClassFile) : \l# recordNestedType(ClassFile, TypeBinding) : \l# getJavaHome() : File\l# collectRunningVMBootclasspath(List) : \l# collectFilesNames() : List\l# getParameterCount(char) : int\l# scanTypeSignature(char, int) : int\l# scanBaseTypeSignature(char, int) : int\l# scanArrayTypeSignature(char, int) : int\l# scanCaptureTypeSignature(char, int) : int\l# scanTypeVariableSignature(char, int) : int\l# scanIdentifier(char, int) : int\l# scanClassTypeSignature(char, int) : int\l# scanTypeBoundSignature(char, int) : int\l# scanTypeArgumentSignatures(char, int) : int\l# scanTypeArgumentSignature(char, int) : int\l# effectivelyEqual(Object, Object) : boolean\l# appendEscapedChar(StringBuffer, char, boolean) : \l}"
+	 ]
+
+	 ByteCodeVisitorAdapter [
+		 label = "{ByteCodeVisitorAdapter||# _aaload(int) : \l# _aastore(int) : \l# _aconst_null(int) : \l# _aload_0(int) : \l# _aload_1(int) : \l# _aload_2(int) : \l# _aload_3(int) : \l# _aload(int, int) : \l# _anewarray(int, int, IConstantPoolEntry) : \l# _areturn(int) : \l# _arraylength(int) : \l# _astore_0(int) : \l# _astore_1(int) : \l# _astore_2(int) : \l# _astore_3(int) : \l# _astore(int, int) : \l# _athrow(int) : \l# _baload(int) : \l# _bastore(int) : \l# _bipush(int, byte) : \l# _caload(int) : \l# _castore(int) : \l# _checkcast(int, int, IConstantPoolEntry) : \l# _d2f(int) : \l# _d2i(int) : \l# _d2l(int) : \l# _dadd(int) : \l# _daload(int) : \l# _dastore(int) : \l# _dcmpg(int) : \l# _dcmpl(int) : \l# _dconst_0(int) : \l# _dconst_1(int) : \l# _ddiv(int) : \l# _dload_0(int) : \l# _dload_1(int) : \l# _dload_2(int) : \l# _dload_3(int) : \l# _dload(int, int) : \l# _dmul(int) : \l# _dneg(int) : \l# _drem(int) : \l# _dreturn(int) : \l# _dstore_0(int) : \l# _dstore_1(int) : \l# _dstore_2(int) : \l# _dstore_3(int) : \l# _dstore(int, int) : \l# _dsub(int) : \l# _dup_x1(int) : \l# _dup_x2(int) : \l# _dup(int) : \l# _dup2_x1(int) : \l# _dup2_x2(int) : \l# _dup2(int) : \l# _f2d(int) : \l# _f2i(int) : \l# _f2l(int) : \l# _fadd(int) : \l# _faload(int) : \l# _fastore(int) : \l# _fcmpg(int) : \l# _fcmpl(int) : \l# _fconst_0(int) : \l# _fconst_1(int) : \l# _fconst_2(int) : \l# _fdiv(int) : \l# _fload_0(int) : \l# _fload_1(int) : \l# _fload_2(int) : \l# _fload_3(int) : \l# _fload(int, int) : \l# _fmul(int) : \l# _fneg(int) : \l# _frem(int) : \l# _freturn(int) : \l# _fstore_0(int) : \l# _fstore_1(int) : \l# _fstore_2(int) : \l# _fstore_3(int) : \l# _fstore(int, int) : \l# _fsub(int) : \l# _getfield(int, int, IConstantPoolEntry) : \l# _getstatic(int, int, IConstantPoolEntry) : \l# _goto_w(int, int) : \l# _goto(int, int) : \l# _i2b(int) : \l# _i2c(int) : \l# _i2d(int) : \l# _i2f(int) : \l# _i2l(int) : \l# _i2s(int) : \l# _iadd(int) : \l# _iaload(int) : \l# _iand(int) : \l# _iastore(int) : \l# _iconst_0(int) : \l# _iconst_1(int) : \l# _iconst_2(int) : \l# _iconst_3(int) : \l# _iconst_4(int) : \l# _iconst_5(int) : \l# _iconst_m1(int) : \l# _idiv(int) : \l# _if_acmpeq(int, int) : \l# _if_acmpne(int, int) : \l# _if_icmpeq(int, int) : \l# _if_icmpge(int, int) : \l# _if_icmpgt(int, int) : \l# _if_icmple(int, int) : \l# _if_icmplt(int, int) : \l# _if_icmpne(int, int) : \l# _ifeq(int, int) : \l# _ifge(int, int) : \l# _ifgt(int, int) : \l# _ifle(int, int) : \l# _iflt(int, int) : \l# _ifne(int, int) : \l# _ifnonnull(int, int) : \l# _ifnull(int, int) : \l# _iinc(int, int, int) : \l# _iload_0(int) : \l# _iload_1(int) : \l# _iload_2(int) : \l# _iload_3(int) : \l# _iload(int, int) : \l# _imul(int) : \l# _ineg(int) : \l# _instanceof(int, int, IConstantPoolEntry) : \l# _invokedynamic(int, int, IConstantPoolEntry, IConstantPoolEntry) : \l# _invokedynamic(int, int, IConstantPoolEntry) : \l# _invokeinterface(int, int, byte, IConstantPoolEntry) : \l# _invokespecial(int, int, IConstantPoolEntry) : \l# _invokestatic(int, int, IConstantPoolEntry) : \l# _invokevirtual(int, int, IConstantPoolEntry) : \l# _ior(int) : \l# _irem(int) : \l# _ireturn(int) : \l# _ishl(int) : \l# _ishr(int) : \l# _istore_0(int) : \l# _istore_1(int) : \l# _istore_2(int) : \l# _istore_3(int) : \l# _istore(int, int) : \l# _isub(int) : \l# _iushr(int) : \l# _ixor(int) : \l# _jsr_w(int, int) : \l# _jsr(int, int) : \l# _l2d(int) : \l# _l2f(int) : \l# _l2i(int) : \l# _ladd(int) : \l# _laload(int) : \l# _land(int) : \l# _lastore(int) : \l# _lcmp(int) : \l# _lconst_0(int) : \l# _lconst_1(int) : \l# _ldc_w(int, int, IConstantPoolEntry) : \l# _ldc(int, int, IConstantPoolEntry) : \l# _ldc2_w(int, int, IConstantPoolEntry) : \l# _ldiv(int) : \l# _lload_0(int) : \l# _lload_1(int) : \l# _lload_2(int) : \l# _lload_3(int) : \l# _lload(int, int) : \l# _lmul(int) : \l# _lneg(int) : \l# _lookupswitch(int, int, int, int) : \l# _lor(int) : \l# _lrem(int) : \l# _lreturn(int) : \l# _lshl(int) : \l# _lshr(int) : \l# _lstore_0(int) : \l# _lstore_1(int) : \l# _lstore_2(int) : \l# _lstore_3(int) : \l# _lstore(int, int) : \l# _lsub(int) : \l# _lushr(int) : \l# _lxor(int) : \l# _monitorenter(int) : \l# _monitorexit(int) : \l# _multianewarray(int, int, int, IConstantPoolEntry) : \l# _new(int, int, IConstantPoolEntry) : \l# _newarray(int, int) : \l# _nop(int) : \l# _pop(int) : \l# _pop2(int) : \l# _putfield(int, int, IConstantPoolEntry) : \l# _putstatic(int, int, IConstantPoolEntry) : \l# _ret(int, int) : \l# _return(int) : \l# _saload(int) : \l# _sastore(int) : \l# _sipush(int, short) : \l# _swap(int) : \l# _tableswitch(int, int, int, int, int) : \l# _wide(int, int, int, int) : \l# _wide(int, int, int) : \l# _breakpoint(int) : \l# _impdep1(int) : \l# _impdep2(int) : \l}"
+	 ]
+
+	 ClassFormatException [
+		 label = "{ClassFormatException|+ ERROR_MALFORMED_UTF8 : int\l+ ERROR_TRUNCATED_INPUT : int\l+ INVALID_CONSTANT_POOL_ENTRY : int\l+ TOO_MANY_BYTES : int\l+ INVALID_ARGUMENTS_FOR_INVOKEINTERFACE : int\l+ INVALID_BYTECODE : int\l+ INVALID_TAG_CONSTANT : int\l+ INVALID_MAGIC_NUMBER : int\l- serialVersionUID : long\l|# ClassFormatException(int) : \l# ClassFormatException(String) : \l# ClassFormatException(String, Throwable) : \l}"
+	 ]
+
+	 CompilationUnitSorter [
+		 label = "{CompilationUnitSorter|+ RELATIVE_ORDER : String\l|# CompilationUnitSorter() : \l# checkASTLevel(int) : \l# sort(ICompilationUnit, int, Comparator, int, IProgressMonitor) : \l# sort(int, ICompilationUnit, int, Comparator, int, IProgressMonitor) : \l# sort(CompilationUnit, Comparator, int, TextEditGroup, IProgressMonitor) : TextEdit\l}"
+	 ]
+
+	 ExternalAnnotationUtil [
+		 label = "{ExternalAnnotationUtil|+ NULLABLE : char\l+ NONNULL : char\l+ NO_ANNOTATION : char\l- POSITION_RETURN_TYPE : int\l- POSITION_FULL_SIGNATURE : int\l|# null() : \l# extractGenericSignature(IMethodBinding) : String\l# extractGenericTypeSignature(ITypeBinding) : String\l# insertReturnAnnotation(String, char, MergeStrategy) : String\l# insertParameterAnnotation(String, int, char, MergeStrategy) : String\l# getAnnotationFile(IJavaProject, ITypeBinding, IProgressMonitor) : IFile\l# annotateMember(String, IFile, String, String, String, MergeStrategy, IProgressMonitor) : \l# annotateMethodReturnType(String, IFile, String, String, String, MergeStrategy, IProgressMonitor) : \l# annotateMethodParameterType(String, IFile, String, String, String, int, MergeStrategy, IProgressMonitor) : \l# annotateMember(String, IFile, String, String, String, int, MergeStrategy, IProgressMonitor) : \l# updateSignature(String, String, int, MergeStrategy) : String\l# insertAt(String, int, char, MergeStrategy) : String\l# updateType(StringBuffer, char, char, MergeStrategy) : boolean\l# match(StringBuffer, SignatureWrapper, SignatureWrapper, char, boolean) : boolean\l# mergeAnnotation(StringBuffer, SignatureWrapper, SignatureWrapper, MergeStrategy) : \l# writeFile(IFile, StringBuffer, String, String, BufferedReader, IProgressMonitor) : \l# createNewFile(IFile, String, IProgressMonitor) : \l# ensureExists(IContainer, IProgressMonitor) : \l# getAnnotatedSignature(String, IFile, String, String) : String\l# annotateType(String, String, MergeStrategy) : String\l# annotateReturnType(String, String, MergeStrategy) : String\l# annotateParameterType(String, String, int, MergeStrategy) : String\l}"
+	 ]
+
+	 IAnnotation [
+		 label = "{IAnnotation||# getTypeIndex() : int\l# getTypeName() : char\l# getComponentsNumber() : int\l# getComponents() : IAnnotationComponent\l}"
+	 ]
+
+	 IAnnotationComponent [
+		 label = "{IAnnotationComponent||# getComponentNameIndex() : int\l# getComponentName() : char\l# getComponentValue() : IAnnotationComponentValue\l}"
+	 ]
+
+	 IAnnotationComponentValue [
+		 label = "{IAnnotationComponentValue||# BYTE_TAG() : int\l# CHAR_TAG() : int\l# DOUBLE_TAG() : int\l# FLOAT_TAG() : int\l# INTEGER_TAG() : int\l# LONG_TAG() : int\l# SHORT_TAG() : int\l# BOOLEAN_TAG() : int\l# STRING_TAG() : int\l# ENUM_TAG() : int\l# CLASS_TAG() : int\l# ANNOTATION_TAG() : int\l# ARRAY_TAG() : int\l# getAnnotationComponentValues() : IAnnotationComponentValue\l# getAnnotationValue() : IAnnotation\l# getClassInfo() : IConstantPoolEntry\l# getClassInfoIndex() : int\l# getConstantValue() : IConstantPoolEntry\l# getConstantValueIndex() : int\l# getEnumConstantName() : char\l# getEnumConstantNameIndex() : int\l# getEnumConstantTypeName() : char\l# getEnumConstantTypeNameIndex() : int\l# getTag() : int\l# getValuesNumber() : int\l}"
+	 ]
+
+	 IAnnotationDefaultAttribute [
+		 label = "{IAnnotationDefaultAttribute||# getMemberValue() : IAnnotationComponentValue\l}"
+	 ]
+
+	 IAttributeNamesConstants [
+		 label = "{IAttributeNamesConstants||# SYNTHETIC() : char\l# CONSTANT_VALUE() : char\l# LINE_NUMBER() : char\l# LOCAL_VARIABLE() : char\l# INNER_CLASSES() : char\l# CODE() : char\l# EXCEPTIONS() : char\l# SOURCE() : char\l# DEPRECATED() : char\l# SIGNATURE() : char\l# ENCLOSING_METHOD() : char\l# LOCAL_VARIABLE_TYPE_TABLE() : char\l# RUNTIME_VISIBLE_ANNOTATIONS() : char\l# RUNTIME_INVISIBLE_ANNOTATIONS() : char\l# RUNTIME_VISIBLE_PARAMETER_ANNOTATIONS() : char\l# RUNTIME_INVISIBLE_PARAMETER_ANNOTATIONS() : char\l# ANNOTATION_DEFAULT() : char\l# STACK_MAP_TABLE() : char\l# STACK_MAP() : char\l# RUNTIME_VISIBLE_TYPE_ANNOTATIONS() : char\l# RUNTIME_INVISIBLE_TYPE_ANNOTATIONS() : char\l# BOOTSTRAP_METHODS() : char\l# METHOD_PARAMETERS() : char\l}"
+	 ]
+
+	 IBootstrapMethodsAttribute [
+		 label = "{IBootstrapMethodsAttribute||# getBootstrapMethodsLength() : int\l# getBootstrapMethods() : IBootstrapMethodsEntry\l}"
+	 ]
+
+	 IBootstrapMethodsEntry [
+		 label = "{IBootstrapMethodsEntry||# getBootstrapMethodReference() : int\l# getBootstrapArguments() : int\l}"
+	 ]
+
+	 IBytecodeVisitor [
+		 label = "{IBytecodeVisitor||# _aaload(int) : \l# _aastore(int) : \l# _aconst_null(int) : \l# _aload(int, int) : \l# _aload_0(int) : \l# _aload_1(int) : \l# _aload_2(int) : \l# _aload_3(int) : \l# _anewarray(int, int, IConstantPoolEntry) : \l# _areturn(int) : \l# _arraylength(int) : \l# _astore(int, int) : \l# _astore_0(int) : \l# _astore_1(int) : \l# _astore_2(int) : \l# _astore_3(int) : \l# _athrow(int) : \l# _baload(int) : \l# _bastore(int) : \l# _bipush(int, byte) : \l# _caload(int) : \l# _castore(int) : \l# _checkcast(int, int, IConstantPoolEntry) : \l# _d2f(int) : \l# _d2i(int) : \l# _d2l(int) : \l# _dadd(int) : \l# _daload(int) : \l# _dastore(int) : \l# _dcmpg(int) : \l# _dcmpl(int) : \l# _dconst_0(int) : \l# _dconst_1(int) : \l# _ddiv(int) : \l# _dload(int, int) : \l# _dload_0(int) : \l# _dload_1(int) : \l# _dload_2(int) : \l# _dload_3(int) : \l# _dmul(int) : \l# _dneg(int) : \l# _drem(int) : \l# _dreturn(int) : \l# _dstore(int, int) : \l# _dstore_0(int) : \l# _dstore_1(int) : \l# _dstore_2(int) : \l# _dstore_3(int) : \l# _dsub(int) : \l# _dup(int) : \l# _dup_x1(int) : \l# _dup_x2(int) : \l# _dup2(int) : \l# _dup2_x1(int) : \l# _dup2_x2(int) : \l# _f2d(int) : \l# _f2i(int) : \l# _f2l(int) : \l# _fadd(int) : \l# _faload(int) : \l# _fastore(int) : \l# _fcmpg(int) : \l# _fcmpl(int) : \l# _fconst_0(int) : \l# _fconst_1(int) : \l# _fconst_2(int) : \l# _fdiv(int) : \l# _fload(int, int) : \l# _fload_0(int) : \l# _fload_1(int) : \l# _fload_2(int) : \l# _fload_3(int) : \l# _fmul(int) : \l# _fneg(int) : \l# _frem(int) : \l# _freturn(int) : \l# _fstore(int, int) : \l# _fstore_0(int) : \l# _fstore_1(int) : \l# _fstore_2(int) : \l# _fstore_3(int) : \l# _fsub(int) : \l# _getfield(int, int, IConstantPoolEntry) : \l# _getstatic(int, int, IConstantPoolEntry) : \l# _goto(int, int) : \l# _goto_w(int, int) : \l# _i2b(int) : \l# _i2c(int) : \l# _i2d(int) : \l# _i2f(int) : \l# _i2l(int) : \l# _i2s(int) : \l# _iadd(int) : \l# _iaload(int) : \l# _iand(int) : \l# _iastore(int) : \l# _iconst_m1(int) : \l# _iconst_0(int) : \l# _iconst_1(int) : \l# _iconst_2(int) : \l# _iconst_3(int) : \l# _iconst_4(int) : \l# _iconst_5(int) : \l# _idiv(int) : \l# _if_acmpeq(int, int) : \l# _if_acmpne(int, int) : \l# _if_icmpeq(int, int) : \l# _if_icmpne(int, int) : \l# _if_icmplt(int, int) : \l# _if_icmpge(int, int) : \l# _if_icmpgt(int, int) : \l# _if_icmple(int, int) : \l# _ifeq(int, int) : \l# _ifne(int, int) : \l# _iflt(int, int) : \l# _ifge(int, int) : \l# _ifgt(int, int) : \l# _ifle(int, int) : \l# _ifnonnull(int, int) : \l# _ifnull(int, int) : \l# _iinc(int, int, int) : \l# _iload(int, int) : \l# _iload_0(int) : \l# _iload_1(int) : \l# _iload_2(int) : \l# _iload_3(int) : \l# _imul(int) : \l# _ineg(int) : \l# _instanceof(int, int, IConstantPoolEntry) : \l# _invokedynamic(int, int, IConstantPoolEntry, IConstantPoolEntry) : \l# _invokedynamic(int, int, IConstantPoolEntry) : \l# _invokeinterface(int, int, byte, IConstantPoolEntry) : \l# _invokespecial(int, int, IConstantPoolEntry) : \l# _invokestatic(int, int, IConstantPoolEntry) : \l# _invokevirtual(int, int, IConstantPoolEntry) : \l# _ior(int) : \l# _irem(int) : \l# _ireturn(int) : \l# _ishl(int) : \l# _ishr(int) : \l# _istore(int, int) : \l# _istore_0(int) : \l# _istore_1(int) : \l# _istore_2(int) : \l# _istore_3(int) : \l# _isub(int) : \l# _iushr(int) : \l# _ixor(int) : \l# _jsr(int, int) : \l# _jsr_w(int, int) : \l# _l2d(int) : \l# _l2f(int) : \l# _l2i(int) : \l# _ladd(int) : \l# _laload(int) : \l# _land(int) : \l# _lastore(int) : \l# _lcmp(int) : \l# _lconst_0(int) : \l# _lconst_1(int) : \l# _ldc(int, int, IConstantPoolEntry) : \l# _ldc_w(int, int, IConstantPoolEntry) : \l# _ldc2_w(int, int, IConstantPoolEntry) : \l# _ldiv(int) : \l# _lload(int, int) : \l# _lload_0(int) : \l# _lload_1(int) : \l# _lload_2(int) : \l# _lload_3(int) : \l# _lmul(int) : \l# _lneg(int) : \l# _lookupswitch(int, int, int, int) : \l# _lor(int) : \l# _lrem(int) : \l# _lreturn(int) : \l# _lshl(int) : \l# _lshr(int) : \l# _lstore(int, int) : \l# _lstore_0(int) : \l# _lstore_1(int) : \l# _lstore_2(int) : \l# _lstore_3(int) : \l# _lsub(int) : \l# _lushr(int) : \l# _lxor(int) : \l# _monitorenter(int) : \l# _monitorexit(int) : \l# _multianewarray(int, int, int, IConstantPoolEntry) : \l# _new(int, int, IConstantPoolEntry) : \l# _newarray(int, int) : \l# _nop(int) : \l# _pop(int) : \l# _pop2(int) : \l# _putfield(int, int, IConstantPoolEntry) : \l# _putstatic(int, int, IConstantPoolEntry) : \l# _ret(int, int) : \l# _return(int) : \l# _saload(int) : \l# _sastore(int) : \l# _sipush(int, short) : \l# _swap(int) : \l# _tableswitch(int, int, int, int, int) : \l# _wide(int, int, int) : \l# _wide(int, int, int, int) : \l# _breakpoint(int) : \l# _impdep1(int) : \l# _impdep2(int) : \l}"
+	 ]
+
+	 IClassFileAttribute [
+		 label = "{IClassFileAttribute||# getAttributeNameIndex() : int\l# getAttributeName() : char\l# getAttributeLength() : long\l}"
+	 ]
+
+	 IClassFileDisassembler [
+		 label = "{IClassFileDisassembler||# DETAILED() : int\l# DEFAULT() : int\l# disassemble(IClassFileReader, String) : String\l# disassemble(IClassFileReader, String, int) : String\l}"
+	 ]
+
+	 IClassFileReader [
+		 label = "{IClassFileReader||# ALL() : int\l# CONSTANT_POOL() : int\l# METHOD_INFOS() : int\l# FIELD_INFOS() : int\l# SUPER_INTERFACES() : int\l# CLASSFILE_ATTRIBUTES() : int\l# METHOD_BODIES() : int\l# ALL_BUT_METHOD_BODIES() : int\l# getAccessFlags() : int\l# getFieldInfos() : IFieldInfo\l# getInterfaceNames() : char\l# getInterfaceIndexes() : int\l# getInnerClassesAttribute() : IInnerClassesAttribute\l# getMethodInfos() : IMethodInfo\l# getClassName() : char\l# getClassIndex() : int\l# getSuperclassName() : char\l# getSuperclassIndex() : int\l# isClass() : boolean\l# isInterface() : boolean\l# getSourceFileAttribute() : ISourceAttribute\l# getConstantPool() : IConstantPool\l# getMinorVersion() : int\l# getMajorVersion() : int\l# getAttributeCount() : int\l# getAttributes() : IClassFileAttribute\l# getMagic() : int\l# getFieldsCount() : int\l# getMethodsCount() : int\l}"
+	 ]
+
+	 ICodeAttribute [
+		 label = "{ICodeAttribute||# getMaxLocals() : int\l# getMaxStack() : int\l# getLineNumberAttribute() : ILineNumberAttribute\l# getLocalVariableAttribute() : ILocalVariableAttribute\l# getExceptionTable() : IExceptionTableEntry\l# getBytecodes() : byte\l# getCodeLength() : long\l# getAttributesCount() : int\l# getAttributes() : IClassFileAttribute\l# getExceptionTableLength() : int\l# traverse(IBytecodeVisitor) : \l}"
+	 ]
+
+	 IConstantPool [
+		 label = "{IConstantPool||# getConstantPoolCount() : int\l# getEntryKind(int) : int\l# decodeEntry(int) : IConstantPoolEntry\l}"
+	 ]
+
+	 IConstantPoolConstant [
+		 label = "{IConstantPoolConstant||# CONSTANT_Class() : int\l# CONSTANT_Fieldref() : int\l# CONSTANT_Methodref() : int\l# CONSTANT_InterfaceMethodref() : int\l# CONSTANT_String() : int\l# CONSTANT_Integer() : int\l# CONSTANT_Float() : int\l# CONSTANT_Long() : int\l# CONSTANT_Double() : int\l# CONSTANT_NameAndType() : int\l# CONSTANT_Utf8() : int\l# CONSTANT_MethodHandle() : int\l# CONSTANT_MethodType() : int\l# CONSTANT_InvokeDynamic() : int\l# CONSTANT_Methodref_SIZE() : int\l# CONSTANT_Class_SIZE() : int\l# CONSTANT_Double_SIZE() : int\l# CONSTANT_Fieldref_SIZE() : int\l# CONSTANT_Float_SIZE() : int\l# CONSTANT_Integer_SIZE() : int\l# CONSTANT_InterfaceMethodref_SIZE() : int\l# CONSTANT_Long_SIZE() : int\l# CONSTANT_String_SIZE() : int\l# CONSTANT_Utf8_SIZE() : int\l# CONSTANT_NameAndType_SIZE() : int\l# CONSTANT_MethodHandle_SIZE() : int\l# CONSTANT_MethodType_SIZE() : int\l# CONSTANT_InvokeDynamic_SIZE() : int\l# METHOD_TYPE_REF_GetField() : int\l# METHOD_TYPE_REF_GetStatic() : int\l# METHOD_TYPE_REF_PutField() : int\l# METHOD_TYPE_REF_PutStatic() : int\l# METHOD_TYPE_REF_InvokeVirtual() : int\l# METHOD_TYPE_REF_InvokeStatic() : int\l# METHOD_TYPE_REF_InvokeSpecial() : int\l# METHOD_TYPE_REF_NewInvokeSpecial() : int\l# METHOD_TYPE_REF_InvokeInterface() : int\l}"
+	 ]
+
+	 IConstantPoolEntry [
+		 label = "{IConstantPoolEntry||# getKind() : int\l# getClassInfoNameIndex() : int\l# getClassIndex() : int\l# getNameAndTypeIndex() : int\l# getStringIndex() : int\l# getStringValue() : String\l# getIntegerValue() : int\l# getFloatValue() : float\l# getDoubleValue() : double\l# getLongValue() : long\l# getNameAndTypeInfoDescriptorIndex() : int\l# getNameAndTypeInfoNameIndex() : int\l# getClassInfoName() : char\l# getClassName() : char\l# getFieldName() : char\l# getMethodName() : char\l# getFieldDescriptor() : char\l# getMethodDescriptor() : char\l# getUtf8Value() : char\l# getUtf8Length() : int\l}"
+	 ]
+
+	 IConstantPoolEntry2 [
+		 label = "{IConstantPoolEntry2||# getDescriptorIndex() : int\l# getReferenceKind() : int\l# getReferenceIndex() : int\l# getBootstrapMethodAttributeIndex() : int\l}"
+	 ]
+
+	 IConstantValueAttribute [
+		 label = "{IConstantValueAttribute||# getConstantValueIndex() : int\l# getConstantValue() : IConstantPoolEntry\l}"
+	 ]
+
+	 IEnclosingMethodAttribute [
+		 label = "{IEnclosingMethodAttribute||# getEnclosingClass() : char\l# getEnclosingClassIndex() : int\l# getMethodDescriptor() : char\l# getMethodDescriptorIndex() : int\l# getMethodName() : char\l# getMethodNameIndex() : int\l# getMethodNameAndTypeIndex() : int\l}"
+	 ]
+
+	 IExceptionAttribute [
+		 label = "{IExceptionAttribute||# getExceptionsNumber() : int\l# getExceptionNames() : char\l# getExceptionIndexes() : int\l}"
+	 ]
+
+	 IExceptionTableEntry [
+		 label = "{IExceptionTableEntry||# getStartPC() : int\l# getEndPC() : int\l# getHandlerPC() : int\l# getCatchTypeIndex() : int\l# getCatchType() : char\l}"
+	 ]
+
+	 IExtendedAnnotation [
+		 label = "{IExtendedAnnotation||# getTargetType() : int\l# getOffset() : int\l# getExceptionTableIndex() : int\l# getLocalVariableRefenceInfoLength() : int\l# getLocalVariableTable() : ILocalVariableReferenceInfo\l# getParameterIndex() : int\l# getTypeParameterIndex() : int\l# getTypeParameterBoundIndex() : int\l# getAnnotationTypeIndex() : int\l# getTypePath() : int\l}"
+	 ]
+
+	 IExtendedAnnotationConstants [
+		 label = "{IExtendedAnnotationConstants||# CLASS_TYPE_PARAMETER() : int\l# METHOD_TYPE_PARAMETER() : int\l# CLASS_EXTENDS() : int\l# CLASS_TYPE_PARAMETER_BOUND() : int\l# METHOD_TYPE_PARAMETER_BOUND() : int\l# FIELD() : int\l# METHOD_RETURN() : int\l# METHOD_RECEIVER() : int\l# METHOD_FORMAL_PARAMETER() : int\l# THROWS() : int\l# LOCAL_VARIABLE() : int\l# RESOURCE_VARIABLE() : int\l# EXCEPTION_PARAMETER() : int\l# INSTANCEOF() : int\l# NEW() : int\l# CONSTRUCTOR_REFERENCE() : int\l# METHOD_REFERENCE() : int\l# CAST() : int\l# CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT() : int\l# METHOD_INVOCATION_TYPE_ARGUMENT() : int\l# CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT() : int\l# METHOD_REFERENCE_TYPE_ARGUMENT() : int\l# TYPE_PATH_DEEPER_IN_ARRAY() : int\l# TYPE_PATH_DEEPER_IN_INNER_TYPE() : int\l# TYPE_PATH_ANNOTATION_ON_WILDCARD_BOUND() : int\l# TYPE_PATH_TYPE_ARGUMENT_INDEX() : int\l}"
+	 ]
+
+	 IFieldInfo [
+		 label = "{IFieldInfo||# getConstantValueAttribute() : IConstantValueAttribute\l# getAccessFlags() : int\l# getName() : char\l# getNameIndex() : int\l# getDescriptor() : char\l# getDescriptorIndex() : int\l# hasConstantValueAttribute() : boolean\l# isSynthetic() : boolean\l# isDeprecated() : boolean\l# getAttributeCount() : int\l# getAttributes() : IClassFileAttribute\l}"
+	 ]
+
+	 IInnerClassesAttribute [
+		 label = "{IInnerClassesAttribute||# getNumberOfClasses() : int\l# getInnerClassAttributesEntries() : IInnerClassesAttributeEntry\l}"
+	 ]
+
+	 IInnerClassesAttributeEntry [
+		 label = "{IInnerClassesAttributeEntry||# getAccessFlags() : int\l# getInnerNameIndex() : int\l# getOuterClassNameIndex() : int\l# getInnerClassNameIndex() : int\l# getInnerName() : char\l# getOuterClassName() : char\l# getInnerClassName() : char\l}"
+	 ]
+
+	 ILineNumberAttribute [
+		 label = "{ILineNumberAttribute||# getLineNumberTableLength() : int\l# getLineNumberTable() : int\l}"
+	 ]
+
+	 ILocalVariableAttribute [
+		 label = "{ILocalVariableAttribute||# getLocalVariableTableLength() : int\l# getLocalVariableTable() : ILocalVariableTableEntry\l}"
+	 ]
+
+	 ILocalVariableReferenceInfo [
+		 label = "{ILocalVariableReferenceInfo||# getStartPC() : int\l# getLength() : int\l# getIndex() : int\l}"
+	 ]
+
+	 ILocalVariableTableEntry [
+		 label = "{ILocalVariableTableEntry||# getStartPC() : int\l# getLength() : int\l# getNameIndex() : int\l# getDescriptorIndex() : int\l# getIndex() : int\l# getName() : char\l# getDescriptor() : char\l}"
+	 ]
+
+	 ILocalVariableTypeTableAttribute [
+		 label = "{ILocalVariableTypeTableAttribute||# getLocalVariableTypeTableLength() : int\l# getLocalVariableTypeTable() : ILocalVariableTypeTableEntry\l}"
+	 ]
+
+	 ILocalVariableTypeTableEntry [
+		 label = "{ILocalVariableTypeTableEntry||# getStartPC() : int\l# getLength() : int\l# getNameIndex() : int\l# getSignatureIndex() : int\l# getIndex() : int\l# getName() : char\l# getSignature() : char\l}"
+	 ]
+
+	 IMethodInfo [
+		 label = "{IMethodInfo||# getDescriptor() : char\l# getDescriptorIndex() : int\l# getAccessFlags() : int\l# getName() : char\l# getNameIndex() : int\l# isClinit() : boolean\l# isConstructor() : boolean\l# isSynthetic() : boolean\l# isDeprecated() : boolean\l# getCodeAttribute() : ICodeAttribute\l# getExceptionAttribute() : IExceptionAttribute\l# getAttributeCount() : int\l# getAttributes() : IClassFileAttribute\l}"
+	 ]
+
+	 IMethodParametersAttribute [
+		 label = "{IMethodParametersAttribute||# getMethodParameterLength() : int\l# getParameterName(int) : char\l# getAccessFlags(int) : short\l}"
+	 ]
+
+	 IModifierConstants [
+		 label = "{IModifierConstants||# ACC_PUBLIC() : int\l# ACC_PRIVATE() : int\l# ACC_PROTECTED() : int\l# ACC_STATIC() : int\l# ACC_FINAL() : int\l# ACC_SUPER() : int\l# ACC_SYNCHRONIZED() : int\l# ACC_VOLATILE() : int\l# ACC_BRIDGE() : int\l# ACC_TRANSIENT() : int\l# ACC_VARARGS() : int\l# ACC_NATIVE() : int\l# ACC_INTERFACE() : int\l# ACC_ABSTRACT() : int\l# ACC_STRICT() : int\l# ACC_SYNTHETIC() : int\l# ACC_ANNOTATION() : int\l# ACC_ENUM() : int\l# ACC_MANDATED() : int\l}"
+	 ]
+
+	 IOpcodeMnemonics [
+		 label = "{IOpcodeMnemonics||# NOP() : int\l# ACONST_NULL() : int\l# ICONST_M1() : int\l# ICONST_0() : int\l# ICONST_1() : int\l# ICONST_2() : int\l# ICONST_3() : int\l# ICONST_4() : int\l# ICONST_5() : int\l# LCONST_0() : int\l# LCONST_1() : int\l# FCONST_0() : int\l# FCONST_1() : int\l# FCONST_2() : int\l# DCONST_0() : int\l# DCONST_1() : int\l# BIPUSH() : int\l# SIPUSH() : int\l# LDC() : int\l# LDC_W() : int\l# LDC2_W() : int\l# ILOAD() : int\l# LLOAD() : int\l# FLOAD() : int\l# DLOAD() : int\l# ALOAD() : int\l# ILOAD_0() : int\l# ILOAD_1() : int\l# ILOAD_2() : int\l# ILOAD_3() : int\l# LLOAD_0() : int\l# LLOAD_1() : int\l# LLOAD_2() : int\l# LLOAD_3() : int\l# FLOAD_0() : int\l# FLOAD_1() : int\l# FLOAD_2() : int\l# FLOAD_3() : int\l# DLOAD_0() : int\l# DLOAD_1() : int\l# DLOAD_2() : int\l# DLOAD_3() : int\l# ALOAD_0() : int\l# ALOAD_1() : int\l# ALOAD_2() : int\l# ALOAD_3() : int\l# IALOAD() : int\l# LALOAD() : int\l# FALOAD() : int\l# DALOAD() : int\l# AALOAD() : int\l# BALOAD() : int\l# CALOAD() : int\l# SALOAD() : int\l# ISTORE() : int\l# LSTORE() : int\l# FSTORE() : int\l# DSTORE() : int\l# ASTORE() : int\l# ISTORE_0() : int\l# ISTORE_1() : int\l# ISTORE_2() : int\l# ISTORE_3() : int\l# LSTORE_0() : int\l# LSTORE_1() : int\l# LSTORE_2() : int\l# LSTORE_3() : int\l# FSTORE_0() : int\l# FSTORE_1() : int\l# FSTORE_2() : int\l# FSTORE_3() : int\l# DSTORE_0() : int\l# DSTORE_1() : int\l# DSTORE_2() : int\l# DSTORE_3() : int\l# ASTORE_0() : int\l# ASTORE_1() : int\l# ASTORE_2() : int\l# ASTORE_3() : int\l# IASTORE() : int\l# LASTORE() : int\l# FASTORE() : int\l# DASTORE() : int\l# AASTORE() : int\l# BASTORE() : int\l# CASTORE() : int\l# SASTORE() : int\l# POP() : int\l# POP2() : int\l# DUP() : int\l# DUP_X1() : int\l# DUP_X2() : int\l# DUP2() : int\l# DUP2_X1() : int\l# DUP2_X2() : int\l# SWAP() : int\l# IADD() : int\l# LADD() : int\l# FADD() : int\l# DADD() : int\l# ISUB() : int\l# LSUB() : int\l# FSUB() : int\l# DSUB() : int\l# IMUL() : int\l# LMUL() : int\l# FMUL() : int\l# DMUL() : int\l# IDIV() : int\l# LDIV() : int\l# FDIV() : int\l# DDIV() : int\l# IREM() : int\l# LREM() : int\l# FREM() : int\l# DREM() : int\l# INEG() : int\l# LNEG() : int\l# FNEG() : int\l# DNEG() : int\l# ISHL() : int\l# LSHL() : int\l# ISHR() : int\l# LSHR() : int\l# IUSHR() : int\l# LUSHR() : int\l# IAND() : int\l# LAND() : int\l# IOR() : int\l# LOR() : int\l# IXOR() : int\l# LXOR() : int\l# IINC() : int\l# I2L() : int\l# I2F() : int\l# I2D() : int\l# L2I() : int\l# L2F() : int\l# L2D() : int\l# F2I() : int\l# F2L() : int\l# F2D() : int\l# D2I() : int\l# D2L() : int\l# D2F() : int\l# I2B() : int\l# I2C() : int\l# I2S() : int\l# LCMP() : int\l# FCMPL() : int\l# FCMPG() : int\l# DCMPL() : int\l# DCMPG() : int\l# IFEQ() : int\l# IFNE() : int\l# IFLT() : int\l# IFGE() : int\l# IFGT() : int\l# IFLE() : int\l# IF_ICMPEQ() : int\l# IF_ICMPNE() : int\l# IF_ICMPLT() : int\l# IF_ICMPGE() : int\l# IF_ICMPGT() : int\l# IF_ICMPLE() : int\l# IF_ACMPEQ() : int\l# IF_ACMPNE() : int\l# GOTO() : int\l# JSR() : int\l# RET() : int\l# TABLESWITCH() : int\l# LOOKUPSWITCH() : int\l# IRETURN() : int\l# LRETURN() : int\l# FRETURN() : int\l# DRETURN() : int\l# ARETURN() : int\l# RETURN() : int\l# GETSTATIC() : int\l# PUTSTATIC() : int\l# GETFIELD() : int\l# PUTFIELD() : int\l# INVOKEVIRTUAL() : int\l# INVOKESPECIAL() : int\l# INVOKESTATIC() : int\l# INVOKEINTERFACE() : int\l# INVOKEDYNAMIC() : int\l# NEW() : int\l# NEWARRAY() : int\l# ANEWARRAY() : int\l# ARRAYLENGTH() : int\l# ATHROW() : int\l# CHECKCAST() : int\l# INSTANCEOF() : int\l# MONITORENTER() : int\l# MONITOREXIT() : int\l# WIDE() : int\l# MULTIANEWARRAY() : int\l# IFNULL() : int\l# IFNONNULL() : int\l# GOTO_W() : int\l# JSR_W() : int\l# BREAKPOINT() : int\l# IMPDEP1() : int\l# IMPDEP2() : int\l}"
+	 ]
+
+	 IParameterAnnotation [
+		 label = "{IParameterAnnotation||# getAnnotationsNumber() : int\l# getAnnotations() : IAnnotation\l}"
+	 ]
+
+	 IRuntimeInvisibleAnnotationsAttribute [
+		 label = "{IRuntimeInvisibleAnnotationsAttribute||# getAnnotationsNumber() : int\l# getAnnotations() : IAnnotation\l}"
+	 ]
+
+	 IRuntimeInvisibleParameterAnnotationsAttribute [
+		 label = "{IRuntimeInvisibleParameterAnnotationsAttribute||# getParametersNumber() : int\l# getParameterAnnotations() : IParameterAnnotation\l}"
+	 ]
+
+	 IRuntimeInvisibleTypeAnnotationsAttribute [
+		 label = "{IRuntimeInvisibleTypeAnnotationsAttribute||# getExtendedAnnotationsNumber() : int\l# getExtendedAnnotations() : IExtendedAnnotation\l}"
+	 ]
+
+	 IRuntimeVisibleAnnotationsAttribute [
+		 label = "{IRuntimeVisibleAnnotationsAttribute||# getAnnotationsNumber() : int\l# getAnnotations() : IAnnotation\l}"
+	 ]
+
+	 IRuntimeVisibleParameterAnnotationsAttribute [
+		 label = "{IRuntimeVisibleParameterAnnotationsAttribute||# getParametersNumber() : int\l# getParameterAnnotations() : IParameterAnnotation\l}"
+	 ]
+
+	 IRuntimeVisibleTypeAnnotationsAttribute [
+		 label = "{IRuntimeVisibleTypeAnnotationsAttribute||# getExtendedAnnotationsNumber() : int\l# getExtendedAnnotations() : IExtendedAnnotation\l}"
+	 ]
+
+	 ISignatureAttribute [
+		 label = "{ISignatureAttribute||# getSignatureIndex() : int\l# getSignature() : char\l}"
+	 ]
+
+	 ISourceAttribute [
+		 label = "{ISourceAttribute||# getSourceFileIndex() : int\l# getSourceFileName() : char\l}"
+	 ]
+
+	 IStackMapAttribute [
+		 label = "{IStackMapAttribute||# getNumberOfEntries() : int\l# getStackMapFrame() : IStackMapFrame\l}"
+	 ]
+
+	 IStackMapFrame [
+		 label = "{IStackMapFrame||# getFrameType() : int\l# getOffsetDelta() : int\l# getNumberOfLocals() : int\l# getLocals() : IVerificationTypeInfo\l# getNumberOfStackItems() : int\l# getStackItems() : IVerificationTypeInfo\l}"
+	 ]
+
+	 IStackMapTableAttribute [
+		 label = "{IStackMapTableAttribute||# getNumberOfEntries() : int\l# getStackMapFrame() : IStackMapFrame\l}"
+	 ]
+
+	 IVerificationTypeInfo [
+		 label = "{IVerificationTypeInfo||# ITEM_TOP() : int\l# ITEM_INTEGER() : int\l# ITEM_FLOAT() : int\l# ITEM_DOUBLE() : int\l# ITEM_LONG() : int\l# ITEM_NULL() : int\l# ITEM_UNINITIALIZED_THIS() : int\l# ITEM_OBJECT() : int\l# ITEM_UNINITIALIZED() : int\l# getTag() : int\l# getOffset() : int\l# getConstantPoolIndex() : int\l# getClassTypeName() : char\l}"
+	 ]
+
+	 OpcodeStringValues [
+		 label = "{OpcodeStringValues|+ BYTECODE_NAMES : String\l|# null() : \l}"
+	 ]
+
+	 Annotation [
+		 label = "{Annotation|- NO_ENTRIES : IAnnotationComponent\l- typeIndex : int\l- typeName : char\l- componentsNumber : int\l- components : IAnnotationComponent\l- readOffset : int\l|# Annotation(byte, IConstantPool, int) : \l# getTypeIndex() : int\l# getComponentsNumber() : int\l# getComponents() : IAnnotationComponent\l# sizeInBytes() : int\l# getTypeName() : char\l}"
+	 ]
+
+	 AnnotationComponent [
+		 label = "{AnnotationComponent|- componentNameIndex : int\l- componentName : char\l- componentValue : IAnnotationComponentValue\l- readOffset : int\l|# AnnotationComponent(byte, IConstantPool, int) : \l# getComponentNameIndex() : int\l# getComponentName() : char\l# getComponentValue() : IAnnotationComponentValue\l# sizeInBytes() : int\l}"
+	 ]
+
+	 AnnotationComponentValue [
+		 label = "{AnnotationComponentValue|- NO_VALUES : IAnnotationComponentValue\l- annotationComponentValues : IAnnotationComponentValue\l- annotationValue : IAnnotation\l- classInfo : IConstantPoolEntry\l- classFileInfoIndex : int\l- constantValue : IConstantPoolEntry\l- constantValueIndex : int\l- enumConstantTypeNameIndex : int\l- enumConstantNameIndex : int\l- enumConstantTypeName : char\l- enumConstantName : char\l- readOffset : int\l- tag : int\l- valuesNumber : int\l|# AnnotationComponentValue(byte, IConstantPool, int) : \l# getAnnotationComponentValues() : IAnnotationComponentValue\l# getAnnotationValue() : IAnnotation\l# getClassInfo() : IConstantPoolEntry\l# getClassInfoIndex() : int\l# getConstantValue() : IConstantPoolEntry\l# getConstantValueIndex() : int\l# getEnumConstantName() : char\l# getEnumConstantNameIndex() : int\l# getEnumConstantTypeName() : char\l# getEnumConstantTypeNameIndex() : int\l# getTag() : int\l# getValuesNumber() : int\l# sizeInBytes() : int\l}"
+	 ]
+
+	 AnnotationDefaultAttribute [
+		 label = "{AnnotationDefaultAttribute|- memberValue : IAnnotationComponentValue\l|# AnnotationDefaultAttribute(byte, IConstantPool, int) : \l# getMemberValue() : IAnnotationComponentValue\l}"
+	 ]
+
+	 Visitor [
+		 label = "{Visitor|- unit : CompilationUnitDeclaration\l# result : TypeDeclaration\l# count : int\l|# ASTNodeFinder(CompilationUnitDeclaration) : \l# findField(IField) : FieldDeclaration\l# findInitializer(IInitializer) : Initializer\l# findMethod(IMethod) : AbstractMethodDeclaration\l# findType(IType) : TypeDeclaration\l# visit(TypeDeclaration, BlockScope) : boolean\l}"
+	 ]
+
+	 Scanner [
+		 label = "{Scanner|# keyStart : int\l# C_THROWN : char\l# PACKAGE : int\l# TYPE : int\l# FIELD : int\l# METHOD : int\l# ARRAY : int\l# LOCAL_VAR : int\l# FLAGS : int\l# WILDCARD : int\l# CAPTURE : int\l# CAPTURE18 : int\l# BASE_TYPE : int\l# END : int\l# START : int\l# index : int\l# source : char\l# token : int\l- parsingPaused : boolean\l- scanner : Scanner\l- hasTypeName : boolean\l- isMalformed : boolean\l- isParsingThrownExceptions : boolean\l|# null() : \l# Scanner(char) : \l# getTokenSource() : char\l# isAtAnnotationStart() : boolean\l# isAtCaptureStart() : boolean\l# isAtCapture18Start() : boolean\l# isAtFieldOrMethodStart() : boolean\l# isAtLocalVariableStart() : boolean\l# isAtMemberTypeStart() : boolean\l# isAtParametersEnd() : boolean\l# isAtParametersStart() : boolean\l# isAtRawTypeEnd() : boolean\l# isAtSecondaryTypeStart() : boolean\l# isAtWildcardStart() : boolean\l# isAtTypeParameterStart() : boolean\l# isAtTypeArgumentStart() : boolean\l# isAtThrownStart() : boolean\l# isAtTypeVariableStart() : boolean\l# isAtTypeWithCaptureStart() : boolean\l# nextToken() : int\l# skipMethodSignature() : \l# skipRank() : \l# skipThrownStart() : \l# skipParametersStart() : \l# skipParametersEnd() : \l# skipTypeEnd() : \l# skipRankStart() : \l# skipRankEnd() : \l# skipCapture18Delim() : \l# toString() : String\l# BindingKeyParser(BindingKeyParser) : \l# BindingKeyParser(String) : \l# consumeAnnotation() : \l# consumeArrayDimension(char) : \l# consumeBaseType(char) : \l# consumeCapture(int) : \l# consumeCapture18ID(int, int) : \l# consumeException() : \l# consumeField(char) : \l# consumeParameterizedGenericMethod() : \l# consumeLocalType(char) : \l# consumeLocalVar(char, int, int) : \l# consumeMethod(char, char) : \l# consumeModifiers(char) : \l# consumeNonGenericType() : \l# consumeMemberType(char) : \l# consumePackage(char) : \l# consumeParameterizedType(char, boolean) : \l# consumeParser(BindingKeyParser) : \l# consumeRawType() : \l# consumeScope(int) : \l# consumeSecondaryType(char) : \l# consumeFullyQualifiedName(char) : \l# consumeKey() : \l# consumeTopLevelType() : \l# consumeType() : \l# consumeTypeParameter(char) : \l# consumeTypeVariable(char, char) : \l# consumeTypeWithCapture() : \l# consumeWildCard(int) : \l# consumeWildcardRank(int) : \l# getKey() : String\l# hasTypeName() : boolean\l# malformedKey() : \l# newParser() : BindingKeyParser\l# parse() : \l# parse(boolean) : \l# parseFullyQualifiedName() : \l# parseParameterizedMethod() : \l# parseGenericType() : \l# parseInnerType() : \l# parseLocalVariable() : \l# parseMethod() : \l# parseAnnotation() : \l# parseCapture() : \l# parseCapture18() : \l# parseCaptureWildcard() : \l# parseField() : \l# parseThrownExceptions() : \l# parseParameterizedType(char, boolean) : \l# parseRawType() : \l# parseReturnType() : \l# parseSecondaryType() : \l# parseTypeArgument() : \l# parseTypeWithCapture() : \l# parseTypeVariable() : \l# parseWildcard() : \l# parseWildcardRank() : \l# parseWildcardBound() : \l}"
+	 ]
+
+	 CaptureFinder [
+		 label = "{CaptureFinder|- enclosingMethod : MethodBinding\l- paramPosition : int\l- key : char\l# compiler : Compiler\l# compilerBinding : Binding\l# compoundName : char\l# dimension : int\l# environment : LookupEnvironment\l# genericType : ReferenceBinding\l# methodBinding : MethodBinding\l# annotationBinding : AnnotationBinding\l# secondarySimpleName : char\l# parsedUnit : CompilationUnitDeclaration\l# scope : BlockScope\l# typeBinding : TypeBinding\l# typeDeclaration : TypeDeclaration\l# types : ArrayList\l# wildcardRank : int\l# outerMostParsedUnit : CompilationUnitDeclaration\l# resolvedUnits : HashtableOfObject\l# capture : CaptureBinding\l|# null() : \l# SyntheticLocalVariableBinding(char, TypeBinding, MethodBinding, int) : \l+ computeUniqueKey() : char\l+ getEnclosingMethod() : MethodBinding\l+ hashCode() : int\l# equals(Object) : boolean\l# BindingKeyResolver(BindingKeyParser, Compiler, LookupEnvironment, CompilationUnitDeclaration, HashtableOfObject) : \l# BindingKeyResolver(String, Compiler, LookupEnvironment) : \l# compoundName() : char\l# consumeAnnotation() : \l# consumeArrayDimension(char) : \l# consumeBaseType(char) : \l# consumeCapture18ID(int, int) : \l# consumeCapture(int) : \l# consumeAnyCapture(int, int) : \l# checkType(TypeBinding) : boolean\l# visit(SingleNameReference, BlockScope) : boolean\l# visit(QualifiedNameReference, BlockScope) : boolean\l# visit(MessageSend, BlockScope) : boolean\l# visit(FieldReference, BlockScope) : boolean\l# visit(ConditionalExpression, BlockScope) : boolean\l# visit(CastExpression, BlockScope) : boolean\l# visit(Assignment, BlockScope) : boolean\l# visit(ArrayReference, BlockScope) : boolean\l# consumeException() : \l# consumeField(char) : \l# consumeParameterizedGenericMethod() : \l# consumeLocalType(char) : \l# consumeLocalVar(char, int, int) : \l# consumeMethod(char, char) : \l# getType(char) : TypeBinding\l# consumeMemberType(char) : \l# consumePackage(char) : \l# consumeParameterizedType(char, boolean) : \l# consumeParser(BindingKeyParser) : \l# consumeScope(int) : \l# consumeRawType() : \l# consumeSecondaryType(char) : \l# consumeFullyQualifiedName(char) : \l# consumeTopLevelType() : \l# consumeKey() : \l# consumeTypeVariable(char, char) : \l# consumeTypeWithCapture() : \l# consumeWildcardRank(int) : \l# consumeWildCard(int) : \l# getAnnotationBinding() : AnnotationBinding\l# getArrayBinding(int, TypeBinding) : TypeBinding\l# getBaseTypeBinding(char) : TypeBinding\l# getBinaryBinding() : TypeBinding\l# getCompilationUnitDeclaration() : CompilationUnitDeclaration\l# getCompilerBinding() : Binding\l# getTypeBinding(char) : TypeBinding\l# getTypeBindingArguments() : TypeBinding\l# malformedKey() : \l# newParser() : BindingKeyParser\l# toString() : String\l}"
+	 ]
+
+	 BootstrapMethodsAttribute [
+		 label = "{BootstrapMethodsAttribute|- NO_ENTRIES : IBootstrapMethodsEntry\l- entries : IBootstrapMethodsEntry\l- numberOfBootstrapMethods : int\l|# BootstrapMethodsAttribute(byte, IConstantPool, int) : \l# getBootstrapMethods() : IBootstrapMethodsEntry\l# getBootstrapMethodsLength() : int\l}"
+	 ]
+
+	 BootstrapMethodsEntry [
+		 label = "{BootstrapMethodsEntry|- bootstrapMethodReference : int\l- bootstrapArguments : int\l|# BootstrapMethodsEntry(byte, IConstantPool, int) : \l# getBootstrapArguments() : int\l# getBootstrapMethodReference() : int\l}"
+	 ]
+
+	 CharArrayBuffer [
+		 label = "{CharArrayBuffer|# buffer : char\l+ DEFAULT_BUFFER_SIZE : int\l# end : int\l# size : int\l# ranges : int\l|# CharArrayBuffer() : \l# CharArrayBuffer(char) : \l# CharArrayBuffer(char, int) : \l# CharArrayBuffer(int) : \l# append(char) : CharArrayBuffer\l# append(char, int, int) : CharArrayBuffer\l# append(char) : CharArrayBuffer\l# append(String) : CharArrayBuffer\l# getContents() : char\l# toString() : String\l}"
+	 ]
+
+	 ClassFileAttribute [
+		 label = "{ClassFileAttribute|+ NO_ATTRIBUTES : IClassFileAttribute\l- attributeLength : long\l- attributeNameIndex : int\l- attributeName : char\l|# ClassFileAttribute(byte, IConstantPool, int) : \l# getAttributeNameIndex() : int\l# getAttributeName() : char\l# getAttributeLength() : long\l}"
+	 ]
+
+	 ClassFileReader [
+		 label = "{ClassFileReader|- NO_FIELD_INFOS : IFieldInfo\l- NO_INTERFACES_NAMES : char\l- NO_METHOD_INFOS : IMethodInfo\l- accessFlags : int\l- attributes : IClassFileAttribute\l- attributesCount : int\l- className : char\l- classNameIndex : int\l- constantPool : IConstantPool\l- fields : IFieldInfo\l- fieldsCount : int\l- innerClassesAttribute : IInnerClassesAttribute\l- interfaceIndexes : int\l- interfaceNames : char\l- interfacesCount : int\l- magicNumber : int\l- majorVersion : int\l- methods : IMethodInfo\l- methodsCount : int\l- minorVersion : int\l- sourceFileAttribute : ISourceAttribute\l- superclassName : char\l- superclassNameIndex : int\l|# ClassFileReader(byte, int) : \l# getAccessFlags() : int\l# getAttributeCount() : int\l# getAttributes() : IClassFileAttribute\l# getClassIndex() : int\l# getClassName() : char\l# getConstantClassNameAt(byte, int, int) : char\l# getConstantPool() : IConstantPool\l# getFieldInfos() : IFieldInfo\l# getFieldsCount() : int\l# getInnerClassesAttribute() : IInnerClassesAttribute\l# getInterfaceIndexes() : int\l# getInterfaceNames() : char\l# getMagic() : int\l# getMajorVersion() : int\l# getMethodInfos() : IMethodInfo\l# getMethodsCount() : int\l# getMinorVersion() : int\l# getSourceFileAttribute() : ISourceAttribute\l# getSuperclassIndex() : int\l# getSuperclassName() : char\l# isClass() : boolean\l# isInterface() : boolean\l}"
+	 ]
+
+	 ClassFileStruct [
+		 label = "{ClassFileStruct||# doubleAt(byte, int, int) : double\l# floatAt(byte, int, int) : float\l# i1At(byte, int, int) : int\l# i2At(byte, int, int) : int\l# i4At(byte, int, int) : int\l# i8At(byte, int, int) : long\l# u1At(byte, int, int) : int\l# u2At(byte, int, int) : int\l# u4At(byte, int, int) : long\l# utf8At(byte, int, int, int) : char\l# equals(char, char) : boolean\l}"
+	 ]
+
+	 CodeAttribute [
+		 label = "{CodeAttribute|- NO_EXCEPTION_TABLE : IExceptionTableEntry\l- attributes : IClassFileAttribute\l- attributesCount : int\l- bytecodes : byte\l- classFileBytes : byte\l- codeLength : long\l- codeOffset : int\l- constantPool : IConstantPool\l- exceptionTableEntries : IExceptionTableEntry\l- exceptionTableLength : int\l- lineNumberAttribute : ILineNumberAttribute\l- localVariableAttribute : ILocalVariableAttribute\l- maxLocals : int\l- maxStack : int\l|# CodeAttribute(byte, IConstantPool, int) : \l# getAttributes() : IClassFileAttribute\l# getAttributesCount() : int\l# getBytecodes() : byte\l# getCodeLength() : long\l# getExceptionTable() : IExceptionTableEntry\l# getExceptionTableLength() : int\l# getLineNumberAttribute() : ILineNumberAttribute\l# getLocalVariableAttribute() : ILocalVariableAttribute\l# getMaxLocals() : int\l# getMaxStack() : int\l# traverse(IBytecodeVisitor) : \l}"
+	 ]
+
+	 CodeSnippetParsingUtil [
+		 label = "{CodeSnippetParsingUtil|+ recordedParsingInformation : RecordedParsingInformation\l+ ignoreMethodBodies : boolean\l|# CodeSnippetParsingUtil(boolean) : \l# CodeSnippetParsingUtil() : \l# getRecordedParsingInformation(CompilationResult, int) : RecordedParsingInformation\l# parseClassBodyDeclarations(char, Map, boolean) : ASTNode\l# parseClassBodyDeclarations(char, int, int, Map, boolean, boolean) : ASTNode\l# parseCompilationUnit(char, Map, boolean) : CompilationUnitDeclaration\l# parseExpression(char, Map, boolean) : Expression\l# parseExpression(char, int, int, Map, boolean) : Expression\l# parseStatements(char, Map, boolean, boolean) : ConstructorDeclaration\l# parseStatements(char, int, int, Map, boolean, boolean) : ConstructorDeclaration\l}"
+	 ]
+
+	 CommentRecorderParser [
+		 label = "{CommentRecorderParser|# commentStops : int\l# commentStarts : int\l# commentPtr : int\l# CommentIncrement : int\l|# CommentRecorderParser(ProblemReporter, boolean) : \l# checkComment() : \l# consumeAnnotationTypeDeclarationHeader() : \l# consumeClassHeader() : \l# consumeEmptyTypeDeclaration() : \l+ consumeEnterAnonymousClassBody(boolean) : \l# consumeEnumHeader() : \l# consumeInterfaceHeader() : \l# endParse(int) : CompilationUnitDeclaration\l# flushCommentsDefinedPriorTo(int) : int\l# getCommentsPositions() : int\l# initialize(boolean) : \l# initialize() : \l# initializeScanner() : \l# pushOnCommentsStack(int, int) : \l# resetModifiers() : \l}"
+	 ]
+
+	 ConstantPool [
+		 label = "{ConstantPool|- constantPoolCount : int\l- constantPoolOffset : int\l- classFileBytes : byte\l|# ConstantPool(byte, int) : \l# decodeEntry(int) : IConstantPoolEntry\l# getConstantPoolCount() : int\l# getEntryKind(int) : int\l# getUtf8ValueAt(int) : char\l}"
+	 ]
+
+	 ConstantPoolEntry [
+		 label = "{ConstantPoolEntry|- kind : int\l- classInfoNameIndex : int\l- classIndex : int\l- nameAndTypeIndex : int\l- stringIndex : int\l- stringValue : char\l- integerValue : int\l- floatValue : float\l- doubleValue : double\l- longValue : long\l- nameAndTypeDescriptorIndex : int\l- nameAndTypeNameIndex : int\l- className : char\l- fieldName : char\l- methodName : char\l- fieldDescriptor : char\l- methodDescriptor : char\l- utf8Value : char\l- utf8Length : int\l- classInfoName : char\l|# ConstantPoolEntry() : \l# getKind() : int\l# setKind(int) : \l# getClassInfoNameIndex() : int\l# getClassIndex() : int\l# getNameAndTypeIndex() : int\l# getStringIndex() : int\l# getStringValue() : String\l# getIntegerValue() : int\l# getFloatValue() : float\l# getDoubleValue() : double\l# getLongValue() : long\l# getNameAndTypeInfoDescriptorIndex() : int\l# getNameAndTypeInfoNameIndex() : int\l# getClassName() : char\l# getFieldName() : char\l# getMethodName() : char\l# getFieldDescriptor() : char\l# getMethodDescriptor() : char\l# getUtf8Value() : char\l# getClassInfoName() : char\l# setClassInfoNameIndex(int) : \l# setClassIndex(int) : \l# setNameAndTypeIndex(int) : \l# setStringIndex(int) : \l# setStringValue(char) : \l# setIntegerValue(int) : \l# setFloatValue(float) : \l# setDoubleValue(double) : \l# setLongValue(long) : \l# getNameAndTypeDescriptorIndex() : int\l# setNameAndTypeDescriptorIndex(int) : \l# getNameAndTypeNameIndex() : int\l# setNameAndTypeNameIndex(int) : \l# setClassName(char) : \l# setFieldName(char) : \l# setMethodName(char) : \l# setFieldDescriptor(char) : \l# setMethodDescriptor(char) : \l# setUtf8Value(char) : \l# setClassInfoName(char) : \l# getUtf8Length() : int\l# setUtf8Length(int) : \l# reset() : \l}"
+	 ]
+
+	 ConstantPoolEntry2 [
+		 label = "{ConstantPoolEntry2|- descriptorIndex : int\l- referenceKind : int\l- referenceIndex : int\l- bootstrapMethodAttributeIndex : int\l|# getDescriptorIndex() : int\l# getReferenceKind() : int\l# getReferenceIndex() : int\l# getBootstrapMethodAttributeIndex() : int\l# setDescriptorIndex(int) : \l# setReferenceKind(int) : \l# setReferenceIndex(int) : \l# setBootstrapMethodAttributeIndex(int) : \l# reset() : \l}"
+	 ]
+
+	 ConstantValueAttribute [
+		 label = "{ConstantValueAttribute|- constantValueIndex : int\l- constantPoolEntry : IConstantPoolEntry\l|# ConstantValueAttribute(byte, IConstantPool, int) : \l# getConstantValue() : IConstantPoolEntry\l# getConstantValueIndex() : int\l}"
+	 ]
+
+	 DefaultBytecodeVisitor [
+		 label = "{DefaultBytecodeVisitor|- EMPTY_CLASS_NAME : String\l- EMPTY_LOCAL_NAME : String\l- T_BOOLEAN : int\l- T_CHAR : int\l- T_FLOAT : int\l- T_DOUBLE : int\l- T_BYTE : int\l- T_SHORT : int\l- T_INT : int\l- T_LONG : int\l- buffer : StringBuffer\l- lineSeparator : String\l- tabNumber : int\l- digitNumberForPC : int\l- localVariableTableEntries : ILocalVariableTableEntry\l- localVariableAttributeLength : int\l- mode : int\l- parameterNames : char\l- isStatic : boolean\l- argumentSizes : int\l|# DefaultBytecodeVisitor(ICodeAttribute, char, char, boolean, StringBuffer, String, int, int) : \l# _aaload(int) : \l# dumpPcNumber(int) : \l# _aastore(int) : \l# _aconst_null(int) : \l# _aload_0(int) : \l# _aload_1(int) : \l# _aload_2(int) : \l# _aload_3(int) : \l# _aload(int, int) : \l# _anewarray(int, int, IConstantPoolEntry) : \l# _areturn(int) : \l# _arraylength(int) : \l# _astore_0(int) : \l# _astore_1(int) : \l# getLocalVariableName(int, int) : String\l# getLocalVariableName(int, int, boolean) : String\l# _astore_2(int) : \l# _astore_3(int) : \l# _astore(int, int) : \l# _athrow(int) : \l# _baload(int) : \l# _bastore(int) : \l# _bipush(int, byte) : \l# _caload(int) : \l# _castore(int) : \l# _checkcast(int, int, IConstantPoolEntry) : \l# _d2f(int) : \l# _d2i(int) : \l# _d2l(int) : \l# _dadd(int) : \l# _daload(int) : \l# _dastore(int) : \l# _dcmpg(int) : \l# _dcmpl(int) : \l# _dconst_0(int) : \l# _dconst_1(int) : \l# _ddiv(int) : \l# _dload_0(int) : \l# _dload_1(int) : \l# _dload_2(int) : \l# _dload_3(int) : \l# _dload(int, int) : \l# _dmul(int) : \l# _dneg(int) : \l# _drem(int) : \l# _dreturn(int) : \l# _dstore_0(int) : \l# _dstore_1(int) : \l# _dstore_2(int) : \l# _dstore_3(int) : \l# _dstore(int, int) : \l# _dsub(int) : \l# _dup_x1(int) : \l# _dup_x2(int) : \l# _dup(int) : \l# _dup2_x1(int) : \l# _dup2_x2(int) : \l# _dup2(int) : \l# _f2d(int) : \l# _f2i(int) : \l# _f2l(int) : \l# _fadd(int) : \l# _faload(int) : \l# _fastore(int) : \l# _fcmpg(int) : \l# _fcmpl(int) : \l# _fconst_0(int) : \l# _fconst_1(int) : \l# _fconst_2(int) : \l# _fdiv(int) : \l# _fload_0(int) : \l# _fload_1(int) : \l# _fload_2(int) : \l# _fload_3(int) : \l# _fload(int, int) : \l# _fmul(int) : \l# _fneg(int) : \l# _frem(int) : \l# _freturn(int) : \l# _fstore_0(int) : \l# _fstore_1(int) : \l# _fstore_2(int) : \l# _fstore_3(int) : \l# _fstore(int, int) : \l# _fsub(int) : \l# _getfield(int, int, IConstantPoolEntry) : \l# _getstatic(int, int, IConstantPoolEntry) : \l# _goto_w(int, int) : \l# _goto(int, int) : \l# _i2b(int) : \l# _i2c(int) : \l# _i2d(int) : \l# _i2f(int) : \l# _i2l(int) : \l# _i2s(int) : \l# _iadd(int) : \l# _iaload(int) : \l# _iand(int) : \l# _iastore(int) : \l# _if_acmpeq(int, int) : \l# _if_acmpne(int, int) : \l# _if_icmpeq(int, int) : \l# _if_icmpge(int, int) : \l# _if_icmpgt(int, int) : \l# _if_icmple(int, int) : \l# _if_icmplt(int, int) : \l# _if_icmpne(int, int) : \l# _iconst_0(int) : \l# _iconst_1(int) : \l# _iconst_2(int) : \l# _iconst_3(int) : \l# _iconst_4(int) : \l# _iconst_5(int) : \l# _iconst_m1(int) : \l# _idiv(int) : \l# _ifeq(int, int) : \l# _ifge(int, int) : \l# _ifgt(int, int) : \l# _ifle(int, int) : \l# _iflt(int, int) : \l# _ifne(int, int) : \l# _ifnonnull(int, int) : \l# _ifnull(int, int) : \l# _iinc(int, int, int) : \l# _iload_0(int) : \l# _iload_1(int) : \l# _iload_2(int) : \l# _iload_3(int) : \l# _iload(int, int) : \l# _imul(int) : \l# _ineg(int) : \l# _instanceof(int, int, IConstantPoolEntry) : \l# _invokedynamic(int, int, IConstantPoolEntry, IConstantPoolEntry) : \l# _invokedynamic(int, int, IConstantPoolEntry) : \l# _invokeinterface(int, int, byte, IConstantPoolEntry) : \l# _invokespecial(int, int, IConstantPoolEntry) : \l# _invokestatic(int, int, IConstantPoolEntry) : \l# _invokevirtual(int, int, IConstantPoolEntry) : \l# _ior(int) : \l# _irem(int) : \l# _ireturn(int) : \l# _ishl(int) : \l# _ishr(int) : \l# _istore_0(int) : \l# _istore_1(int) : \l# _istore_2(int) : \l# _istore_3(int) : \l# _istore(int, int) : \l# _isub(int) : \l# _iushr(int) : \l# _ixor(int) : \l# _jsr_w(int, int) : \l# _jsr(int, int) : \l# _l2d(int) : \l# _l2f(int) : \l# _l2i(int) : \l# _ladd(int) : \l# _laload(int) : \l# _land(int) : \l# _lastore(int) : \l# _lcmp(int) : \l# _lconst_0(int) : \l# _lconst_1(int) : \l# _ldc_w(int, int, IConstantPoolEntry) : \l# _ldc(int, int, IConstantPoolEntry) : \l# _ldc2_w(int, int, IConstantPoolEntry) : \l# _ldiv(int) : \l# _lload_0(int) : \l# _lload_1(int) : \l# _lload_2(int) : \l# _lload_3(int) : \l# _lload(int, int) : \l# _lmul(int) : \l# _lneg(int) : \l# _lookupswitch(int, int, int, int) : \l# _lor(int) : \l# _lrem(int) : \l# _lreturn(int) : \l# _lshl(int) : \l# _lshr(int) : \l# _lstore_0(int) : \l# _lstore_1(int) : \l# _lstore_2(int) : \l# _lstore_3(int) : \l# _lstore(int, int) : \l# _lsub(int) : \l# _lushr(int) : \l# _lxor(int) : \l# _monitorenter(int) : \l# _monitorexit(int) : \l# _multianewarray(int, int, int, IConstantPoolEntry) : \l# _new(int, int, IConstantPoolEntry) : \l# _newarray(int, int) : \l# _nop(int) : \l# _pop(int) : \l# _pop2(int) : \l# _putfield(int, int, IConstantPoolEntry) : \l# _putstatic(int, int, IConstantPoolEntry) : \l# _ret(int, int) : \l# _return(int) : \l# _saload(int) : \l# _sastore(int) : \l# _sipush(int, short) : \l# _swap(int) : \l# _tableswitch(int, int, int, int, int) : \l# _wide(int, int, int, int) : \l# _wide(int, int, int) : \l# _breakpoint(int) : \l# _impdep1(int) : \l# _impdep2(int) : \l# isCompact() : boolean\l# returnConstantClassName(IConstantPoolEntry) : String\l# returnClassName(char) : String\l# returnDeclaringClassName(IConstantPoolEntry) : String\l# returnMethodSignature(IConstantPoolEntry) : String\l# writeNewLine() : \l# writeTabs() : \l# writeExtraTabs(int) : \l}"
+	 ]
+
+	 DefaultStackMapFrame [
+		 label = "{DefaultStackMapFrame|- EMPTY_LOCALS_OR_STACK_ITEMS : IVerificationTypeInfo\l- readOffset : int\l- numberOfLocals : int\l- numberOfStackItems : int\l- locals : IVerificationTypeInfo\l- stackItems : IVerificationTypeInfo\l- offsetDelta : int\l|# DefaultStackMapFrame(byte, IConstantPool, int) : \l# sizeInBytes() : int\l# getFrameType() : int\l# getLocals() : IVerificationTypeInfo\l# getNumberOfLocals() : int\l# getNumberOfStackItems() : int\l# getOffsetDelta() : int\l# getStackItems() : IVerificationTypeInfo\l}"
+	 ]
+
+	 Disassembler [
+		 label = "{Disassembler|- ANY_EXCEPTION : char\l- VERSION_UNKNOWN : String\l|# appendModifier(StringBuffer, int, int, String, boolean) : boolean\l# decodeModifiers(StringBuffer, int, int) : \l# decodeModifiers(StringBuffer, int, boolean, boolean, int) : \l# decodeModifiersForField(StringBuffer, int) : \l# decodeModifiersForFieldForWorkingCopy(StringBuffer, int) : \l# decodeModifiersForInnerClasses(StringBuffer, int, boolean) : \l# decodeModifiersForMethod(StringBuffer, int) : \l# decodeModifiersForMethodParameters(StringBuffer, int) : \l# decodeModifiersForType(StringBuffer, int) : \l# escapeString(String) : String\l# decodeStringValue(char) : String\l# escapeChar(StringBuffer, char) : \l# decodeStringValue(String) : String\l# disassemble(byte, String) : String\l# disassemble(byte, String, int) : String\l# disassemble(IAnnotation, StringBuffer, String, int, int) : \l# disassemble(IExtendedAnnotation, StringBuffer, String, int, int) : \l# disassembleTypePathContents(int, IExtendedAnnotation, StringBuffer, String, int, int) : \l# disassembleTargetTypeContents(boolean, int, IExtendedAnnotation, StringBuffer, String, int, int) : \l# getTargetType(int) : String\l# disassemble(IAnnotationComponent, StringBuffer, String, int, int) : \l# disassemble(IAnnotationComponentValue, StringBuffer, String, int, int) : \l# disassemble(IAnnotationDefaultAttribute, StringBuffer, String, int, int) : \l# disassemble(IClassFileAttribute, StringBuffer, String, int, int) : \l# disassemble(IMethodParametersAttribute, StringBuffer, String, int, int) : \l# disassembleEnumConstructor(IClassFileReader, char, IMethodInfo, StringBuffer, String, int, int) : \l# disassemble(IClassFileReader, char, IMethodInfo, StringBuffer, String, int, int) : \l# disassemble(IClassFileReader, String) : String\l# disassemble(IClassFileReader, String, int) : String\l# disassembleGenericSignature(int, StringBuffer, char) : \l# isJavaLangObject(char) : boolean\l# isVarArgs(IMethodInfo) : boolean\l# disassemble(ICodeAttribute, char, char, boolean, StringBuffer, String, int, int) : \l# disassemble(IStackMapTableAttribute, StringBuffer, String, int, int) : \l# disassemble(IStackMapAttribute, StringBuffer, String, int, int) : \l# bootstrapMethodDescription(IBootstrapMethodsEntry, IConstantPool) : String\l# bootstrapArgumentsDescription(IBootstrapMethodsEntry, IConstantPool) : String\l# methodDescription(IConstantPoolEntry) : String\l# disassemble(IConstantPool, StringBuffer, String, int) : \l# getReferenceKind(int) : String\l# disassemble(IEnclosingMethodAttribute, StringBuffer, String, int) : \l# disassembleEnumConstants(IFieldInfo, StringBuffer, String, int, char, int) : \l# disassemble(IFieldInfo, StringBuffer, String, int, int) : \l# disassemble(IInnerClassesAttribute, StringBuffer, String, int) : \l# disassemble(IBootstrapMethodsAttribute, StringBuffer, String, int, IConstantPool) : \l# getArguments(int, String) : String\l# disassemble(int, IParameterAnnotation, StringBuffer, String, int, int) : \l# disassemble(IRuntimeInvisibleAnnotationsAttribute, StringBuffer, String, int, int) : \l# disassemble(IRuntimeInvisibleParameterAnnotationsAttribute, StringBuffer, String, int, int) : \l# disassemble(IRuntimeInvisibleTypeAnnotationsAttribute, StringBuffer, String, int, int) : \l# disassemble(IRuntimeVisibleAnnotationsAttribute, StringBuffer, String, int, int) : \l# disassemble(IRuntimeVisibleParameterAnnotationsAttribute, StringBuffer, String, int, int) : \l# disassemble(IRuntimeVisibleTypeAnnotationsAttribute, StringBuffer, String, int, int) : \l# disassemble(IVerificationTypeInfo, int) : String\l# disassembleAsModifier(IAnnotation, StringBuffer, String, int, int) : \l# disassembleAsModifier(IAnnotationComponent, StringBuffer, String, int, int) : \l# disassembleAsModifier(IAnnotationComponentValue, StringBuffer, String, int, int) : \l# disassembleAsModifier(IAnnotationDefaultAttribute, StringBuffer, String, int, int) : \l# disassembleAsModifier(IRuntimeInvisibleAnnotationsAttribute, StringBuffer, String, int, int) : \l# disassembleAsModifier(IParameterAnnotation, StringBuffer, int, String, int, int) : \l# disassembleAsModifier(IParameterAnnotation, StringBuffer, String, int, int) : \l# disassembleAsModifier(IRuntimeVisibleAnnotationsAttribute, StringBuffer, String, int, int) : \l# disassembleTypeMembers(IClassFileReader, char, StringBuffer, String, int, int, boolean) : \l# getConstructorArgumentsForEnum(IMethodInfo) : char\l# dumpTab(int, StringBuffer) : \l# dumpNewLineWithTabs(String, int) : String\l# getDescription() : String\l# getEnclosingMethodAttribute(IClassFileReader) : IEnclosingMethodAttribute\l# getAttribute(char, ICodeAttribute) : IClassFileAttribute\l# getParameterNames(char, ICodeAttribute, IMethodParametersAttribute, int) : char\l# getLocalIndex(int, int, char) : int\l# getEntryFor(int, ILocalVariableTableEntry) : ILocalVariableTableEntry\l# getSignatureForField(char) : char\l# isDeprecated(IClassFileReader) : boolean\l# isSynthetic(IClassFileReader) : boolean\l# checkMode(int, int) : boolean\l# isCompact(int) : boolean\l# returnClassName(char, char, int) : char\l# writeNewLine(StringBuffer, String, int) : \l# toTypePathString(int) : String\l}"
+	 ]
+
+	 DOMFinder [
+		 label = "{DOMFinder|+ foundNode : ASTNode\l+ foundBinding : IBinding\l- ast : CompilationUnit\l- element : SourceRefElement\l- resolveBinding : boolean\l- rangeStart : int\l|# DOMFinder(CompilationUnit, SourceRefElement, boolean) : \l# found(ASTNode, ASTNode) : boolean\l# search() : ASTNode\l# visit(AnnotationTypeDeclaration) : boolean\l# visit(AnnotationTypeMemberDeclaration) : boolean\l# visit(AnonymousClassDeclaration) : boolean\l# visit(EnumConstantDeclaration) : boolean\l# visit(EnumDeclaration) : boolean\l# visit(ImportDeclaration) : boolean\l# visit(Initializer) : boolean\l# visit(MarkerAnnotation) : boolean\l# visit(MethodDeclaration) : boolean\l# visit(NormalAnnotation) : boolean\l# visit(PackageDeclaration) : boolean\l# visit(SingleMemberAnnotation) : boolean\l# visit(TypeDeclaration) : boolean\l# visit(TypeParameter) : boolean\l# visit(VariableDeclarationFragment) : boolean\l# visit(SingleVariableDeclaration) : boolean\l# visit(LambdaExpression) : boolean\l}"
+	 ]
+
+	 EnclosingMethodAttribute [
+		 label = "{EnclosingMethodAttribute|- enclosingClassIndex : int\l- enclosingClassName : char\l- methodDescriptorIndex : int\l- methodDescriptor : char\l- methodNameIndex : int\l- methodName : char\l- methodNameAndTypeIndex : int\l|# EnclosingMethodAttribute(byte, IConstantPool, int) : \l# getEnclosingClass() : char\l# getEnclosingClassIndex() : int\l# getMethodDescriptor() : char\l# getMethodDescriptorIndex() : int\l# getMethodName() : char\l# getMethodNameIndex() : int\l# getMethodNameAndTypeIndex() : int\l}"
+	 ]
+
+	 ExceptionAttribute [
+		 label = "{ExceptionAttribute|- exceptionsNumber : int\l- exceptionNames : char\l- exceptionIndexes : int\l|# ExceptionAttribute(byte, IConstantPool, int) : \l# getExceptionIndexes() : int\l# getExceptionNames() : char\l# getExceptionsNumber() : int\l}"
+	 ]
+
+	 ExceptionTableEntry [
+		 label = "{ExceptionTableEntry|- startPC : int\l- endPC : int\l- handlerPC : int\l- catchTypeIndex : int\l- catchType : char\l|# ExceptionTableEntry(byte, IConstantPool, int) : \l# getStartPC() : int\l# getEndPC() : int\l# getHandlerPC() : int\l# getCatchTypeIndex() : int\l# getCatchType() : char\l}"
+	 ]
+
+	 ExtendedAnnotation [
+		 label = "{ExtendedAnnotation|- NO_ENTRIES : IAnnotationComponent\l- NO_TYPEPATH : int\l- NO_LOCAL_VARIABLE_TABLE_ENTRIES : ILocalVariableReferenceInfo\l- targetType : int\l- annotationTypeIndex : int\l- typePath : int\l- typeIndex : int\l- typeName : char\l- componentsNumber : int\l- components : IAnnotationComponent\l- readOffset : int\l- offset : int\l- typeParameterIndex : int\l- typeParameterBoundIndex : int\l- parameterIndex : int\l- exceptionTableIndex : int\l- localVariableTable : ILocalVariableReferenceInfo\l|# ExtendedAnnotation(byte, IConstantPool, int) : \l# readTargetInfo(int, byte, IConstantPool, int) : \l# getTypeIndex() : int\l# getComponentsNumber() : int\l# getComponents() : IAnnotationComponent\l# sizeInBytes() : int\l# getTypeName() : char\l# getTargetType() : int\l# getExceptionTableIndex() : int\l# getOffset() : int\l# getLocalVariableRefenceInfoLength() : int\l# getLocalVariableTable() : ILocalVariableReferenceInfo\l# getParameterIndex() : int\l# getTypeParameterIndex() : int\l# getTypeParameterBoundIndex() : int\l# getTypePath() : int\l# getAnnotationTypeIndex() : int\l}"
+	 ]
+
+	 FieldInfo [
+		 label = "{FieldInfo|- accessFlags : int\l- attributeBytes : int\l- attributes : IClassFileAttribute\l- attributesCount : int\l- constantValueAttribute : IConstantValueAttribute\l- descriptor : char\l- descriptorIndex : int\l- isDeprecated : boolean\l- isSynthetic : boolean\l- name : char\l- nameIndex : int\l|# FieldInfo(byte, IConstantPool, int) : \l# getAccessFlags() : int\l# getAttributeCount() : int\l# getAttributes() : IClassFileAttribute\l# getConstantValueAttribute() : IConstantValueAttribute\l# getDescriptor() : char\l# getDescriptorIndex() : int\l# getName() : char\l# getNameIndex() : int\l# hasConstantValueAttribute() : boolean\l# isDeprecated() : boolean\l# isSynthetic() : boolean\l# sizeInBytes() : int\l}"
+	 ]
+
+	 HandleFactory [
+		 label = "{HandleFactory|- lastPkgFragmentRootPath : String\l- lastPkgFragmentRoot : PackageFragmentRoot\l- packageHandles : HashtableOfArrayToObject\l- javaModel : JavaModel\l|# HandleFactory() : \l# createOpenable(String, IJavaSearchScope) : Openable\l# createElement(ClassScope, ICompilationUnit, HashSet, HashMap) : IJavaElement\l# createLambdaTypeElement(LambdaExpression, ICompilationUnit, HashSet, HashMap) : IJavaElement\l# createElement(Scope, int, ICompilationUnit, HashSet, HashMap) : IJavaElement\l# getJarPkgFragmentRoot(String, int, String, IJavaSearchScope) : PackageFragmentRoot\l# getJarPkgFragmentRoot(IPath, Object, IJavaProject) : PackageFragmentRoot\l# getPkgFragmentRoot(String) : PackageFragmentRoot\l}"
+	 ]
+
+	 HashSetOfArray [
+		 label = "{HashSetOfArray|+ set : Object\l+ elementSize : int\l# threshold : int\l|# HashSetOfArray() : \l# HashSetOfArray(int) : \l# clone() : Object\l# contains(Object) : boolean\l# hashCode(Object) : int\l# hashCode(Object, int) : int\l# add(Object) : Object\l# remove(Object) : Object\l# rehash() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 HashSetOfCharArrayArray [
+		 label = "{HashSetOfCharArrayArray|+ set : char\l+ elementSize : int\l# threshold : int\l|# HashSetOfCharArrayArray() : \l# HashSetOfCharArrayArray(int) : \l# clone() : Object\l# contains(char) : boolean\l# hashCode(char) : int\l# hashCode(char, int) : int\l# add(char) : char\l# remove(char) : char\l# rehash() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 HashtableOfArrayToObject [
+		 label = "{HashtableOfArrayToObject|+ keyTable : Object\l+ valueTable : Object\l+ elementSize : int\l# threshold : int\l|# HashtableOfArrayToObject() : \l# HashtableOfArrayToObject(int) : \l# clone() : Object\l# containsKey(Object) : boolean\l# get(Object) : Object\l# getIndex(Object) : int\l# getKey(Object, int) : Object\l# hashCode(Object) : int\l# hashCode(Object, int) : int\l# put(Object, Object) : Object\l# removeKey(Object) : Object\l# rehash() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 ICacheEnumeration [
+		 label = "{ICacheEnumeration||# getValue() : Object\l}"
+	 ]
+
+	 ILRUCacheable [
+		 label = "{ILRUCacheable||# getCacheFootprint() : int\l}"
+	 ]
+
+	 InnerClassesAttribute [
+		 label = "{InnerClassesAttribute|- NO_ENTRIES : IInnerClassesAttributeEntry\l- numberOfClasses : int\l- entries : IInnerClassesAttributeEntry\l|# InnerClassesAttribute(byte, IConstantPool, int) : \l# getInnerClassAttributesEntries() : IInnerClassesAttributeEntry\l# getNumberOfClasses() : int\l}"
+	 ]
+
+	 InnerClassesAttributeEntry [
+		 label = "{InnerClassesAttributeEntry|- innerClassNameIndex : int\l- outerClassNameIndex : int\l- innerNameIndex : int\l- innerClassName : char\l- outerClassName : char\l- innerName : char\l- accessFlags : int\l|# InnerClassesAttributeEntry(byte, IConstantPool, int) : \l# getAccessFlags() : int\l# getInnerClassName() : char\l# getInnerClassNameIndex() : int\l# getInnerName() : char\l# getInnerNameIndex() : int\l# getOuterClassName() : char\l# getOuterClassNameIndex() : int\l}"
+	 ]
+
+	 JavaElementFinder [
+		 label = "{JavaElementFinder|- project : JavaProject\l- owner : WorkingCopyOwner\l+ element : IJavaElement\l+ exception : JavaModelException\l- types : ArrayList\l|# JavaElementFinder(String, JavaProject, WorkingCopyOwner) : \l# JavaElementFinder(BindingKeyParser, JavaProject, WorkingCopyOwner) : \l# consumeAnnotation() : \l# consumeField(char) : \l# consumeFullyQualifiedName(char) : \l# consumeLocalType(char) : \l# consumeMemberType(char) : \l# consumeMethod(char, char) : \l# consumePackage(char) : \l# consumeParser(BindingKeyParser) : \l# consumeSecondaryType(char) : \l# consumeTypeVariable(char, char) : \l# newParser() : BindingKeyParser\l}"
+	 ]
+
+	 KeyKind [
+		 label = "{KeyKind|+ F_TYPE : int\l+ F_METHOD : int\l+ F_FIELD : int\l+ F_TYPE_PARAMETER : int\l+ F_LOCAL_VAR : int\l+ F_MEMBER : int\l+ F_LOCAL : int\l+ F_PARAMETERIZED_TYPE : int\l+ F_RAW_TYPE : int\l+ F_WILDCARD_TYPE : int\l+ F_PARAMETERIZED_METHOD : int\l+ F_CAPTURE : int\l+ F_CONSTRUCTOR : int\l+ flags : int\l- innerKeyKind : KeyKind\l|# KeyKind(BindingKeyParser) : \l# KeyKind(String) : \l# consumeBaseType(char) : \l# consumeCapture(int) : \l# consumeField(char) : \l# consumeLocalType(char) : \l# consumeLocalVar(char, int, int) : \l# consumeMemberType(char) : \l# consumeMethod(char, char) : \l# consumeParameterizedGenericMethod() : \l# consumeParameterizedType(char, boolean) : \l# consumeParser(BindingKeyParser) : \l# consumeRawType() : \l# consumeTopLevelType() : \l# consumeTypeParameter(char) : \l# consumeTypeWithCapture() : \l# consumeWildCard(int) : \l# newParser() : BindingKeyParser\l}"
+	 ]
+
+	 KeyToSignature [
+		 label = "{KeyToSignature|+ SIGNATURE : int\l+ TYPE_ARGUMENTS : int\l+ DECLARING_TYPE : int\l+ THROWN_EXCEPTIONS : int\l+ signature : StringBuffer\l- kind : int\l- asBinarySignature : boolean\l- arguments : ArrayList\l- typeArguments : ArrayList\l- typeParameters : ArrayList\l- thrownExceptions : ArrayList\l- mainTypeStart : int\l- mainTypeEnd : int\l- typeSigStart : int\l|# KeyToSignature(BindingKeyParser) : \l# KeyToSignature(String, int) : \l# KeyToSignature(String, int, boolean) : \l# consumeArrayDimension(char) : \l# consumeBaseType(char) : \l# consumeCapture(int) : \l+ consumeCapture18ID(int, int) : \l# consumeLocalType(char) : \l# consumeMethod(char, char) : \l# consumeMemberType(char) : \l# consumePackage(char) : \l# consumeParameterizedGenericMethod() : \l# substitute(char, char, int) : \l# consumeParameterizedType(char, boolean) : \l# consumeParser(BindingKeyParser) : \l# consumeField(char) : \l# consumeException() : \l# consumeFullyQualifiedName(char) : \l# consumeSecondaryType(char) : \l# consumeType() : \l# consumeTypeParameter(char) : \l# consumeTypeVariable(char, char) : \l# consumeTypeWithCapture() : \l# consumeWildCard(int) : \l# getThrownExceptions() : String\l# getTypeArguments() : String\l# newParser() : BindingKeyParser\l# toString() : String\l}"
+	 ]
+
+	 LineNumberAttribute [
+		 label = "{LineNumberAttribute|- NO_ENTRIES : int\l- lineNumberTableLength : int\l- lineNumberTable : int\l|# LineNumberAttribute(byte, IConstantPool, int) : \l# getLineNumberTable() : int\l# getLineNumberTableLength() : int\l}"
+	 ]
+
+	 LocalVariableAttribute [
+		 label = "{LocalVariableAttribute|- NO_ENTRIES : ILocalVariableTableEntry\l- localVariableTableLength : int\l- localVariableTable : ILocalVariableTableEntry\l|# LocalVariableAttribute(byte, IConstantPool, int) : \l# getLocalVariableTable() : ILocalVariableTableEntry\l# getLocalVariableTableLength() : int\l}"
+	 ]
+
+	 LocalVariableReferenceInfo [
+		 label = "{LocalVariableReferenceInfo|- startPC : int\l- length : int\l- index : int\l|# LocalVariableReferenceInfo(byte, IConstantPool, int) : \l# getStartPC() : int\l# getLength() : int\l# getIndex() : int\l}"
+	 ]
+
+	 LocalVariableTableEntry [
+		 label = "{LocalVariableTableEntry|- startPC : int\l- length : int\l- nameIndex : int\l- descriptorIndex : int\l- name : char\l- descriptor : char\l- index : int\l|# LocalVariableTableEntry(byte, IConstantPool, int) : \l# getStartPC() : int\l# getLength() : int\l# getNameIndex() : int\l# getDescriptorIndex() : int\l# getIndex() : int\l# getName() : char\l# getDescriptor() : char\l}"
+	 ]
+
+	 LocalVariableTypeAttribute [
+		 label = "{LocalVariableTypeAttribute|- NO_ENTRIES : ILocalVariableTypeTableEntry\l- localVariableTypeTableLength : int\l- localVariableTypeTableEntries : ILocalVariableTypeTableEntry\l|# LocalVariableTypeAttribute(byte, IConstantPool, int) : \l# getLocalVariableTypeTable() : ILocalVariableTypeTableEntry\l# getLocalVariableTypeTableLength() : int\l}"
+	 ]
+
+	 LocalVariableTypeTableEntry [
+		 label = "{LocalVariableTypeTableEntry|- startPC : int\l- length : int\l- nameIndex : int\l- signatureIndex : int\l- name : char\l- signature : char\l- index : int\l|# LocalVariableTypeTableEntry(byte, IConstantPool, int) : \l# getStartPC() : int\l# getLength() : int\l# getNameIndex() : int\l# getSignatureIndex() : int\l# getIndex() : int\l# getName() : char\l# getSignature() : char\l}"
+	 ]
+
+	 Stats [
+		 label = "{Stats|+ key : Object\l+ value : Object\l+ timestamp : int\l+ space : int\l+ previous : LRUCacheEntry\l+ next : LRUCacheEntry\l- counters : int\l- timestamps : long\l- counterIndex : int\l# currentSpace : int\l# spaceLimit : int\l# timestampCounter : int\l# entryTable : Hashtable\l# entryQueue : LRUCacheEntry\l# entryQueueTail : LRUCacheEntry\l# DEFAULT_SPACELIMIT : int\l# values : Enumeration\l# entry : LRUCacheEntry\l|# null() : \l# LRUCacheEntry(Object, Object, int) : \l# toString() : String\l# null() : \l# add(int) : \l# getAverageAge(long, int, long) : String\l# getTimestamps(int) : long\l# printStats() : String\l# removeCountersOlderThan(int) : \l# getOldestElement() : Object\l# getOldestTimestamps() : long\l# snapshot() : \l# LRUCache() : \l# LRUCache(int) : \l# clone() : Object\l# fillingRatio() : double\l# flush() : \l# flush(Object) : \l# getKey(Object) : Object\l# get(Object) : Object\l# getCurrentSpace() : int\l# getNewestTimestampCounter() : int\l# getOldestTimestampCounter() : int\l# getOldestElement() : Object\l# getSpaceLimit() : int\l# keys() : Enumeration\l# keysAndValues() : ICacheEnumeration\l# hasMoreElements() : boolean\l# nextElement() : Object\l# getValue() : Object\l# makeSpace(int) : boolean\l# newInstance(int) : LRUCache\l# peek(Object) : Object\l# privateAdd(Object, Object, int) : \l# privateAddEntry(LRUCacheEntry, boolean) : \l# privateRemoveEntry(LRUCacheEntry, boolean) : \l# put(Object, Object) : Object\l# removeKey(Object) : Object\l# setSpaceLimit(int) : \l# spaceFor(Object) : int\l# toString() : String\l# toStringContents() : String\l# toStringFillingRation(String) : String\l# updateTimestamp(LRUCacheEntry) : \l}"
+	 ]
+
+	 MementoTokenizer [
+		 label = "{MementoTokenizer|+ COUNT : String\l+ JAVAPROJECT : String\l+ PACKAGEFRAGMENTROOT : String\l+ PACKAGEFRAGMENT : String\l+ FIELD : String\l+ METHOD : String\l+ INITIALIZER : String\l+ COMPILATIONUNIT : String\l+ CLASSFILE : String\l+ TYPE : String\l+ PACKAGEDECLARATION : String\l+ IMPORTDECLARATION : String\l+ LOCALVARIABLE : String\l+ TYPE_PARAMETER : String\l+ ANNOTATION : String\l+ LAMBDA_EXPRESSION : String\l+ LAMBDA_METHOD : String\l+ STRING : String\l- memento : char\l- length : int\l- index : int\l|# MementoTokenizer(String) : \l# hasMoreTokens() : boolean\l# nextToken() : String\l}"
+	 ]
+
+	 Messages [
+		 label = "{Messages|- BUNDLE_NAME : String\l+ hierarchy_nullProject : String\l+ hierarchy_nullRegion : String\l+ hierarchy_nullFocusType : String\l+ hierarchy_creating : String\l+ hierarchy_creatingOnType : String\l+ element_doesNotExist : String\l+ element_notOnClasspath : String\l+ element_invalidClassFileName : String\l+ element_reconciling : String\l+ element_attachingSource : String\l+ element_invalidResourceForProject : String\l+ element_nullName : String\l+ element_nullType : String\l+ element_illegalParent : String\l+ javamodel_initialization : String\l+ javamodel_initializing_delta_state : String\l+ javamodel_building_after_upgrade : String\l+ javamodel_configuring : String\l+ javamodel_configuring_classpath_containers : String\l+ javamodel_configuring_searchengine : String\l+ javamodel_getting_build_state_number : String\l+ javamodel_refreshing_external_jars : String\l+ javamodel_resetting_source_attachment_properties : String\l+ operation_needElements : String\l+ operation_needName : String\l+ operation_needPath : String\l+ operation_needAbsolutePath : String\l+ operation_needString : String\l+ operation_notSupported : String\l+ operation_cancelled : String\l+ operation_nullContainer : String\l+ operation_nullName : String\l+ operation_copyElementProgress : String\l+ operation_moveElementProgress : String\l+ operation_renameElementProgress : String\l+ operation_copyResourceProgress : String\l+ operation_moveResourceProgress : String\l+ operation_renameResourceProgress : String\l+ operation_createUnitProgress : String\l+ operation_createFieldProgress : String\l+ operation_createImportsProgress : String\l+ operation_createInitializerProgress : String\l+ operation_createMethodProgress : String\l+ operation_createPackageProgress : String\l+ operation_createPackageFragmentProgress : String\l+ operation_createTypeProgress : String\l+ operation_deleteElementProgress : String\l+ operation_deleteResourceProgress : String\l+ operation_cannotRenameDefaultPackage : String\l+ operation_pathOutsideProject : String\l+ operation_sortelements : String\l+ workingCopy_commit : String\l+ buffer_closed : String\l+ build_preparingBuild : String\l+ build_readStateProgress : String\l+ build_saveStateProgress : String\l+ build_saveStateComplete : String\l+ build_readingDelta : String\l+ build_analyzingDeltas : String\l+ build_analyzingSources : String\l+ build_cleaningOutput : String\l+ build_copyingResources : String\l+ build_compiling : String\l+ build_foundHeader : String\l+ build_fixedHeader : String\l+ build_oneError : String\l+ build_oneWarning : String\l+ build_multipleErrors : String\l+ build_multipleWarnings : String\l+ build_done : String\l+ build_wrongFileFormat : String\l+ build_cannotSaveState : String\l+ build_cannotSaveStates : String\l+ build_initializationError : String\l+ build_serializationError : String\l+ build_classFileCollision : String\l+ build_duplicateClassFile : String\l+ build_duplicateResource : String\l+ build_inconsistentClassFile : String\l+ build_inconsistentProject : String\l+ build_incompleteClassPath : String\l+ build_missingSourceFile : String\l+ build_prereqProjectHasClasspathProblems : String\l+ build_prereqProjectMustBeRebuilt : String\l+ build_abortDueToClasspathProblems : String\l+ status_cannot_retrieve_attached_javadoc : String\l+ status_timeout_javadoc : String\l+ status_cannotUseDeviceOnPath : String\l+ status_coreException : String\l+ status_defaultPackageReadOnly : String\l+ status_evaluationError : String\l+ status_JDOMError : String\l+ status_IOException : String\l+ status_indexOutOfBounds : String\l+ status_invalidContents : String\l+ status_invalidDestination : String\l+ status_invalidName : String\l+ status_invalidPackage : String\l+ status_invalidPath : String\l+ status_invalidProject : String\l+ status_invalidResource : String\l+ status_invalidResourceType : String\l+ status_invalidSibling : String\l+ status_nameCollision : String\l+ status_noLocalContents : String\l+ status_OK : String\l+ status_readOnly : String\l+ status_targetException : String\l+ status_unknown_javadoc_format : String\l+ status_updateConflict : String\l+ classpath_buildPath : String\l+ classpath_cannotNestEntryInEntry : String\l+ classpath_cannotNestEntryInEntryNoExclusion : String\l+ classpath_cannotNestEntryInLibrary : String\l+ classpath_cannotNestEntryInOutput : String\l+ classpath_cannotNestOutputInEntry : String\l+ classpath_cannotNestOutputInOutput : String\l+ classpath_cannotReadClasspathFile : String\l+ classpath_cannotReferToItself : String\l+ classpath_cannotUseDistinctSourceFolderAsOutput : String\l+ classpath_cannotUseLibraryAsOutput : String\l+ classpath_closedProject : String\l+ classpath_couldNotWriteClasspathFile : String\l+ classpath_cycle : String\l+ classpath_duplicateEntryPath : String\l+ classpath_illegalContainerPath : String\l+ classpath_illegalEntryInClasspathFile : String\l+ classpath_illegalLibraryPath : String\l+ classpath_illegalLibraryPathInContainer : String\l+ classpath_illegalLibraryArchive : String\l+ classpath_archiveReadError : String\l+ classpath_illegalExternalFolder : String\l+ classpath_illegalExternalFolderInContainer : String\l+ classpath_illegalProjectPath : String\l+ classpath_illegalSourceFolderPath : String\l+ classpath_illegalVariablePath : String\l+ classpath_invalidClasspathInClasspathFile : String\l+ classpath_invalidContainer : String\l+ classpath_mustEndWithSlash : String\l+ classpath_unboundContainerPath : String\l+ classpath_unboundLibrary : String\l+ classpath_userLibraryInfo : String\l+ classpath_containerInfo : String\l+ classpath_unboundLibraryInContainer : String\l+ classpath_unboundProject : String\l+ classpath_settingOutputLocationProgress : String\l+ classpath_settingProgress : String\l+ classpath_unboundSourceAttachment : String\l+ classpath_unboundSourceAttachmentInContainedLibrary : String\l+ classpath_unboundSourceFolder : String\l+ classpath_unboundVariablePath : String\l+ classpath_unknownKind : String\l+ classpath_xmlFormatError : String\l+ classpath_disabledInclusionExclusionPatterns : String\l+ classpath_disabledMultipleOutputLocations : String\l+ classpath_incompatibleLibraryJDKLevel : String\l+ classpath_incompatibleLibraryJDKLevelInContainer : String\l+ classpath_duplicateEntryExtraAttribute : String\l+ classpath_deprecated_variable : String\l+ classpath_invalidExternalAnnotationPath : String\l+ file_notFound : String\l+ file_badFormat : String\l+ path_nullPath : String\l+ path_mustBeAbsolute : String\l+ cache_invalidLoadFactor : String\l+ savedState_jobName : String\l+ refreshing_external_folders : String\l+ synchronizing_projects_job : String\l+ convention_unit_nullName : String\l+ convention_unit_notJavaName : String\l+ convention_classFile_nullName : String\l+ convention_classFile_notClassFileName : String\l+ convention_illegalIdentifier : String\l+ convention_import_nullImport : String\l+ convention_import_unqualifiedImport : String\l+ convention_type_nullName : String\l+ convention_type_nameWithBlanks : String\l+ convention_type_dollarName : String\l+ convention_type_lowercaseName : String\l+ convention_type_invalidName : String\l+ convention_package_nullName : String\l+ convention_package_emptyName : String\l+ convention_package_dotName : String\l+ convention_package_nameWithBlanks : String\l+ convention_package_consecutiveDotsName : String\l+ convention_package_uppercaseName : String\l+ dom_cannotDetail : String\l+ dom_nullTypeParameter : String\l+ dom_nullNameParameter : String\l+ dom_nullReturnType : String\l+ dom_nullExceptionType : String\l+ dom_mismatchArgNamesAndTypes : String\l+ dom_addNullChild : String\l+ dom_addIncompatibleChild : String\l+ dom_addChildWithParent : String\l+ dom_unableAddChild : String\l+ dom_addAncestorAsChild : String\l+ dom_addNullSibling : String\l+ dom_addSiblingBeforeRoot : String\l+ dom_addIncompatibleSibling : String\l+ dom_addSiblingWithParent : String\l+ dom_addAncestorAsSibling : String\l+ dom_addNullInterface : String\l+ dom_nullInterfaces : String\l+ importRewrite_processDescription : String\l+ correction_nullRequestor : String\l+ correction_nullUnit : String\l+ engine_completing : String\l+ engine_searching : String\l+ engine_searching_indexing : String\l+ engine_searching_matching : String\l+ exception_wrongFormat : String\l+ process_name : String\l+ jobmanager_filesToIndex : String\l+ jobmanager_indexing : String\l+ disassembler_description : String\l+ disassembler_opentypedeclaration : String\l+ disassembler_closetypedeclaration : String\l+ disassembler_parametername : String\l+ disassembler_anonymousparametername : String\l+ disassembler_localvariablename : String\l+ disassembler_endofmethodheader : String\l+ disassembler_begincommentline : String\l+ disassembler_fieldhasconstant : String\l+ disassembler_endoffieldheader : String\l+ disassembler_sourceattributeheader : String\l+ disassembler_enclosingmethodheader : String\l+ disassembler_exceptiontableheader : String\l+ disassembler_linenumberattributeheader : String\l+ disassembler_methodparametersheader : String\l+ disassembler_localvariabletableattributeheader : String\l+ disassembler_localvariabletypetableattributeheader : String\l+ disassembler_arraydimensions : String\l+ disassembler_innerattributesheader : String\l+ disassembler_inner_class_info_name : String\l+ disassembler_outer_class_info_name : String\l+ disassembler_inner_name : String\l+ disassembler_inner_accessflags : String\l+ disassembler_genericattributeheader : String\l+ disassembler_signatureattributeheader : String\l+ disassembler_bootstrapmethodattributesheader : String\l+ disassembler_bootstrapmethodentry : String\l+ disassembler_bootstrapmethodentry_argument : String\l+ disassembler_indentation : String\l+ disassembler_constantpoolindex : String\l+ disassembler_space : String\l+ disassembler_comma : String\l+ disassembler_openinnerclassentry : String\l+ disassembler_closeinnerclassentry : String\l+ disassembler_deprecated : String\l+ disassembler_constantpoolheader : String\l+ disassembler_constantpool_class : String\l+ disassembler_constantpool_double : String\l+ disassembler_constantpool_float : String\l+ disassembler_constantpool_integer : String\l+ disassembler_constantpool_long : String\l+ disassembler_constantpool_string : String\l+ disassembler_constantpool_fieldref : String\l+ disassembler_constantpool_interfacemethodref : String\l+ disassembler_constantpool_methodref : String\l+ disassembler_constantpool_name_and_type : String\l+ disassembler_constantpool_utf8 : String\l+ disassembler_constantpool_methodhandle : String\l+ disassembler_constantpool_methodtype : String\l+ disassembler_constantpool_invokedynamic : String\l+ disassembler_annotationdefaultheader : String\l+ disassembler_annotationdefaultvalue : String\l+ disassembler_annotationenumvalue : String\l+ disassembler_annotationclassvalue : String\l+ disassembler_annotationannotationvalue : String\l+ disassembler_annotationarrayvaluestart : String\l+ disassembler_annotationarrayvalueend : String\l+ disassembler_annotationentrystart : String\l+ disassembler_annotationentryend : String\l+ disassembler_annotationcomponent : String\l+ disassembler_extendedannotationentrystart : String\l+ disassembler_extendedannotationentryend : String\l+ disassembler_runtimevisibletypeannotationsattributeheader : String\l+ disassembler_runtimeinvisibletypeannotationsattributeheader : String\l+ disassembler_extendedannotation_classextendsimplements : String\l+ disassembler_extendedannotation_typepath : String\l+ disassembler_extendedannotation_method_parameter : String\l+ disassembler_extendedannotation_offset : String\l+ disassembler_extendedannotation_throws : String\l+ disassembler_extendedannotation_type_argument : String\l+ disassembler_extendedannotation_type_parameter : String\l+ disassembler_extendedannotation_type_parameter_with_bound : String\l+ disassembler_extendedannotation_wildcardlocationtype : String\l+ disassembler_extendedannotation_targetType : String\l+ disassembler_extendedannotation_wildcardlocations : String\l+ disassembler_extendedannotation_exception_table_index : String\l+ disassembler_extendedannotation_typepath_array : String\l+ disassembler_extendedannotation_typepath_wildcard : String\l+ disassembler_extendedannotation_typepath_typeargument : String\l+ disassembler_extendedannotation_typepath_innertype : String\l+ disassembler_localvariabletargetheader : String\l+ disassembler_runtimevisibleannotationsattributeheader : String\l+ disassembler_runtimeinvisibleannotationsattributeheader : String\l+ disassembler_runtimevisibleparameterannotationsattributeheader : String\l+ disassembler_runtimeinvisibleparameterannotationsattributeheader : String\l+ disassembler_parameterannotationentrystart : String\l+ disassembler_stackmaptableattributeheader : String\l+ disassembler_stackmapattributeheader : String\l+ classfileformat_versiondetails : String\l+ classfileformat_methoddescriptor : String\l+ classfileformat_fieldddescriptor : String\l+ classfileformat_stacksAndLocals : String\l+ classfileformat_superflagisnotset : String\l+ classfileformat_superflagisset : String\l+ classfileformat_clinitname : String\l+ classfileformat_localvariablereferenceinfoentry : String\l+ classformat_classformatexception : String\l+ classformat_anewarray : String\l+ classformat_checkcast : String\l+ classformat_instanceof : String\l+ classformat_ldc_w_class : String\l+ classformat_ldc_w_float : String\l+ classformat_ldc_w_integer : String\l+ classformat_ldc_w_string : String\l+ classformat_ldc2_w_long : String\l+ classformat_ldc2_w_double : String\l+ classformat_multianewarray : String\l+ classformat_new : String\l+ classformat_iinc : String\l+ classformat_invokespecial : String\l+ classformat_invokeinterface : String\l+ classformat_invokestatic : String\l+ classformat_invokevirtual : String\l+ classformat_invokedynamic : String\l+ classformat_getfield : String\l+ classformat_getstatic : String\l+ classformat_putstatic : String\l+ classformat_putfield : String\l+ classformat_newarray_boolean : String\l+ classformat_newarray_char : String\l+ classformat_newarray_float : String\l+ classformat_newarray_double : String\l+ classformat_newarray_byte : String\l+ classformat_newarray_short : String\l+ classformat_newarray_int : String\l+ classformat_newarray_long : String\l+ classformat_store : String\l+ classformat_load : String\l+ classfileformat_anyexceptionhandler : String\l+ classfileformat_exceptiontableentry : String\l+ classfileformat_linenumbertableentry : String\l+ classfileformat_localvariabletableentry : String\l+ classfileformat_versionUnknown : String\l+ disassembler_frame_same_locals_1_stack_item_extended : String\l+ disassembler_frame_chop : String\l+ disassembler_frame_same_frame_extended : String\l+ disassembler_frame_append : String\l+ disassembler_frame_full_frame : String\l+ disassembler_frame_same_frame : String\l+ disassembler_frame_same_locals_1_stack_item : String\l+ code_assist_internal_error : String\l+ disassembler_method_type_ref_getfield : String\l+ disassembler_method_type_ref_putfield : String\l+ disassembler_method_type_ref_getstatic : String\l+ disassembler_method_type_ref_putstatic : String\l+ disassembler_method_type_ref_invokestatic : String\l+ disassembler_method_type_ref_invokevirtual : String\l+ disassembler_method_type_ref_invokespecial : String\l+ disassembler_method_type_ref_invokeinterface : String\l+ disassembler_method_type_ref_newinvokespecial : String\l|# Messages() : \l# null() : \l# bind(String) : String\l# bind(String, Object) : String\l# bind(String, Object, Object) : String\l# bind(String, Object) : String\l}"
+	 ]
+
+	 MethodInfo [
+		 label = "{MethodInfo|- accessFlags : int\l- attributeBytes : int\l- attributes : IClassFileAttribute\l- attributesCount : int\l- codeAttribute : ICodeAttribute\l- descriptor : char\l- descriptorIndex : int\l- exceptionAttribute : IExceptionAttribute\l- isDeprecated : boolean\l- isSynthetic : boolean\l- name : char\l- nameIndex : int\l|# MethodInfo(byte, IConstantPool, int, int) : \l# getAccessFlags() : int\l# getAttributeCount() : int\l# getAttributes() : IClassFileAttribute\l# getCodeAttribute() : ICodeAttribute\l# getDescriptor() : char\l# getDescriptorIndex() : int\l# getExceptionAttribute() : IExceptionAttribute\l# getName() : char\l# getNameIndex() : int\l# isAbstract() : boolean\l# isClinit() : boolean\l# isConstructor() : boolean\l# isDeprecated() : boolean\l# isNative() : boolean\l# isSynthetic() : boolean\l# sizeInBytes() : int\l}"
+	 ]
+
+	 MethodParametersAttribute [
+		 label = "{MethodParametersAttribute|- NO_NAMES : char\l- NO_ACCES_FLAGS : short\l- numberOfEntries : int\l- names : char\l- accessFlags : short\l|# MethodParametersAttribute(byte, IConstantPool, int) : \l# getMethodParameterLength() : int\l# getParameterName(int) : char\l# getAccessFlags(int) : short\l}"
+	 ]
+
+	 ParameterAnnotation [
+		 label = "{ParameterAnnotation|- NO_ENTRIES : IAnnotation\l- annotationsNumber : int\l- annotations : IAnnotation\l- readOffset : int\l|# ParameterAnnotation(byte, IConstantPool, int) : \l# sizeInBytes() : int\l# getAnnotations() : IAnnotation\l# getAnnotationsNumber() : int\l}"
+	 ]
+
+	 PublicScanner [
+		 label = "{PublicScanner|+ sourceLevel : long\l+ complianceLevel : long\l+ useAssertAsAnIndentifier : boolean\l+ containsAssertKeyword : boolean\l+ useEnumAsAnIndentifier : boolean\l+ recordLineSeparator : boolean\l+ currentCharacter : char\l+ startPosition : int\l+ currentPosition : int\l+ initialPosition : int\l+ skipComments : boolean\l+ tokenizeComments : boolean\l+ tokenizeWhiteSpace : boolean\l+ source : char\l+ withoutUnicodeBuffer : char\l+ withoutUnicodePtr : int\l+ unicodeAsBackSlash : boolean\l+ scanningFloatLiteral : boolean\l+ COMMENT_ARRAYS_SIZE : int\l+ commentStops : int\l+ commentStarts : int\l+ commentTagStarts : int\l+ commentPtr : int\l# lastCommentLinePosition : int\l+ foundTaskTags : char\l+ foundTaskMessages : char\l+ foundTaskPriorities : char\l+ foundTaskPositions : int\l+ foundTaskCount : int\l+ taskTags : char\l+ taskPriorities : char\l+ isTaskCaseSensitive : boolean\l+ diet : boolean\l+ lineEnds : int\l+ linePtr : int\l+ wasAcr : boolean\l+ END_OF_SOURCE : String\l+ INVALID_HEXA : String\l+ INVALID_OCTAL : String\l+ INVALID_CHARACTER_CONSTANT : String\l+ INVALID_ESCAPE : String\l+ INVALID_INPUT : String\l+ INVALID_UNICODE_ESCAPE : String\l+ INVALID_FLOAT : String\l+ INVALID_LOW_SURROGATE : String\l+ INVALID_HIGH_SURROGATE : String\l+ NULL_SOURCE_STRING : String\l+ UNTERMINATED_STRING : String\l+ UNTERMINATED_COMMENT : String\l+ INVALID_CHAR_IN_STRING : String\l+ INVALID_DIGIT : String\l- EMPTY_LINE_ENDS : int\l+ INVALID_BINARY : String\l+ BINARY_LITERAL_NOT_BELOW_17 : String\l+ ILLEGAL_HEXA_LITERAL : String\l+ INVALID_UNDERSCORE : String\l+ UNDERSCORES_IN_LITERALS_NOT_BELOW_17 : String\l# charArray_a : char\l# initCharArray : char\l# TableSize : int\l+ OptimizedLength : int\l+ charArray_length : char\l+ TAG_PREFIX : char\l+ TAG_PREFIX_LENGTH : int\l+ TAG_POSTFIX : char\l+ TAG_POSTFIX_LENGTH : int\l- nlsTags : NLSTag\l# nlsTagsPtr : int\l+ checkNonExternalizedStringLiterals : boolean\l# lastPosition : int\l+ returnOnlyGreater : boolean\l# newEntry2 : int\l+ insideRecovery : boolean\l+ RoundBracket : int\l+ SquareBracket : int\l+ CurlyBracket : int\l+ BracketKinds : int\l+ LOW_SURROGATE_MIN_VALUE : int\l+ HIGH_SURROGATE_MIN_VALUE : int\l+ HIGH_SURROGATE_MAX_VALUE : int\l+ LOW_SURROGATE_MAX_VALUE : int\l|# null() : \l# PublicScanner() : \l# PublicScanner(boolean, boolean, boolean, long, long, char, char, boolean) : \l# PublicScanner(boolean, boolean, boolean, long, char, char, boolean) : \l# atEnd() : boolean\l# checkTaskTag(int, int) : \l# getCurrentIdentifierSource() : char\l# getCurrentTokenEndPosition() : int\l# getCurrentTokenSource() : char\l# getCurrentTokenString() : String\l# getCurrentTokenSourceString() : char\l# getCurrentStringLiteral() : String\l# getRawTokenSource() : char\l# getRawTokenSourceEnd() : char\l# getCurrentTokenStartPosition() : int\l# getLineEnd(int) : int\l# getLineEnds() : int\l# getLineStart(int) : int\l# getNextChar() : int\l# getNextCharWithBoundChecks() : int\l# getNextChar(char) : boolean\l# getNextChar(char, char) : int\l# consumeDigits(int) : \l# consumeDigits(int, boolean) : \l# consumeDigits0(int, int, int, boolean) : int\l# getNextCharAsDigit() : boolean\l# getNextCharAsDigit(int) : boolean\l# getNextCharAsJavaIdentifierPartWithBoundCheck() : boolean\l# getNextCharAsJavaIdentifierPart() : boolean\l# scanIdentifier() : int\l# getNextToken() : int\l# getNextUnicodeChar() : \l# getNLSTags() : NLSTag\l# getSource() : char\l# isFirstTag() : boolean\l# jumpOverMethodBody() : \l# jumpOverUnicodeWhiteSpace() : boolean\l# optimizedCurrentTokenSource1() : char\l# optimizedCurrentTokenSource2() : char\l# optimizedCurrentTokenSource3() : char\l# optimizedCurrentTokenSource4() : char\l# optimizedCurrentTokenSource5() : char\l# optimizedCurrentTokenSource6() : char\l# parseTags() : \l# extractInt(char, int, int) : int\l# pushLineSeparator() : \l# pushUnicodeLineSeparator() : \l# recordComment(int) : \l# resetTo(int, int) : \l# scanEscapeCharacter() : \l# scanIdentifierOrKeywordWithBoundCheck() : int\l# scanIdentifierOrKeyword() : int\l# internalScanIdentifierOrKeyword(int, int, char) : int\l# scanNumber(boolean) : int\l# getLineNumber(int) : int\l# setSource(char) : \l# setSource(char, CompilationResult) : \l# setSource(CompilationResult) : \l# toString() : String\l# toStringAction(int) : String\l# unicodeInitializeBuffer(int) : \l# unicodeStore() : \l# unicodeStore(char) : \l# isIdentifier(int) : boolean\l# isLiteral(int) : boolean\l# isKeyword(int) : boolean\l}"
+	 ]
+
+	 RecordedParsingInformation [
+		 label = "{RecordedParsingInformation|+ problems : CategorizedProblem\l+ problemsCount : int\l+ lineEnds : int\l+ commentPositions : int\l|# RecordedParsingInformation(CategorizedProblem, int, int) : \l# updateRecordedParsingInformation(CompilationResult) : \l}"
+	 ]
+
+	 ReferenceInfoAdapter [
+		 label = "{ReferenceInfoAdapter||# acceptAnnotationTypeReference(char, int, int) : \l# acceptAnnotationTypeReference(char, int) : \l# acceptConstructorReference(char, int, int) : \l# acceptFieldReference(char, int) : \l# acceptMethodReference(char, int, int) : \l# acceptTypeReference(char, int, int) : \l# acceptTypeReference(char, int) : \l# acceptUnknownReference(char, int, int) : \l# acceptUnknownReference(char, int) : \l}"
+	 ]
+
+	 ResourceCompilationUnit [
+		 label = "{ResourceCompilationUnit|- file : IFile\l|# ResourceCompilationUnit(IFile, URI) : \l# getContents() : char\l}"
+	 ]
+
+	 RuntimeInvisibleAnnotationsAttribute [
+		 label = "{RuntimeInvisibleAnnotationsAttribute|- NO_ENTRIES : IAnnotation\l- annotationsNumber : int\l- annotations : IAnnotation\l|# RuntimeInvisibleAnnotationsAttribute(byte, IConstantPool, int) : \l# getAnnotations() : IAnnotation\l# getAnnotationsNumber() : int\l}"
+	 ]
+
+	 RuntimeInvisibleParameterAnnotationsAttribute [
+		 label = "{RuntimeInvisibleParameterAnnotationsAttribute|- NO_ENTRIES : IParameterAnnotation\l- parameterAnnotations : IParameterAnnotation\l- parametersNumber : int\l|# RuntimeInvisibleParameterAnnotationsAttribute(byte, IConstantPool, int) : \l# getParameterAnnotations() : IParameterAnnotation\l# getParametersNumber() : int\l}"
+	 ]
+
+	 RuntimeInvisibleTypeAnnotationsAttribute [
+		 label = "{RuntimeInvisibleTypeAnnotationsAttribute|- NO_ENTRIES : IExtendedAnnotation\l- extendedAnnotationsNumber : int\l- extendedAnnotations : IExtendedAnnotation\l|# RuntimeInvisibleTypeAnnotationsAttribute(byte, IConstantPool, int) : \l# getExtendedAnnotations() : IExtendedAnnotation\l# getExtendedAnnotationsNumber() : int\l}"
+	 ]
+
+	 RuntimeVisibleAnnotationsAttribute [
+		 label = "{RuntimeVisibleAnnotationsAttribute|- NO_ENTRIES : IAnnotation\l- annotationsNumber : int\l- annotations : IAnnotation\l|# RuntimeVisibleAnnotationsAttribute(byte, IConstantPool, int) : \l# getAnnotations() : IAnnotation\l# getAnnotationsNumber() : int\l}"
+	 ]
+
+	 RuntimeVisibleParameterAnnotationsAttribute [
+		 label = "{RuntimeVisibleParameterAnnotationsAttribute|- NO_ENTRIES : IParameterAnnotation\l- parametersNumber : int\l- parameterAnnotations : IParameterAnnotation\l|# RuntimeVisibleParameterAnnotationsAttribute(byte, IConstantPool, int) : \l# getParameterAnnotations() : IParameterAnnotation\l# getParametersNumber() : int\l}"
+	 ]
+
+	 RuntimeVisibleTypeAnnotationsAttribute [
+		 label = "{RuntimeVisibleTypeAnnotationsAttribute|- NO_ENTRIES : IExtendedAnnotation\l- extendedAnnotationsNumber : int\l- extendedAnnotations : IExtendedAnnotation\l|# RuntimeVisibleTypeAnnotationsAttribute(byte, IConstantPool, int) : \l# getExtendedAnnotations() : IExtendedAnnotation\l# getExtendedAnnotationsNumber() : int\l}"
+	 ]
+
+	 SignatureAttribute [
+		 label = "{SignatureAttribute|- signatureIndex : int\l- signature : char\l|# SignatureAttribute(byte, IConstantPool, int) : \l# getSignatureIndex() : int\l# getSignature() : char\l}"
+	 ]
+
+	 SimpleDocument [
+		 label = "{SimpleDocument|- buffer : StringBuffer\l|# SimpleDocument(String) : \l# getChar(int) : char\l# getLength() : int\l# get() : String\l# get(int, int) : String\l# set(String) : \l# replace(int, int, String) : \l# addDocumentListener(IDocumentListener) : \l# removeDocumentListener(IDocumentListener) : \l# addPrenotifiedDocumentListener(IDocumentListener) : \l# removePrenotifiedDocumentListener(IDocumentListener) : \l# addPositionCategory(String) : \l# removePositionCategory(String) : \l# getPositionCategories() : String\l# containsPositionCategory(String) : boolean\l# addPosition(Position) : \l# removePosition(Position) : \l# addPosition(String, Position) : \l# removePosition(String, Position) : \l# getPositions(String) : Position\l# containsPosition(String, int, int) : boolean\l# computeIndexInCategory(String, int) : int\l# addPositionUpdater(IPositionUpdater) : \l# removePositionUpdater(IPositionUpdater) : \l# insertPositionUpdater(IPositionUpdater, int) : \l# getPositionUpdaters() : IPositionUpdater\l# getLegalContentTypes() : String\l# getContentType(int) : String\l# getPartition(int) : ITypedRegion\l# computePartitioning(int, int) : ITypedRegion\l# addDocumentPartitioningListener(IDocumentPartitioningListener) : \l# removeDocumentPartitioningListener(IDocumentPartitioningListener) : \l# setDocumentPartitioner(IDocumentPartitioner) : \l# getDocumentPartitioner() : IDocumentPartitioner\l# getLineLength(int) : int\l# getLineOfOffset(int) : int\l# getLineOffset(int) : int\l# getLineInformation(int) : IRegion\l# getLineInformationOfOffset(int) : IRegion\l# getNumberOfLines() : int\l# getNumberOfLines(int, int) : int\l# computeNumberOfLines(String) : int\l# getLegalLineDelimiters() : String\l# getLineDelimiter(int) : String\l# search(int, String, boolean, boolean, boolean) : int\l}"
+	 ]
+
+	 SimpleWordSet [
+		 label = "{SimpleWordSet|+ words : char\l+ elementSize : int\l+ threshold : int\l|# SimpleWordSet(int) : \l# add(char) : char\l# includes(char) : boolean\l# rehash() : \l}"
+	 ]
+
+	 SourceFileAttribute [
+		 label = "{SourceFileAttribute|- sourceFileIndex : int\l- sourceFileName : char\l|# SourceFileAttribute(byte, IConstantPool, int) : \l# getSourceFileIndex() : int\l# getSourceFileName() : char\l}"
+	 ]
+
+	 StackMapAttribute [
+		 label = "{StackMapAttribute|- NO_FRAMES : IStackMapFrame\l- NO_ENTRIES : byte\l- numberOfEntries : int\l- frames : IStackMapFrame\l- bytes : byte\l|# StackMapAttribute(byte, IConstantPool, int) : \l# getNumberOfEntries() : int\l# getStackMapFrame() : IStackMapFrame\l# getBytes() : byte\l}"
+	 ]
+
+	 StackMapFrame [
+		 label = "{StackMapFrame|- EMPTY_LOCALS_OR_STACK_ITEMS : IVerificationTypeInfo\l- readOffset : int\l- frameType : int\l- numberOfLocals : int\l- numberOfStackItems : int\l- locals : IVerificationTypeInfo\l- stackItems : IVerificationTypeInfo\l- offsetDelta : int\l|# StackMapFrame(byte, IConstantPool, int) : \l# sizeInBytes() : int\l# getFrameType() : int\l# getLocals() : IVerificationTypeInfo\l# getNumberOfLocals() : int\l# getNumberOfStackItems() : int\l# getOffsetDelta() : int\l# getStackItems() : IVerificationTypeInfo\l}"
+	 ]
+
+	 StackMapTableAttribute [
+		 label = "{StackMapTableAttribute|- NO_FRAMES : IStackMapFrame\l- NO_ENTRIES : byte\l- numberOfEntries : int\l- frames : IStackMapFrame\l- bytes : byte\l|# StackMapTableAttribute(byte, IConstantPool, int) : \l# getNumberOfEntries() : int\l# getStackMapFrame() : IStackMapFrame\l# getBytes() : byte\l}"
+	 ]
+
+	 ToStringSorter [
+		 label = "{ToStringSorter|# sortedObjects : Object\l# sortedStrings : String\l|# compare(String, String) : boolean\l# quickSort(int, int) : \l# sort(Object, String) : \l}"
+	 ]
+
+	 BindingsToNodesMap [
+		 label = "{BindingsToNodesMap|- ARGUMENTS_DELIMITER : char\l- EMPTY_ARGUMENT : String\l- JAVA_LIKE_EXTENSIONS : char\l- BOOLEAN : char\l- BYTE : char\l- CHAR : char\l- DOUBLE : char\l- FLOAT : char\l- INT : char\l- LONG : char\l- SHORT : char\l- VOID : char\l- INIT : char\l- TASK_PRIORITIES_PROBLEM : String\l- fgRepeatedMessages : List\l|# null() : \l# compareTo(Comparable) : int\l# null() : \l# compare(Object, Object) : int\l# null() : \l# get(Binding) : org\l# Util() : \l# arrayConcat(String, String) : String\l# checkTypeSignature(String, int, int, boolean) : int\l# combineHashCodes(int, int) : int\l# compare(byte, byte) : int\l# compare(char, char) : int\l# concatCompoundNameToCharArray(String) : char\l# concatenateName(String, String, char) : String\l# concatWith(String, char) : String\l# concatWith(String, String, char) : String\l# convertTypeSignature(char, int, int) : String\l# defaultJavaExtension() : String\l# editedString(String, TextEdit) : String\l# endsWithIgnoreCase(String, String) : boolean\l# equalArrays(Object, Object, int) : boolean\l# equalArraysOrNull(int, int) : boolean\l# equalArraysOrNull(Object, Object) : boolean\l# equalArraysOrNullSortFirst(Comparable, Comparable) : boolean\l# equalArraysOrNullSortFirst(String, String) : boolean\l# equalOrNull(Object, Object) : boolean\l# equalsIgnoreJavaLikeExtension(String, String) : boolean\l# extractLastName(String) : String\l# extractParameterTypes(char) : String\l# extractReturnType(String) : String\l# findFirstClassFile(IFolder) : IFile\l# findLineSeparator(char) : String\l# getAttribute(IClassFileReader, char) : IClassFileAttribute\l# getAttribute(ICodeAttribute, char) : IClassFileAttribute\l# getAttribute(IFieldInfo, char) : IClassFileAttribute\l# getAttribute(IMethodInfo, char) : IClassFileAttribute\l# getClassFile(char) : IClassFile\l# getCompilationUnit(char, WorkingCopyOwner) : ICompilationUnit\l# getJavaLikeExtensions() : char\l# getJdkLevel(Object) : long\l# getNameWithoutJavaLikeExtension(String) : String\l# getLineSeparator(String, IJavaProject) : String\l# getLineSeparator(char, char) : String\l# getPackageFragment(char, int, int) : IPackageFragment\l# getParameterCount(char) : int\l# getProblemArgumentsForMarker(String) : String\l# encodeArgument(String, StringBuffer) : \l# getProblemArgumentsFromMarker(String) : String\l# decodeArgumentString(int, String) : String\l# getResourceContentsAsByteArray(IFile) : byte\l# getResourceContentsAsCharArray(IFile) : char\l# getResourceContentsAsCharArray(IFile, String) : char\l# getSignature(Type) : String\l# getSourceAttachmentProperty(IPath) : String\l# getSourceAttachmentPropertyName(IPath) : QualifiedName\l# setSourceAttachmentProperty(IPath, String) : \l# getDeclaringTypeSignature(String) : String\l# getFullyQualifiedName(Type, StringBuffer) : \l# getTrimmedSimpleNames(String) : String\l# getUnresolvedJavaElement(FieldBinding, WorkingCopyOwner, BindingsToNodesMap) : JavaElement\l# getUnresolvedJavaElement(int, int, JavaElement) : JavaElement\l# getUnresolvedJavaElement(MethodBinding, WorkingCopyOwner, BindingsToNodesMap) : JavaElement\l# getUnresolvedJavaElement(TypeBinding, WorkingCopyOwner, BindingsToNodesMap) : JavaElement\l# indexOfEnclosingPath(IPath, IPath, int) : int\l# indexOfJavaLikeExtension(String) : int\l# indexOfMatchingPath(IPath, IPath, int) : int\l# indexOfNestedPath(IPath, IPath, int) : int\l# isAttributeSupported(int) : boolean\l# isReadOnly(IResource) : boolean\l# isReadOnlySupported() : boolean\l# isExcluded(IJavaElement) : boolean\l# isExcluded(IPath, char, char, boolean) : boolean\l# isExcluded(IResource, char, char) : boolean\l# isValidClassFileName(String, String, String) : boolean\l# isValidCompilationUnitName(String, String, String) : boolean\l# isValidFolderNameForPackage(String, String, String) : boolean\l# isValidMethodSignature(String) : boolean\l# isValidTypeSignature(String, boolean) : boolean\l# localTypeName(String, int, int) : String\l# log(Throwable, String) : \l# logRepeatedMessage(String, Exception) : \l# logRepeatedMessage(String, int, String) : \l# log(int, String) : \l# log(IStatus) : \l# log(Throwable) : \l# newClassFileReader(IResource) : ClassFileReader\l# normalizeCRs(char, char) : char\l# normalizeCRs(String, String) : String\l# packageName(IPath, String, String) : String\l# prefixLength(char, char) : int\l# prefixLength(String, String) : int\l# quickSort(char, int, int) : \l# quickSort(Comparable, int, int) : \l# quickSort(int, int, int) : \l# quickSort(Object, int, int, Comparer) : \l# quickSort(String, int, int) : \l# relativePath(IPath, int) : String\l# resetJavaLikeExtensions() : \l# scanTypeSignature(char, int) : int\l# splitOn(char, String, int, int) : String\l# setReadOnly(IResource, boolean) : \l# sort(char) : \l# sort(Comparable) : \l# sort(int) : \l# sort(Object, Comparer) : \l# sort(String) : \l# sortCopy(Comparable) : Comparable\l# sortCopy(IJavaElement) : IJavaElement\l# compare(Object, Object) : int\l# sortCopy(Object, Comparer) : Object\l# sortCopy(String) : String\l# startsWithIgnoreCase(String, String, boolean) : boolean\l# toCharArrays(String) : char\l# toCompoundChars(String) : char\l# toLocalFile(URI, IProgressMonitor) : File\l# toString(char) : String\l# toString(char, char) : String\l# toStrings(char) : String\l# toUnresolvedTypeSignature(char) : char\l# toUnresolvedTypeSignature(char, int, int, StringBuffer) : int\l# appendArrayTypeSignature(char, int, StringBuffer, boolean) : \l# appendClassTypeSignature(char, int, StringBuffer, boolean) : \l# appendTypeSignature(char, int, StringBuffer, boolean) : \l# toString(char, char, char, boolean, boolean) : String\l# typeParameterSignatures(AbstractMethodDeclaration) : String\l# typeSignature(TypeReference) : String\l# validateMethodSignature(String) : \l# validateTypeSignature(String, boolean) : \l# verbose(String) : \l# verbose(String, PrintStream) : \l# isJavaLikeFileName(String) : boolean\l# isJavaLikeFileName(char) : boolean\l# getAllTypeArguments(char) : char\l# getAnnotation(JavaElement, IBinaryAnnotation, String) : IAnnotation\l# getAnnotationMemberValue(JavaElement, MemberValuePair, Object) : Object\l# getAnnotationMemberValue(MemberValuePair, Constant) : Object\l# getNegativeAnnotationMemberValue(MemberValuePair, Constant) : Object\l# splitTypeLevelsSignature(String) : char\l# toAnchor(int, char, String, boolean) : String\l# toAnchor(int, char, char, boolean) : char\l# appendTypeSignatureForAnchor(char, int, StringBuffer, boolean) : int\l# appendTypeArgumentSignatureForAnchor(char, int, StringBuffer) : int\l# appendCaptureTypeSignatureForAnchor(char, int, StringBuffer) : int\l# appendArrayTypeSignatureForAnchor(char, int, StringBuffer, boolean) : int\l# appendClassTypeSignatureForAnchor(char, int, StringBuffer) : int\l# raiseIllegalSignatureException(char, int) : IllegalArgumentException\l# raiseUnexpectedCharacterException(char, int, char) : IllegalArgumentException\l# scanGenericEnd(char, int) : int\l# fixTaskTags(Map) : \l# findMethod(IType, char, String, boolean) : IMethod\l}"
+	 ]
+
+	 VerificationInfo [
+		 label = "{VerificationInfo|- tag : int\l- offset : int\l- constantPoolIndex : int\l- classTypeName : char\l- readOffset : int\l|# VerificationInfo(byte, IConstantPool, int) : \l# getTag() : int\l# getOffset() : int\l# getConstantPoolIndex() : int\l# getClassTypeName() : char\l# sizeInBytes() : int\l}"
+	 ]
+
+	 HashableWeakReference [
+		 label = "{HashableWeakReference|+ hashCode : int\l# values : HashableWeakReference\l+ elementSize : int\l# threshold : int\l# referenceQueue : ReferenceQueue\l|# null() : \l# HashableWeakReference(Object, ReferenceQueue) : \l# equals(Object) : boolean\l# hashCode() : int\l# toString() : String\l# WeakHashSet() : \l# WeakHashSet(int) : \l# add(Object) : Object\l# addValue(HashableWeakReference) : \l# cleanupGarbageCollectedValues() : \l# contains(Object) : boolean\l# get(Object) : Object\l# rehash() : \l# remove(Object) : Object\l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 HashableWeakReference [
+		 label = "{HashableWeakReference|+ hashCode : int\l# values : HashableWeakReference\l+ elementSize : int\l# threshold : int\l# referenceQueue : ReferenceQueue\l|# null() : \l# HashableWeakReference(char, ReferenceQueue) : \l# equals(Object) : boolean\l# hashCode() : int\l# toString() : String\l# WeakHashSetOfCharArray() : \l# WeakHashSetOfCharArray(int) : \l# add(char) : char\l# addValue(HashableWeakReference) : \l# cleanupGarbageCollectedValues() : \l# contains(char) : boolean\l# get(char) : char\l# rehash() : \l# remove(char) : char\l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 AbstractCompilerTest [
+		 label = "{AbstractCompilerTest|+ F_1_3 : int\l+ F_1_4 : int\l+ F_1_5 : int\l+ F_1_6 : int\l+ F_1_7 : int\l+ F_1_8 : int\l+ RUN_JAVAC : boolean\l- UNINITIALIZED : int\l- NONE : int\l- possibleComplianceLevels : int\l# complianceLevel : long\l# enableAPT : boolean\l# outputRootDirectoryPath : IPath\l# outputTestDirectory : File\l# TESTS_COUNTERS : Map\l|# buildAllCompliancesTestSuite(Class) : Test\l# buildAllCompliancesTestSuite(TestSuite, Class) : \l# buildAllCompliancesTestSuite(Class, Class, List) : Test\l# setpossibleComplianceLevels(int) : \l# buildComplianceTestSuite(long, List) : Test\l# buildComplianceTestSuite(List, Class, long) : Test\l# buildMinimalComplianceTestSuite(Class, int) : Test\l# buildUniqueComplianceTestSuite(Class, long) : Test\l# highestComplianceLevels() : long\l# getPossibleComplianceLevels() : int\l# suite(String, Class, ArrayList) : Test\l# suiteForComplianceLevel(long, Class, ArrayList) : Test\l# setupSuite(Class) : Test\l# buildTestSuite(Class) : Test\l# buildTestSuite(Class, long) : Test\l# isJRELevel(int) : boolean\l# AbstractCompilerTest(String) : \l# getCompilerOptions() : Map\l# getName() : String\l# initialize(CompilerTestSetup) : \l# testName() : String\l# createOutputTestDirectory(String) : \l# writeFiles(String) : \l}"
+	 ]
+
+	 CompilerTestSetup [
+		 label = "{CompilerTestSetup|# complianceLevel : long\l|# CompilerTestSetup(long) : \l# initTest(Object) : \l# run(TestResult) : \l# setUp() : \l# tearDown() : \l}"
+	 ]
+
+	 TestVerifier [
+		 label = "{TestVerifier|+ failureReason : String\l# reuseVM : boolean\l# classpathCache : String\l# vm : LocalVirtualMachine\l# outputBuffer : StringBuffer\l# errorBuffer : StringBuffer\l# socket : Socket\l|# TestVerifier(boolean) : \l# checkBuffers(String, String, String, String, String) : boolean\l# checkBuffersThrowingError(String, String, String) : boolean\l# compileVerifyTests(String) : \l# execute(String, String) : \l# finalize() : \l# getExecutionOutput() : String\l# getExecutionError() : String\l# getVerifyTestsCode() : String\l# launchAndRun(String, String, String, String) : \l# run() : \l# run() : \l# launchVerifyTestsIfNeeded(String, String) : \l# run() : \l# run() : \l# loadAndRun(String) : boolean\l# shutDown() : \l# verifyClassFiles(String, String, String, String) : boolean\l# verifyClassFiles(String, String, String, String, String, String) : boolean\l# verifyClassFiles(String, String, String, String, String, String, String) : boolean\l# verifyClassFilesThrowingError(String, String, String, String, String, String) : boolean\l# waitForFullBuffers() : \l}"
+	 ]
+
+	 Util [
+		 label = "{Util|- DELETE_MAX_TIME : int\l+ DELETE_DEBUG : boolean\l+ DELETE_MAX_WAIT : int\l- DEBUG : boolean\l- OUTPUT_DIRECTORY : String\l- DELAY_BEFORE_CLEAN_PREVIOUS : String\l|# null() : \l# appendProblem(StringBuffer, IProblem, char, int) : \l# compilationUnits(String) : CompilationUnit\l# compile(String, Map, String) : \l# compile(String, Map, String, String) : \l# proceedOnErrors() : boolean\l# stopOnFirstError() : boolean\l# ignoreAllErrors() : boolean\l# concatWithClassLibs(String, boolean) : String\l# concatWithClassLibs(String, boolean) : String\l# convertToIndependantLineDelimiter(String) : String\l# copy(String, String) : \l# createFile(String, String) : \l# createClassFolder(String, String, String) : \l# createEmptyJar(String, String) : \l# createJar(String, Map, String) : \l# createJar(String, String, Map, String, String) : \l# createJar(String, String, String) : \l# createJar(String, String, String, String) : \l# createJar(String, String, String, String, String) : \l# createJar(String, String, String, String, String, Map) : \l# createSourceZip(String, String) : \l# createSourceDir(String, String) : \l# delete(File) : boolean\l# delete(IResource) : IStatus\l# delete(String) : boolean\l# displayString(String) : String\l# displayString(String, int) : String\l# displayString(String, int, boolean) : String\l# fileContent(String) : String\l# fileContentToDisplayString(String, int, boolean) : String\l# fileContentToDisplayString(String, int, String, boolean) : \l# flushDirectoryContent(File) : \l# getCompileOptions(String) : Map\l# getFreePort() : int\l# getJavaClassLibs() : String\l# accept(File, String) : boolean\l# addJarEntries(String, String, ArrayList) : \l# getJavaClassLibsAsString() : String\l# getJREDirectory() : String\l# getOutputDirectory() : String\l# getParentChildFile(File) : File\l# getParentChildResource(IResource) : IResource\l# getTestName() : String\l# indentString(String, int) : String\l# isFileDeleted(File) : boolean\l# isMacOS() : boolean\l# isResourceDeleted(IResource) : boolean\l# printFileInfo(File, int, int) : \l# printJdtCoreStackTrace(Exception, int) : \l# toNativePath(String) : String\l# toString(String, boolean) : String\l# unzip(String, String) : \l# waitAtLeast(int) : \l# waitUntilFileDeleted(File) : boolean\l# waitUntilResourceDeleted(IResource) : boolean\l# writeToFile(String, String) : \l# zip(File, String) : \l# zip(File, ZipOutputStream, int) : \l# zipFiles(File, String) : \l# getProblemLog(CompilationResult, boolean, boolean) : String\l# getMajorMinorVMVersion() : long\l}"
+	 ]
+
+	 VerifyClassLoader [
+		 label = "{VerifyClassLoader|# portNumber : int\l# socket : Socket\l- pathItems : String\l- excluded : String\l|# null() : \l# VerifyClassLoader() : \l# getResource(String) : java\l# getResourceAsStream(String) : InputStream\l# isExcluded(String) : boolean\l# loadClass(String, boolean) : Class\l# loadClassData(File) : byte\l# locate(String) : File\l# loadAndRun(String) : \l# main(String) : \l# run() : \l# run() : \l}"
+	 ]
+
+	 CompoundNameVector [
+		 label = "{CompoundNameVector|# INITIAL_SIZE : int\l+ size : int\l# maxSize : int\l# elements : char\l|# CompoundNameVector() : \l# add(char) : \l# addAll(char) : \l# contains(char) : boolean\l# elementAt(int) : char\l# remove(char) : char\l# removeAll() : \l# toString() : String\l}"
+	 ]
+
+	 FloatUtil [
+		 label = "{FloatUtil|- DOUBLE_FRACTION_WIDTH : int\l- DOUBLE_PRECISION : int\l- MAX_DOUBLE_EXPONENT : int\l- MIN_NORMALIZED_DOUBLE_EXPONENT : int\l- MIN_UNNORMALIZED_DOUBLE_EXPONENT : int\l- DOUBLE_EXPONENT_BIAS : int\l- DOUBLE_EXPONENT_SHIFT : int\l- SINGLE_FRACTION_WIDTH : int\l- SINGLE_PRECISION : int\l- MAX_SINGLE_EXPONENT : int\l- MIN_NORMALIZED_SINGLE_EXPONENT : int\l- MIN_UNNORMALIZED_SINGLE_EXPONENT : int\l- SINGLE_EXPONENT_BIAS : int\l- SINGLE_EXPONENT_SHIFT : int\l|# valueOfHexFloatLiteral(char) : float\l# valueOfHexDoubleLiteral(char) : double\l# convertHexFloatingPointLiteralToBits(char) : long\l}"
+	 ]
+
+	 HashtableOfInt [
+		 label = "{HashtableOfInt|+ keyTable : int\l+ valueTable : Object\l+ elementSize : int\l# threshold : int\l|# HashtableOfInt() : \l# HashtableOfInt(int) : \l# containsKey(int) : boolean\l# get(int) : Object\l# put(int, Object) : Object\l# rehash() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 HashtableOfIntValues [
+		 label = "{HashtableOfIntValues|+ NO_VALUE : int\l+ keyTable : char\l+ valueTable : int\l+ elementSize : int\l# threshold : int\l|# HashtableOfIntValues() : \l# HashtableOfIntValues(int) : \l# clone() : Object\l# containsKey(char) : boolean\l# get(char) : int\l# put(char, int) : int\l# removeKey(char) : int\l# rehash() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 HashtableOfLong [
+		 label = "{HashtableOfLong|+ keyTable : long\l+ valueTable : Object\l+ elementSize : int\l# threshold : int\l|# HashtableOfLong() : \l# HashtableOfLong(int) : \l# containsKey(long) : boolean\l# get(long) : Object\l# put(long, Object) : Object\l# rehash() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 HashtableOfObject [
+		 label = "{HashtableOfObject|+ keyTable : char\l+ valueTable : Object\l+ elementSize : int\l# threshold : int\l|# HashtableOfObject() : \l# HashtableOfObject(int) : \l# clone() : Object\l# containsKey(char) : boolean\l# get(char) : Object\l# put(char, Object) : Object\l# removeKey(char) : Object\l# rehash() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 HashtableOfPackage [
+		 label = "{HashtableOfPackage|+ keyTable : char\l+ valueTable : PackageBinding\l+ elementSize : int\l# threshold : int\l|# HashtableOfPackage() : \l# HashtableOfPackage(int) : \l# containsKey(char) : boolean\l# get(char) : PackageBinding\l# put(char, PackageBinding) : PackageBinding\l# rehash() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 HashtableOfType [
+		 label = "{HashtableOfType|+ keyTable : char\l+ valueTable : ReferenceBinding\l+ elementSize : int\l# threshold : int\l|# HashtableOfType() : \l# HashtableOfType(int) : \l# containsKey(char) : boolean\l# get(char) : ReferenceBinding\l# put(char, ReferenceBinding) : ReferenceBinding\l# rehash() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 ObjectVector [
+		 label = "{ObjectVector|# INITIAL_SIZE : int\l+ size : int\l# maxSize : int\l# elements : Object\l|# ObjectVector() : \l# add(Object) : \l# addAll(Object) : \l# addAll(ObjectVector) : \l# containsIdentical(Object) : boolean\l# contains(Object) : boolean\l# copyInto(Object) : \l# copyInto(Object, int) : \l# elementAt(int) : Object\l# find(Object) : Object\l# remove(Object) : Object\l# removeAll() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 SimpleLookupTable [
+		 label = "{SimpleLookupTable|+ keyTable : Object\l+ valueTable : Object\l+ elementSize : int\l+ threshold : int\l|# SimpleLookupTable() : \l# SimpleLookupTable(int) : \l# clone() : Object\l# containsKey(Object) : boolean\l# get(Object) : Object\l# keyForValue(Object) : Object\l# put(Object, Object) : Object\l# removeKey(Object) : Object\l# removeValue(Object) : \l# rehash() : \l# toString() : String\l}"
+	 ]
+
+	 SimpleNameVector [
+		 label = "{SimpleNameVector|# INITIAL_SIZE : int\l+ size : int\l# maxSize : int\l# elements : char\l|# SimpleNameVector() : \l# add(char) : \l# addAll(char) : \l# copyInto(Object) : \l# contains(char) : boolean\l# elementAt(int) : char\l# remove(char) : char\l# removeAll() : \l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 SuffixConstants [
+		 label = "{SuffixConstants||# EXTENSION_class() : String\l# EXTENSION_CLASS() : String\l# EXTENSION_java() : String\l# EXTENSION_JAVA() : String\l# SUFFIX_STRING_class() : String\l# SUFFIX_STRING_CLASS() : String\l# SUFFIX_STRING_java() : String\l# SUFFIX_STRING_JAVA() : String\l# SUFFIX_class() : char\l# SUFFIX_CLASS() : char\l# SUFFIX_java() : char\l# SUFFIX_JAVA() : char\l# EXTENSION_jar() : String\l# EXTENSION_JAR() : String\l# EXTENSION_zip() : String\l# EXTENSION_ZIP() : String\l# SUFFIX_STRING_jar() : String\l# SUFFIX_STRING_JAR() : String\l# SUFFIX_STRING_zip() : String\l# SUFFIX_STRING_ZIP() : String\l# SUFFIX_jar() : char\l# SUFFIX_JAR() : char\l# SUFFIX_zip() : char\l# SUFFIX_ZIP() : char\l}"
+	 ]
+
+	 Displayable [
+		 label = "{Displayable|+ LINE_SEPARATOR : String\l+ LINE_SEPARATOR_CHARS : char\l- DOUBLE_QUOTES : char\l- SINGLE_QUOTE : char\l- DEFAULT_READING_SIZE : int\l# bundle : ResourceBundle\l- bundleName : String\l|# null() : \l# displayString(Object) : String\l# null() : \l# bind(String, String, String) : String\l# bind(String, String) : String\l# bind(String, String) : String\l# bind(String) : String\l# relocalize() : \l# bytesToChar(byte, String) : char\l# getFileByteContent(File) : byte\l# getFileCharContent(File, String) : char\l# getInputStreamAsByteArray(InputStream, int) : byte\l# getInputStreamAsCharArray(InputStream, int, String) : char\l# getZipEntryByteContent(ZipEntry, ZipFile) : byte\l# isArchiveFileName(String) : boolean\l# isClassFileName(String) : boolean\l# isClassFileName(char) : boolean\l# isJavaFileName(String) : boolean\l# isJavaFileName(char) : boolean\l# toString(Object) : String\l# displayString(Object) : String\l# toString(Object, Displayable) : String\l# toBoolean(boolean) : Boolean\l}"
+	 ]
+
+	 HashableWeakReference [
+		 label = "{HashableWeakReference|+ hashCode : int\l# values : HashableWeakReference\l+ elementSize : int\l# threshold : int\l# referenceQueue : ReferenceQueue\l|# null() : \l# HashableWeakReference(Object, ReferenceQueue) : \l# equals(Object) : boolean\l# hashCode() : int\l# toString() : String\l# WeakHashSet() : \l# WeakHashSet(int) : \l# add(Object) : Object\l# addValue(HashableWeakReference) : \l# cleanupGarbageCollectedValues() : \l# contains(Object) : boolean\l# get(Object) : Object\l# rehash() : \l# remove(Object) : Object\l# size() : int\l# toString() : String\l}"
+	 ]
+
+	 JdtCorePerformanceMeter [
+		 label = "{JdtCorePerformanceMeter|+ STATISTICS : Map\l|# JdtCorePerformanceMeter(String) : \l# commit() : \l# storeDataPoints(Sample) : \l# getReadableName() : String\l# getShortName() : String\l}"
+	 ]
+
+	 JdtCorePerformanceMeterFactory [
+		 label = "{JdtCorePerformanceMeterFactory||# doCreatePerformanceMeter(String) : PerformanceMeter\l}"
+	 ]
+
+	 JdtCorePerformanceMeterPlugin [
+		 label = "{JdtCorePerformanceMeterPlugin|- PLUGIN_ID : String\l- DEFAULT : JdtCorePerformanceMeterPlugin\l|# JdtCorePerformanceMeterPlugin() : \l# getDefault() : JdtCorePerformanceMeterPlugin\l# log(IStatus) : \l# log(Throwable) : \l}"
+	 ]
+
+	 Statistics [
+		 label = "{Statistics|# DOUBLE_FORMAT : NumberFormat\l# session : StatisticsSession\l# count : int\l# measures : long\l# min : long\l# DIMENSIONS : Dim\l|# null() : \l# Statistics(DataPoint) : \l# toString() : String\l# toString(int) : String\l# elapsedProcessToString() : String\l# dimToString(int, StringBuffer) : \l# getSum(int) : long\l# getStddev(int) : double\l# getAverage(int) : double\l# getCount(int) : long\l}"
+	 ]
+
+	 View [
+		 label = "{View||# main(String) : \l# dump(PrintStream, Scenario) : \l}"
+	 ]
+
+	 edge [
+		 arrowhead = "empty"
+	 ]
+
+	 AccessFilter -> DeclarationFilter
+	 DeclPartialOrder -> com
+	 AptCorePreferenceInitializer -> AbstractPreferenceInitializer
+	 CharArrayAnnotationScanner -> AnnotationScanner
+	 InputStreamAnnotationScanner -> AnnotationScanner
+	 Messages -> NLS
+	 ReaderAnnotationScanner -> AnnotationScanner
+	 EndingOffsetFinder -> ASTVisitor
+	 Messages -> NLS
+	 EclipseFileObject -> SimpleJavaFileObject
+	 GenericXMLWriter -> PrintWriter
+	 MessagesProperties -> Properties
+	 ClassFormatException -> Exception
+	 Annotation -> ClassFileStruct
+	 AnnotationComponent -> ClassFileStruct
+	 AnnotationComponentValue -> ClassFileStruct
+	 AnnotationDefaultAttribute -> ClassFileAttribute
+	 Visitor -> ASTVisitor
+	 CaptureFinder -> ASTVisitor
+	 BootstrapMethodsAttribute -> ClassFileAttribute
+	 BootstrapMethodsEntry -> ClassFileStruct
+	 ClassFileAttribute -> ClassFileStruct
+	 ClassFileReader -> ClassFileStruct
+	 CodeAttribute -> ClassFileAttribute
+	 CommentRecorderParser -> Parser
+	 ConstantPool -> ClassFileStruct
+	 ConstantPoolEntry2 -> ConstantPoolEntry
+	 ConstantValueAttribute -> ClassFileAttribute
+	 DefaultStackMapFrame -> ClassFileStruct
+	 Disassembler -> ClassFileBytesDisassembler
+	 DOMFinder -> ASTVisitor
+	 EnclosingMethodAttribute -> ClassFileAttribute
+	 ExceptionAttribute -> ClassFileAttribute
+	 ExceptionTableEntry -> ClassFileStruct
+	 ExtendedAnnotation -> ClassFileStruct
+	 FieldInfo -> ClassFileStruct
+	 InnerClassesAttribute -> ClassFileAttribute
+	 InnerClassesAttributeEntry -> ClassFileStruct
+	 JavaElementFinder -> BindingKeyParser
+	 KeyKind -> BindingKeyParser
+	 KeyToSignature -> BindingKeyParser
+	 LineNumberAttribute -> ClassFileAttribute
+	 LocalVariableAttribute -> ClassFileAttribute
+	 LocalVariableReferenceInfo -> ClassFileStruct
+	 LocalVariableTableEntry -> ClassFileStruct
+	 LocalVariableTypeAttribute -> ClassFileAttribute
+	 LocalVariableTypeTableEntry -> ClassFileStruct
+	 Messages -> NLS
+	 MethodInfo -> ClassFileStruct
+	 MethodParametersAttribute -> ClassFileAttribute
+	 ParameterAnnotation -> ClassFileStruct
+	 ResourceCompilationUnit -> CompilationUnit
+	 RuntimeInvisibleAnnotationsAttribute -> ClassFileAttribute
+	 RuntimeInvisibleParameterAnnotationsAttribute -> ClassFileAttribute
+	 RuntimeInvisibleTypeAnnotationsAttribute -> ClassFileAttribute
+	 RuntimeVisibleAnnotationsAttribute -> ClassFileAttribute
+	 RuntimeVisibleParameterAnnotationsAttribute -> ClassFileAttribute
+	 RuntimeVisibleTypeAnnotationsAttribute -> ClassFileAttribute
+	 SignatureAttribute -> ClassFileAttribute
+	 SourceFileAttribute -> ClassFileAttribute
+	 StackMapAttribute -> ClassFileAttribute
+	 StackMapFrame -> ClassFileStruct
+	 StackMapTableAttribute -> ClassFileAttribute
+	 VerificationInfo -> ClassFileStruct
+	 HashableWeakReference -> WeakReference
+	 HashableWeakReference -> WeakReference
+	 AbstractCompilerTest -> TestCase
+	 CompilerTestSetup -> TestSuite
+	 VerifyClassLoader -> ClassLoader
+	 HashableWeakReference -> WeakReference
+	 JdtCorePerformanceMeter -> OSPerformanceMeter
+	 JdtCorePerformanceMeterFactory -> PerformanceMeterFactory
+	 JdtCorePerformanceMeterPlugin -> Plugin
+	 edge [
+		 arrowhead = "diamond"
+	 ]
+
+	 DeclarationVisitor->DeclarationScanner
+	 DeclarationVisitor->DeclarationVisitors
+	 Float->Factory
+	 EclipseMirrorObject->SourcePositionImpl
+	 List->EndingOffsetFinder
+	 Annotation->EndingOffsetFinder
+	 ASTNode->EndingOffsetFinder
+	 ExceptionHandler->ExceptionHandler
+	 Archive->Archive
+	 Object->HashtableOfInt
+	 Object->HashtableOfLong
+	 Object->HashtableOfObject
+	 Object->HashtableOfObjectToInt
+	 Object->HashtableOfObjectToIntArray
+	 PackageBinding->HashtableOfPackage
+	 ReferenceBinding->HashtableOfType
+	 Object->ObjectVector
+	 Object->SimpleLookupTable
+	 Object->SimpleSet
+	 IAnnotationComponent->Annotation
+	 IAnnotationComponentValue->AnnotationComponent
+	 IAnnotationComponentValue->AnnotationComponentValue
+	 IAnnotation->AnnotationComponentValue
+	 IConstantPoolEntry->AnnotationComponentValue
+	 IAnnotationComponentValue->AnnotationDefaultAttribute
+	 CompilationUnitDeclaration->Visitor
+	 TypeDeclaration->Visitor
+	 Scanner->Scanner
+	 MethodBinding->CaptureFinder
+	 Compiler->CaptureFinder
+	 Binding->CaptureFinder
+	 LookupEnvironment->CaptureFinder
+	 ReferenceBinding->CaptureFinder
+	 AnnotationBinding->CaptureFinder
+	 CompilationUnitDeclaration->CaptureFinder
+	 BlockScope->CaptureFinder
+	 TypeBinding->CaptureFinder
+	 TypeDeclaration->CaptureFinder
+	 HashtableOfObject->CaptureFinder
+	 CaptureBinding->CaptureFinder
+	 IBootstrapMethodsEntry->BootstrapMethodsAttribute
+	 IClassFileAttribute->ClassFileAttribute
+	 IFieldInfo->ClassFileReader
+	 IMethodInfo->ClassFileReader
+	 IClassFileAttribute->ClassFileReader
+	 IConstantPool->ClassFileReader
+	 IInnerClassesAttribute->ClassFileReader
+	 ISourceAttribute->ClassFileReader
+	 IExceptionTableEntry->CodeAttribute
+	 IClassFileAttribute->CodeAttribute
+	 IConstantPool->CodeAttribute
+	 ILineNumberAttribute->CodeAttribute
+	 ILocalVariableAttribute->CodeAttribute
+	 RecordedParsingInformation->CodeSnippetParsingUtil
+	 IConstantPoolEntry->ConstantValueAttribute
+	 ILocalVariableTableEntry->DefaultBytecodeVisitor
+	 IVerificationTypeInfo->DefaultStackMapFrame
+	 ASTNode->DOMFinder
+	 IBinding->DOMFinder
+	 CompilationUnit->DOMFinder
+	 SourceRefElement->DOMFinder
+	 IAnnotationComponent->ExtendedAnnotation
+	 ILocalVariableReferenceInfo->ExtendedAnnotation
+	 IClassFileAttribute->FieldInfo
+	 IConstantValueAttribute->FieldInfo
+	 PackageFragmentRoot->HandleFactory
+	 HashtableOfArrayToObject->HandleFactory
+	 JavaModel->HandleFactory
+	 Object->HashSetOfArray
+	 Object->HashtableOfArrayToObject
+	 IInnerClassesAttributeEntry->InnerClassesAttribute
+	 WorkingCopyOwner->JavaElementFinder
+	 IJavaElement->JavaElementFinder
+	 JavaModelException->JavaElementFinder
+	 KeyKind->KeyKind
+	 ILocalVariableTableEntry->LocalVariableAttribute
+	 ILocalVariableTypeTableEntry->LocalVariableTypeAttribute
+	 Object->Stats
+	 IClassFileAttribute->MethodInfo
+	 ICodeAttribute->MethodInfo
+	 IExceptionAttribute->MethodInfo
+	 IAnnotation->ParameterAnnotation
+	 NLSTag->PublicScanner
+	 CategorizedProblem->RecordedParsingInformation
+	 IAnnotation->RuntimeInvisibleAnnotationsAttribute
+	 IParameterAnnotation->RuntimeInvisibleParameterAnnotationsAttribute
+	 IExtendedAnnotation->RuntimeInvisibleTypeAnnotationsAttribute
+	 IAnnotation->RuntimeVisibleAnnotationsAttribute
+	 IParameterAnnotation->RuntimeVisibleParameterAnnotationsAttribute
+	 IExtendedAnnotation->RuntimeVisibleTypeAnnotationsAttribute
+	 IStackMapFrame->StackMapAttribute
+	 IVerificationTypeInfo->StackMapFrame
+	 IStackMapFrame->StackMapTableAttribute
+	 Object->ToStringSorter
+	 List->BindingsToNodesMap
+	 HashableWeakReference->HashableWeakReference
+	 HashableWeakReference->HashableWeakReference
+	 LocalVirtualMachine->TestVerifier
+	 Object->HashtableOfInt
+	 Object->HashtableOfLong
+	 Object->HashtableOfObject
+	 PackageBinding->HashtableOfPackage
+	 ReferenceBinding->HashtableOfType
+	 Object->ObjectVector
+	 Object->SimpleLookupTable
+	 HashableWeakReference->HashableWeakReference
+	 JdtCorePerformanceMeterPlugin->JdtCorePerformanceMeterPlugin
+	 edge [
+		 arrowhead = "vee"
+		 label = "implements"	 ]
+
+	 DeclarationScanner->DeclarationVisitor
+	 SimpleDeclarationVisitor->DeclarationVisitor
+	 SimpleTypeVisitor->TypeVisitor
+	 DeclPartialOrder->java
+	 DeclarationsUtil->Declarations
+	 Attributes->IFactoryPath
+	 SourcePositionImpl->SourcePosition
+	 TypesUtil->Types
+	 EclipseMessager->Messager
+	 Archive->String
+	 ArchiveFileObject->JavaFileObject
+	 EclipseFileManager->StandardJavaFileManager
+	 HashSetOfInt->Cloneable
+	 HashtableOfIntValues->Cloneable
+	 HashtableOfObject->Cloneable
+	 HashtableOfObjectToInt->Cloneable
+	 HashtableOfObjectToIntArray->Cloneable
+	 SimpleLookupTable->Cloneable
+	 SimpleSet->Cloneable
+	 SimpleSetOfCharArray->Cloneable
+	 Displayable->SuffixConstants
+	 ByteCodeVisitorAdapter->IBytecodeVisitor
+	 IAnnotationDefaultAttribute->IClassFileAttribute
+	 IBootstrapMethodsAttribute->IClassFileAttribute
+	 ICodeAttribute->IClassFileAttribute
+	 IConstantPoolEntry2->IConstantPoolEntry
+	 IConstantValueAttribute->IClassFileAttribute
+	 IEnclosingMethodAttribute->IClassFileAttribute
+	 IExceptionAttribute->IClassFileAttribute
+	 IExtendedAnnotation->IAnnotation
+	 IInnerClassesAttribute->IClassFileAttribute
+	 ILineNumberAttribute->IClassFileAttribute
+	 ILocalVariableAttribute->IClassFileAttribute
+	 ILocalVariableTypeTableAttribute->IClassFileAttribute
+	 IMethodParametersAttribute->IClassFileAttribute
+	 IRuntimeInvisibleAnnotationsAttribute->IClassFileAttribute
+	 IRuntimeInvisibleParameterAnnotationsAttribute->IClassFileAttribute
+	 IRuntimeInvisibleTypeAnnotationsAttribute->IClassFileAttribute
+	 IRuntimeVisibleAnnotationsAttribute->IClassFileAttribute
+	 IRuntimeVisibleParameterAnnotationsAttribute->IClassFileAttribute
+	 IRuntimeVisibleTypeAnnotationsAttribute->IClassFileAttribute
+	 ISignatureAttribute->IClassFileAttribute
+	 ISourceAttribute->IClassFileAttribute
+	 IStackMapAttribute->IClassFileAttribute
+	 IStackMapTableAttribute->IClassFileAttribute
+	 OpcodeStringValues->IOpcodeMnemonics
+	 Annotation->IAnnotation
+	 AnnotationComponent->IAnnotationComponent
+	 AnnotationComponentValue->IAnnotationComponentValue
+	 AnnotationDefaultAttribute->IAnnotationDefaultAttribute
+	 BootstrapMethodsAttribute->IBootstrapMethodsAttribute
+	 BootstrapMethodsEntry->IBootstrapMethodsEntry
+	 ClassFileAttribute->IClassFileAttribute
+	 ClassFileReader->IClassFileReader
+	 CodeAttribute->ICodeAttribute
+	 ConstantPool->IConstantPool
+	 ConstantPoolEntry->IConstantPoolEntry
+	 ConstantPoolEntry2->IConstantPoolEntry2
+	 ConstantValueAttribute->IConstantValueAttribute
+	 DefaultBytecodeVisitor->IBytecodeVisitor
+	 DefaultStackMapFrame->IStackMapFrame
+	 EnclosingMethodAttribute->IEnclosingMethodAttribute
+	 ExceptionAttribute->IExceptionAttribute
+	 ExceptionTableEntry->IExceptionTableEntry
+	 ExtendedAnnotation->IExtendedAnnotation
+	 FieldInfo->IFieldInfo
+	 HashSetOfArray->Cloneable
+	 HashSetOfCharArrayArray->Cloneable
+	 HashtableOfArrayToObject->Cloneable
+	 ICacheEnumeration->Enumeration
+	 InnerClassesAttribute->IInnerClassesAttribute
+	 InnerClassesAttributeEntry->IInnerClassesAttributeEntry
+	 LineNumberAttribute->ILineNumberAttribute
+	 LocalVariableAttribute->ILocalVariableAttribute
+	 LocalVariableReferenceInfo->ILocalVariableReferenceInfo
+	 LocalVariableTableEntry->ILocalVariableTableEntry
+	 LocalVariableTypeAttribute->ILocalVariableTypeTableAttribute
+	 LocalVariableTypeTableEntry->ILocalVariableTypeTableEntry
+	 Stats->Cloneable
+	 MethodInfo->IMethodInfo
+	 MethodParametersAttribute->IMethodParametersAttribute
+	 ParameterAnnotation->IParameterAnnotation
+	 PublicScanner->IScanner
+	 PublicScanner->ITerminalSymbols
+	 RuntimeInvisibleAnnotationsAttribute->IRuntimeInvisibleAnnotationsAttribute
+	 RuntimeInvisibleParameterAnnotationsAttribute->IRuntimeInvisibleParameterAnnotationsAttribute
+	 RuntimeInvisibleTypeAnnotationsAttribute->IRuntimeInvisibleTypeAnnotationsAttribute
+	 RuntimeVisibleAnnotationsAttribute->IRuntimeVisibleAnnotationsAttribute
+	 RuntimeVisibleParameterAnnotationsAttribute->IRuntimeVisibleParameterAnnotationsAttribute
+	 RuntimeVisibleTypeAnnotationsAttribute->IRuntimeVisibleTypeAnnotationsAttribute
+	 SignatureAttribute->ISignatureAttribute
+	 SimpleDocument->IDocument
+	 SourceFileAttribute->ISourceAttribute
+	 StackMapAttribute->IStackMapAttribute
+	 StackMapFrame->IStackMapFrame
+	 StackMapTableAttribute->IStackMapTableAttribute
+	 VerificationInfo->IVerificationTypeInfo
+	 HashtableOfIntValues->Cloneable
+	 HashtableOfObject->Cloneable
+	 SimpleLookupTable->Cloneable
+	 Displayable->SuffixConstants
+}

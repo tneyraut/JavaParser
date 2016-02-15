@@ -1,0 +1,113 @@
+digraph ClassDiagram {
+	 fontname = "Bitstream Vera Sans"
+	 fontsize = 8
+
+	 node [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+		 shape = "record"
+	 ]
+
+	 edge [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+	 ]
+
+	 SelectionJavadoc [
+		 label = "{SelectionJavadoc|# selectedNode : Expression\l# inheritDocSelected : boolean\l|# SelectionJavadoc(int, int) : \l# print(int, StringBuffer) : StringBuffer\l# internalResolve(Scope) : \l# resolve(ClassScope) : \l# resolve(MethodScope) : \l}"
+	 ]
+
+	 SelectionJavadocParser [
+		 label = "{SelectionJavadocParser|# selectionStart : int\l# selectionEnd : int\l# selectedNode : ASTNode\l+ inheritDocTagSelected : boolean\l|# SelectionJavadocParser(SelectionParser) : \l# checkDeprecation(int) : boolean\l# commentParse() : boolean\l# createArgumentReference(char, int, boolean, Object, long, long) : Object\l# createFieldReference(Object) : Object\l# createMethodReference(Object, List) : Object\l# createTypeReference(int) : Object\l# pushParamName(boolean) : boolean\l# updateDocComment() : \l# parseInheritDocTag() : \l}"
+	 ]
+
+	 SelectionNodeFound [
+		 label = "{SelectionNodeFound|+ binding : Binding\l+ isDeclaration : boolean\l- serialVersionUID : long\l|# SelectionNodeFound() : \l# SelectionNodeFound(Binding) : \l# SelectionNodeFound(Binding, boolean) : \l}"
+	 ]
+
+	 SelectionOnArgumentName [
+		 label = "{SelectionOnArgumentName||# SelectionOnArgumentName(char, long, TypeReference, int) : \l# SelectionOnArgumentName(char, long, TypeReference, int, boolean) : \l# bind(MethodScope, TypeBinding, boolean) : TypeBinding\l# print(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# resolveForCatch(BlockScope) : TypeBinding\l}"
+	 ]
+
+	 SelectionOnExplicitConstructorCall [
+		 label = "{SelectionOnExplicitConstructorCall||# SelectionOnExplicitConstructorCall(int) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l}"
+	 ]
+
+	 SelectionOnFieldReference [
+		 label = "{SelectionOnFieldReference||# SelectionOnFieldReference(char, long) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l}"
+	 ]
+
+	 SelectionOnFieldType [
+		 label = "{SelectionOnFieldType||# SelectionOnFieldType(TypeReference) : \l# printStatement(int, StringBuffer) : StringBuffer\l}"
+	 ]
+
+	 SelectionOnImportReference [
+		 label = "{SelectionOnImportReference||# SelectionOnImportReference(char, long, int) : \l# print(int, StringBuffer, boolean) : StringBuffer\l}"
+	 ]
+
+	 SelectionOnLambdaExpression [
+		 label = "{SelectionOnLambdaExpression||# SelectionOnLambdaExpression(LambdaExpression) : \l+ resolveType(BlockScope, boolean) : TypeBinding\l}"
+	 ]
+
+	 SelectionOnLocalName [
+		 label = "{SelectionOnLocalName||# SelectionOnLocalName(char, int, int) : \l# resolve(BlockScope) : \l# printAsExpression(int, StringBuffer) : StringBuffer\l# printStatement(int, StringBuffer) : StringBuffer\l}"
+	 ]
+
+	 SelectionOnMessageSend [
+		 label = "{SelectionOnMessageSend||# findNonDefaultAbstractMethod(MethodBinding) : MethodBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l}"
+	 ]
+
+	 SelectionOnNameOfMemberValuePair [
+		 label = "{SelectionOnNameOfMemberValuePair||# SelectionOnNameOfMemberValuePair(char, int, int, Expression) : \l# print(int, StringBuffer) : StringBuffer\l# resolveTypeExpecting(BlockScope, TypeBinding) : \l}"
+	 ]
+
+	 SelectionOnPackageReference [
+		 label = "{SelectionOnPackageReference||# SelectionOnPackageReference(char, long) : \l# print(int, StringBuffer, boolean) : StringBuffer\l}"
+	 ]
+
+	 SelectionOnParameterizedQualifiedTypeReference [
+		 label = "{SelectionOnParameterizedQualifiedTypeReference||# SelectionOnParameterizedQualifiedTypeReference(char, char, TypeReference, TypeReference, long) : \l# resolveType(BlockScope, boolean, int) : TypeBinding\l# resolveType(ClassScope, int) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l}"
+	 ]
+
+	 SelectionOnParameterizedSingleTypeReference [
+		 label = "{SelectionOnParameterizedSingleTypeReference||# SelectionOnParameterizedSingleTypeReference(char, TypeReference, long) : \l# resolveType(BlockScope, boolean, int) : TypeBinding\l# resolveType(ClassScope, int) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l}"
+	 ]
+
+	 SelectionOnQualifiedAllocationExpression [
+		 label = "{SelectionOnQualifiedAllocationExpression||# SelectionOnQualifiedAllocationExpression() : \l# SelectionOnQualifiedAllocationExpression(TypeDeclaration) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l}"
+	 ]
+
+	 SelectionOnQualifiedNameReference [
+		 label = "{SelectionOnQualifiedNameReference||# SelectionOnQualifiedNameReference(char, char, long) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l}"
+	 ]
+
+	 SelectionOnQualifiedSuperReference [
+		 label = "{SelectionOnQualifiedSuperReference||# SelectionOnQualifiedSuperReference(TypeReference, int, int) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l}"
+	 ]
+
+	 SelectionOnQualifiedTypeReference [
+		 label = "{SelectionOnQualifiedTypeReference||# SelectionOnQualifiedTypeReference(char, char, long) : \l# aboutToResolve(Scope) : \l# getTypeBinding(Scope) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l}"
+	 ]
+
+	 SelectionOnReferenceExpression [
+		 label = "{SelectionOnReferenceExpression||# SelectionOnReferenceExpression(ReferenceExpression) : \l+ resolveType(BlockScope) : TypeBinding\l}"
+	 ]
+
+	 SelectionOnReferenceExpressionName [
+		 label = "{SelectionOnReferenceExpressionName||# SelectionOnReferenceExpressionName() : \l# printExpression(int, StringBuffer) : StringBuffer\l# isConstructorReference() : boolean\l# isMethodReference() : boolean\l# resolveType(BlockScope) : TypeBinding\l}"
+	 ]
+
+	 SelectionOnSingleNameReference [
+		 label = "{SelectionOnSingleNameReference||# SelectionOnSingleNameReference(char, long) : \l# resolveType(BlockScope) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l}"
+	 ]
+
+	 SelectionOnSingleTypeReference [
+		 label = "{SelectionOnSingleTypeReference||# SelectionOnSingleTypeReference(char, long) : \l# aboutToResolve(Scope) : \l# getTypeBinding(Scope) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveTypeEnclosing(BlockScope, ReferenceBinding) : TypeBinding\l}"
+	 ]
+
+	 SelectionOnSuperReference [
+		 label = "{SelectionOnSuperReference||# SelectionOnSuperReference(int, int) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l}"
+	 ]
+
+	 SelectionParser [
+		 label = "{SelectionParser|# SELECTION_PARSER : int\l# SELECTION_OR_ASSIST_PARSER : int\l# K_BETWEEN_CASE_AND_COLON : int\l# K_INSIDE_RETURN_STATEMENT : int\l# K_CAST_STATEMENT : int\l+ assistNodeParent : ASTNode\l+ selectionStart : int\l+ SUPER : char\l+ THIS : char\l|# SelectionParser(ProblemReporter) : \l# assistIdentifier() : char\l# attachOrphanCompletionNode() : \l# buildMoreCompletionContext(Expression) : \l# checkRecoveredType() : boolean\l# classInstanceCreation(boolean) : \l# consumeArrayCreationExpressionWithoutInitializer() : \l# consumeArrayCreationExpressionWithInitializer() : \l# consumeCastExpressionLL1() : \l# consumeCastExpressionLL1WithBounds() : \l# consumeCastExpressionWithGenericsArray() : \l# consumeCastExpressionWithNameArray() : \l# consumeCastExpressionWithPrimitiveType() : \l# consumeCastExpressionWithQualifiedGenericsArray() : \l# consumeCatchFormalParameter() : \l# consumeClassInstanceCreationExpressionQualifiedWithTypeArguments() : \l# consumeClassInstanceCreationExpressionWithTypeArguments() : \l# consumeEnterAnonymousClassBody(boolean) : \l# consumeEnterVariable() : \l# consumeExitVariableWithInitialization() : \l# consumeFieldAccess(boolean) : \l# consumeFormalParameter(boolean) : \l# consumeInsideCastExpression() : \l# consumeInsideCastExpressionLL1() : \l# consumeInsideCastExpressionLL1WithBounds() : \l# consumeInsideCastExpressionWithQualifiedGenerics() : \l# consumeInstanceOfExpression() : \l# consumeInstanceOfExpressionWithName() : \l+ consumeLambdaExpression() : \

@@ -1,0 +1,57 @@
+digraph ClassDiagram {
+	 fontname = "Bitstream Vera Sans"
+	 fontsize = 8
+
+	 node [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+		 shape = "record"
+	 ]
+
+	 edge [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+	 ]
+
+	 FactoryPathDeltaVisitor [
+		 label = "{FactoryPathDeltaVisitor|- LOADER : AnnotationProcessorFactoryLoader\l- JAR_EXTENSION : String\l- cacheMutex : Object\l- _project2Java5Factories : Map\l- _project2Java6Factories : Map\l- _iterativeLoaders : Map\l- _batchLoaders : Map\l- _container2Project : Map\l- _affected : Set\l|# null() : \l+ resourceChanged(IResourceChangeEvent) : \l# null() : \l# addAffected(Set) : \l# getAffectedProjects() : Set\l+ visit(IResourceDelta) : boolean\l# getLoader() : AnnotationProcessorFactoryLoader\l# registerListener() : \l# resetAll() : \l# resetBatchProcessors(IJavaProject) : \l# getJava5FactoriesAndAttributesForProject(IJavaProject) : Map\l# getJava6FactoriesAndAttributesForProject(IJavaProject) : Map\l# getJava5FactoriesForProject(IJavaProject) : List\l# addToResourcesMap(String, IJavaProject) : \l# loadInstance(String, ClassLoader, IJavaProject, LoadFailureHandler) : Object\l# loadFactories(Map, IJavaProject, LoadFailureHandler) : \l# loadJava5FactoryClasses(FactoryContainer, ClassLoader, IJavaProject, LoadFailureHandler) : List\l# loadJava6FactoryClasses(FactoryContainer, ClassLoader, IJavaProject, LoadFailureHandler) : List\l# processChanges(Set, Map) : \l# uncacheProject(IJavaProject) : \l# removeAptBuildProblemMarkers(IJavaProject) : \l# removeProjectFromResourceMap(IJavaProject) : \l# verifyFactoryPath(IJavaProject) : Set\l# _createIterativeClassLoader(Map) : ClassLoader\l# _createBatchClassLoader(Map, IJavaProject) : ClassLoader\l# getParentClassLoader() : ClassLoader\l+ findClass(String) : Class\l# createClassLoader(List, ClassLoader) : ClassLoader\l# tryToCloseClassLoader(ClassLoader) : \l}"
+	 ]
+
+	 AptCompilationParticipant [
+		 label = "{AptCompilationParticipant|- _previousRoundsBatchFactories : Set\l- _buildRound : int\l- _isBatch : boolean\l- INSTANCE : AptCompilationParticipant\l- _processedFiles : Map\l- _java6GeneratedFiles : HashSet\l|# getInstance() : AptCompilationParticipant\l# AptCompilationParticipant() : \l# isAnnotationProcessor() : boolean\l# buildStarting(BuildContext, boolean) : \l# buildFinished(IJavaProject) : \l# processAnnotations(BuildContext) : \l# reconcile(ReconcileContext) : \l# cleanStarting(IJavaProject) : \l# isActive(IJavaProject) : boolean\l# aboutToBuild(IJavaProject) : int\l# addJava6GeneratedFile(IFile) : \l# getJava6GeneratedFiles() : Set\l# buildComplete() : \l}"
+	 ]
+
+	 AptCompilationParticipantExtensionFactory [
+		 label = "{AptCompilationParticipantExtensionFactory||# create() : Object\l}"
+	 ]
+
+	 ReconcileEnvCallback [
+		 label = "{ReconcileEnvCallback|- _context : ReconcileContext\l- _gfm : GeneratedFileManager\l- NO_FILES_TO_PROCESS : BuildContext\l- MAX_FILES_PER_ITERATION : int\l- _filesWithAnnotation : BuildContext\l- _filesWithoutAnnotation : BuildContext\l- _problemRecorder : Map\l- _aptProject : AptProject\l- _factories : Map\l- _dispatchedBatchFactories : Set\l- _currentDispatchBatchFactories : Set\l- _isFullBuild : boolean\l- SPLIT_FILES : boolean\l- SPLIT_FILES_PROPERTY : String\l|# null() : \l# ReconcileEnvCallback(ReconcileContext, GeneratedFileManager) : \l# run(AbstractCompilationEnv) : \l# null() : \l# runAPTDuringBuild(BuildContext, BuildContext, Map, AptProject, Map, Set, boolean) : Set\l# runAPTDuringReconcile(ReconcileContext, AptProject, Map) : \l# APTDispatchRunnable(BuildContext, BuildContext, Map, AptProject, Map, Set, boolean) : \l# APTDispatchRunnable(AptProject, Map) : \l# reconcile(ReconcileContext, IJavaProject) : \l# run(IProgressMonitor) : \l# shouldBuild() : boolean\l# build() : \l# run(AbstractCompilationEnv) : \l# hasBatchFactory() : boolean\l# shouldDispatchToBatchProcessor(AbstractCompilationEnv) : boolean\l# runAPTInFileBasedMode(BuildEnv) : \l# reportResult(BuildContext, Set, Set, List, Set, GeneratedFileManager, BuildEnv) : \l# runAPTInMixedMode(BuildEnv) : \l# dispatchToFileBasedProcessor(AbstractCompilationEnv, boolean, boolean) : \l# build(BuildEnv) : Set\l# setIntersect(Set, Set) : Set\l# cleanupAllGeneratedFiles() : \l# cleanupAllGeneratedFilesFrom(BuildContext) : \l# cleanupNoLongerGeneratedFiles(IFile, Set, GeneratedFileManager, BuildEnv, Collection) : \l# getFactorySupportedAnnotations(AnnotationProcessorFactory, Map) : Set\l# trace(String, AbstractCompilationEnv) : \l# getFileNamesForPrinting(AbstractCompilationEnv) : String\l# getFileNamesForPrinting(BuildEnv) : String\l}"
+	 ]
+
+	 AptPlugin [
+		 label = "{AptPlugin|+ PLUGIN_ID : String\l+ DEBUG : boolean\l+ APT_DEBUG_OPTION : String\l+ DEBUG_GFM : boolean\l+ APT_DEBUG_GFM_OPTION : String\l+ DEBUG_GFM_MAPS : boolean\l+ APT_DEBUG_GFM_MAPS_OPTION : String\l+ DEBUG_COMPILATION_ENV : boolean\l+ APT_COMPILATION_ENV_OPTION : String\l+ STATUS_EXCEPTION : int\l+ STATUS_NOTOOLSJAR : int\l+ STATUS_CANTLOADPLUGINFACTORY : int\l+ APT_MARKER_SOURCE_ID : String\l+ APT_BATCH_PROCESSOR_PROBLEM_MARKER : String\l+ APT_LOADER_PROBLEM_MARKER : String\l+ APT_CONFIG_PROBLEM_MARKER : String\l+ APT_COMPILATION_PROBLEM_MARKER : String\l+ APT_NONRECONCILE_COMPILATION_PROBLEM_MARKER : String\l- TRACE_DATE_FORMAT : SimpleDateFormat\l- thePlugin : AptPlugin\l- debugRegistration : ServiceRegistration\l- _java6ProcessorClass : Class\l- PROJECT_MAP : Map\l+ JAVA5_FACTORY_NAME : String\l+ JAVA6_FACTORY_NAME : String\l|# start(BundleContext) : \l# stop(BundleContext) : \l# getPlugin() : AptPlugin\l# log(IStatus) : \l# log(Throwable, String) : \l# logWarning(Throwable, String) : \l# createStatus(Throwable, String) : Status\l# createWarningStatus(Throwable, String) : Status\l# createInfoStatus(Throwable, String) : Status\l# optionsChanged(DebugOptions) : \l# trace(String) : \l# trace(String, Throwable) : \l# getAptProject(IJavaProject, boolean) : AptProject\l# getAptProject(IJavaProject) : AptProject\l# deleteAptProject(IJavaProject) : \l# canRunJava6Processors() : boolean\l# getJava6ProcessorClass() : Class\l}"
+	 ]
+
+	 AptProject [
+		 label = "{AptProject|- _javaProject : IJavaProject\l- _gfm : GeneratedFileManager\l- _gsfm : GeneratedSourceFolderManager\l|# AptProject(IJavaProject) : \l# getJavaProject() : IJavaProject\l# getGeneratedFileManager() : GeneratedFileManager\l# getGeneratedSourceFolderManager() : GeneratedSourceFolderManager\l# compilationStarted() : \l# preferenceChanged(String) : \l# projectClean(boolean) : \l# projectClosed() : \l# projectDeleted() : \l}"
+	 ]
+
+	 ClassServiceFactory [
+		 label = "{ClassServiceFactory|- _clazz : Class\l|# ClassServiceFactory(Class) : \l# newInstance() : Object\l# toString() : String\l}"
+	 ]
+
+	 ExtJarFactoryContainer [
+		 label = "{ExtJarFactoryContainer|- _id : String\l- _jarFile : File\l|# ExtJarFactoryContainer(File) : \l+ getType() : FactoryType\l+ getJarFile() : File\l+ getId() : String\l}"
+	 ]
+
+	 FactoryPluginManager [
+		 label = "{FactoryPluginManager|- PLUGIN_JAVA5_FACTORY_MAP : HashMap\l- PLUGIN_JAVA6_FACTORY_MAP : HashMap\l- PLUGIN_CONTAINER_MAP : TreeMap\l- mapsInitialized : boolean\l|# getAllPluginFactoryContainers() : Map\l# getJava5FactoryFromPlugin(String) : AnnotationProcessorFactory\l# getJava6FactoryFromPlugin(String) : IServiceFactory\l# getPluginFactoryContainer(String) : FactoryContainer\l# getPluginContainerMap() : TreeMap\l# getJava5PluginFactoryMap() : HashMap\l# getJava6PluginFactoryMap() : HashMap\l# loadFactoryPlugins() : \l# loadJava6Factories(IExtension, IConfigurationElement) : \l# loadJava5Factories(IExtension, IConfigurationElement) : \l# reportFailureToLoadProcessor(Exception, String, String) : \l}"
+	 ]
+
+	 IServiceFactory [
+		 label = "{IServiceFactory||# newInstance() : Object\l}"
+	 ]
+
+	 JarCLInputStream [
+		 label = "{JarCLInputStream|- _jars : List\l- _files : LinkedHashSet\l- _openStreams : List\l- _open : boolean\l- _closed : boolean\l- _input : InputStream\l|# JarClassLoader(List, ClassLoader) : \l# open() : \l# close() : \l# openInputStream(InputStream) : InputStream\l# closeInputStream(JarCLInputStream) : \l+ findClass(String) : Class\l# getPackageName(String) : String\l# loadClassData(Strin

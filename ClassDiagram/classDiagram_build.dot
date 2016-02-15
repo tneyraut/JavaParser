@@ -1,0 +1,44 @@
+digraph ClassDiagram {
+	 fontname = "Bitstream Vera Sans"
+	 fontsize = 8
+
+	 node [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+		 shape = "record"
+	 ]
+
+	 edge [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+	 ]
+
+	 SystemOutProgressMonitor [
+		 label = "{SystemOutProgressMonitor||# start(IApplicationContext) : Object\l# stop() : \l# null() : \l# beginTask(String, int) : \l# subTask(String) : \l}"
+	 ]
+
+	 JdtApt [
+		 label = "{JdtApt|- APP_CLASSNAME : String\l- APP_PLUGIN : String\l- workspace : File\l- startupJar : File\l|# setWorkspace(File) : \l# setEclipseHome(File) : \l# execute() : \l}"
+	 ]
+
+	 Messages [
+		 label = "{Messages|- BUNDLE_NAME : String\l+ JdtApt_noWorkspace : String\l+ JdtApt_noEclipse : String\l+ JdtApt_noStartupJar : String\l|# Messages() : \l# null() : \l}"
+	 ]
+
+	 edge [
+		 arrowhead = "empty"
+	 ]
+
+	 SystemOutProgressMonitor -> NullProgressMonitor
+	 JdtApt -> Java
+	 Messages -> NLS
+	 edge [
+		 arrowhead = "diamond"
+	 ]
+
+	 edge [
+		 arrowhead = "vee"
+		 label = "implements"	 ]
+
+	 SystemOutProgressMonitor->IApplication
+}

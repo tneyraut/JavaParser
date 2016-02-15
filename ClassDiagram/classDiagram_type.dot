@@ -1,0 +1,138 @@
+digraph ClassDiagram {
+	 fontname = "Bitstream Vera Sans"
+	 fontsize = 8
+
+	 node [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+		 shape = "record"
+	 ]
+
+	 edge [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+	 ]
+
+	 AnnotationType [
+		 label = "{AnnotationType||# getDeclaration() : AnnotationTypeDeclaration\l}"
+	 ]
+
+	 ArrayType [
+		 label = "{ArrayType||# getComponentType() : TypeMirror\l}"
+	 ]
+
+	 ClassType [
+		 label = "{ClassType||# getDeclaration() : ClassDeclaration\l# getSuperclass() : ClassType\l}"
+	 ]
+
+	 DeclaredType [
+		 label = "{DeclaredType||# getDeclaration() : TypeDeclaration\l# getContainingType() : DeclaredType\l# getActualTypeArguments() : Collection\l# getSuperinterfaces() : Collection\l}"
+	 ]
+
+	 EnumType [
+		 label = "{EnumType||# getDeclaration() : EnumDeclaration\l}"
+	 ]
+
+	 InterfaceType [
+		 label = "{InterfaceType||# getDeclaration() : InterfaceDeclaration\l}"
+	 ]
+
+	 MirroredTypeException [
+		 label = "{MirroredTypeException|- serialVersionUID : long\l- type : TypeMirror\l- name : String\l|# MirroredTypeException(TypeMirror) : \l# getTypeMirror() : TypeMirror\l# getQualifiedName() : String\l}"
+	 ]
+
+	 MirroredTypesException [
+		 label = "{MirroredTypesException|- serialVersionUID : long\l- types : Collection\l- names : Collection\l|# MirroredTypesException(Collection) : \l# getTypeMirrors() : Collection\l# getQualifiedNames() : Collection\l}"
+	 ]
+
+	 PrimitiveType [
+		 label = "{PrimitiveType||# getKind() : Kind\l# null() : \l}"
+	 ]
+
+	 ReferenceType [
+		 label = "{ReferenceType||}"
+	 ]
+
+	 TypeMirror [
+		 label = "{TypeMirror||# toString() : String\l# equals(Object) : boolean\l# accept(TypeVisitor) : \l}"
+	 ]
+
+	 TypeVariable [
+		 label = "{TypeVariable||# getDeclaration() : TypeParameterDeclaration\l}"
+	 ]
+
+	 VoidType [
+		 label = "{VoidType||}"
+	 ]
+
+	 WildcardType [
+		 label = "{WildcardType||# getUpperBounds() : Collection\l# getLowerBounds() : Collection\l}"
+	 ]
+
+	 ArrayTypeImpl [
+		 label = "{ArrayTypeImpl|- _arrayBinding : ITypeBinding\l- _env : BaseProcessorEnv\l|# ArrayTypeImpl(ITypeBinding, BaseProcessorEnv) : \l# accept(TypeVisitor) : \l# getComponentType() : EclipseMirrorType\l# toString() : String\l# equals(Object) : boolean\l# getTypeBinding() : ITypeBinding\l# hashCode() : int\l# kind() : MirrorKind\l# getEnvironment() : BaseProcessorEnv\l# isAssignmentCompatible(EclipseMirrorType) : boolean\l# isSubTypeCompatible(EclipseMirrorType) : boolean\l}"
+	 ]
+
+	 ErrorArrayType [
+		 label = "{ErrorArrayType|# _name : String\l- _dimension : int\l|# ErrorType(String) : \l# getActualTypeArguments() : Collection\l# getContainingType() : DeclaredType\l# toString() : String\l# accept(TypeVisitor) : \l# getSuperinterfaces() : Collection\l# kind() : MirrorKind\l# getEnvironment() : BaseProcessorEnv\l# null() : \l# ErrorClass(String) : \l# accept(TypeVisitor) : \l# getSuperclass() : ClassType\l# getDeclaration() : ClassDeclaration\l# null() : \l# ErrorInterface(String) : \l# accept(TypeVisitor) : \l# getDeclaration() : InterfaceDeclaration\l# null() : \l# ErrorAnnotation(String) : \l# accept(TypeVisitor) : \l# getDeclaration() : AnnotationTypeDeclaration\l# null() : \l# ErrorArrayType(String, int) : \l# accept(TypeVisitor) : \l# getDeclaration() : TypeDeclaration\l# getComponentType() : TypeMirror\l# toString() : String\l# getTypeBinding() : ITypeBinding\l# isAssignmentCompatible(EclipseMirrorType) : boolean\l# isSubTypeCompatible(EclipseMirrorType) : boolean\l}"
+	 ]
+
+	 PrimitiveTypeImpl [
+		 label = "{PrimitiveTypeImpl|- _binding : ITypeBinding\l|# PrimitiveTypeImpl(ITypeBinding) : \l# accept(TypeVisitor) : \l# getKind() : PrimitiveType\l# toString() : String\l# getTypeBinding() : ITypeBinding\l# kind() : MirrorKind\l# equals(Object) : boolean\l# getEnvironment() : BaseProcessorEnv\l# isAssignmentCompatible(EclipseMirrorType) : boolean\l# isSubTypeCompatible(EclipseMirrorType) : boolean\l}"
+	 ]
+
+	 VoidTypeImpl [
+		 label = "{VoidTypeImpl|- _binding : ITypeBinding\l|# VoidTypeImpl(ITypeBinding) : \l# accept(TypeVisitor) : \l# toString() : String\l# getTypeBinding() : ITypeBinding\l# kind() : MirrorKind\l# getEnvironment() : BaseProcessorEnv\l# isAssignmentCompatible(EclipseMirrorType) : boolean\l# isSubTypeCompatible(EclipseMirrorType) : boolean\l}"
+	 ]
+
+	 WildcardTypeImpl [
+		 label = "{WildcardTypeImpl|- _binding : ITypeBinding\l- _env : BaseProcessorEnv\l|# WildcardTypeImpl(ITypeBinding, BaseProcessorEnv) : \l# accept(TypeVisitor) : \l# getLowerBounds() : Collection\l# getUpperBounds() : Collection\l# toString() : String\l# hashCode() : int\l# equals(Object) : boolean\l# kind() : MirrorKind\l# getTypeBinding() : ITypeBinding\l# getEnvironment() : BaseProcessorEnv\l# isAssignmentCompatible(EclipseMirrorType) : boolean\l# isSubTypeCompatible(EclipseMirrorType) : boolean\l}"
+	 ]
+
+	 edge [
+		 arrowhead = "empty"
+	 ]
+
+	 MirroredTypeException -> RuntimeException
+	 MirroredTypesException -> RuntimeException
+	 ErrorArrayType -> ErrorType
+	 edge [
+		 arrowhead = "diamond"
+	 ]
+
+	 TypeMirror->MirroredTypeException
+	 ITypeBinding->ArrayTypeImpl
+	 ITypeBinding->PrimitiveTypeImpl
+	 ITypeBinding->VoidTypeImpl
+	 ITypeBinding->WildcardTypeImpl
+	 edge [
+		 arrowhead = "vee"
+		 label = "implements"	 ]
+
+	 AnnotationType->InterfaceType
+	 ArrayType->ReferenceType
+	 ClassType->DeclaredType
+	 DeclaredType->ReferenceType
+	 EnumType->ClassType
+	 InterfaceType->DeclaredType
+	 PrimitiveType->TypeMirror
+	 ReferenceType->TypeMirror
+	 TypeVariable->ReferenceType
+	 VoidType->TypeMirror
+	 WildcardType->TypeMirror
+	 ArrayTypeImpl->ArrayType
+	 ArrayTypeImpl->EclipseMirrorType
+	 ErrorArrayType->DeclaredType
+	 ErrorArrayType->ReferenceType
+	 ErrorArrayType->EclipseMirrorType
+	 ErrorArrayType->ClassType
+	 ErrorArrayType->InterfaceType
+	 ErrorArrayType->AnnotationType
+	 ErrorArrayType->ArrayType
+	 PrimitiveTypeImpl->PrimitiveType
+	 PrimitiveTypeImpl->EclipseMirrorType
+	 VoidTypeImpl->VoidType
+	 VoidTypeImpl->EclipseMirrorType
+	 WildcardTypeImpl->WildcardType
+	 WildcardTypeImpl->EclipseMirrorType
+}

@@ -1,0 +1,321 @@
+digraph ClassDiagram {
+	 fontname = "Bitstream Vera Sans"
+	 fontsize = 8
+
+	 node [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+		 shape = "record"
+	 ]
+
+	 edge [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+	 ]
+
+	 AnnotationMirror [
+		 label = "{AnnotationMirror||# getAnnotationType() : AnnotationType\l# getPosition() : SourcePosition\l# getElementValues() : Map\l}"
+	 ]
+
+	 AnnotationTypeDeclaration [
+		 label = "{AnnotationTypeDeclaration||# getMethods() : Collection\l}"
+	 ]
+
+	 AnnotationTypeElementDeclaration [
+		 label = "{AnnotationTypeElementDeclaration||# getDefaultValue() : AnnotationValue\l# getDeclaringType() : AnnotationTypeDeclaration\l}"
+	 ]
+
+	 AnnotationValue [
+		 label = "{AnnotationValue||# getValue() : Object\l# getPosition() : SourcePosition\l# toString() : String\l}"
+	 ]
+
+	 ClassDeclaration [
+		 label = "{ClassDeclaration||# getSuperclass() : ClassType\l# getConstructors() : Collection\l# getMethods() : Collection\l}"
+	 ]
+
+	 ConstructorDeclaration [
+		 label = "{ConstructorDeclaration||}"
+	 ]
+
+	 Declaration [
+		 label = "{Declaration||# equals(Object) : boolean\l# getDocComment() : String\l# getAnnotationMirrors() : Collection\l# null(Class) : \l# getModifiers() : Collection\l# getSimpleName() : String\l# getPosition() : SourcePosition\l# accept(DeclarationVisitor) : \l}"
+	 ]
+
+	 EnumConstantDeclaration [
+		 label = "{EnumConstantDeclaration||# getDeclaringType() : EnumDeclaration\l}"
+	 ]
+
+	 EnumDeclaration [
+		 label = "{EnumDeclaration||# getEnumConstants() : Collection\l}"
+	 ]
+
+	 ExecutableDeclaration [
+		 label = "{ExecutableDeclaration||# isVarArgs() : boolean\l# getFormalTypeParameters() : Collection\l# getParameters() : Collection\l# getThrownTypes() : Collection\l}"
+	 ]
+
+	 FieldDeclaration [
+		 label = "{FieldDeclaration||# getType() : TypeMirror\l# getConstantValue() : Object\l# getConstantExpression() : String\l}"
+	 ]
+
+	 InterfaceDeclaration [
+		 label = "{InterfaceDeclaration||}"
+	 ]
+
+	 MemberDeclaration [
+		 label = "{MemberDeclaration||# getDeclaringType() : TypeDeclaration\l}"
+	 ]
+
+	 MethodDeclaration [
+		 label = "{MethodDeclaration||# getReturnType() : TypeMirror\l}"
+	 ]
+
+	 null [
+		 label = "{null|- lowercase : String\l|# toString() : String\l}"
+	 ]
+
+	 PackageDeclaration [
+		 label = "{PackageDeclaration||# getQualifiedName() : String\l# getClasses() : Collection\l# getEnums() : Collection\l# getInterfaces() : Collection\l# getAnnotationTypes() : Collection\l}"
+	 ]
+
+	 ParameterDeclaration [
+		 label = "{ParameterDeclaration||# getType() : TypeMirror\l}"
+	 ]
+
+	 TypeDeclaration [
+		 label = "{TypeDeclaration||# getPackage() : PackageDeclaration\l# getQualifiedName() : String\l# getFormalTypeParameters() : Collection\l# getSuperinterfaces() : Collection\l# getFields() : Collection\l# getMethods() : Collection\l# getNestedTypes() : Collection\l}"
+	 ]
+
+	 TypeParameterDeclaration [
+		 label = "{TypeParameterDeclaration||# getBounds() : Collection\l# getOwner() : Declaration\l}"
+	 ]
+
+	 AnnotationDeclarationImpl [
+		 label = "{AnnotationDeclarationImpl||# AnnotationDeclarationImpl(ITypeBinding, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l+ getMethods() : Collection\l# accept(TypeVisitor) : \l# getDeclaration() : AnnotationTypeDeclaration\l# kind() : MirrorKind\l}"
+	 ]
+
+	 AnnotationElementDeclarationImpl [
+		 label = "{AnnotationElementDeclarationImpl||# AnnotationElementDeclarationImpl(IMethodBinding, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l# getDeclaringType() : AnnotationTypeDeclaration\l# getDefaultValue() : AnnotationValue\l# getAstNodeForDefault() : ASTNode\l# getParameters() : Collection\l# kind() : MirrorKind\l}"
+	 ]
+
+	 AnnotationMirrorImpl [
+		 label = "{AnnotationMirrorImpl|- _domAnnotation : IAnnotationBinding\l- _env : BaseProcessorEnv\l- _annotated : EclipseDeclarationImpl\l|# AnnotationMirrorImpl(IAnnotationBinding, EclipseDeclarationImpl, BaseProcessorEnv) : \l# getAnnotationType() : AnnotationType\l# getElementValues() : Map\l# getPosition() : SourcePosition\l+ toString() : String\l# getMemberValueTypeBinding(String) : ITypeBinding\l# getValueTypeBinding(Object, ITypeBinding) : ITypeBinding\l# getValue(String) : Object\l# getMethodBinding(String) : IMethodBinding\l# getResolvedAnnotaion() : IAnnotationBinding\l# kind() : MirrorKind\l# isFromSource() : boolean\l# getAstNode() : org\l# getASTNodeForElement(String) : ASTNode\l# getCompilationUnit() : CompilationUnit\l# getEnvironment() : BaseProcessorEnv\l# getResource() : IFile\l# getAnnotatedDeclaration() : EclipseDeclarationImpl\l+ equals(Object) : boolean\l+ hashCode() : int\l}"
+	 ]
+
+	 AnnotationValueImpl [
+		 label = "{AnnotationValueImpl|- _parent : EclipseMirrorObject\l- _env : BaseProcessorEnv\l- _value : Object\l- _name : String\l- _index : int\l|# AnnotationValueImpl(Object, int, AnnotationElementDeclarationImpl, BaseProcessorEnv) : \l# AnnotationValueImpl(Object, String, int, AnnotationMirrorImpl, BaseProcessorEnv) : \l+ getPosition() : SourcePosition\l# getCompilationUnit() : CompilationUnit\l# isFromSource() : boolean\l# getResource() : IFile\l# getValue() : Object\l# kind() : MirrorKind\l# getEnvironment() : BaseProcessorEnv\l+ toString() : String\l}"
+	 ]
+
+	 ASTBasedAnnotationElementDeclarationImpl [
+		 label = "{ASTBasedAnnotationElementDeclarationImpl||# ASTBasedAnnotationElementDeclarationImpl(AnnotationTypeMemberDeclaration, IFile, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l# getDeclaringType() : AnnotationTypeDeclaration\l# getDefaultValue() : AnnotationValue\l# getAstNodeForDefault() : ASTNode\l# isVarArgs() : boolean\l# getSimpleName() : String\l# getReturnType() : TypeMirror\l# toString() : String\l# getParameters() : Collection\l# kind() : MirrorKind\l# getMemberAstNode() : AnnotationTypeMemberDeclaration\l}"
+	 ]
+
+	 ASTBasedConstructorDeclarationImpl [
+		 label = "{ASTBasedConstructorDeclarationImpl||# ASTBasedConstructorDeclarationImpl(org, IFile, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l# kind() : MirrorKind\l}"
+	 ]
+
+	 ASTBasedDeclarationImpl [
+		 label = "{ASTBasedDeclarationImpl|# EMPTY_STRING : String\l# _astNode : ASTNode\l# _file : IFile\l|# ASTBasedDeclarationImpl(ASTNode, IFile, BaseProcessorEnv) : \l# getModifiers() : Collection\l# getModifiers(int) : Collection\l# null(Class) : \l# getAnnotationMirrors() : Collection\l+ getAnnotationInstancesFromAST() : IAnnotationBinding\l# isFromSource() : boolean\l# getAstNode() : ASTNode\l# getCompilationUnit() : CompilationUnit\l# getResource() : IFile\l# getPosition() : SourcePosition\l# isBindingBased() : boolean\l# equals(Object) : boolean\l# hashCode() : int\l}"
+	 ]
+
+	 ASTBasedExecutableDeclarationImpl [
+		 label = "{ASTBasedExecutableDeclarationImpl||# ASTBasedExecutableDeclarationImpl(org, IFile, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l# getFormalTypeParameters() : Collection\l# getParameters() : Collection\l# getThrownTypes() : Collection\l# isVarArgs() : boolean\l# getSimpleName() : String\l# getMethodAstNode() : org\l# toString() : String\l}"
+	 ]
+
+	 ASTBasedFieldDeclarationImpl [
+		 label = "{ASTBasedFieldDeclarationImpl||# ASTBasedFieldDeclarationImpl(VariableDeclarationFragment, IFile, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l# getConstantExpression() : String\l# getConstantValue() : Object\l# getSimpleName() : String\l# getType() : TypeMirror\l# toString() : String\l# kind() : MirrorKind\l# getAstNode() : VariableDeclarationFragment\l# getFieldDeclarationAstNode() : org\l}"
+	 ]
+
+	 ASTBasedMemberDeclarationImpl [
+		 label = "{ASTBasedMemberDeclarationImpl||# ASTBasedMemberDeclarationImpl(ASTNode, IFile, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l# getDeclaringType() : TypeDeclaration\l# getDocComment() : String\l# getContainingTypeAstNode() : AbstractTypeDeclaration\l}"
+	 ]
+
+	 ASTBasedMethodDeclarationImpl [
+		 label = "{ASTBasedMethodDeclarationImpl||# ASTBasedMethodDeclarationImpl(org, IFile, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l# getReturnType() : TypeMirror\l# kind() : MirrorKind\l}"
+	 ]
+
+	 BinaryParameterDeclarationImpl [
+		 label = "{BinaryParameterDeclarationImpl|# ARG : String\l- _type : ITypeBinding\l- _executable : ExecutableDeclarationImpl\l- _paramIndex : int\l|# BinaryParameterDeclarationImpl(ExecutableDeclarationImpl, ITypeBinding, int, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l# getModifiers() : Collection\l# getDocComment() : String\l# getSimpleName() : String\l# getPosition() : SourcePosition\l# getType() : TypeMirror\l# null(Class) : \l# getAnnotationMirrors() : Collection\l# isBindingBased() : boolean\l# isFromSource() : boolean\l# getAstNode() : ASTNode\l# getResource() : IFile\l# getTypeBinding() : ITypeBinding\l# kind() : MirrorKind\l# getDeclarationBinding() : IBinding\l# equals(Object) : boolean\l# hashCode() : int\l# toString() : String\l}"
+	 ]
+
+	 ClassDeclarationImpl [
+		 label = "{ClassDeclarationImpl||# ClassDeclarationImpl(ITypeBinding, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l+ getASTConstructor(AbstractTypeDeclaration, List) : \l# getConstructors() : Collection\l+ getMethods() : Collection\l# accept(TypeVisitor) : \l# getSuperclass() : ClassType\l# getDeclaration() : ClassDeclaration\l# kind() : MirrorKind\l}"
+	 ]
+
+	 ConstructorDeclarationImpl [
+		 label = "{ConstructorDeclarationImpl||# ConstructorDeclarationImpl(IMethodBinding, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l# kind() : MirrorKind\l# toString() : String\l}"
+	 ]
+
+	 DeclarationImpl [
+		 label = "{DeclarationImpl|# _binding : IBinding\l+ getDeclarationBinding : IBinding\l|# DeclarationImpl(IBinding, BaseProcessorEnv) : \l# equals(Object) : boolean\l# hashCode() : int\l# getModifiers() : Collection\l# isBindingBased() : boolean\l# getAstNode() : ASTNode\l# getCompilationUnit() : CompilationUnit\l# getResource() : IFile\l}"
+	 ]
+
+	 EclipseDeclarationImpl [
+		 label = "{EclipseDeclarationImpl|# _env : BaseProcessorEnv\l# getAstNode : ASTNode\l# getCompilationUnit : CompilationUnit\l# getResource : IFile\l+ isFromSource : boolean\l+ isBindingBased : boolean\l|# EclipseDeclarationImpl(BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l+ null(Class, IAnnotationBinding) : \l# _getAnnotationMirrors(IAnnotationBinding) : Collection\l# _getAnnotationMirrors(List) : Collection\l# getEnvironment() : BaseProcessorEnv\l# getRangeNode() : ASTNode\l# getDocComment(BodyDeclaration) : String\l}"
+	 ]
+
+	 EclipseMirrorObject [
+		 label = "{EclipseMirrorObject||# null() : \l# kind() : MirrorKind\l# getEnvironment() : BaseProcessorEnv\l}"
+	 ]
+
+	 EclipseMirrorType [
+		 label = "{EclipseMirrorType||# isAssignmentCompatible(EclipseMirrorType) : boolean\l# isSubTypeCompatible(EclipseMirrorType) : boolean\l# getTypeBinding() : ITypeBinding\l}"
+	 ]
+
+	 EnumConstantDeclarationImpl [
+		 label = "{EnumConstantDeclarationImpl||# EnumConstantDeclarationImpl(IVariableBinding, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l# getDeclaringType() : EnumDeclaration\l# kind() : MirrorKind\l}"
+	 ]
+
+	 EnumDeclarationImpl [
+		 label = "{EnumDeclarationImpl||# EnumDeclarationImpl(ITypeBinding, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l# getEnumConstants() : Collection\l# accept(TypeVisitor) : \l# getDeclaration() : EnumDeclaration\l# kind() : MirrorKind\l}"
+	 ]
+
+	 ExecutableDeclarationImpl [
+		 label = "{ExecutableDeclarationImpl||# ExecutableDeclarationImpl(IMethodBinding, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l# getDeclaringType() : TypeDeclaration\l# getFormalTypeParameters() : Collection\l# getParameters() : Collection\l# getThrownTypes() : Collection\l# isVarArgs() : boolean\l# getSimpleName() : String\l# getDeclarationBinding() : IMethodBinding\l# isFromSource() : boolean\l}"
+	 ]
+
+	 ExecutableUtil [
+		 label = "{ExecutableUtil||# getFormalTypeParameters(EclipseDeclarationImpl, BaseProcessorEnv) : Collection\l# getParameters(EclipseDeclarationImpl, BaseProcessorEnv) : Collection\l# getThrownTypes(EclipseDeclarationImpl, BaseProcessorEnv) : Collection\l}"
+	 ]
+
+	 FieldDeclarationImpl [
+		 label = "{FieldDeclarationImpl||# FieldDeclarationImpl(IVariableBinding, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l# getConstantExpression() : String\l# getConstantValue() : Object\l# getDeclaringType() : TypeDeclaration\l# getSimpleName() : String\l# getType() : TypeMirror\l# getDeclarationBinding() : IVariableBinding\l# toString() : String\l# kind() : MirrorKind\l# isFromSource() : boolean\l}"
+	 ]
+
+	 InterfaceDeclarationImpl [
+		 label = "{InterfaceDeclarationImpl||# InterfaceDeclarationImpl(ITypeBinding, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l# getMethods() : Collection\l# accept(TypeVisitor) : \l# getDeclaration() : InterfaceDeclaration\l# kind() : MirrorKind\l}"
+	 ]
+
+	 MemberDeclarationImpl [
+		 label = "{MemberDeclarationImpl||# MemberDeclarationImpl(IBinding, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l# null(Class) : \l# getAnnotationMirrors() : Collection\l# getAnnotationInstances() : IAnnotationBinding\l# getDocComment() : String\l# getPosition() : SourcePosition\l}"
+	 ]
+
+	 MethodDeclarationImpl [
+		 label = "{MethodDeclarationImpl||# MethodDeclarationImpl(IMethodBinding, BaseProcessorEnv) : \l# getReturnType() : TypeMirror\l# accept(DeclarationVisitor) : \l# kind() : MirrorKind\l# toString() : String\l}"
+	 ]
+
+	 PackageDeclarationImpl [
+		 label = "{PackageDeclarationImpl|- _hideSourcePosition : boolean\l- _typeDecl : TypeDeclarationImpl\l- _pkgFragments : IPackageFragment\l|# PackageDeclarationImpl(IPackageBinding, TypeDeclarationImpl, BaseProcessorEnv, boolean) : \l# PackageDeclarationImpl(IPackageBinding, TypeDeclarationImpl, BaseProcessorEnv, boolean, IPackageFragment) : \l# getPackageBinding() : IPackageBinding\l# accept(DeclarationVisitor) : \l# null(Class) : \l# getAnnotationMirrors() : Collection\l# getAnnotationTypes() : Collection\l# getClasses() : Collection\l# getEnums() : Collection\l# getInterfaces() : Collection\l# getDocComment() : String\l# getModifiers() : Collection\l# getPosition() : SourcePosition\l# getQualifiedName() : String\l# getSimpleName() : String\l# kind() : MirrorKind\l# toString() : String\l# getDeclarationBinding() : IPackageBinding\l# isFromSource() : boolean\l# initFragments() : \l# getTypesInPackage(IPackageFragment) : List\l}"
+	 ]
+
+	 PackageDeclarationImplNoBinding [
+		 label = "{PackageDeclarationImplNoBinding|- fragments : IPackageFragment\l|# PackageDeclarationImplNoBinding(IPackageFragment) : \l# getQualifiedName() : String\l# getClasses() : Collection\l# getEnums() : Collection\l# getInterfaces() : Collection\l# getAnnotationTypes() : Collection\l# getDocComment() : String\l# getAnnotationMirrors() : Collection\l# null(Class) : \l# getModifiers() : Collection\l# getSimpleName() : String\l# getPosition() : SourcePosition\l# accept(DeclarationVisitor) : \l}"
+	 ]
+
+	 SourceParameterDeclarationImpl [
+		 label = "{SourceParameterDeclarationImpl||# SourceParameterDeclarationImpl(SingleVariableDeclaration, IFile, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l# getType() : TypeMirror\l# getSimpleName() : String\l# getDocComment() : String\l# getAstNode() : SingleVariableDeclaration\l# kind() : MirrorKind\l# toString() : String\l# equals(Object) : boolean\l# hashCode() : int\l}"
+	 ]
+
+	 TypeDeclarationImpl [
+		 label = "{TypeDeclarationImpl|- HAS_INCONSISTENT_TYPE_HIERACHY : String\l|# TypeDeclarationImpl(ITypeBinding, BaseProcessorEnv) : \l# getQualifiedName() : String\l# getSimpleName() : String\l# getPackage() : PackageDeclaration\l# accept(DeclarationVisitor) : \l# getTypeBinding() : ITypeBinding\l# getASTFields(AbstractTypeDeclaration, List) : \l# getFields() : Collection\l# getNestedTypes() : Collection\l# getFormalTypeParameters() : Collection\l# getDeclaringType() : TypeDeclaration\l# getActualTypeArguments() : Collection\l# getContainingType() : DeclaredType\l# getDeclaration() : TypeDeclaration\l# getSuperinterfaces() : Collection\l# getDeclarationBinding() : ITypeBinding\l+ getASTMethods(AbstractTypeDeclaration, List) : \l# _getMethods() : List\l# toString() : String\l# isFromSource() : boolean\l# isAssignmentCompatible(EclipseMirrorType) : boolean\l# isSubTypeCompatible(EclipseMirrorType) : boolean\l# isImplementorOf(ITypeBinding, ITypeBinding) : boolean\l# isSubClassOf(ITypeBinding, ITypeBinding) : boolean\l# eq(ITypeBinding, ITypeBinding) : boolean\l}"
+	 ]
+
+	 TypeParameterDeclarationImpl [
+		 label = "{TypeParameterDeclarationImpl||# TypeParameterDeclarationImpl(ITypeBinding, BaseProcessorEnv) : \l# accept(DeclarationVisitor) : \l# null(Class) : \l# getAnnotationMirrors() : Collection\l# getBounds() : Collection\l# getDocComment() : String\l# getModifiers() : Collection\l# getOwner() : Declaration\l# getOwnerBinding() : IBinding\l# getPosition() : SourcePosition\l# getSimpleName() : String\l# accept(TypeVisitor) : \l# getDeclaration() : TypeParameterDeclaration\l# toString() : String\l# kind() : MirrorKind\l# getDeclarationBinding() : ITypeBinding\l# getTypeBinding() : ITypeBinding\l# isFromSource() : boolean\l# isAssignmentCompatible(EclipseMirrorType) : boolean\l# isSubTypeCompatible(EclipseMirrorType) : boolean\l}"
+	 ]
+
+	 edge [
+		 arrowhead = "empty"
+	 ]
+
+	 AnnotationDeclarationImpl -> InterfaceDeclarationImpl
+	 AnnotationElementDeclarationImpl -> MethodDeclarationImpl
+	 ASTBasedAnnotationElementDeclarationImpl -> ASTBasedMethodDeclarationImpl
+	 ASTBasedConstructorDeclarationImpl -> ASTBasedExecutableDeclarationImpl
+	 ASTBasedDeclarationImpl -> EclipseDeclarationImpl
+	 ASTBasedExecutableDeclarationImpl -> ASTBasedMemberDeclarationImpl
+	 ASTBasedFieldDeclarationImpl -> ASTBasedMemberDeclarationImpl
+	 ASTBasedMemberDeclarationImpl -> ASTBasedDeclarationImpl
+	 ASTBasedMethodDeclarationImpl -> ASTBasedExecutableDeclarationImpl
+	 BinaryParameterDeclarationImpl -> DeclarationImpl
+	 ClassDeclarationImpl -> TypeDeclarationImpl
+	 ConstructorDeclarationImpl -> ExecutableDeclarationImpl
+	 DeclarationImpl -> EclipseDeclarationImpl
+	 EnumConstantDeclarationImpl -> FieldDeclarationImpl
+	 EnumDeclarationImpl -> ClassDeclarationImpl
+	 ExecutableDeclarationImpl -> MemberDeclarationImpl
+	 FieldDeclarationImpl -> MemberDeclarationImpl
+	 InterfaceDeclarationImpl -> TypeDeclarationImpl
+	 MemberDeclarationImpl -> DeclarationImpl
+	 MethodDeclarationImpl -> ExecutableDeclarationImpl
+	 PackageDeclarationImpl -> DeclarationImpl
+	 SourceParameterDeclarationImpl -> ASTBasedDeclarationImpl
+	 TypeDeclarationImpl -> MemberDeclarationImpl
+	 TypeParameterDeclarationImpl -> DeclarationImpl
+	 edge [
+		 arrowhead = "diamond"
+	 ]
+
+	 IAnnotationBinding->AnnotationMirrorImpl
+	 EclipseDeclarationImpl->AnnotationMirrorImpl
+	 EclipseMirrorObject->AnnotationValueImpl
+	 Object->AnnotationValueImpl
+	 ASTNode->ASTBasedDeclarationImpl
+	 ITypeBinding->BinaryParameterDeclarationImpl
+	 ExecutableDeclarationImpl->BinaryParameterDeclarationImpl
+	 IBinding->DeclarationImpl
+	 ASTNode->EclipseDeclarationImpl
+	 CompilationUnit->EclipseDeclarationImpl
+	 TypeDeclarationImpl->PackageDeclarationImpl
+	 IPackageFragment->PackageDeclarationImpl
+	 IPackageFragment->PackageDeclarationImplNoBinding
+	 edge [
+		 arrowhead = "vee"
+		 label = "implements"	 ]
+
+	 AnnotationTypeDeclaration->InterfaceDeclaration
+	 AnnotationTypeElementDeclaration->MethodDeclaration
+	 ClassDeclaration->TypeDeclaration
+	 ConstructorDeclaration->ExecutableDeclaration
+	 EnumConstantDeclaration->FieldDeclaration
+	 EnumDeclaration->ClassDeclaration
+	 ExecutableDeclaration->MemberDeclaration
+	 FieldDeclaration->MemberDeclaration
+	 InterfaceDeclaration->TypeDeclaration
+	 MemberDeclaration->Declaration
+	 MethodDeclaration->ExecutableDeclaration
+	 PackageDeclaration->Declaration
+	 ParameterDeclaration->Declaration
+	 TypeDeclaration->MemberDeclaration
+	 TypeParameterDeclaration->Declaration
+	 AnnotationDeclarationImpl->AnnotationTypeDeclaration
+	 AnnotationDeclarationImpl->AnnotationType
+	 AnnotationElementDeclarationImpl->AnnotationTypeElementDeclaration
+	 AnnotationMirrorImpl->AnnotationMirror
+	 AnnotationMirrorImpl->EclipseMirrorObject
+	 AnnotationValueImpl->EclipseMirrorObject
+	 AnnotationValueImpl->AnnotationValue
+	 ASTBasedAnnotationElementDeclarationImpl->AnnotationTypeElementDeclaration
+	 ASTBasedConstructorDeclarationImpl->ConstructorDeclaration
+	 ASTBasedExecutableDeclarationImpl->ExecutableDeclaration
+	 ASTBasedFieldDeclarationImpl->FieldDeclaration
+	 ASTBasedMemberDeclarationImpl->MemberDeclaration
+	 ASTBasedMethodDeclarationImpl->MethodDeclaration
+	 BinaryParameterDeclarationImpl->ParameterDeclaration
+	 ClassDeclarationImpl->ClassDeclaration
+	 ClassDeclarationImpl->ClassType
+	 ConstructorDeclarationImpl->ConstructorDeclaration
+	 EclipseDeclarationImpl->Declaration
+	 EclipseDeclarationImpl->EclipseMirrorObject
+	 EclipseMirrorType->EclipseMirrorObject
+	 EclipseMirrorType->TypeMirror
+	 EnumConstantDeclarationImpl->EnumConstantDeclaration
+	 EnumDeclarationImpl->EnumDeclaration
+	 EnumDeclarationImpl->EnumType
+	 ExecutableDeclarationImpl->ExecutableDeclaration
+	 FieldDeclarationImpl->FieldDeclaration
+	 InterfaceDeclarationImpl->InterfaceDeclaration
+	 InterfaceDeclarationImpl->InterfaceType
+	 MemberDeclarationImpl->MemberDeclaration
+	 MemberDeclarationImpl->EclipseMirrorObject
+	 MethodDeclarationImpl->MethodDeclaration
+	 PackageDeclarationImpl->PackageDeclaration
+	 PackageDeclarationImplNoBinding->PackageDeclaration
+	 SourceParameterDeclarationImpl->ParameterDeclaration
+	 TypeDeclarationImpl->TypeDeclaration
+	 TypeDeclarationImpl->DeclaredType
+	 TypeDeclarationImpl->ReferenceType
+	 TypeDeclarationImpl->EclipseMirrorType
+	 TypeParameterDeclarationImpl->TypeParameterDeclaration
+	 TypeParameterDeclarationImpl->TypeVariable
+	 TypeParameterDeclarationImpl->EclipseMirrorType
+}

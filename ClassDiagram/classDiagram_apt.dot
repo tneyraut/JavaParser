@@ -1,0 +1,76 @@
+digraph ClassDiagram {
+	 fontname = "Bitstream Vera Sans"
+	 fontsize = 8
+
+	 node [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+		 shape = "record"
+	 ]
+
+	 edge [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+	 ]
+
+	 AnnotationProcessor [
+		 label = "{AnnotationProcessor||# process() : \l}"
+	 ]
+
+	 AnnotationProcessorEnvironment [
+		 label = "{AnnotationProcessorEnvironment||# getOptions() : Map\l# getMessager() : Messager\l# getFiler() : Filer\l# getSpecifiedTypeDeclarations() : Collection\l# getPackage(String) : PackageDeclaration\l# getTypeDeclaration(String) : TypeDeclaration\l# getTypeDeclarations() : Collection\l# getDeclarationsAnnotatedWith(AnnotationTypeDeclaration) : Collection\l# getDeclarationUtils() : Declarations\l# getTypeUtils() : Types\l# addListener(AnnotationProcessorListener) : \l# removeListener(AnnotationProcessorListener) : \l}"
+	 ]
+
+	 AnnotationProcessorFactory [
+		 label = "{AnnotationProcessorFactory||# supportedOptions() : Collection\l# supportedAnnotationTypes() : Collection\l# getProcessorFor(Set, AnnotationProcessorEnvironment) : AnnotationProcessor\l}"
+	 ]
+
+	 AnnotationProcessorListener [
+		 label = "{AnnotationProcessorListener||}"
+	 ]
+
+	 CompositeAnnotationProcessor [
+		 label = "{CompositeAnnotationProcessor|- aps : List\l+ NO_OP : AnnotationProcessor\l|# null() : \l# NoOpAP() : \l# process() : \l# null() : \l# CompositeAnnotationProcessor(Collection) : \l# CompositeAnnotationProcessor(AnnotationProcessor) : \l# process() : \l# getCompositeAnnotationProcessor(AnnotationProcessor) : AnnotationProcessor\l# getCompositeAnnotationProcessor(Collection) : AnnotationProcessor\l}"
+	 ]
+
+	 Filer [
+		 label = "{Filer||# createSourceFile(String) : PrintWriter\l# createClassFile(String) : OutputStream\l# createTextFile(Location, String, File, String) : PrintWriter\l# createBinaryFile(Location, String, File) : OutputStream\l# null() : \l}"
+	 ]
+
+	 Messager [
+		 label = "{Messager||# printError(String) : \l# printError(SourcePosition, String) : \l# printWarning(String) : \l# printWarning(SourcePosition, String) : \l# printNotice(String) : \l# printNotice(SourcePosition, String) : \l}"
+	 ]
+
+	 RoundCompleteEvent [
+		 label = "{RoundCompleteEvent|- rs : RoundState\l|# RoundCompleteEvent(AnnotationProcessorEnvironment, RoundState) : \l# getRoundState() : RoundState\l# getSource() : AnnotationProcessorEnvironment\l}"
+	 ]
+
+	 RoundCompleteListener [
+		 label = "{RoundCompleteListener||# roundComplete(RoundCompleteEvent) : \l}"
+	 ]
+
+	 RoundState [
+		 label = "{RoundState||# finalRound() : boolean\l# errorRaised() : boolean\l# sourceFilesCreated() : boolean\l# classFilesCreated() : boolean\l}"
+	 ]
+
+	 edge [
+		 arrowhead = "empty"
+	 ]
+
+	 RoundCompleteEvent -> java
+	 edge [
+		 arrowhead = "diamond"
+	 ]
+
+	 List->CompositeAnnotationProcessor
+	 AnnotationProcessor->CompositeAnnotationProcessor
+	 RoundState->RoundCompleteEvent
+	 edge [
+		 arrowhead = "vee"
+		 label = "implements"	 ]
+
+	 AnnotationProcessorListener->java
+	 CompositeAnnotationProcessor->AnnotationProcessor
+	 CompositeAnnotationProcessor->AnnotationProcessor
+	 RoundCompleteListener->AnnotationProcessorListener
+}

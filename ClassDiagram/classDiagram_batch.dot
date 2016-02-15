@@ -1,0 +1,77 @@
+digraph ClassDiagram {
+	 fontname = "Bitstream Vera Sans"
+	 fontsize = 8
+
+	 node [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+		 shape = "record"
+	 ]
+
+	 edge [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+	 ]
+
+	 null [
+		 label = "{null||}"
+	 ]
+
+	 BatchAnnotationFactory [
+		 label = "{BatchAnnotationFactory|- SUPPORTED_TYPES : List\l|# getProcessorFor(Set, AnnotationProcessorEnvironment) : AnnotationProcessor\l# supportedAnnotationTypes() : Collection\l# supportedOptions() : Collection\l}"
+	 ]
+
+	 null [
+		 label = "{null||}"
+	 ]
+
+	 BatchGen1AnnotationProcessor [
+		 label = "{BatchGen1AnnotationProcessor|- ROUND : int\l- SUPPORTED_TYPES : List\l# _env : AnnotationProcessorEnvironment\l# _env : AnnotationProcessorEnvironment\l|# getProcessorFor(Set, AnnotationProcessorEnvironment) : AnnotationProcessor\l# supportedAnnotationTypes() : Collection\l# supportedOptions() : Collection\l# null() : \l# BatchGen0AnnotationProcessor(AnnotationProcessorEnvironment) : \l# process() : \l# null() : \l# BatchGen1AnnotationProcessor(AnnotationProcessorEnvironment) : \l# process() : \l}"
+	 ]
+
+	 BatchProcessor [
+		 label = "{BatchProcessor|- TIMES_CALLED : int\l- _env : AnnotationProcessorEnvironment\l|# BatchProcessor(AnnotationProcessorEnvironment) : \l# process() : \l}"
+	 ]
+
+	 ClasspathJsr199 [
+		 label = "{ClasspathJsr199|- fileTypes : Set\l- fileManager : JavaFileManager\l- location : JavaFileManager\l|# null() : \l# ClasspathJsr199(JavaFileManager, JavaFileManager) : \l+ fetchLinkedJars(FileSystem) : List\l+ findClass(char, String, String) : NameEnvironmentAnswer\l+ findClass(char, String, String, boolean) : NameEnvironmentAnswer\l+ findTypeNames(String) : char\l+ initialize() : \l+ isPackage(String) : boolean\l+ reset() : \l+ toString() : String\l+ normalizedPath() : char\l+ getPath() : String\l+ getMode() : int\l+ hasAnnotationFileFor(String) : boolean\l}"
+	 ]
+
+	 BatchCompiler [
+		 label = "{BatchCompiler||# compile(String, PrintWriter, PrintWriter, CompilationProgress) : boolean\l# compile(String, PrintWriter, PrintWriter, CompilationProgress) : boolean\l# BatchCompiler() : \l}"
+	 ]
+
+	 BatchCompilerRequestor [
+		 label = "{BatchCompilerRequestor|- compiler : Main\l- lineDelta : int\l|# BatchCompilerRequestor(Main) : \l+ acceptResult(CompilationResult) : \l# reportProblems(CompilationResult) : \l}"
+	 ]
+
+	 ClasspathDirectory [
+		 label = "{ClasspathDirectory|- directoryCache : Hashtable\l- missingPackageHolder : String\l- mode : int\l- encoding : String\l- packageSecondaryTypes : Hashtable\l# options : Map\l|# ClasspathDirectory(File, String, int, AccessRuleSet, String, Map) : \l# directoryList(String) : String\l# doesFileExist(String, String) : boolean\l# fetchLinkedJars(FileSystem) : List\l# findClass(char, String, String) : NameEnvironmentAnswer\l# findClass(char, String, String, boolean) : NameEnvironmentAnswer\l# findSecondaryInClass(char, String, String) : NameEnvironmentAnswer\l+ hasAnnotationFileFor(String) : boolean\l# getPackageTypes(char, String) : Hashtable\l# findSourceSecondaryType(char, String, String) : NameEnvironmentAnswer\l# findTypeNames(String) : char\l# accept(File, String) : boolean\l# initialize() : \l# isPackage(String) : boolean\l# reset() : \l# toString() : String\l# normalizedPath() : char\l# getPath() : String\l# getMode() : int\l}"
+	 ]
+
+	 ClasspathJar [
+		 label = "{ClasspathJar|# file : File\l# zipFile : ZipFile\l# annotationZipFile : ZipFile\l# closeZipFileAtEnd : boolean\l# packageCache : Hashtable\l# annotationPaths : List\l|# ClasspathJar(File, boolean, AccessRuleSet, String) : \l# fetchLinkedJars(FileSystem) : List\l# findClass(char, String, String) : NameEnvironmentAnswer\l# findClass(char, String, String, boolean) : NameEnvironmentAnswer\l+ hasAnnotationFileFor(String) : boolean\l# findTypeNames(String) : char\l# initialize() : \l# isPackage(String) : boolean\l# reset() : \l# toString() : String\l# normalizedPath() : char\l# getPath() : String\l# getMode() : int\l}"
+	 ]
+
+	 ClasspathLocation [
+		 label = "{ClasspathLocation|+ SOURCE : int\l+ BINARY : int\l# path : String\l# normalizedPath : char\l+ accessRuleSet : AccessRuleSet\l+ destinationPath : String\l|# ClasspathLocation(AccessRuleSet, String) : \l# fetchAccessRestriction(String) : AccessRestriction\l# getMode() : int\l# hashCode() : int\l# equals(Object) : boolean\l# getPath() : String\l}"
+	 ]
+
+	 ClasspathSourceJar [
+		 label = "{ClasspathSourceJar|- encoding : String\l|# ClasspathSourceJar(File, boolean, AccessRuleSet, String, String) : \l# findClass(char, String, String, boolean) : NameEnvironmentAnswer\l# findClass(char, String, String) : NameEnvironmentAnswer\l# getMode() : int\l}"
+	 ]
+
+	 CompilationUnit [
+		 label = "{CompilationUnit|+ contents : char\l+ fileName : char\l+ mainTypeName : char\l# encoding : String\l+ destinationPath : String\l- ignoreOptionalProblems : boolean\l|# CompilationUnit(char, String, String) : \l# CompilationUnit(char, String, String, String) : \l# CompilationUnit(char, String, String, String, boolean) : \l# getContents() : char\l# getFileName() : char\l# getMainTypeName() : char\l# getPackageName() : char\l# ignoreOptionalProblems() : boolean\l# toString() : String\l}"
+	 ]
+
+	 FileFinder [
+		 label = "{FileFinder||# find(File, String) : String\l# find0(File, String, ArrayList) : \l}"
+	 ]
+
+	 ClasspathNormalizer [
+		 label = "{ClasspathNormalizer|# classpaths : Classpath\l# knownFileNames : Set\l# annotationsFromClasspath : boolean\l|# null() : \l# findTypeNames(String) : char\l# findClass(char, String, String) : NameEnvironmentAnswer\l# findClass(char, String, String, boolean) : NameEnvironmentAnswer\l# isPackage(String) : boolean\l# fetchLinkedJars(ClasspathSectionProblemReporter) : List\l# reset() : \l# normalizedPath() : char\l# getPath() : String\l# initialize() : \l# hasAnnotationFileFor(String) : boolean\l# null() : \l# invalidClasspathSection(String) : \l# multipleClasspathSections(String) : \l# null() : \l# normalize(ArrayList) : ArrayList\l# FileSystem(String, String, String) : \l# FileSystem(Classpath, String, boolean) : \l# getClasspath(String, String, AccessRuleSet) : Classpath\l# getClasspath(String, String, AccessRuleSet, Map) : Classpath\l# getClasspath(String, String, boolean, AccessRuleSet, String, Map) : Classpath\l# initializeKnownFileNames(String) : \l# cleanup() : \l# convertPathSeparators(String) : String\l# findClass(String, char, boolean) : NameEnvironmentAnswer\l# internalFindClass(String, char, boolean) : NameEnvironmentAnswer\l# findType(char) : NameEnvironmentAnswer\l# findTypeNames(char) : char\l# findType(char, boolean) : NameEnvironmentAnswer\l# findType(char, char) : NameEnvironmentAnswer\l# isPackage(char, char) : boolean\l}"
+	 ]
+
+	 ResourceBundleFactory [
+		 label = "{ResourceBundleFactory|- err : PrintWriter\l- log : PrintWriter\l- main : Main\l- out : PrintWriter\l- parameters : HashMap\l# tagBits : int\l- CLASS : String\l- CLASS_FILE : String\l- CLASSPATH : String\l- CLASSPATH_FILE : String\l- CLASSPATH_FOLDER : String\l- CLASSPATH_ID : String\l- CLASSPATH_JAR : String\l- CLASSPATHS : String\l- COMMAND_LINE_ARGUMENT : String\l- COMMAND_LINE_ARGUMENTS : String\l- COMPILER : String\l- COMPILER_COPYRIGHT : String\l- COMPILER_NAME : String\l- COMPILER_VERSION : String\l+ EMACS : int\l- ERROR : String\l- ERROR_TAG : String\l- WARNING_TAG : String\l- EXCEPTION : String\l- EXTRA_PROBLEM_TAG : String\l- EXTRA_PROBLEMS : String\l- FIELD_TABLE : HashtableOfInt\l- KEY : String\l- MESSAGE : String\l- NUMBER_OF_CLASSFILES : String\l- NUMBER_OF_ERRORS : String\l- NUMBER_OF_LINES : String\l- NUMBER_OF_PROBLEMS : String\l- NUMBER_OF_TASKS : String\l- NUMBER_OF_WARNINGS : String\l- OPTION : String\l- OPTIONS : String\l- OUTPUT : String\l- PACKAGE : String\l- PATH : String\l- PROBLEM_ARGUMENT : String\l- PROBLEM_ARGUMENT_VALUE : String\l- PROBLEM_ARGUMENTS : String\l- PROBLEM_CATEGORY_ID : String\l- ID : String\l- PROBLEM_ID : String\l- PROBLEM_LINE : String\l- PROBLEM_OPTION_KEY : String\l- PROBLEM_MESSAGE : String\l- PROBLEM_SEVERITY : String\l- PROBLEM_SOURCE_END : String\l- PROBLEM_SOURCE_START : String\l- PROBLEM_SUMMARY : String\l- PROBLEM_TAG : String\l- PROBLEMS : String\l- SOURCE : Str

@@ -1,0 +1,917 @@
+digraph ClassDiagram {
+	 fontname = "Bitstream Vera Sans"
+	 fontsize = 8
+
+	 node [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+		 shape = "record"
+	 ]
+
+	 edge [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+	 ]
+
+	 AbstractMethodDeclaration [
+		 label = "{AbstractMethodDeclaration|+ scope : MethodScope\l+ selector : char\l+ declarationSourceStart : int\l+ declarationSourceEnd : int\l+ modifiers : int\l+ modifiersSourceStart : int\l+ annotations : Annotation\l+ receiver : Receiver\l+ arguments : Argument\l+ thrownExceptions : TypeReference\l+ statements : Statement\l+ explicitDeclarations : int\l+ binding : MethodBinding\l+ ignoreFurtherInvestigation : boolean\l+ javadoc : Javadoc\l+ bodyStart : int\l+ bodyEnd : int\l+ compilationResult : CompilationResult\l+ parseStatements : null\l|# AbstractMethodDeclaration(CompilationResult) : \l# abort(int, CategorizedProblem) : \l# createArgumentBindings() : \l# createArgumentBindings(Argument, MethodBinding, MethodScope) : \l# bindArguments() : \l# bindThrownExceptions() : \l# analyseArguments(LookupEnvironment, FlowInfo, Argument, MethodBinding) : \l# compilationResult() : CompilationResult\l# generateCode(ClassScope, ClassFile) : \l# generateCode(ClassFile) : \l# getAllAnnotationContexts(int, List) : \l# checkArgumentsSize() : \l# getCompilationUnitDeclaration() : CompilationUnitDeclaration\l# hasErrors() : boolean\l# isAbstract() : boolean\l# isAnnotationMethod() : boolean\l# isClinit() : boolean\l# isConstructor() : boolean\l# isDefaultConstructor() : boolean\l# isDefaultMethod() : boolean\l# isInitializationMethod() : boolean\l# isMethod() : boolean\l# isNative() : boolean\l# isStatic(Parser, CompilationUnitDeclaration) : boolean\l# print(int, StringBuffer) : StringBuffer\l# printBody(int, StringBuffer) : StringBuffer\l# printReturnType(int, StringBuffer) : StringBuffer\l# resolve(ClassScope) : \l# resolveReceiver() : \l# resolveJavadoc() : \l# resolveStatements() : \l# tagAsHavingErrors() : \l# tagAsHavingIgnoredMandatoryErrors(int) : \l# traverse(ASTVisitor, ClassScope) : \l# typeParameters() : TypeParameter\l# validateNullAnnotations(boolean) : \l}"
+	 ]
+
+	 AbstractVariableDeclaration [
+		 label = "{AbstractVariableDeclaration|+ declarationEnd : int\l+ declarationSourceEnd : int\l+ declarationSourceStart : int\l+ hiddenVariableDepth : int\l+ initialization : Expression\l+ modifiers : int\l+ modifiersSourceStart : int\l+ annotations : Annotation\l+ name : char\l+ type : TypeReference\l+ FIELD : int\l+ INITIALIZER : int\l+ ENUM_CONSTANT : int\l+ LOCAL_VARIABLE : int\l+ PARAMETER : int\l+ TYPE_PARAMETER : int\l+ getKind : int\l|# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# genericTypeArguments() : TypeBinding\l# freshInferenceContext(Scope) : InferenceContext18\l# isSuperAccess() : boolean\l# isTypeAccess() : boolean\l# printStatement(int, StringBuffer) : StringBuffer\l# printAsExpression(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# setActualReceiverType(ReferenceBinding) : \l# setDepth(int) : \l# setFieldIndex(int) : \l}"
+	 ]
+
+	 AllocationExpression [
+		 label = "{AllocationExpression|+ type : TypeReference\l+ arguments : Expression\l+ binding : MethodBinding\l# syntheticAccessor : MethodBinding\l+ typeArguments : TypeReference\l+ genericTypeArguments : TypeBinding\l+ enumConstant : FieldDeclaration\l# typeExpected : TypeBinding\l+ inferredReturnType : boolean\l+ closeTracker : FakedTrackingVariable\l+ expressionContext : ExpressionContext\l- inferenceContexts : SimpleLookupTable\l+ solutionsPerTargetType : HashMap\l- outerInferenceContext : InferenceContext18\l+ argsContainCast : boolean\l+ argumentTypes : TypeBinding\l+ argumentsHaveErrors : boolean\l|# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# checkCapturedLocalInitializationIfNecessary(ReferenceBinding, BlockScope, FlowInfo) : \l# enclosingInstance() : Expression\l# generateCode(BlockScope, CodeStream, boolean) : \l# genericTypeArguments() : TypeBinding\l# isSuperAccess() : boolean\l# isTypeAccess() : boolean\l# manageEnclosingInstanceAccessIfNecessary(BlockScope, FlowInfo) : \l# manageSyntheticAccessIfNecessary(BlockScope, FlowInfo) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# checkIllegalNullAnnotation(BlockScope, TypeBinding) : \l# isBoxingCompatibleWith(TypeBinding, Scope) : boolean\l# isCompatibleWith(TypeBinding, Scope) : boolean\l# inferConstructorOfElidedParameterizedType(Scope) : MethodBinding\l# inferElidedTypes(Scope) : TypeBinding\l# checkTypeArgumentRedundancy(ParameterizedTypeBinding, BlockScope) : \l# setActualReceiverType(ReferenceBinding) : \l# setDepth(int) : \l# setFieldIndex(int) : \l# traverse(ASTVisitor, BlockScope) : \l# setExpectedType(TypeBinding) : \l# setExpressionContext(ExpressionContext) : \l# isPolyExpression() : boolean\l# isPolyExpression(MethodBinding) : boolean\l# invocationTargetType() : TypeBinding\l# statementExpression() : boolean\l# binding() : MethodBinding\l# arguments() : Expression\l# registerInferenceContext(ParameterizedGenericMethodBinding, InferenceContext18) : \l+ registerResult(TypeBinding, MethodBinding) : \l# getInferenceContext(ParameterizedMethodBinding) : InferenceContext18\l+ cleanUpInferenceContexts() : \l# getExpressionContext() : ExpressionContext\l# freshInferenceContext(Scope) : InferenceContext18\l}"
+	 ]
+
+	 AND_AND_Expression [
+		 label = "{AND_AND_Expression|# rightInitStateIndex : int\l# mergedInitStateIndex : int\l|# AND_AND_Expression(Expression, Expression, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream, boolean) : \l# generateOptimizedBoolean(BlockScope, CodeStream, BranchLabel, BranchLabel, boolean) : \l# isCompactableOperation() : boolean\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 MissingTargetBuilder [
+		 label = "{MissingTargetBuilder|# persistibleAnnotation : Annotation\l# typePathEntries : Stack\l# searchedAnnotation : Annotation\l# continueSearch : boolean\l# NoValuePairs : MemberValuePair\l# TYPE_PATH_ELEMENT_ARRAY : int\l# TYPE_PATH_INNER_TYPE : int\l# TYPE_PATH_ANNOTATION_ON_WILDCARD_BOUND : int\l+ declarationSourceEnd : int\l+ recipient : Binding\l+ type : TypeReference\l# compilerAnnotation : AnnotationBinding\l# targetBuffer : StringBuffer\l+ memberValuePairs : MemberValuePair\l+ traverse : null\l+ traverse : null\l|# getLocations(Expression, Annotation) : int\l# LocationCollector(Annotation) : \l# computeNestingDepth(TypeReference) : int\l# inspectAnnotations(Annotation) : \l# inspectArrayDimensions(Annotation, int) : \l# inspectTypeArguments(TypeReference) : \l# visit(TypeReference, BlockScope) : boolean\l# visit(SingleTypeReference, BlockScope) : boolean\l# visit(ArrayTypeReference, BlockScope) : boolean\l# visit(ParameterizedSingleTypeReference, BlockScope) : boolean\l# visit(QualifiedTypeReference, BlockScope) : boolean\l# visit(ArrayQualifiedTypeReference, BlockScope) : boolean\l# visit(ParameterizedQualifiedTypeReference, BlockScope) : boolean\l# visit(Wildcard, BlockScope) : boolean\l# visit(ArrayAllocationExpression, BlockScope) : boolean\l# toString() : String\l# getRetentionPolicy(char) : long\l# getTargetElementType(char) : long\l# computeElementValuePairs() : ElementValuePair\l# detectStandardAnnotation(Scope, ReferenceBinding, MemberValuePair) : long\l# nullLocationBitsFromAnnotationValue(Object) : int\l# evaluateDefaultNullnessLocation(Object) : int\l# getRetentionName(long) : String\l# getAnnotationRetention(ReferenceBinding) : long\l# checkRepeatableMetaAnnotation(BlockScope) : \l# checkContainerAnnotationType(ASTNode, BlockScope, ReferenceBinding, ReferenceBinding, boolean) : \l# checkContainerAnnotationTypeTarget(ASTNode, Scope, ReferenceBinding, ReferenceBinding) : \l# check(long, char) : \l# checkAnnotationType(char) : \l# add(char) : \l# toString() : String\l# hasError() : boolean\l# checkContainingAnnotationTargetAtUse(Annotation, BlockScope, TypeBinding, TypeBinding) : \l# getCompilerAnnotation() : AnnotationBinding\l# isRuntimeInvisible() : boolean\l# isRuntimeTypeInvisible() : boolean\l# isRuntimeTypeVisible() : boolean\l# isRuntimeVisible() : boolean\l# printExpression(int, StringBuffer) : StringBuffer\l# recordSuppressWarnings(Scope, int, int, boolean) : \l# resolveType(BlockScope) : TypeBinding\l# isAnnotationTargetAllowed(Binding, BlockScope, TypeBinding, int, long) : boolean\l# isAnnotationTargetAllowed(BlockScope, TypeBinding, Binding) : boolean\l# isAnnotationTargetAllowed(Annotation, BlockScope, TypeBinding, int) : boolean\l# checkAnnotationTarget(Annotation, BlockScope, ReferenceBinding, int, Binding, long) : \l# checkForInstancesOfRepeatableWithRepeatingContainerAnnotation(BlockScope, ReferenceBinding, Annotation) : \l# isTypeUseCompatible(TypeReference, Scope) : boolean\l# isTypeUseCompatible(TypeReference, Scope, Annotation) : \l# hasNullBit(int, ASTVisitor, BlockScope, ASTVisitor, ClassScope) : boolean\l# getPersistibleAnnotation() : Annotation\l# setPersistibleAnnotation(ContainerAnnotation) : \l}"
+	 ]
+
+	 AnnotationMethodDeclaration [
+		 label = "{AnnotationMethodDeclaration|+ defaultValue : Expression\l+ extendedDimensions : int\l|# AnnotationMethodDeclaration(CompilationResult) : \l# generateCode(ClassFile) : \l# isAnnotationMethod() : boolean\l# isMethod() : boolean\l# parseStatements(Parser, CompilationUnitDeclaration) : \l# print(int, StringBuffer) : StringBuffer\l# resolveStatements() : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 Argument [
+		 label = "{Argument|- SET : char\l|# Argument(char, long, TypeReference, int) : \l# Argument(char, long, TypeReference, int, boolean) : \l+ isRecoveredFromLoneIdentifier() : boolean\l# createBinding(MethodScope, TypeBinding) : TypeBinding\l# bind(MethodScope, TypeBinding, boolean) : TypeBinding\l# getKind() : int\l# isArgument() : boolean\l# isVarArgs() : boolean\l# hasElidedType() : boolean\l# hasNullTypeAnnotation(AnnotationPosition) : boolean\l# print(int, StringBuffer) : StringBuffer\l# printStatement(int, StringBuffer) : StringBuffer\l# resolveForCatch(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 ArrayAllocationExpression [
+		 label = "{ArrayAllocationExpression|+ type : TypeReference\l+ dimensions : Expression\l+ annotationsOnDimensions : Annotation\l+ initializer : ArrayInitializer\l- expectedType : TypeBinding\l|# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream, boolean) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l+ setExpectedType(TypeBinding) : \l# traverse(ASTVisitor, BlockScope) : \l# getAllAnnotationContexts(int, int, List) : \l# getAnnotationsOnDimensions() : Annotation\l}"
+	 ]
+
+	 ArrayInitializer [
+		 label = "{ArrayInitializer|+ expressions : Expression\l+ binding : ArrayBinding\l|# ArrayInitializer() : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream, boolean) : \l# generateCode(TypeReference, ArrayAllocationExpression, BlockScope, CodeStream, boolean) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveTypeExpecting(BlockScope, TypeBinding) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ArrayQualifiedTypeReference [
+		 label = "{ArrayQualifiedTypeReference|# dimensions : int\l- annotationsOnDimensions : Annotation\l+ extendedDimensions : int\l|# ArrayQualifiedTypeReference(char, int, long) : \l# ArrayQualifiedTypeReference(char, int, Annotation, long) : \l# dimensions() : int\l# extraDimensions() : int\l# getAnnotationsOnDimensions(boolean) : Annotation\l# setAnnotationsOnDimensions(Annotation) : \l# getParameterizedTypeName() : char\l# getTypeBinding(Scope) : TypeBinding\l# internalResolveType(Scope, int) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 ArrayReference [
+		 label = "{ArrayReference|+ receiver : Expression\l+ position : Expression\l|# ArrayReference(Expression, Expression) : \l# analyseAssignment(BlockScope, FlowContext, FlowInfo, Assignment, boolean) : FlowInfo\l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# checkNPE(BlockScope, FlowContext, FlowInfo, int) : boolean\l# generateAssignment(BlockScope, CodeStream, Assignment, boolean) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateCompoundAssignment(BlockScope, CodeStream, Expression, int, int, boolean) : \l# generatePostIncrement(BlockScope, CodeStream, CompoundAssignment, boolean) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ArrayTypeReference [
+		 label = "{ArrayTypeReference|+ dimensions : int\l- annotationsOnDimensions : Annotation\l+ originalSourceEnd : int\l+ extendedDimensions : int\l|# ArrayTypeReference(char, int, long) : \l# ArrayTypeReference(char, int, Annotation, long) : \l# dimensions() : int\l# extraDimensions() : int\l# getAnnotationsOnDimensions(boolean) : Annotation\l# setAnnotationsOnDimensions(Annotation) : \l# getParameterizedTypeName() : char\l# getTypeBinding(Scope) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# internalResolveType(Scope, int) : TypeBinding\l+ hasNullTypeAnnotation(AnnotationPosition) : boolean\l}"
+	 ]
+
+	 AssertStatement [
+		 label = "{AssertStatement|+ assertExpression : Expression\l# preAssertInitStateIndex : int\l- assertionSyntheticFieldBinding : FieldBinding\l|# AssertStatement(Expression, Expression, int) : \l# AssertStatement(Expression, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l# manageSyntheticAccessIfNecessary(BlockScope, FlowInfo) : \l# printStatement(int, StringBuffer) : StringBuffer\l}"
+	 ]
+
+	 Assignment [
+		 label = "{Assignment|+ lhs : Expression\l+ expression : Expression\l|# Assignment(Expression, Expression, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# checkAssignment(BlockScope, TypeBinding, TypeBinding) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# getLastField(Expression) : FieldBinding\l# nullStatus(FlowInfo, FlowContext) : int\l# print(int, StringBuffer) : StringBuffer\l# printExpression(int, StringBuffer) : StringBuffer\l# printExpressionNoParenthesis(int, StringBuffer) : StringBuffer\l# printStatement(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# resolveTypeExpecting(BlockScope, TypeBinding) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# localVariableBinding() : LocalVariableBinding\l# statementExpression() : boolean\l}"
+	 ]
+
+	 ASTNode [
+		 label = "{ASTNode|+ sourceStart : int\l+ Bit1 : int\l+ Bit2 : int\l+ Bit3 : int\l+ Bit4 : int\l+ Bit5 : int\l+ Bit6 : int\l+ Bit7 : int\l+ Bit8 : int\l+ Bit9 : int\l+ Bit10 : int\l+ Bit11 : int\l+ Bit12 : int\l+ Bit13 : int\l+ Bit14 : int\l+ Bit15 : int\l+ Bit16 : int\l+ Bit17 : int\l+ Bit18 : int\l+ Bit19 : int\l+ Bit20 : int\l+ Bit21 : int\l+ Bit22 : int\l+ Bit23 : int\l+ Bit24 : int\l+ Bit25 : int\l+ Bit26 : int\l+ Bit27 : int\l+ Bit28 : int\l+ Bit29 : int\l+ Bit30 : int\l+ Bit31 : int\l+ Bit32 : int\l+ Bit32L : long\l+ Bit33L : long\l+ Bit34L : long\l+ Bit35L : long\l+ Bit36L : long\l+ Bit37L : long\l+ Bit38L : long\l+ Bit39L : long\l+ Bit40L : long\l+ Bit41L : long\l+ Bit42L : long\l+ Bit43L : long\l+ Bit44L : long\l+ Bit45L : long\l+ Bit46L : long\l+ Bit47L : long\l+ Bit48L : long\l+ Bit49L : long\l+ Bit50L : long\l+ Bit51L : long\l+ Bit52L : long\l+ Bit53L : long\l+ Bit54L : long\l+ Bit55L : long\l+ Bit56L : long\l+ Bit57L : long\l+ Bit58L : long\l+ Bit59L : long\l+ Bit60L : long\l+ Bit61L : long\l+ Bit62L : long\l+ Bit63L : long\l+ Bit64L : long\l+ bits : int\l+ ReturnTypeIDMASK : int\l+ OperatorSHIFT : int\l+ OperatorMASK : int\l+ IsReturnedValue : int\l+ UnnecessaryCast : int\l+ DisableUnnecessaryCastCheck : int\l+ GenerateCheckcast : int\l+ UnsafeCast : int\l+ RestrictiveFlagMASK : int\l+ IsTypeElided : int\l+ IsArgument : int\l+ IsLocalDeclarationReachable : int\l+ IsForeachElementVariable : int\l+ ShadowsOuterLocal : int\l+ FirstAssignmentToLocal : int\l+ NeedReceiverGenericCast : int\l+ IsImplicitThis : int\l+ DepthSHIFT : int\l+ DepthMASK : int\l+ IsCapturedOuterLocal : int\l+ IsReachable : int\l+ LabelUsed : int\l+ DocumentedFallthrough : int\l+ DocumentedCasesOmitted : int\l+ IsSubRoutineEscaping : int\l+ IsTryBlockExiting : int\l+ ContainsAssertion : int\l+ IsLocalType : int\l+ IsAnonymousType : int\l+ IsMemberType : int\l+ HasAbstractMethods : int\l+ IsSecondaryType : int\l+ HasBeenGenerated : int\l+ HasLocalType : int\l+ HasBeenResolved : int\l+ ParenthesizedSHIFT : int\l+ ParenthesizedMASK : int\l+ IgnoreNoEffectAssignCheck : int\l+ IsStrictlyAssigned : int\l+ IsCompoundAssigned : int\l+ DiscardEnclosingInstance : int\l+ Unchecked : int\l+ ResolveJavadoc : int\l+ IsUsefulEmptyStatement : int\l+ UndocumentedEmptyBlock : int\l+ OverridingMethodWithSupercall : int\l+ CanBeStatic : int\l+ ErrorInSignature : int\l+ NeedFreeReturn : int\l+ IsDefaultConstructor : int\l+ HasAllMethodBodies : int\l+ IsImplicitUnit : int\l+ InsideJavadoc : int\l+ SuperAccess : int\l+ Empty : int\l+ IsElseIfStatement : int\l+ ThenExit : int\l+ IsElseStatementUnreachable : int\l+ IsThenStatementUnreachable : int\l+ IsSuperType : int\l+ IsVarArgs : int\l+ IgnoreRawTypeCheck : int\l+ IsAnnotationDefaultValue : int\l+ IsNonNull : int\l+ NeededScope : int\l+ OnDemand : int\l+ Used : int\l+ DidResolve : int\l+ IsAnySubRoutineEscaping : int\l+ IsSynchronized : int\l+ BlockExit : int\l+ IsRecovered : int\l+ HasSyntaxErrors : int\l+ INVOCATION_ARGUMENT_OK : int\l+ INVOCATION_ARGUMENT_UNCHECKED : int\l+ INVOCATION_ARGUMENT_WILDCARD : int\l+ HasTypeAnnotations : int\l+ IsUnionType : int\l+ IsDiamond : int\l+ InsideExpressionStatement : int\l+ IsSynthetic : int\l+ HasFunctionalInterfaceTypes : int\l+ NO_ARGUMENTS : Argument\l+ print : StringBuffer\l|# ASTNode() : \l# checkInvocationArgument(BlockScope, Expression, TypeBinding, TypeBinding, TypeBinding) : int\l# checkInvocationArguments(BlockScope, Expression, TypeBinding, MethodBinding, Expression, TypeBinding, boolean, InvocationSite) : boolean\l# concreteStatement() : ASTNode\l# isFieldUseDeprecated(FieldBinding, Scope, int) : boolean\l# isImplicitThis() : boolean\l# receiverIsImplicitThis() : boolean\l# isMethodUseDeprecated(MethodBinding, Scope, boolean) : boolean\l# isSuper() : boolean\l# isQualifiedSuper() : boolean\l# isThis() : boolean\l# isUnqualifiedSuper() : boolean\l# isTypeUseDeprecated(TypeBinding, Scope, int, StringBuffer) : boolean\l# printAnnotations(Annotation, StringBuffer) : StringBuffer\l# printIndent(int, StringBuffer) : StringBuffer\l# printModifiers(int, StringBuffer) : StringBuffer\l# resolvePolyExpressionArguments(Invocation, MethodBinding, TypeBinding, BlockScope) : \l# resolveAnnotations(BlockScope, Annotation, Binding) : \l# resolveAnnotations(BlockScope, Annotation, Binding, boolean) : AnnotationBinding\l# resolveAnnotations(BlockScope, Annotation, TypeBinding) : TypeBinding\l# copySE8AnnotationsToType(BlockScope, Binding, Annotation, boolean) : \l# mergeAnnotationsIntoType(BlockScope, AnnotationBinding, long, Annotation, TypeReference, TypeBinding) : TypeBinding\l# resolveDeprecatedAnnotations(BlockScope, Annotation, Binding) : \l# checkingPotentialCompatibility() : boolean\l# acceptPotentiallyCompatibleMethods(MethodBinding) : \l# sourceStart() : int\l# sourceEnd() : int\l# toString() : String\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 BinaryExpression [
+		 label = "{BinaryExpression|+ left : Expression\l+ optimizedBooleanConstant : Constant\l|# BinaryExpression(Expression, Expression, int) : \l# BinaryExpression(BinaryExpression) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# computeConstant(BlockScope, int, int) : \l# optimizedBooleanConstant() : Constant\l# generateCode(BlockScope, CodeStream, boolean) : \l# generateOptimizedBoolean(BlockScope, CodeStream, BranchLabel, BranchLabel, boolean) : \l# generateOptimizedGreaterThan(BlockScope, CodeStream, BranchLabel, BranchLabel, boolean) : \l# generateOptimizedGreaterThanOrEqual(BlockScope, CodeStream, BranchLabel, BranchLabel, boolean) : \l# generateOptimizedLessThan(BlockScope, CodeStream, BranchLabel, BranchLabel, boolean) : \l# generateOptimizedLessThanOrEqual(BlockScope, CodeStream, BranchLabel, BranchLabel, boolean) : \l# generateLogicalAnd(BlockScope, CodeStream, boolean) : \l# generateLogicalOr(BlockScope, CodeStream, boolean) : \l# generateLogicalXor(BlockScope, CodeStream, boolean) : \l# generateOptimizedLogicalAnd(BlockScope, CodeStream, BranchLabel, BranchLabel, boolean) : \l# generateOptimizedLogicalOr(BlockScope, CodeStream, BranchLabel, BranchLabel, boolean) : \l# generateOptimizedLogicalXor(BlockScope, CodeStream, BranchLabel, BranchLabel, boolean) : \l# generateOptimizedStringConcatenation(BlockScope, CodeStream, int) : \l# generateOptimizedStringConcatenationCreation(BlockScope, CodeStream, int) : \l# isCompactableOperation() : boolean\l# nonRecursiveResolveTypeUpwards(BlockScope) : \l# optimizedBooleanConstant(int, int, int) : \l# printExpressionNoParenthesis(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 Block [
+		 label = "{Block|+ statements : Statement\l+ explicitDeclarations : int\l+ scope : BlockScope\l|# Block(int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# isEmptyBlock() : boolean\l# printBody(int, StringBuffer) : StringBuffer\l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# resolveUsing(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l# branchChainTo(BranchLabel) : \l+ doesNotCompleteNormally() : boolean\l+ completesByContinue() : boolean\l}"
+	 ]
+
+	 BranchStatement [
+		 label = "{BranchStatement|+ label : char\l+ targetLabel : BranchLabel\l+ subroutines : SubRoutineStatement\l+ initStateIndex : int\l|# BranchStatement(char, int, int) : \l# generateCode(BlockScope, CodeStream) : \l# resolve(BlockScope) : \l}"
+	 ]
+
+	 BreakStatement [
+		 label = "{BreakStatement||# BreakStatement(char, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# printStatement(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l+ doesNotCompleteNormally() : boolean\l}"
+	 ]
+
+	 CaseStatement [
+		 label = "{CaseStatement|+ constantExpression : Expression\l+ targetLabel : BranchLabel\l|# CaseStatement(Expression, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# printStatement(int, StringBuffer) : StringBuffer\l# generateCode(BlockScope, CodeStream) : \l# resolve(BlockScope) : \l# resolveCase(BlockScope, TypeBinding, SwitchStatement) : Constant\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 CastExpression [
+		 label = "{CastExpression|+ expression : Expression\l+ type : TypeReference\l+ expectedType : TypeBinding\l|# CastExpression(Expression, TypeReference) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# checkNeedForAssignedCast(BlockScope, TypeBinding, CastExpression) : \l# checkNeedForCastCast(BlockScope, CastExpression) : \l# checkNeedForEnclosingInstanceCast(BlockScope, Expression, TypeBinding, TypeBinding) : \l# checkNeedForArgumentCast(BlockScope, int, int, Expression, int) : \l# checkNeedForArgumentCasts(BlockScope, Expression, TypeBinding, MethodBinding, Expression, TypeBinding, InvocationSite) : \l# checkNeedForArgumentCasts(BlockScope, int, int, Expression, int, boolean, Expression, int, boolean) : \l# checkNPE(BlockScope, FlowContext, FlowInfo, int) : boolean\l# checkAlternateBinding(BlockScope, Expression, TypeBinding, MethodBinding, Expression, TypeBinding, TypeBinding, InvocationSite) : \l# genericTypeArguments() : TypeBinding\l# isSuperAccess() : boolean\l# isTypeAccess() : boolean\l# setActualReceiverType(ReferenceBinding) : \l# setDepth(int) : \l# setFieldIndex(int) : \l# sourceStart() : int\l# sourceEnd() : int\l# invocationTargetType() : TypeBinding\l# receiverIsImplicitThis() : boolean\l# freshInferenceContext(Scope) : InferenceContext18\l# getExpressionContext() : ExpressionContext\l# isQualifiedSuper() : boolean\l# checkingPotentialCompatibility() : boolean\l# acceptPotentiallyCompatibleMethods(MethodBinding) : \l# checkUnsafeCast(Scope, TypeBinding, TypeBinding, TypeBinding, boolean) : boolean\l# generateCode(BlockScope, CodeStream, boolean) : \l# innermostCastedExpression() : Expression\l# localVariableBinding() : LocalVariableBinding\l# nullStatus(FlowInfo, FlowContext) : int\l# optimizedBooleanConstant() : Constant\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# setExpectedType(TypeBinding) : \l# isIndirectlyUsed() : boolean\l# tagAsNeedCheckCast() : \l# tagAsUnnecessaryCast(Scope, TypeBinding) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 CharLiteral [
+		 label = "{CharLiteral|# value : char\l|# CharLiteral(char, int, int) : \l# computeConstant() : \l# computeValue() : \l# generateCode(BlockScope, CodeStream, boolean) : \l# literalType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ClassLiteralAccess [
+		 label = "{ClassLiteralAccess|+ type : TypeReference\l+ targetType : TypeBinding\l# syntheticField : FieldBinding\l|# ClassLiteralAccess(int, TypeReference) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream, boolean) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 Clinit [
+		 label = "{Clinit|- ENUM_CONSTANTS_THRESHOLD : int\l- assertionSyntheticFieldBinding : FieldBinding\l- classLiteralSyntheticField : FieldBinding\l|# Clinit(CompilationResult) : \l# analyseCode(ClassScope, InitializationFlowContext, FlowInfo) : \l# generateCode(ClassScope, ClassFile) : \l# generateCode(ClassScope, ClassFile, int) : \l# isClinit() : boolean\l# isInitializationMethod() : boolean\l# isStatic() : boolean\l# parseStatements(Parser, CompilationUnitDeclaration) : \l# print(int, StringBuffer) : StringBuffer\l# resolve(ClassScope) : \l# traverse(ASTVisitor, ClassScope) : \l# setAssertionSupport(FieldBinding, boolean) : \l}"
+	 ]
+
+	 CombinedBinaryExpression [
+		 label = "{CombinedBinaryExpression|+ arity : int\l+ arityMax : int\l+ ARITY_MAX_MAX : int\l+ ARITY_MAX_MIN : int\l+ defaultArityMaxStartingValue : int\l+ referencesTable : BinaryExpression\l|# CombinedBinaryExpression(Expression, Expression, int, int) : \l# CombinedBinaryExpression(CombinedBinaryExpression) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateOptimizedStringConcatenation(BlockScope, CodeStream, int) : \l# generateOptimizedStringConcatenationCreation(BlockScope, CodeStream, int) : \l# initArity(Expression, int) : \l# printExpressionNoParenthesis(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# tuneArityMax() : \l}"
+	 ]
+
+	 CompilationUnitDeclaration [
+		 label = "{CompilationUnitDeclaration|- STRING_LITERAL_COMPARATOR : Comparator\l- STRING_LITERALS_INCREMENT : int\l+ currentPackage : ImportReference\l+ imports : ImportReference\l+ types : TypeDeclaration\l+ comments : int\l+ ignoreFurtherInvestigation : boolean\l+ ignoreMethodBodies : boolean\l+ scope : CompilationUnitScope\l+ problemReporter : ProblemReporter\l+ compilationResult : CompilationResult\l+ localTypes : LocalTypeBinding\l+ localTypeCount : int\l+ isPropagatingInnerClassEmulation : boolean\l+ javadoc : Javadoc\l+ nlsTags : NLSTag\l- stringLiterals : StringLiteral\l- stringLiteralsPtr : int\l- stringLiteralsStart : HashSetOfInt\l+ validIdentityComparisonLines : boolean\l# suppressWarningIrritants : IrritantSet\l# suppressWarningAnnotations : Annotation\l# suppressWarningScopePositions : long\l# suppressWarningsCount : int\l+ functionalExpressionsCount : int\l+ functionalExpressions : FunctionalExpression\l|# compare(Object, Object) : int\l# CompilationUnitDeclaration(ProblemReporter, CompilationResult, int) : \l# abort(int, CategorizedProblem) : \l# analyseCode() : \l# cleanUp() : \l# cleanUp(TypeDeclaration) : \l# checkUnusedImports() : \l# compilationResult() : CompilationResult\l# createPackageInfoType() : \l# declarationOfType(char) : TypeDeclaration\l# finalizeProblems() : \l# generateCode() : \l# getCompilationUnitDeclaration() : CompilationUnitDeclaration\l# getFileName() : char\l# getMainTypeName() : char\l# isEmpty() : boolean\l# isPackageInfo() : boolean\l# isSuppressed(CategorizedProblem) : boolean\l# hasFunctionalTypes() : boolean\l# hasErrors() : boolean\l# print(int, StringBuffer) : StringBuffer\l# propagateInnerEmulationForAllLocalTypes() : \l# recordStringLiteral(StringLiteral, boolean) : \l# recordSuppressWarnings(IrritantSet, Annotation, int, int, ReferenceContext) : \l# record(LocalTypeBinding) : \l# record(FunctionalExpression) : int\l# resolve() : \l# reportNLSProblems() : \l# tagAsHavingErrors() : \l# tagAsHavingIgnoredMandatoryErrors(int) : \l# traverse(ASTVisitor, CompilationUnitScope) : \l# traverse(ASTVisitor, CompilationUnitScope, boolean) : \l}"
+	 ]
+
+	 CompoundAssignment [
+		 label = "{CompoundAssignment|+ operator : int\l+ preAssignImplicitConversion : int\l|# CompoundAssignment(Expression, Expression, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# checkCastCompatibility() : boolean\l# generateCode(BlockScope, CodeStream, boolean) : \l# nullStatus(FlowInfo, FlowContext) : int\l# operatorToString() : String\l# printExpressionNoParenthesis(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# restrainUsageToNumericTypes() : boolean\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ConditionalExpression [
+		 label = "{ConditionalExpression|+ condition : Expression\l+ optimizedBooleanConstant : Constant\l+ optimizedIfTrueConstant : Constant\l+ optimizedIfFalseConstant : Constant\l# trueInitStateIndex : int\l# falseInitStateIndex : int\l# mergedInitStateIndex : int\l- nullStatus : int\l# ifFalseNullStatus : int\l# ifTrueNullStatus : int\l- expectedType : TypeBinding\l- expressionContext : ExpressionContext\l- isPolyExpression : boolean\l- originalValueIfTrueType : TypeBinding\l- originalValueIfFalseType : TypeBinding\l- use18specifics : boolean\l|# ConditionalExpression(Expression, Expression, Expression) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# checkNPE(BlockScope, FlowContext, FlowInfo, int) : boolean\l# computeNullStatus(FlowInfo, FlowInfo, FlowContext) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateOptimizedBoolean(BlockScope, CodeStream, BranchLabel, BranchLabel, boolean) : \l# nullStatus(FlowInfo, FlowContext) : int\l# optimizedBooleanConstant() : Constant\l# printExpressionNoParenthesis(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# computeConversions(BlockScope, TypeBinding) : boolean\l# setExpectedType(TypeBinding) : \l# setExpressionContext(ExpressionContext) : \l# getExpressionContext() : ExpressionContext\l+ getPolyExpressions() : Expression\l# isPertinentToApplicability(TypeBinding, MethodBinding) : boolean\l+ isPotentiallyCompatibleWith(TypeBinding, Scope) : boolean\l+ isFunctionalType() : boolean\l# isPolyExpression() : boolean\l# isCompatibleWith(TypeBinding, Scope) : boolean\l+ isBoxingCompatibleWith(TypeBinding, Scope) : boolean\l# sIsMoreSpecific(TypeBinding, TypeBinding, Scope) : boolean\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ConstructorDeclaration [
+		 label = "{ConstructorDeclaration|+ constructorCall : ExplicitConstructorCall\l+ typeParameters : TypeParameter\l|# ConstructorDeclaration(CompilationResult) : \l# analyseCode(ClassScope, InitializationFlowContext, FlowInfo, int) : \l# isValueProvidedUsingAnnotation(FieldDeclaration) : boolean\l# generateCode(ClassScope, ClassFile) : \l# generateSyntheticFieldInitializationsIfNecessary(MethodScope, CodeStream, ReferenceBinding) : \l# internalGenerateCode(ClassScope, ClassFile) : \l# getAllAnnotationContexts(int, List) : \l# isConstructor() : boolean\l# isDefaultConstructor() : boolean\l# isInitializationMethod() : boolean\l# isRecursive(ArrayList) : boolean\l# parseStatements(Parser, CompilationUnitDeclaration) : \l# printBody(int, StringBuffer) : StringBuffer\l# resolveJavadoc() : \l# resolveStatements() : \l# traverse(ASTVisitor, ClassScope) : \l# typeParameters() : TypeParameter\l}"
+	 ]
+
+	 ContainerAnnotation [
+		 label = "{ContainerAnnotation|- containees : Annotation\l- memberValues : ArrayInitializer\l|# ContainerAnnotation(Annotation, ReferenceBinding, BlockScope) : \l# addContainee(Annotation) : \l# resolveType(BlockScope) : TypeBinding\l}"
+	 ]
+
+	 ContinueStatement [
+		 label = "{ContinueStatement||# ContinueStatement(char, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# printStatement(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l+ doesNotCompleteNormally() : boolean\l+ completesByContinue() : boolean\l}"
+	 ]
+
+	 DoStatement [
+		 label = "{DoStatement|+ condition : Expression\l+ action : Statement\l- breakLabel : BranchLabel\l# mergedInitStateIndex : int\l# preConditionInitStateIndex : int\l|# DoStatement(Expression, Statement, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l+ doesNotCompleteNormally() : boolean\l+ completesByContinue() : boolean\l}"
+	 ]
+
+	 DoubleLiteral [
+		 label = "{DoubleLiteral|# value : double\l|# DoubleLiteral(char, int, int) : \l# computeConstant() : \l# generateCode(BlockScope, CodeStream, boolean) : \l# literalType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 EmptyStatement [
+		 label = "{EmptyStatement||# EmptyStatement(int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# complainIfUnreachable(FlowInfo, BlockScope, int, boolean) : int\l# generateCode(BlockScope, CodeStream) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 EqualExpression [
+		 label = "{EqualExpression||# EqualExpression(Expression, Expression, int) : \l# checkNullComparison(BlockScope, FlowContext, FlowInfo, FlowInfo, FlowInfo) : \l# checkVariableComparison(BlockScope, FlowContext, FlowInfo, FlowInfo, FlowInfo, LocalVariableBinding, int, Expression) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# computeConstant(TypeBinding, TypeBinding) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateOptimizedBoolean(BlockScope, CodeStream, BranchLabel, BranchLabel, boolean) : \l# generateBooleanEqual(BlockScope, CodeStream, boolean) : \l# generateOptimizedBooleanEqual(BlockScope, CodeStream, BranchLabel, BranchLabel, boolean) : \l# generateNonBooleanEqual(BlockScope, CodeStream, boolean) : \l# generateOptimizedNonBooleanEqual(BlockScope, CodeStream, BranchLabel, BranchLabel, boolean) : \l# isCompactableOperation() : boolean\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ExplicitConstructorCall [
+		 label = "{ExplicitConstructorCall|+ arguments : Expression\l+ qualification : Expression\l+ binding : MethodBinding\l# syntheticAccessor : MethodBinding\l+ accessMode : int\l+ typeArguments : TypeReference\l+ genericTypeArguments : TypeBinding\l+ ImplicitSuper : int\l+ Super : int\l+ This : int\l+ implicitArguments : VariableBinding\l+ typeArgumentsSourceStart : int\l|# ExplicitConstructorCall(int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# genericTypeArguments() : TypeBinding\l# isImplicitSuper() : boolean\l# isSuperAccess() : boolean\l# isTypeAccess() : boolean\l# manageEnclosingInstanceAccessIfNecessary(BlockScope, FlowInfo) : \l# manageSyntheticAccessIfNecessary(BlockScope, FlowInfo) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# setActualReceiverType(ReferenceBinding) : \l# setDepth(int) : \l# setFieldIndex(int) : \l# traverse(ASTVisitor, BlockScope) : \l# binding() : MethodBinding\l# registerInferenceContext(ParameterizedGenericMethodBinding, InferenceContext18) : \l+ registerResult(TypeBinding, MethodBinding) : \l# getInferenceContext(ParameterizedMethodBinding) : InferenceContext18\l+ cleanUpInferenceContexts() : \l# arguments() : Expression\l# freshInferenceContext(Scope) : InferenceContext18\l}"
+	 ]
+
+	 Expression [
+		 label = "{Expression|+ constant : Constant\l+ statementEnd : int\l+ implicitConversion : int\l+ resolvedType : TypeBinding\l# NO_EXPRESSIONS : Expression\l+ printExpression : StringBuffer\l|# isConstantValueRepresentable(Constant, int, int) : boolean\l# Expression() : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# analyseCode(BlockScope, FlowContext, FlowInfo, boolean) : FlowInfo\l# checkCastTypesCompatibility(Scope, TypeBinding, TypeBinding, Expression) : boolean\l# checkNPE(BlockScope, FlowContext, FlowInfo, int) : boolean\l# checkNPE(BlockScope, FlowContext, FlowInfo) : boolean\l# checkNPEbyUnboxing(BlockScope, FlowContext, FlowInfo) : \l# checkUnsafeCast(Scope, TypeBinding, TypeBinding, TypeBinding, boolean) : boolean\l# computeConversion(Scope, TypeBinding, TypeBinding) : \l# generateCode(BlockScope, CodeStream) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateOptimizedBoolean(BlockScope, CodeStream, BranchLabel, BranchLabel, boolean) : \l# generateOptimizedStringConcatenation(BlockScope, CodeStream, int) : \l# generateOptimizedStringConcatenationCreation(BlockScope, CodeStream, int) : \l# getAllOriginalInheritedMethods(ReferenceBinding) : MethodBinding\l# getAllInheritedMethods0(ReferenceBinding, ArrayList) : \l# getDirectBinding(Expression) : Binding\l# isCompactableOperation() : boolean\l# isConstantValueOfTypeAssignableToType(TypeBinding, TypeBinding) : boolean\l# isTypeReference() : boolean\l# localVariableBinding() : LocalVariableBinding\l# markAsNonNull() : \l# nullStatus(FlowInfo, FlowContext) : int\l# optimizedBooleanConstant() : Constant\l# isPertinentToApplicability(TypeBinding, MethodBinding) : boolean\l# postConversionType(Scope) : TypeBinding\l# print(int, StringBuffer, int, StringBuffer) : StringBuffer\l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# resolveType(BlockScope) : TypeBinding\l# resolveType(ClassScope) : TypeBinding\l# resolveTypeExpecting(BlockScope, TypeBinding) : TypeBinding\l# resolveExpressionExpecting(TypeBinding, Scope, InferenceContext18) : Expression\l# forcedToBeRaw(ReferenceContext) : boolean\l# reusableJSRTarget() : Object\l# setExpectedType(TypeBinding) : \l# setExpressionContext(ExpressionContext) : \l# isCompatibleWith(TypeBinding, Scope) : boolean\l# isBoxingCompatibleWith(TypeBinding, Scope) : boolean\l# sIsMoreSpecific(TypeBinding, TypeBinding, Scope) : boolean\l# isExactMethodReference() : boolean\l# isPolyExpression() : boolean\l# isPolyExpression(MethodBinding) : boolean\l# tagAsNeedCheckCast() : \l# tagAsUnnecessaryCast(Scope, TypeBinding) : \l# toTypeReference() : Expression\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# statementExpression() : boolean\l# nullAnnotatedVariableBinding(boolean) : VariableBinding\l# isFunctionalType() : boolean\l# getPolyExpressions() : Expression\l# isPotentiallyCompatibleWith(TypeBinding, Scope) : boolean\l}"
+	 ]
+
+	 null [
+		 label = "{null|+ definesTargetType : boolean\l|# toString() : String\l# definesTargetType() : boolean\l# toString() : String\l# definesTargetType() : boolean\l# toString() : String\l# definesTargetType() : boolean\l# toString() : String\l# definesTargetType() : boolean\l}"
+	 ]
+
+	 ExtendedStringLiteral [
+		 label = "{ExtendedStringLiteral||# ExtendedStringLiteral(StringLiteral, CharLiteral) : \l# ExtendedStringLiteral(StringLiteral, StringLiteral) : \l# extendWith(CharLiteral) : ExtendedStringLiteral\l# extendWith(StringLiteral) : ExtendedStringLiteral\l# printExpression(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 IteratorForReporting [
+		 label = "{IteratorForReporting|- UNASSIGNED_CLOSEABLE_NAME : char\l- UNASSIGNED_CLOSEABLE_NAME_TEMPLATE : char\l- TEMPLATE_ARGUMENT : char\l- CLOSE_SEEN : int\l- SHARED_WITH_OUTSIDE : int\l- OWNED_BY_OUTSIDE : int\l- CLOSED_IN_NESTED_METHOD : int\l- REPORTED_EXPLICIT_CLOSE : int\l- REPORTED_POTENTIAL_LEAK : int\l- REPORTED_DEFINITIVE_LEAK : int\l+ TEST_372319 : boolean\l- globalClosingState : int\l+ originalBinding : LocalVariableBinding\l+ innerTracker : FakedTrackingVariable\l+ outerTracker : FakedTrackingVariable\l# methodScope : MethodScope\l- recordedLocations : HashMap\l- currentAssignment : ASTNode\l- tryContext : FlowContext\l- varSet : Set\l- scope : Scope\l- atExit : boolean\l- stage : Stage\l- iterator : Iterator\l- next : FakedTrackingVariable\l|# FakedTrackingVariable(LocalVariableBinding, ASTNode, FlowInfo, FlowContext, int) : \l# FakedTrackingVariable(BlockScope, ASTNode, FlowInfo, int) : \l# generateCode(BlockScope, CodeStream) : \l# resolve(BlockScope) : \l# getCloseTrackingVariable(Expression, FlowInfo, FlowContext) : FakedTrackingVariable\l# preConnectTrackerAcrossAssignment(ASTNode, LocalVariableBinding, Expression, FlowInfo) : \l# containsAllocation(ASTNode) : boolean\l# preConnectTrackerAcrossAssignment(ASTNode, LocalVariableBinding, FlowInfo, FakedTrackingVariable, Expression) : \l# preConnectTrackerAcrossAssignment(ASTNode, LocalVariableBinding, FlowInfo, ConditionalExpression, FakedTrackingVariable) : \l# preConnectTrackerAcrossAssignment(ASTNode, LocalVariableBinding, FlowInfo, AllocationExpression, FakedTrackingVariable) : \l# analyseCloseableAllocation(BlockScope, FlowInfo, AllocationExpression) : \l# pickMoreUnsafe(FakedTrackingVariable, FakedTrackingVariable, BlockScope, FlowInfo) : FakedTrackingVariable\l# pick(FakedTrackingVariable, FakedTrackingVariable, BlockScope) : FakedTrackingVariable\l# handleRegularResource(BlockScope, FlowInfo, AllocationExpression) : \l# findCloseTracker(BlockScope, FlowInfo, Expression) : FakedTrackingVariable\l# handleResourceAssignment(BlockScope, FlowInfo, FlowInfo, FlowContext, ASTNode, Expression, LocalVariableBinding) : \l# analyseCloseableExpression(FlowInfo, FlowContext, LocalVariableBinding, ASTNode, Expression, FakedTrackingVariable) : FakedTrackingVariable\l# isBlacklistedMethod(Expression) : boolean\l# cleanUpAfterAssignment(BlockScope, int, Expression) : \l# isAnyCloseable(TypeBinding) : boolean\l# findMostSpecificStatus(FlowInfo, BlockScope, BlockScope) : int\l# getNullStatusAggressively(LocalVariableBinding, FlowInfo) : int\l# mergeCloseStatus(BlockScope, int, LocalVariableBinding, BlockScope) : int\l# markClose(FlowInfo, FlowContext) : \l# markClosedInNestedMethod() : \l# markPassedToOutside(BlockScope, Expression, FlowInfo, FlowContext, boolean) : FlowInfo\l# null() : \l# null() : \l# IteratorForReporting(List, Scope, boolean) : \l+ hasNext() : boolean\l# found(FakedTrackingVariable) : boolean\l# setUpForStage(Stage) : \l+ next() : FakedTrackingVariable\l+ remove() : \l# hasDefinitelyNoResource(FlowInfo) : boolean\l# isClosedInFinallyOfEnclosing(BlockScope) : boolean\l# isResourceBeingReturned(FakedTrackingVariable) : boolean\l# withdraw() : \l# recordErrorLocation(ASTNode, int) : \l# reportRecordedErrors(Scope, int, boolean) : boolean\l# neverClosedAtLocations() : boolean\l# reportError(ProblemReporter, ASTNode, int) : int\l# reportExplicitClosing(ProblemReporter) : \l# nameForReporting(ASTNode, ReferenceContext) : String\l}"
+	 ]
+
+	 FalseLiteral [
+		 label = "{FalseLiteral|# source : char\l|# FalseLiteral(int, int) : \l# computeConstant() : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateOptimizedBoolean(BlockScope, CodeStream, BranchLabel, BranchLabel, boolean) : \l# literalType(BlockScope) : TypeBinding\l# source() : char\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 FieldDeclaration [
+		 label = "{FieldDeclaration|+ binding : FieldBinding\l+ javadoc : Javadoc\l+ endPart1Position : int\l+ endPart2Position : int\l|# FieldDeclaration() : \l# FieldDeclaration(char, int, int) : \l# analyseCode(MethodScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# getAllAnnotationContexts(int, List) : \l# getKind() : int\l# isStatic() : boolean\l# isFinal() : boolean\l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(MethodScope) : \l# traverse(ASTVisitor, MethodScope) : \l}"
+	 ]
+
+	 FieldReference [
+		 label = "{FieldReference|+ READ : int\l+ WRITE : int\l+ receiver : Expression\l+ token : char\l+ binding : FieldBinding\l+ syntheticAccessors : MethodBinding\l+ nameSourcePosition : long\l+ actualReceiverType : TypeBinding\l+ genericCast : TypeBinding\l|# FieldReference(char, long) : \l# analyseAssignment(BlockScope, FlowContext, FlowInfo, Assignment, boolean) : FlowInfo\l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# analyseCode(BlockScope, FlowContext, FlowInfo, boolean) : FlowInfo\l# checkNPE(BlockScope, FlowContext, FlowInfo, int) : boolean\l# computeConversion(Scope, TypeBinding, TypeBinding) : \l# fieldBinding() : FieldBinding\l# generateAssignment(BlockScope, CodeStream, Assignment, boolean) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateCompoundAssignment(BlockScope, CodeStream, Expression, int, int, boolean) : \l# generatePostIncrement(BlockScope, CodeStream, CompoundAssignment, boolean) : \l# genericTypeArguments() : TypeBinding\l# freshInferenceContext(Scope) : InferenceContext18\l# isEquivalent(Reference) : boolean\l# getThisFieldTokens(int) : char\l# isSuperAccess() : boolean\l+ isQualifiedSuper() : boolean\l# isTypeAccess() : boolean\l# lastFieldBinding() : FieldBinding\l# manageSyntheticAccessIfNecessary(BlockScope, FlowInfo, boolean) : \l# optimizedBooleanConstant() : Constant\l# postConversionType(Scope) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# setActualReceiverType(ReferenceBinding) : \l# setDepth(int) : \l# setFieldIndex(int) : \l# traverse(ASTVisitor, BlockScope) : \l# nullAnnotatedVariableBinding(boolean) : VariableBinding\l}"
+	 ]
+
+	 FloatLiteral [
+		 label = "{FloatLiteral|# value : float\l|# FloatLiteral(char, int, int) : \l# computeConstant() : \l# generateCode(BlockScope, CodeStream, boolean) : \l# literalType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ForeachStatement [
+		 label = "{ForeachStatement|+ elementVariable : LocalDeclaration\l+ elementVariableImplicitWidening : int\l+ collection : Expression\l+ action : Statement\l- kind : int\l- ARRAY : int\l- RAW_ITERABLE : int\l- GENERIC_ITERABLE : int\l- iteratorReceiverType : TypeBinding\l- collectionElementType : TypeBinding\l- breakLabel : BranchLabel\l- continueLabel : BranchLabel\l+ scope : BlockScope\l+ indexVariable : LocalVariableBinding\l+ collectionVariable : LocalVariableBinding\l+ maxVariable : LocalVariableBinding\l- SecretIteratorVariableName : char\l- SecretIndexVariableName : char\l- SecretCollectionVariableName : char\l- SecretMaxVariableName : char\l# postCollectionInitStateIndex : int\l# mergedInitStateIndex : int\l|# ForeachStatement(LocalDeclaration, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l+ doesNotCompleteNormally() : boolean\l}"
+	 ]
+
+	 ForStatement [
+		 label = "{ForStatement|+ initializations : Statement\l+ condition : Expression\l+ increments : Statement\l+ action : Statement\l+ scope : BlockScope\l- breakLabel : BranchLabel\l# preCondInitStateIndex : int\l# preIncrementsInitStateIndex : int\l# condIfTrueInitStateIndex : int\l# mergedInitStateIndex : int\l|# ForStatement(Statement, Expression, Statement, Statement, boolean, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l+ doesNotCompleteNormally() : boolean\l+ completesByContinue() : boolean\l}"
+	 ]
+
+	 BridgeCollector [
+		 label = "{BridgeCollector|# expectedType : TypeBinding\l+ descriptor : MethodBinding\l+ binding : MethodBinding\l# actualMethodBinding : MethodBinding\l# ignoreFurtherInvestigation : boolean\l# expressionContext : ExpressionContext\l+ compilationResult : CompilationResult\l+ enclosingScope : BlockScope\l+ bootstrapMethodNumber : int\l+ shouldCaptureInstance : boolean\l# silentErrorHandlingPolicy : IErrorHandlingPolicy\l- hasReportedSamProblem : boolean\l- scope : Scope\l- shouldChatter : boolean\l- visible : boolean\l- expression : FunctionalExpression\l# bridges : MethodBinding\l# method : MethodBinding\l# selector : char\l# environment : LookupEnvironment\l# scope : Scope\l|# FunctionalExpression(CompilationResult) : \l# FunctionalExpression() : \l# isBoxingCompatibleWith(TypeBinding, Scope) : boolean\l# setCompilationResult(CompilationResult) : \l# getMethodBinding() : MethodBinding\l# setExpectedType(TypeBinding) : \l# setExpressionContext(ExpressionContext) : \l# getExpressionContext() : ExpressionContext\l# isPolyExpression(MethodBinding) : boolean\l# isPolyExpression() : boolean\l+ isFunctionalType() : boolean\l# isPertinentToApplicability(TypeBinding, MethodBinding) : boolean\l# invocationTargetType() : TypeBinding\l# expectedType() : TypeBinding\l# argumentsTypeElided() : boolean\l# recordFunctionalType(Scope) : int\l# resolveType(BlockScope) : TypeBinding\l# resolveType(BlockScope, boolean) : TypeBinding\l# reportSamProblem(BlockScope, MethodBinding) : TypeBinding\l# null() : \l# VisibilityInspector(FunctionalExpression, Scope, boolean) : \l# checkVisibility(ReferenceBinding) : \l# visit(ReferenceBinding) : boolean\l# visit(ParameterizedTypeBinding) : boolean\l# visit(RawTypeBinding) : boolean\l# visible(TypeBinding) : boolean\l# visible(TypeBinding) : boolean\l# kosherDescriptor(Scope, MethodBinding, boolean) : boolean\l# nullStatus(FlowInfo) : int\l# diagnosticsSourceEnd() : int\l# getRequiredBridges() : MethodBinding\l# BridgeCollector(ReferenceBinding, MethodBinding) : \l# collectBridges(ReferenceBinding) : \l# add(MethodBinding) : \l# getBridges() : MethodBinding\l# requiresBridges() : boolean\l}"
+	 ]
+
+	 IfStatement [
+		 label = "{IfStatement|+ condition : Expression\l+ thenStatement : Statement\l+ elseStatement : Statement\l# thenInitStateIndex : int\l# elseInitStateIndex : int\l# mergedInitStateIndex : int\l|# IfStatement(Expression, Statement, int, int) : \l# IfStatement(Expression, Statement, Statement, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l+ doesNotCompleteNormally() : boolean\l+ completesByContinue() : boolean\l}"
+	 ]
+
+	 ImportReference [
+		 label = "{ImportReference|+ tokens : char\l+ sourcePositions : long\l+ declarationEnd : int\l+ declarationSourceStart : int\l+ declarationSourceEnd : int\l+ modifiers : int\l+ annotations : Annotation\l+ trailingStarPosition : int\l|# ImportReference(char, long, boolean, int) : \l# isStatic() : boolean\l# getImportName() : char\l# print(int, StringBuffer) : StringBuffer\l# print(int, StringBuffer, boolean) : StringBuffer\l# traverse(ASTVisitor, CompilationUnitScope) : \l}"
+	 ]
+
+	 Initializer [
+		 label = "{Initializer|+ block : Block\l+ lastVisibleFieldID : int\l+ bodyStart : int\l+ bodyEnd : int\l- methodBinding : MethodBinding\l|# Initializer(Block, int) : \l# analyseCode(MethodScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# getKind() : int\l# isStatic() : boolean\l# parseStatements(Parser, TypeDeclaration, CompilationUnitDeclaration) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(MethodScope) : \l# getMethodBinding() : MethodBinding\l# traverse(ASTVisitor, MethodScope) : \l}"
+	 ]
+
+	 InstanceOfExpression [
+		 label = "{InstanceOfExpression|+ expression : Expression\l+ type : TypeReference\l|# InstanceOfExpression(Expression, TypeReference) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream, boolean) : \l# printExpressionNoParenthesis(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# tagAsUnnecessaryCast(Scope, TypeBinding) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 IntersectionCastTypeReference [
+		 label = "{IntersectionCastTypeReference|+ typeReferences : TypeReference\l|# IntersectionCastTypeReference(TypeReference) : \l# augmentTypeWithAdditionalDimensions(int, Annotation, boolean) : TypeReference\l# getLastToken() : char\l# getTypeBinding(Scope) : TypeBinding\l# getTypeReferences() : TypeReference\l# resolveType(BlockScope, boolean, int) : TypeBinding\l# getTypeName() : char\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# printExpression(int, StringBuffer) : StringBuffer\l}"
+	 ]
+
+	 IntLiteral [
+		 label = "{IntLiteral|- HEXA_MIN_VALUE : char\l- HEXA_MINUS_ONE_VALUE : char\l- OCTAL_MIN_VALUE : char\l- OCTAL_MINUS_ONE_VALUE : char\l- DECIMAL_MIN_VALUE : char\l- DECIMAL_MAX_VALUE : char\l- reducedForm : char\l+ value : int\l+ One : IntLiteral\l|# buildIntLiteral(char, int, int) : IntLiteral\l# IntLiteral(char, char, int, int) : \l# IntLiteral(char, char, int, int, int, Constant) : \l# computeConstant() : \l# computeValue(char, int, int, int) : \l# convertToMinValue() : IntLiteral\l# generateCode(BlockScope, CodeStream, boolean) : \l# literalType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 IntLiteralMinValue [
+		 label = "{IntLiteralMinValue|# CharValue : char\l|# IntLiteralMinValue(char, char, int, int) : \l# computeConstant() : \l}"
+	 ]
+
+	 Invocation [
+		 label = "{Invocation||# arguments() : Expression\l# binding() : MethodBinding\l# registerInferenceContext(ParameterizedGenericMethodBinding, InferenceContext18) : \l# getInferenceContext(ParameterizedMethodBinding) : InferenceContext18\l# cleanUpInferenceContexts() : \l# registerResult(TypeBinding, MethodBinding) : \l}"
+	 ]
+
+	 IPolyExpression [
+		 label = "{IPolyExpression||# setExpressionContext(ExpressionContext) : \l# getExpressionContext() : ExpressionContext\l# setExpectedType(TypeBinding) : \l# invocationTargetType() : TypeBinding\l# isPotentiallyCompatibleWith(TypeBinding, Scope) : boolean\l# isCompatibleWith(TypeBinding, Scope) : boolean\l# isBoxingCompatibleWith(TypeBinding, Scope) : boolean\l# sIsMoreSpecific(TypeBinding, TypeBinding, Scope) : boolean\l# isPertinentToApplicability(TypeBinding, MethodBinding) : boolean\l# isPolyExpression(MethodBinding) : boolean\l# isPolyExpression() : boolean\l# isFunctionalType() : boolean\l# getPolyExpressions() : Expression\l# resolveType(BlockScope) : TypeBinding\l# resolveExpressionExpecting(TypeBinding, Scope, InferenceContext18) : Expression\l}"
+	 ]
+
+	 Javadoc [
+		 label = "{Javadoc|+ paramReferences : JavadocSingleNameReference\l+ paramTypeParameters : JavadocSingleTypeReference\l+ exceptionReferences : TypeReference\l+ returnStatement : JavadocReturnStatement\l+ seeReferences : Expression\l+ inheritedPositions : long\l+ invalidParameters : JavadocSingleNameReference\l+ valuePositions : long\l|# Javadoc(int, int) : \l# canBeSeen(int, int) : boolean\l# getNodeStartingAt(int) : ASTNode\l# print(int, StringBuffer) : StringBuffer\l# resolve(ClassScope) : \l# resolve(CompilationUnitScope) : \l# resolve(MethodScope) : \l# resolveReference(Expression, Scope) : \l# resolveParamTags(MethodScope, boolean, boolean) : \l# resolveTypeParameterTags(Scope, boolean) : \l# resolveThrowsTags(MethodScope, boolean) : \l# verifyTypeReference(Expression, Expression, Scope, boolean, ReferenceBinding, int) : \l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 JavadocAllocationExpression [
+		 label = "{JavadocAllocationExpression|+ tagSourceStart : int\l+ tagValue : int\l+ qualification : char\l|# JavadocAllocationExpression(int, int) : \l# JavadocAllocationExpression(long) : \l# internalResolveType(Scope) : TypeBinding\l# isSuperAccess() : boolean\l# resolveType(BlockScope) : TypeBinding\l# resolveType(ClassScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 JavadocArgumentExpression [
+		 label = "{JavadocArgumentExpression|+ token : char\l+ argument : Argument\l|# JavadocArgumentExpression(char, int, int, TypeReference) : \l# internalResolveType(Scope) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# resolveType(BlockScope) : TypeBinding\l# resolveType(ClassScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 JavadocArrayQualifiedTypeReference [
+		 label = "{JavadocArrayQualifiedTypeReference|+ tagSourceStart : int\l|# JavadocArrayQualifiedTypeReference(JavadocQualifiedTypeReference, int) : \l# reportInvalidType(Scope) : \l# reportDeprecatedType(TypeBinding, Scope) : \l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 JavadocArraySingleTypeReference [
+		 label = "{JavadocArraySingleTypeReference||# JavadocArraySingleTypeReference(char, int, long) : \l# reportInvalidType(Scope) : \l# reportDeprecatedType(TypeBinding, Scope) : \l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 JavadocFieldReference [
+		 label = "{JavadocFieldReference|+ tagSourceStart : int\l+ tagValue : int\l+ methodBinding : MethodBinding\l|# JavadocFieldReference(char, long) : \l# internalResolveType(Scope) : TypeBinding\l# isSuperAccess() : boolean\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# resolveType(ClassScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 JavadocImplicitTypeReference [
+		 label = "{JavadocImplicitTypeReference|+ token : char\l|# JavadocImplicitTypeReference(char, int) : \l# augmentTypeWithAdditionalDimensions(int, Annotation, boolean) : TypeReference\l# getTypeBinding(Scope) : TypeBinding\l# getLastToken() : char\l# getTypeName() : char\l# isThis() : boolean\l# internalResolveType(Scope, int) : TypeBinding\l# reportInvalidType(Scope) : \l# reportDeprecatedType(TypeBinding, Scope) : \l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# printExpression(int, StringBuffer) : StringBuffer\l}"
+	 ]
+
+	 JavadocMessageSend [
+		 label = "{JavadocMessageSend|+ tagSourceStart : int\l+ tagValue : int\l|# JavadocMessageSend(char, long) : \l# JavadocMessageSend(char, long, JavadocArgumentExpression) : \l# internalResolveType(Scope) : TypeBinding\l# isSuperAccess() : boolean\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# resolveType(ClassScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 JavadocQualifiedTypeReference [
+		 label = "{JavadocQualifiedTypeReference|+ tagSourceStart : int\l+ packageBinding : PackageBinding\l|# JavadocQualifiedTypeReference(char, long, int, int) : \l# internalResolveType(Scope, boolean) : TypeBinding\l# reportDeprecatedType(TypeBinding, Scope) : \l# reportDeprecatedType(TypeBinding, Scope, int) : \l# reportInvalidType(Scope) : \l# resolveType(BlockScope, boolean, int) : TypeBinding\l# resolveType(ClassScope, int) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 JavadocReturnStatement [
+		 label = "{JavadocReturnStatement||# JavadocReturnStatement(int, int) : \l# resolve(BlockScope) : \l# printStatement(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 JavadocSingleNameReference [
+		 label = "{JavadocSingleNameReference|+ tagSourceStart : int\l|# JavadocSingleNameReference(char, long, int, int) : \l# resolve(BlockScope) : \l# resolve(BlockScope, boolean, boolean) : \l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 JavadocSingleTypeReference [
+		 label = "{JavadocSingleTypeReference|+ tagSourceStart : int\l+ packageBinding : PackageBinding\l|# JavadocSingleTypeReference(char, long, int, int) : \l# internalResolveType(Scope, int) : TypeBinding\l# reportDeprecatedType(TypeBinding, Scope) : \l# reportInvalidType(Scope) : \l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 LabeledStatement [
+		 label = "{LabeledStatement|+ statement : Statement\l+ label : char\l+ targetLabel : BranchLabel\l+ labelEnd : int\l# mergedInitStateIndex : int\l|# LabeledStatement(char, Statement, long, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# concreteStatement() : ASTNode\l# generateCode(BlockScope, CodeStream) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l+ doesNotCompleteNormally() : boolean\l+ completesByContinue() : boolean\l}"
+	 ]
+
+	 LambdaTypeBinding [
+		 label = "{LambdaTypeBinding|+ arguments : Argument\l- argumentTypes : TypeBinding\l+ arrowPosition : int\l+ body : Statement\l+ hasParentheses : boolean\l+ scope : MethodScope\l# voidCompatible : boolean\l# valueCompatible : boolean\l# returnsValue : boolean\l+ isSerializable : boolean\l- requiresGenericSignature : boolean\l# returnsVoid : boolean\l+ original : LambdaExpression\l+ outerLocalVariables : SyntheticArgumentBinding\l- outerLocalVariablesSlotSize : int\l- assistNode : boolean\l- hasIgnoredMandatoryErrors : boolean\l- classType : ReferenceBinding\l+ ordinal : int\l- thrownExceptions : Set\l+ text : char\l- NO_SYNTHETIC_ARGUMENTS : SyntheticArgumentBinding\l- NO_BODY : Block\l- copiesPerTargetType : HashMap\l# resultExpressions : Expression\l+ inferenceContext : InferenceContext18\l- serialVersionUID : long\l- serialVersionUID : long\l|# LambdaExpression(CompilationResult, boolean, boolean) : \l# LambdaExpression(CompilationResult, boolean) : \l# setArguments(Argument) : \l# arguments() : Argument\l# argumentTypes() : TypeBinding\l# setBody(Statement) : \l# body() : Statement\l# resultExpressions() : Expression\l# setArrowPosition(int) : \l# arrowPosition() : int\l# original() : FunctionalExpression\l# generateCode(BlockScope, CodeStream, boolean) : \l# kosherDescriptor(Scope, MethodBinding, boolean) : boolean\l# resolveType(BlockScope, boolean) : TypeBinding\l# findGroundTargetType(BlockScope, TypeBinding, boolean) : ReferenceBinding\l# findGroundTargetTypeForElidedLambda(BlockScope, ParameterizedTypeBinding) : ReferenceBinding\l# argumentsTypeElided() : boolean\l# analyzeExceptions() : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# validateNullAnnotations() : \l# mergeParameterNullAnnotations(BlockScope) : \l# checkAgainstNullAnnotation(FlowContext, Expression, FlowInfo, int) : \l# isPertinentToApplicability(TypeBinding, MethodBinding) : boolean\l# visit(TypeDeclaration, BlockScope) : boolean\l# visit(TypeDeclaration, ClassScope) : boolean\l# visit(LambdaExpression, BlockScope) : boolean\l# visit(ReturnStatement, BlockScope) : boolean\l# isVoidCompatible() : boolean\l# isValueCompatible() : boolean\l# printExpression(int, StringBuffer) : StringBuffer\l# printExpression(int, StringBuffer, boolean) : StringBuffer\l# expectedResultType() : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# getScope() : MethodScope\l# enclosingScopesHaveErrors() : boolean\l# analyzeShape() : \l# visit(TypeDeclaration, BlockScope) : boolean\l# visit(TypeDeclaration, ClassScope) : boolean\l# visit(LambdaExpression, BlockScope) : boolean\l# visit(ReturnStatement, BlockScope) : boolean\l+ isPotentiallyCompatibleWith(TypeBinding, Scope) : boolean\l# isCompatibleWith(TypeBinding, Scope) : boolean\l# null() : \l# cachedResolvedCopy(TypeBinding, boolean, boolean, InferenceContext18) : LambdaExpression\l# resolveExpressionExpecting(TypeBinding, Scope, InferenceContext18) : LambdaExpression\l# sIsMoreSpecific(TypeBinding, TypeBinding, Scope) : boolean\l# copy() : LambdaExpression\l# returnsExpression(Expression, TypeBinding) : \l# compilationResult() : CompilationResult\l# abort(int, CategorizedProblem) : \l# getCompilationUnitDeclaration() : CompilationUnitDeclaration\l# hasErrors() : boolean\l# tagAsHavingErrors() : \l# tagAsHavingIgnoredMandatoryErrors(int) : \l# getThrownExceptions() : Set\l# generateCode(ClassScope, ClassFile) : \l# generateCode(ClassFile) : \l# addSyntheticArgument(LocalVariableBinding) : \l# getSyntheticArgument(LocalVariableBinding) : SyntheticArgumentBinding\l# getMethodBinding() : MethodBinding\l# diagnosticsSourceEnd() : int\l# getMarkerInterfaces() : TypeBinding\l# getTypeBinding() : ReferenceBinding\l# methods() : MethodBinding\l# sourceName() : char\l# superclass() : ReferenceBinding\l# superInterfaces() : ReferenceBinding\l+ computeUniqueKey() : char\l# toString() : String\l}"
+	 ]
+
+	 Literal [
+		 label = "{Literal|+ computeConstant : null\l+ literalType : TypeBinding\l+ source : char\l|# Literal(int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo, BlockScope) : FlowInfo\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l}"
+	 ]
+
+	 LocalDeclaration [
+		 label = "{LocalDeclaration|+ binding : LocalVariableBinding\l|# LocalDeclaration(char, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# checkModifiers() : \l# generateCode(BlockScope, CodeStream) : \l# getKind() : int\l# getAllAnnotationContexts(int, LocalVariableBinding, List) : \l# getAllAnnotationContexts(int, int, List) : \l# isArgument() : boolean\l# isReceiver() : boolean\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l# traverseWithoutInitializer(ASTVisitor, BlockScope) : \l# isRecoveredFromLoneIdentifier() : boolean\l}"
+	 ]
+
+	 LongLiteral [
+		 label = "{LongLiteral|- HEXA_MIN_VALUE : char\l- HEXA_MINUS_ONE_VALUE : char\l- OCTAL_MIN_VALUE : char\l- OCTAL_MINUS_ONE_VALUE : char\l- DECIMAL_MIN_VALUE : char\l- DECIMAL_MAX_VALUE : char\l- reducedForm : char\l|# buildLongLiteral(char, int, int) : LongLiteral\l# LongLiteral(char, char, int, int) : \l# convertToMinValue() : LongLiteral\l# computeConstant() : \l# computeValue(char, int, int, int) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# literalType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 LongLiteralMinValue [
+		 label = "{LongLiteralMinValue|# CharValue : char\l|# LongLiteralMinValue(char, char, int, int) : \l# computeConstant() : \l}"
+	 ]
+
+	 MagicLiteral [
+		 label = "{MagicLiteral||# MagicLiteral(int, int) : \l# isValidJavaStatement() : boolean\l# source() : char\l}"
+	 ]
+
+	 MarkerAnnotation [
+		 label = "{MarkerAnnotation||# MarkerAnnotation(TypeReference, int) : \l# memberValuePairs() : MemberValuePair\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 MemberValuePair [
+		 label = "{MemberValuePair|+ name : char\l+ value : Expression\l+ binding : MethodBinding\l+ compilerElementPair : ElementValuePair\l|# MemberValuePair(char, int, int, Expression) : \l# print(int, StringBuffer) : StringBuffer\l# resolveTypeExpecting(BlockScope, TypeBinding) : \l# visit(SingleNameReference, BlockScope) : boolean\l+ run() : \l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 MessageSend [
+		 label = "{MessageSend|+ receiver : Expression\l+ selector : char\l+ arguments : Expression\l+ binding : MethodBinding\l+ syntheticAccessor : MethodBinding\l+ expectedType : TypeBinding\l+ nameSourcePosition : long\l+ actualReceiverType : TypeBinding\l+ valueCast : TypeBinding\l+ typeArguments : TypeReference\l+ genericTypeArguments : TypeBinding\l- expressionContext : ExpressionContext\l- inferenceContexts : SimpleLookupTable\l- solutionsPerTargetType : HashMap\l- outerInferenceContext : InferenceContext18\l- receiverIsType : boolean\l# argsContainCast : boolean\l+ argumentTypes : TypeBinding\l+ argumentsHaveErrors : boolean\l- TRUE_ASSERTION : int\l- FALSE_ASSERTION : int\l- NULL_ASSERTION : int\l- NONNULL_ASSERTION : int\l|# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# recordCallingClose(BlockScope, FlowContext, FlowInfo, Expression) : \l# detectAssertionUtility(int) : int\l# analyseBooleanAssertion(BlockScope, Expression, FlowContext, FlowInfo, boolean, boolean) : FlowInfo\l# analyseNullAssertion(BlockScope, Expression, FlowContext, FlowInfo, boolean) : FlowInfo\l# checkNPE(BlockScope, FlowContext, FlowInfo, int) : boolean\l# computeConversion(Scope, TypeBinding, TypeBinding) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# genericTypeArguments() : TypeBinding\l# isSuperAccess() : boolean\l# isTypeAccess() : boolean\l# manageSyntheticAccessIfNecessary(BlockScope, FlowInfo) : \l# nullStatus(FlowInfo, FlowContext) : int\l# postConversionType(Scope) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# findMethodBinding(BlockScope) : TypeBinding\l# setActualReceiverType(ReferenceBinding) : \l# setDepth(int) : \l# setExpectedType(TypeBinding) : \l# setExpressionContext(ExpressionContext) : \l# isPolyExpression() : boolean\l# isBoxingCompatibleWith(TypeBinding, Scope) : boolean\l# isCompatibleWith(TypeBinding, Scope) : boolean\l# isPolyExpression(MethodBinding) : boolean\l# sIsMoreSpecific(TypeBinding, TypeBinding, Scope) : boolean\l# setFieldIndex(int) : \l# invocationTargetType() : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# statementExpression() : boolean\l# receiverIsImplicitThis() : boolean\l# binding() : MethodBinding\l# registerInferenceContext(ParameterizedGenericMethodBinding, InferenceContext18) : \l+ registerResult(TypeBinding, MethodBinding) : \l# getInferenceContext(ParameterizedMethodBinding) : InferenceContext18\l+ cleanUpInferenceContexts() : \l# arguments() : Expression\l# getExpressionContext() : ExpressionContext\l# freshInferenceContext(Scope) : InferenceContext18\l+ isQualifiedSuper() : boolean\l}"
+	 ]
+
+	 MethodDeclaration [
+		 label = "{MethodDeclaration|+ returnType : TypeReference\l+ typeParameters : TypeParameter\l|# MethodDeclaration(CompilationResult) : \l# analyseCode(ClassScope, FlowContext, FlowInfo) : \l# getAllAnnotationContexts(int, List) : \l# hasNullTypeAnnotation(AnnotationPosition) : boolean\l# isDefaultMethod() : boolean\l# isMethod() : boolean\l# parseStatements(Parser, CompilationUnitDeclaration) : \l# printReturnType(int, StringBuffer) : StringBuffer\l# resolveStatements() : \l# traverse(ASTVisitor, ClassScope) : \l# typeParameters() : TypeParameter\l}"
+	 ]
+
+	 NameReference [
+		 label = "{NameReference|+ binding : Binding\l+ actualReceiverType : TypeBinding\l+ unboundReferenceErrorName : String\l+ getName : char\l|# NameReference() : \l# fieldBinding() : FieldBinding\l# lastFieldBinding() : FieldBinding\l# freshInferenceContext(Scope) : InferenceContext18\l# isSuperAccess() : boolean\l# isTypeAccess() : boolean\l# isTypeReference() : boolean\l# setActualReceiverType(ReferenceBinding) : \l# setDepth(int) : \l# setFieldIndex(int) : \l# checkEffectiveFinality(LocalVariableBinding, Scope) : \l}"
+	 ]
+
+	 NormalAnnotation [
+		 label = "{NormalAnnotation|+ memberValuePairs : MemberValuePair\l|# NormalAnnotation(TypeReference, int) : \l# computeElementValuePairs() : ElementValuePair\l# memberValuePairs() : MemberValuePair\l# printExpression(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 SearchContradictions [
+		 label = "{SearchContradictions|+ NULL_ANNOTATIONS_OK : NullAnnotationMatching\l+ NULL_ANNOTATIONS_OK_NONNULL : NullAnnotationMatching\l+ NULL_ANNOTATIONS_UNCHECKED : NullAnnotationMatching\l+ NULL_ANNOTATIONS_MISMATCH : NullAnnotationMatching\l+ severity : int\l+ superTypeHint : TypeBinding\l+ nullStatus : int\l# typeWithContradiction : ReferenceBinding\l|# null() : \l+ requiredNullableMatchesAll() : boolean\l+ toDetail() : CheckMode\l+ requiredNullableMatchesAll() : boolean\l+ toDetail() : CheckMode\l# requiredNullableMatchesAll() : boolean\l# toDetail() : CheckMode\l# NullAnnotationMatching(int, int, TypeBinding) : \l# isAnyMismatch() : boolean\l# isUnchecked() : boolean\l# isDefiniteMismatch() : boolean\l# isPotentiallyNullMismatch() : boolean\l# superTypeHintName(CompilerOptions, boolean) : String\l# checkAssignment(BlockScope, FlowContext, VariableBinding, FlowInfo, int, Expression, TypeBinding) : int\l# analyse(TypeBinding, TypeBinding, int) : NullAnnotationMatching\l# analyse(TypeBinding, TypeBinding, TypeBinding, Substitution, int, CheckMode) : NullAnnotationMatching\l# areSameTypes(TypeBinding, TypeBinding, TypeBinding) : boolean\l# requiredNullTagBits(TypeBinding, CheckMode) : long\l# providedNullTagBits(TypeBinding) : long\l# validNullTagBits(long) : long\l# moreDangerousType(TypeBinding, TypeBinding) : TypeBinding\l# computeNullProblemSeverity(long, long, int, CheckMode, boolean) : int\l# null() : \l+ visit(ReferenceBinding) : boolean\l+ visit(TypeVariableBinding) : boolean\l+ visit(RawTypeBinding) : boolean\l+ visit(WildcardBinding) : boolean\l+ visit(ParameterizedTypeBinding) : boolean\l# checkForContradictions(MethodBinding, Object, Scope) : MethodBinding\l# hasContradictions(TypeBinding) : boolean\l# strongerType(TypeBinding, TypeBinding, LookupEnvironment) : TypeBinding\l# weakerTypes(TypeBinding, TypeBinding, LookupEnvironment) : TypeBinding\l# mergeTypeAnnotations(TypeBinding, TypeBinding, boolean, LookupEnvironment) : TypeBinding\l+ toString() : String\l}"
+	 ]
+
+	 NullLiteral [
+		 label = "{NullLiteral|# source : char\l|# NullLiteral(int, int) : \l# computeConstant() : \l# generateCode(BlockScope, CodeStream, boolean) : \l# literalType(BlockScope) : TypeBinding\l# nullStatus(FlowInfo, FlowContext) : int\l# reusableJSRTarget() : Object\l# source() : char\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 NumberLiteral [
+		 label = "{NumberLiteral|# source : char\l|# NumberLiteral(char, int, int) : \l# NumberLiteral(int, int) : \l# isValidJavaStatement() : boolean\l# source() : char\l# removePrefixZerosAndUnderscores(char, boolean) : char\l}"
+	 ]
+
+	 Decode [
+		 label = "{Decode|+ OperatorSignatures : int\l+ printExpressionNoParenthesis : StringBuffer\l|# null() : \l# OperatorExpression() : \l# classInitialize() : \l# generateTableTestCase() : String\l# constant(int) : String\l# type(int) : String\l# operator(int) : String\l# get_AND() : int\l# get_AND_AND() : int\l# get_DIVIDE() : int\l# get_EQUAL_EQUAL() : int\l# get_GREATER() : int\l# get_GREATER_EQUAL() : int\l# get_LEFT_SHIFT() : int\l# get_LESS() : int\l# get_LESS_EQUAL() : int\l# get_MINUS() : int\l# get_MULTIPLY() : int\l# get_OR() : int\l# get_OR_OR() : int\l# get_PLUS() : int\l# get_REMAINDER() : int\l# get_RIGHT_SHIFT() : int\l# get_UNSIGNED_RIGHT_SHIFT() : int\l# get_XOR() : int\l# operatorToString() : String\l# printExpression(int, StringBuffer, int, StringBuffer) : StringBuffer\l}"
+	 ]
+
+	 OperatorIds [
+		 label = "{OperatorIds||# AND_AND() : int\l# OR_OR() : int\l# AND() : int\l# OR() : int\l# LESS() : int\l# LESS_EQUAL() : int\l# GREATER() : int\l# GREATER_EQUAL() : int\l# XOR() : int\l# DIVIDE() : int\l# LEFT_SHIFT() : int\l# NOT() : int\l# TWIDDLE() : int\l# MINUS() : int\l# PLUS() : int\l# MULTIPLY() : int\l# REMAINDER() : int\l# RIGHT_SHIFT() : int\l# EQUAL_EQUAL() : int\l# UNSIGNED_RIGHT_SHIFT() : int\l# NumberOfTables() : int\l# QUESTIONCOLON() : int\l# NOT_EQUAL() : int\l# EQUAL() : int\l# INSTANCEOF() : int\l# PLUS_PLUS() : int\l# MINUS_MINUS() : int\l}"
+	 ]
+
+	 OR_OR_Expression [
+		 label = "{OR_OR_Expression|# rightInitStateIndex : int\l# mergedInitStateIndex : int\l|# OR_OR_Expression(Expression, Expression, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream, boolean) : \l# generateOptimizedBoolean(BlockScope, CodeStream, BranchLabel, BranchLabel, boolean) : \l# isCompactableOperation() : boolean\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ParameterizedQualifiedTypeReference [
+		 label = "{ParameterizedQualifiedTypeReference|+ typeArguments : TypeReference\l|# ParameterizedQualifiedTypeReference(char, TypeReference, int, long) : \l# ParameterizedQualifiedTypeReference(char, TypeReference, int, Annotation, long) : \l# checkBounds(Scope) : \l# checkBounds(ReferenceBinding, Scope, int) : \l# augmentTypeWithAdditionalDimensions(int, Annotation, boolean) : TypeReference\l# isParameterizedTypeReference() : boolean\l+ hasNullTypeAnnotation(AnnotationPosition) : boolean\l# getParameterizedTypeName() : char\l# getTypeArguments() : TypeReference\l# getTypeBinding(Scope) : TypeBinding\l# internalResolveType(Scope, boolean, int) : TypeBinding\l# internalResolveLeafType(Scope, boolean) : TypeBinding\l# createArrayType(Scope) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope, boolean, int) : TypeBinding\l# resolveType(ClassScope, int) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 ParameterizedSingleTypeReference [
+		 label = "{ParameterizedSingleTypeReference|+ DIAMOND_TYPE_ARGUMENTS : TypeBinding\l+ typeArguments : TypeReference\l|# ParameterizedSingleTypeReference(char, TypeReference, int, long) : \l# ParameterizedSingleTypeReference(char, TypeReference, int, Annotation, long) : \l# checkBounds(Scope) : \l# augmentTypeWithAdditionalDimensions(int, Annotation, boolean) : TypeReference\l# getParameterizedTypeName() : char\l# getTypeArguments() : TypeReference\l# getTypeBinding(Scope) : TypeBinding\l# isParameterizedTypeReference() : boolean\l+ hasNullTypeAnnotation(AnnotationPosition) : boolean\l# internalResolveType(Scope, ReferenceBinding, boolean, int) : TypeBinding\l# internalResolveLeafType(Scope, ReferenceBinding, boolean) : TypeBinding\l# createArrayType(Scope, TypeBinding) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope, boolean, int) : TypeBinding\l# resolveType(ClassScope, int) : TypeBinding\l# resolveTypeEnclosing(BlockScope, ReferenceBinding) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 PostfixExpression [
+		 label = "{PostfixExpression||# PostfixExpression(Expression, Expression, int, int) : \l# checkCastCompatibility() : boolean\l# generateCode(BlockScope, CodeStream, boolean) : \l# operatorToString() : String\l# printExpressionNoParenthesis(int, StringBuffer) : StringBuffer\l# restrainUsageToNumericTypes() : boolean\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 PrefixExpression [
+		 label = "{PrefixExpression||# PrefixExpression(Expression, Expression, int, int) : \l# checkCastCompatibility() : boolean\l# operatorToString() : String\l# printExpressionNoParenthesis(int, StringBuffer) : StringBuffer\l# restrainUsageToNumericTypes() : boolean\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 QualifiedAllocationExpression [
+		 label = "{QualifiedAllocationExpression|+ enclosingInstance : Expression\l+ anonymousType : TypeDeclaration\l|# QualifiedAllocationExpression() : \l# QualifiedAllocationExpression(TypeDeclaration) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# enclosingInstance() : Expression\l# generateCode(BlockScope, CodeStream, boolean) : \l# isSuperAccess() : boolean\l# manageEnclosingInstanceAccessIfNecessary(BlockScope, FlowInfo) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# resolveTypeForQualifiedAllocationExpression(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 QualifiedNameReference [
+		 label = "{QualifiedNameReference|+ tokens : char\l+ sourcePositions : long\l+ otherBindings : FieldBinding\l# otherDepths : int\l+ indexOfFirstFieldBinding : int\l+ syntheticWriteAccessor : SyntheticMethodBinding\l+ syntheticReadAccessors : SyntheticMethodBinding\l+ genericCast : TypeBinding\l+ otherGenericCasts : TypeBinding\l|# QualifiedNameReference(char, long, int, int) : \l# analyseAssignment(BlockScope, FlowContext, FlowInfo, Assignment, boolean) : FlowInfo\l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# analyseCode(BlockScope, FlowContext, FlowInfo, boolean) : FlowInfo\l# checkInternalNPE(BlockScope, FlowContext, FlowInfo, boolean) : \l# checkNPE(BlockScope, FlowContext, FlowInfo, int) : boolean\l# computeConversion(Scope, TypeBinding, TypeBinding) : \l# generateAssignment(BlockScope, CodeStream, Assignment, boolean) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateCompoundAssignment(BlockScope, CodeStream, Expression, int, int, boolean) : \l# generatePostIncrement(BlockScope, CodeStream, CompoundAssignment, boolean) : \l# generateReadSequence(BlockScope, CodeStream) : FieldBinding\l# generateReceiver(CodeStream) : \l# genericTypeArguments() : TypeBinding\l# getCodegenBinding(int) : FieldBinding\l# getFinalReceiverType() : TypeBinding\l# getGenericCast(int) : TypeBinding\l# getOtherFieldBindings(BlockScope) : TypeBinding\l# isEquivalent(Reference) : boolean\l# isFieldAccess() : boolean\l# lastFieldBinding() : FieldBinding\l# manageEnclosingInstanceAccessIfNecessary(BlockScope, FlowInfo) : \l# manageSyntheticAccessIfNecessary(BlockScope, FieldBinding, int, FlowInfo) : \l# optimizedBooleanConstant() : Constant\l# postConversionType(Scope) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# reportError(BlockScope) : TypeBinding\l# resolveType(BlockScope) : TypeBinding\l# setFieldIndex(int) : \l# setGenericCast(int, TypeBinding) : \l# setSyntheticAccessor(FieldBinding, int, SyntheticMethodBinding) : \l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# unboundReferenceErrorName() : String\l# getName() : char\l# nullAnnotatedVariableBinding(boolean) : VariableBinding\l}"
+	 ]
+
+	 QualifiedSuperReference [
+		 label = "{QualifiedSuperReference||# QualifiedSuperReference(TypeReference, int, int) : \l# isSuper() : boolean\l# isQualifiedSuper() : boolean\l# isThis() : boolean\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# findCompatibleEnclosing(ReferenceBinding, TypeBinding) : int\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 QualifiedThisReference [
+		 label = "{QualifiedThisReference|+ qualification : TypeReference\l# currentCompatibleType : ReferenceBinding\l|# QualifiedThisReference(TypeReference, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# analyseCode(BlockScope, FlowContext, FlowInfo, boolean) : FlowInfo\l# generateCode(BlockScope, CodeStream, boolean) : \l# resolveType(BlockScope) : TypeBinding\l# findCompatibleEnclosing(ReferenceBinding, TypeBinding) : int\l# printExpression(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 QualifiedTypeReference [
+		 label = "{QualifiedTypeReference|+ tokens : char\l+ sourcePositions : long\l|# QualifiedTypeReference(char, long) : \l# augmentTypeWithAdditionalDimensions(int, Annotation, boolean) : TypeReference\l# findNextTypeBinding(int, Scope, PackageBinding) : TypeBinding\l# getLastToken() : char\l# rejectAnnotationsOnPackageQualifiers(Scope, PackageBinding) : \l# rejectAnnotationsOnStaticMemberQualififer(Scope, ReferenceBinding, Annotation) : \l# getTypeBinding(Scope) : TypeBinding\l# recordResolution(LookupEnvironment, TypeBinding) : \l# getTypeName() : char\l# printExpression(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# getAnnotatableLevels() : int\l}"
+	 ]
+
+	 Receiver [
+		 label = "{Receiver|+ qualifyingName : NameReference\l|# Receiver(char, long, TypeReference, NameReference, int) : \l# isReceiver() : boolean\l# print(int, StringBuffer) : StringBuffer\l}"
+	 ]
+
+	 Reference [
+		 label = "{Reference|+ analyseAssignment : FlowInfo\l+ generateAssignment : null\l+ generateCompoundAssignment : null\l+ generatePostIncrement : null\l|# Reference(BlockScope, FlowContext, FlowInfo, Assignment, boolean) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# checkNPE(BlockScope, FlowContext, FlowInfo, int) : boolean\l# checkNullableFieldDereference(Scope, FieldBinding, long, FlowContext, int) : boolean\l# fieldBinding() : FieldBinding\l# fieldStore(Scope, CodeStream, FieldBinding, MethodBinding, TypeBinding, boolean, boolean, BlockScope, CodeStream, Assignment, boolean, BlockScope, CodeStream, Expression, int, int, boolean, BlockScope, CodeStream, CompoundAssignment, boolean) : \l# isEquivalent(Reference) : boolean\l# lastFieldBinding() : FieldBinding\l# nullStatus(FlowInfo, FlowContext) : int\l# reportOnlyUselesslyReadPrivateField(BlockScope, FieldBinding, boolean) : \l# reportOnlyUselesslyReadLocal(BlockScope, LocalVariableBinding, boolean) : \l}"
+	 ]
+
+	 ReferenceExpression [
+		 label = "{ReferenceExpression|- SecretReceiverVariableName : String\l- ImplicitArgName : char\l+ receiverVariable : LocalVariableBinding\l+ lhs : Expression\l+ typeArguments : TypeReference\l+ selector : char\l+ nameSourceStart : int\l+ receiverType : TypeBinding\l- haveReceiver : boolean\l+ resolvedTypeArguments : TypeBinding\l- typeArgumentsHaveErrors : boolean\l# syntheticAccessor : MethodBinding\l- depth : int\l- exactMethodBinding : MethodBinding\l- receiverPrecedesParameters : boolean\l- freeParameters : TypeBinding\l- checkingPotentialCompatibility : boolean\l- potentialMethods : MethodBinding\l# original : ReferenceExpression\l- copiesPerTargetType : HashMap\l+ text : char\l- inferenceContexts : HashMap\l# accessesnonFinalOuterLocals : boolean\l|# ReferenceExpression() : \l# initialize(CompilationResult, Expression, TypeReference, char, int) : \l# copy() : ReferenceExpression\l# shouldGenerateSecretReceiverVariable() : boolean\l# visit(SingleNameReference, BlockScope) : boolean\l# accessesnonFinalOuterLocals() : boolean\l# generateImplicitLambda(BlockScope, CodeStream, boolean) : \l# shouldGenerateImplicitLambda(BlockScope) : boolean\l# generateCode(BlockScope, CodeStream, boolean) : \l# manageSyntheticAccessIfNecessary(BlockScope, FlowInfo) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l+ checkingPotentialCompatibility() : boolean\l+ acceptPotentiallyCompatibleMethods(MethodBinding) : \l# resolveType(BlockScope) : TypeBinding\l# checkNullAnnotations(BlockScope) : \l# descriptorParametersAsArgumentExpressions() : TypeBinding\l# cachedResolvedCopy(TypeBinding) : ReferenceExpression\l# registerInferenceContext(ParameterizedGenericMethodBinding, InferenceContext18) : \l# getInferenceContext(ParameterizedMethodBinding) : InferenceContext18\l# resolveExpressionExpecting(TypeBinding, Scope, InferenceContext18) : ReferenceExpression\l# isConstructorReference() : boolean\l# isExactMethodReference() : boolean\l# getExactMethod() : MethodBinding\l# isMethodReference() : boolean\l# isPertinentToApplicability(TypeBinding, MethodBinding) : boolean\l# genericTypeArguments() : TypeBinding\l# freshInferenceContext(Scope) : InferenceContext18\l# isSuperAccess() : boolean\l# isTypeAccess() : boolean\l# setActualReceiverType(ReferenceBinding) : \l# setDepth(int) : \l# setFieldIndex(int) : \l# printExpression(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l# createPseudoExpressions(TypeBinding) : Expression\l+ isPotentiallyCompatibleWith(TypeBinding, Scope) : boolean\l# null() : \l# isCompatibleWith(TypeBinding, Scope) : boolean\l# findSuperTypeOriginatingFrom(TypeBinding) : TypeBinding\l# toString() : String\l# getCompileTimeDeclaration(Scope, boolean, TypeBinding) : MethodBinding\l# isCompatibleWith(TypeBinding, Scope) : boolean\l# sIsMoreSpecific(TypeBinding, TypeBinding, Scope) : boolean\l# getMethodBinding() : org\l# isArrayConstructorReference() : boolean\l}"
+	 ]
+
+	 ReturnStatement [
+		 label = "{ReturnStatement|+ expression : Expression\l+ subroutines : SubRoutineStatement\l+ saveValueVariable : LocalVariableBinding\l+ initStateIndex : int\l- implicitReturn : boolean\l|# ReturnStatement(Expression, int, int) : \l# ReturnStatement(Expression, int, int, boolean) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l+ doesNotCompleteNormally() : boolean\l# checkAgainstNullAnnotation(BlockScope, FlowContext, FlowInfo) : \l# generateCode(BlockScope, CodeStream) : \l# generateReturnBytecode(CodeStream) : \l# generateStoreSaveValueIfNecessary(CodeStream) : \l# needValueStore() : boolean\l# needValue() : boolean\l# prepareSaveValueLocation(TryStatement) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 SingleMemberAnnotation [
+		 label = "{SingleMemberAnnotation|+ memberValue : Expression\l- singlePairs : MemberValuePair\l|# SingleMemberAnnotation(TypeReference, int) : \l# SingleMemberAnnotation() : \l# computeElementValuePairs() : ElementValuePair\l# memberValuePairs() : MemberValuePair\l# printExpression(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 SingleNameReference [
+		 label = "{SingleNameReference|+ READ : int\l+ WRITE : int\l+ token : char\l+ syntheticAccessors : MethodBinding\l+ genericCast : TypeBinding\l|# SingleNameReference(char, long) : \l# analyseAssignment(BlockScope, FlowContext, FlowInfo, Assignment, boolean) : FlowInfo\l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# analyseCode(BlockScope, FlowContext, FlowInfo, boolean) : FlowInfo\l# checkFieldAccess(BlockScope) : TypeBinding\l# checkNPE(BlockScope, FlowContext, FlowInfo, int) : boolean\l# computeConversion(Scope, TypeBinding, TypeBinding) : \l# generateAssignment(BlockScope, CodeStream, Assignment, boolean) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateCompoundAssignment(BlockScope, CodeStream, Expression, int, int, boolean) : \l# generateCompoundAssignment(BlockScope, CodeStream, MethodBinding, Expression, int, int, boolean) : \l# generatePostIncrement(BlockScope, CodeStream, CompoundAssignment, boolean) : \l# generateReceiver(CodeStream) : \l# genericTypeArguments() : TypeBinding\l# isEquivalent(Reference) : boolean\l# localVariableBinding() : LocalVariableBinding\l# nullAnnotatedVariableBinding(boolean) : VariableBinding\l# nullStatus(FlowInfo, FlowContext) : int\l# manageEnclosingInstanceAccessIfNecessary(BlockScope, FlowInfo) : \l# manageSyntheticAccessIfNecessary(BlockScope, FlowInfo, boolean) : \l# postConversionType(Scope) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# reportError(BlockScope) : TypeBinding\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# unboundReferenceErrorName() : String\l# getName() : char\l}"
+	 ]
+
+	 SingleTypeReference [
+		 label = "{SingleTypeReference|+ token : char\l|# SingleTypeReference(char, long) : \l# augmentTypeWithAdditionalDimensions(int, Annotation, boolean) : TypeReference\l# getLastToken() : char\l# getTypeBinding(Scope) : TypeBinding\l# getTypeName() : char\l+ isBaseTypeReference() : boolean\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveTypeEnclosing(BlockScope, ReferenceBinding) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 Statement [
+		 label = "{Statement|+ analyseCode : FlowInfo\l+ NOT_COMPLAINED : int\l+ COMPLAINED_FAKE_REACHABLE : int\l+ COMPLAINED_UNREACHABLE : int\l# breaksOut : boolean\l# continuesToLabel : boolean\l+ generateCode : null\l+ printStatement : StringBuffer\l+ resolve : null\l|# isKnowDeadCodePattern(Expression, BlockScope, FlowContext, FlowInfo) : boolean\l# doesNotCompleteNormally() : boolean\l# completesByContinue() : boolean\l# analyseArguments(BlockScope, FlowContext, FlowInfo, MethodBinding, Expression) : \l# analyseOneArgument18(BlockScope, FlowContext, FlowInfo, TypeBinding, Expression, Boolean, TypeBinding) : \l# internalAnalyseOneArgument18(BlockScope, FlowContext, TypeBinding, Expression, FlowInfo, int, Boolean, TypeBinding) : \l# checkAgainstNullTypeAnnotation(BlockScope, TypeBinding, Expression, FlowContext, FlowInfo) : \l# internalCheckAgainstNullTypeAnnotation(BlockScope, TypeBinding, Expression, int, FlowContext, FlowInfo) : \l# branchChainTo(BranchLabel) : \l# breaksOut(char) : boolean\l# visit(TypeDeclaration, BlockScope) : boolean\l# visit(TypeDeclaration, ClassScope) : boolean\l# visit(LambdaExpression, BlockScope) : boolean\l# visit(WhileStatement, BlockScope) : boolean\l# visit(DoStatement, BlockScope) : boolean\l# visit(ForeachStatement, BlockScope) : boolean\l# visit(ForStatement, BlockScope) : boolean\l# visit(SwitchStatement, BlockScope) : boolean\l# visit(BreakStatement, BlockScope) : boolean\l# breaksOut() : boolean\l# continuesAtOuterLabel() : boolean\l# visit(ContinueStatement, BlockScope) : boolean\l# continuesAtOuterLabel() : boolean\l# complainIfUnreachable(FlowInfo, BlockScope, int, boolean) : int\l# generateArguments(MethodBinding, Expression, BlockScope, CodeStream, BlockScope, CodeStream) : \l# isBoxingCompatible(TypeBinding, TypeBinding, Expression, Scope) : boolean\l# isEmptyBlock() : boolean\l# isValidJavaStatement() : boolean\l# print(int, StringBuffer, int, StringBuffer, BlockScope) : StringBuffer\l# resolveCase(BlockScope, TypeBinding, SwitchStatement) : Constant\l# invocationTargetType() : TypeBinding\l# expectedType() : TypeBinding\l# getExpressionContext() : ExpressionContext\l# findConstructorBinding(BlockScope, Invocation, ReferenceBinding, TypeBinding) : MethodBinding\l}"
+	 ]
+
+	 StringLiteral [
+		 label = "{StringLiteral|# source : char\l# lineNumber : int\l|# StringLiteral(char, int, int, int) : \l# StringLiteral(int, int) : \l# computeConstant() : \l# extendWith(CharLiteral) : ExtendedStringLiteral\l# extendWith(StringLiteral) : ExtendedStringLiteral\l# extendsWith(StringLiteral) : StringLiteralConcatenation\l# generateCode(BlockScope, CodeStream, boolean) : \l# literalType(BlockScope) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# source() : char\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 StringLiteralConcatenation [
+		 label = "{StringLiteralConcatenation|- INITIAL_SIZE : int\l+ literals : Expression\l+ counter : int\l|# StringLiteralConcatenation(StringLiteral, StringLiteral) : \l# extendsWith(StringLiteral) : StringLiteralConcatenation\l# printExpression(int, StringBuffer) : StringBuffer\l# source() : char\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 SubRoutineStatement [
+		 label = "{SubRoutineStatement|# anyExceptionLabel : ExceptionLabel\l+ generateSubRoutineInvocation : boolean\l+ isSubRoutineEscaping : boolean\l|# reenterAllExceptionHandlers(SubRoutineStatement, int, CodeStream) : \l# enterAnyExceptionHandler(CodeStream) : ExceptionLabel\l# enterDeclaredExceptionHandlers(CodeStream) : \l# exitAnyExceptionHandler() : \l# exitDeclaredExceptionHandlers(CodeStream, BlockScope, CodeStream, Object, int, LocalVariableBinding) : \l# placeAllAnyExceptionHandler() : \l}"
+	 ]
+
+	 SuperReference [
+		 label = "{SuperReference||# SuperReference(int, int) : \l# implicitSuperConstructorCall() : ExplicitConstructorCall\l# isImplicitThis() : boolean\l# isSuper() : boolean\l+ isUnqualifiedSuper() : boolean\l# isThis() : boolean\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 StringSwitchCase [
+		 label = "{StringSwitchCase|+ expression : Expression\l+ statements : Statement\l+ scope : BlockScope\l+ explicitDeclarations : int\l+ breakLabel : BranchLabel\l+ cases : CaseStatement\l+ defaultCase : CaseStatement\l+ blockStart : int\l+ caseCount : int\l# constants : int\l# stringConstants : String\l+ CASE : int\l+ FALLTHROUGH : int\l+ ESCAPING : int\l- SecretStringVariableName : char\l+ synthetic : SyntheticMethodBinding\l# preSwitchInitStateIndex : int\l# mergedInitStateIndex : int\l# duplicateCaseStatements : CaseStatement\l# duplicateCaseStatementsCounter : int\l- dispatchStringCopy : LocalVariableBinding\l# hashCode : int\l# string : String\l# label : BranchLabel\l|# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCodeForStringSwitch(BlockScope, CodeStream) : \l# StringSwitchCase(int, String, BranchLabel) : \l# compareTo(Object) : int\l# toString() : String\l# generateCode(BlockScope, CodeStream) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# reportDuplicateCase(CaseStatement, CaseStatement, int) : \l# traverse(ASTVisitor, BlockScope) : \l# branchChainTo(BranchLabel) : \l+ doesNotCompleteNormally() : boolean\l+ completesByContinue() : boolean\l}"
+	 ]
+
+	 SynchronizedStatement [
+		 label = "{SynchronizedStatement|+ expression : Expression\l+ block : Block\l+ scope : BlockScope\l+ synchroVariable : LocalVariableBinding\l# SecretLocalDeclarationName : char\l# preSynchronizedInitStateIndex : int\l# mergedSynchronizedInitStateIndex : int\l|# SynchronizedStatement(Expression, Block, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# isSubRoutineEscaping() : boolean\l# generateCode(BlockScope, CodeStream) : \l# generateSubRoutineInvocation(BlockScope, CodeStream, Object, int, LocalVariableBinding) : boolean\l# resolve(BlockScope) : \l# printStatement(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l+ doesNotCompleteNormally() : boolean\l+ completesByContinue() : boolean\l}"
+	 ]
+
+	 ThisReference [
+		 label = "{ThisReference||# implicitThis() : ThisReference\l# ThisReference(int, int) : \l# analyseAssignment(BlockScope, FlowContext, FlowInfo, Assignment, boolean) : FlowInfo\l# checkAccess(BlockScope, ReferenceBinding) : boolean\l# checkNPE(BlockScope, FlowContext, FlowInfo, int) : boolean\l# generateAssignment(BlockScope, CodeStream, Assignment, boolean) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateCompoundAssignment(BlockScope, CodeStream, Expression, int, int, boolean) : \l# generatePostIncrement(BlockScope, CodeStream, CompoundAssignment, boolean) : \l# isImplicitThis() : boolean\l# isThis() : boolean\l# nullStatus(FlowInfo, FlowContext) : int\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 ThrowStatement [
+		 label = "{ThrowStatement|+ exception : Expression\l+ exceptionType : TypeBinding\l|# ThrowStatement(Expression, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l+ doesNotCompleteNormally() : boolean\l}"
+	 ]
+
+	 TrueLiteral [
+		 label = "{TrueLiteral|# source : char\l|# TrueLiteral(int, int) : \l# computeConstant() : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateOptimizedBoolean(BlockScope, CodeStream, BranchLabel, BranchLabel, boolean) : \l# literalType(BlockScope) : TypeBinding\l# source() : char\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 TryStatement [
+		 label = "{TryStatement|# SECRET_RETURN_ADDRESS_NAME : char\l# SECRET_ANY_HANDLER_NAME : char\l# SECRET_PRIMARY_EXCEPTION_VARIABLE_NAME : char\l# SECRET_CAUGHT_THROWABLE_VARIABLE_NAME : char\l# SECRET_RETURN_VALUE_NAME : char\l- NO_RESOURCES : LocalDeclaration\l+ resources : LocalDeclaration\l+ tryBlock : Block\l+ catchBlocks : Block\l+ catchArguments : Argument\l+ finallyBlock : Block\l# scope : BlockScope\l+ subRoutineInits : UnconditionalFlowInfo\l# caughtExceptionTypes : ReferenceBinding\l# catchExits : boolean\l# subRoutineStartLabel : BranchLabel\l+ anyExceptionVariable : LocalVariableBinding\l# declaredExceptionLabels : ExceptionLabel\l- reusableJSRTargets : Object\l- reusableJSRSequenceStartLabels : BranchLabel\l- reusableJSRStateIndexes : int\l- reusableJSRTargetsCount : int\l- NO_FINALLY : int\l- FINALLY_SUBROUTINE : int\l- FINALLY_DOES_NOT_COMPLETE : int\l- FINALLY_INLINE : int\l# mergedInitStateIndex : int\l# preTryInitStateIndex : int\l# postTryInitStateIndex : int\l# postResourcesInitStateIndexes : int\l# naturalExitMergeInitStateIndex : int\l# catchExitInitStateIndexes : int\l- primaryExceptionVariable : LocalVariableBinding\l- caughtThrowableVariable : LocalVariableBinding\l- resourceExceptionLabels : ExceptionLabel\l- caughtExceptionsCatchBlocks : int\l|# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# findCloseMethod(LocalDeclaration, LocalVariableBinding) : MethodBinding\l# prepareCatchInfo(FlowInfo, ExceptionHandlingFlowContext, FlowInfo, int) : FlowInfo\l# isUncheckedCatchBlock(int) : boolean\l# enterAnyExceptionHandler(CodeStream) : ExceptionLabel\l# enterDeclaredExceptionHandlers(CodeStream) : \l# exitAnyExceptionHandler() : \l# exitDeclaredExceptionHandlers(CodeStream) : \l# finallyMode() : int\l# generateCode(BlockScope, CodeStream) : \l# generateSubRoutineInvocation(BlockScope, CodeStream, Object, int, LocalVariableBinding) : boolean\l# isSubRoutineEscaping() : boolean\l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l# verifyDuplicationAndOrder(int, TypeBinding, boolean) : \l+ doesNotCompleteNormally() : boolean\l+ completesByContinue() : boolean\l}"
+	 ]
+
+	 TypeDeclaration [
+		 label = "{TypeDeclaration|+ CLASS_DECL : int\l+ INTERFACE_DECL : int\l+ ENUM_DECL : int\l+ ANNOTATION_TYPE_DECL : int\l+ modifiers : int\l+ modifiersSourceStart : int\l+ annotations : Annotation\l+ name : char\l+ superclass : TypeReference\l+ superInterfaces : TypeReference\l+ fields : FieldDeclaration\l+ methods : AbstractMethodDeclaration\l+ memberTypes : TypeDeclaration\l+ binding : SourceTypeBinding\l+ scope : ClassScope\l+ initializerScope : MethodScope\l+ staticInitializerScope : MethodScope\l+ ignoreFurtherInvestigation : boolean\l+ maxFieldCount : int\l+ declarationSourceStart : int\l+ declarationSourceEnd : int\l+ bodyStart : int\l+ bodyEnd : int\l+ compilationResult : CompilationResult\l+ missingAbstractMethods : MethodDeclaration\l+ javadoc : Javadoc\l+ allocation : QualifiedAllocationExpression\l+ enclosingType : TypeDeclaration\l+ enumValuesSyntheticfield : FieldBinding\l+ enumConstantsCounter : int\l+ typeParameters : TypeParameter\l|# TypeDeclaration(CompilationResult) : \l# abort(int, CategorizedProblem) : \l# addClinit() : \l# addMissingAbstractMethodFor(MethodBinding) : MethodDeclaration\l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# analyseCode(ClassScope) : \l# analyseCode(ClassScope, FlowContext, FlowInfo) : \l# analyseCode(CompilationUnitScope) : \l# checkConstructors(Parser) : boolean\l# compilationResult() : CompilationResult\l# createDefaultConstructor(boolean, boolean) : ConstructorDeclaration\l# createDefaultConstructorWithBinding(MethodBinding, boolean) : MethodBinding\l# declarationOf(FieldBinding) : FieldDeclaration\l# declarationOf(MemberTypeBinding) : TypeDeclaration\l# declarationOf(MethodBinding) : AbstractMethodDeclaration\l# declarationOfType(char) : TypeDeclaration\l# getCompilationUnitDeclaration() : CompilationUnitDeclaration\l# generateCode(ClassFile) : \l# generateCode(BlockScope, CodeStream) : \l# generateCode(ClassScope, ClassFile) : \l# generateCode(CompilationUnitScope) : \l# hasErrors() : boolean\l# internalAnalyseCode(FlowContext, FlowInfo) : \l# kind(int) : int\l# manageEnclosingInstanceAccessIfNecessary(BlockScope, FlowInfo) : \l# manageEnclosingInstanceAccessIfNecessary(ClassScope, FlowInfo) : \l# needClassInitMethod() : boolean\l# parseMethods(Parser, CompilationUnitDeclaration) : \l# print(int, StringBuffer) : StringBuffer\l# printBody(int, StringBuffer) : StringBuffer\l# printHeader(int, StringBuffer) : StringBuffer\l# printStatement(int, StringBuffer) : StringBuffer\l# resolve() : \l# resolve(BlockScope) : \l# resolve(ClassScope) : \l# resolve(CompilationUnitScope) : \l# tagAsHavingErrors() : \l# tagAsHavingIgnoredMandatoryErrors(int) : \l# traverse(ASTVisitor, CompilationUnitScope) : \l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# updateMaxFieldCount() : \l# isPackageInfo() : boolean\l# isSecondary() : boolean\l}"
+	 ]
+
+	 TypeParameter [
+		 label = "{TypeParameter|+ binding : TypeVariableBinding\l+ bounds : TypeReference\l|# getKind() : int\l# checkBounds(Scope) : \l# getAllAnnotationContexts(int, int, List) : \l# internalResolve(Scope, boolean) : \l# resolve(BlockScope) : \l# resolve(ClassScope) : \l# resolveAnnotations(Scope) : \l# printStatement(int, StringBuffer) : StringBuffer\l# generateCode(BlockScope, CodeStream) : \l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 AnnotationCollector [
+		 label = "{AnnotationCollector|+ NO_TYPE_ARGUMENTS : TypeReference\l# annotationContexts : List\l# typeReference : Expression\l# targetType : int\l# info : int\l# info2 : int\l# localVariable : LocalVariableBinding\l# annotationsOnDimensions : Annotation\l# dimensions : int\l# currentWildcard : Wildcard\l+ annotations : Annotation\l+ augmentTypeWithAdditionalDimensions : TypeReference\l+ getLastToken : char\l# getTypeBinding : TypeBinding\l+ getTypeName : char\l+ traverse : null\l+ traverse : null\l|# null() : \l# null() : \l# AnnotationCollector(TypeParameter, int, int, List) : \l# AnnotationCollector(LocalDeclaration, int, LocalVariableBinding, List) : \l# AnnotationCollector(LocalDeclaration, int, int, List) : \l# AnnotationCollector(TypeReference, int, List) : \l# AnnotationCollector(Expression, int, int, List) : \l# AnnotationCollector(TypeReference, int, int, int, List) : \l# AnnotationCollector(TypeReference, int, int, List, Annotation, int) : \l# internalVisit(Annotation) : boolean\l# visit(MarkerAnnotation, BlockScope) : boolean\l# visit(NormalAnnotation, BlockScope) : boolean\l# visit(SingleMemberAnnotation, BlockScope) : boolean\l# visit(Wildcard, BlockScope) : boolean\l# visit(Argument, BlockScope) : boolean\l# visit(Argument, ClassScope) : boolean\l# visit(LocalDeclaration, BlockScope) : boolean\l# endVisit(Wildcard, BlockScope) : \l# baseTypeReference(int, int, Annotation) : TypeReference\l# baseTypeReference(int, int) : TypeReference\l# aboutToResolve(Scope) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# checkBounds(Scope, int, Annotation, boolean) : \l# getMergedAnnotationsOnDimensions(int, Annotation) : Annotation\l# dimensions() : int\l# extraDimensions() : int\l# getAllAnnotationContexts(int) : AnnotationContext\l# getAllAnnotationContexts(int, int, List) : \l# getAllAnnotationContexts(int, int, List, Annotation) : \l# getAllAnnotationContexts(int, int, List, Annotation, int) : \l# getAllAnnotationContexts(int, int, int, List) : \l# getAllAnnotationContexts(int, List) : \l# getAnnotationsOnDimensions() : Annotation\l# getTypeArguments() : TypeReference\l# getAnnotationsOnDimensions(boolean) : Annotation\l# setAnnotationsOnDimensions(Annotation) : \l# getParameterizedTypeName(Scope) : char\l# internalResolveType(Scope, int) : TypeBinding\l# isTypeReference() : boolean\l# isWildcard() : boolean\l# isUnionType() : boolean\l# isVarargs() : boolean\l# isParameterizedTypeReference() : boolean\l# reportDeprecatedType(TypeBinding, Scope, int) : \l# reportDeprecatedType(TypeBinding, Scope) : \l# reportInvalidType(Scope) : \l# resolveSuperType(ClassScope) : TypeBinding\l# resolveType(BlockScope) : TypeBinding\l# resolveType(BlockScope, boolean) : TypeBinding\l# resolveType(BlockScope, boolean, int) : TypeBinding\l# resolveType(ClassScope) : TypeBinding\l# resolveType(ClassScope, int) : TypeBinding\l# resolveTypeArgument(BlockScope, ReferenceBinding, int) : TypeBinding\l# resolveTypeArgument(ClassScope, ReferenceBinding, int, ASTVisitor, BlockScope, ASTVisitor, ClassScope) : TypeBinding\l# resolveAnnotations(Scope, int) : \l# getAnnotatableLevels() : int\l# checkIllegalNullAnnotations(Scope, TypeReference) : \l# checkNullConstraints(Scope, Substitution, TypeBinding, int) : \l# checkIllegalNullAnnotation(Scope) : \l# findAnnotation(long) : Annotation\l# hasNullTypeAnnotation(AnnotationPosition) : boolean\l# containsNullAnnotation(Annotation) : boolean\l# getTypeReferences() : TypeReference\l# isBaseTypeReference() : boolean\l}"
+	 ]
+
+	 UnaryExpression [
+		 label = "{UnaryExpression|+ expression : Expression\l+ optimizedBooleanConstant : Constant\l|# UnaryExpression(Expression, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# optimizedBooleanConstant() : Constant\l# generateCode(BlockScope, CodeStream, boolean) : \l# generateOptimizedBoolean(BlockScope, CodeStream, BranchLabel, BranchLabel, boolean) : \l# printExpressionNoParenthesis(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 UnionTypeReference [
+		 label = "{UnionTypeReference|+ typeReferences : TypeReference\l|# UnionTypeReference(TypeReference) : \l# getLastToken() : char\l# getTypeBinding(Scope) : TypeBinding\l# resolveType(BlockScope, boolean, int) : TypeBinding\l# getTypeName() : char\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# printExpression(int, StringBuffer) : StringBuffer\l# isUnionType() : boolean\l# augmentTypeWithAdditionalDimensions(int, Annotation, boolean) : TypeReference\l}"
+	 ]
+
+	 WhileStatement [
+		 label = "{WhileStatement|+ condition : Expression\l+ action : Statement\l- breakLabel : BranchLabel\l# preCondInitStateIndex : int\l# condIfTrueInitStateIndex : int\l# mergedInitStateIndex : int\l|# WhileStatement(Expression, Statement, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# resolve(BlockScope) : \l# printStatement(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l+ doesNotCompleteNormally() : boolean\l+ completesByContinue() : boolean\l}"
+	 ]
+
+	 Wildcard [
+		 label = "{Wildcard|+ UNBOUND : int\l+ EXTENDS : int\l+ SUPER : int\l+ bound : TypeReference\l+ kind : int\l|# Wildcard(int) : \l# getParameterizedTypeName() : char\l# getTypeName() : char\l# internalResolveType(Scope, ReferenceBinding, int) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope, boolean, int) : TypeBinding\l# resolveType(ClassScope, int) : TypeBinding\l# resolveTypeArgument(BlockScope, ReferenceBinding, int) : TypeBinding\l# resolveTypeArgument(ClassScope, ReferenceBinding, int) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# isWildcard() : boolean\l}"
+	 ]
+
+	 AbstractMethodDeclaration [
+		 label = "{AbstractMethodDeclaration|+ scope : MethodScope\l+ selector : char\l+ declarationSourceStart : int\l+ declarationSourceEnd : int\l+ modifiers : int\l+ modifiersSourceStart : int\l+ annotations : Annotation\l+ arguments : Argument\l+ thrownExceptions : TypeReference\l+ statements : Statement\l+ explicitDeclarations : int\l+ binding : MethodBinding\l+ ignoreFurtherInvestigation : boolean\l+ needFreeReturn : boolean\l+ javadoc : Javadoc\l+ bodyStart : int\l+ bodyEnd : int\l+ compilationResult : CompilationResult\l+ errorInSignature : boolean\l+ analyseCode : null\l+ parseStatements : null\l|# AbstractMethodDeclaration(CompilationResult) : \l# abort(int, IProblem, ClassScope, InitializationFlowContext, FlowInfo) : \l# bindArguments() : \l# bindThrownExceptions() : \l# compilationResult() : CompilationResult\l# generateCode(ClassScope, ClassFile) : \l# generateCode(ClassFile) : \l# checkArgumentsSize() : \l# hasErrors() : boolean\l# isAbstract() : boolean\l# isClinit() : boolean\l# isConstructor() : boolean\l# isDefaultConstructor() : boolean\l# isInitializationMethod() : boolean\l# isMethod() : boolean\l# isNative() : boolean\l# isStatic(Parser, CompilationUnitDeclaration) : boolean\l# print(int, StringBuffer) : StringBuffer\l# printBody(int, StringBuffer) : StringBuffer\l# printReturnType(int, StringBuffer) : StringBuffer\l# resolve(ClassScope) : \l# resolveJavadoc() : \l# resolveStatements() : \l# tagAsHavingErrors() : \l# traverse(ASTVisitor, ClassScope) : \l# typeParameters() : TypeParameter\l}"
+	 ]
+
+	 AbstractVariableDeclaration [
+		 label = "{AbstractVariableDeclaration|+ declarationEnd : int\l+ declarationSourceEnd : int\l+ declarationSourceStart : int\l+ hiddenVariableDepth : int\l+ initialization : Expression\l+ modifiers : int\l+ modifiersSourceStart : int\l+ annotations : Annotation\l+ name : char\l+ type : TypeReference\l|# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# genericTypeArguments() : TypeBinding\l# isSuperAccess() : boolean\l# isTypeAccess() : boolean\l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# setActualReceiverType(ReferenceBinding) : \l# setDepth(int) : \l# setFieldIndex(int) : \l}"
+	 ]
+
+	 AllocationExpression [
+		 label = "{AllocationExpression|+ type : TypeReference\l+ arguments : Expression\l+ binding : MethodBinding\l# codegenBinding : MethodBinding\l# syntheticAccessor : MethodBinding\l+ typeArguments : TypeReference\l+ genericTypeArguments : TypeBinding\l|# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# checkCapturedLocalInitializationIfNecessary(ReferenceBinding, BlockScope, FlowInfo) : \l# enclosingInstance() : Expression\l# generateCode(BlockScope, CodeStream, boolean) : \l# genericTypeArguments() : TypeBinding\l# isSuperAccess() : boolean\l# isTypeAccess() : boolean\l# manageEnclosingInstanceAccessIfNecessary(BlockScope, FlowInfo) : \l# manageSyntheticAccessIfNecessary(BlockScope, FlowInfo) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# setActualReceiverType(ReferenceBinding) : \l# setDepth(int) : \l# setFieldIndex(int) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 AND_AND_Expression [
+		 label = "{AND_AND_Expression|# rightInitStateIndex : int\l# mergedInitStateIndex : int\l|# AND_AND_Expression(Expression, Expression, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream, boolean) : \l# generateOptimizedBoolean(BlockScope, CodeStream, Label, Label, boolean) : \l# isCompactableOperation() : boolean\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 Annotation [
+		 label = "{Annotation|+ tokens : char\l+ sourcePositions : long\l+ declarationSourceEnd : int\l+ traverse : null\l+ traverse : null\l+ traverse : null\l|# printExpression(int, StringBuffer, ASTVisitor, BlockScope, ASTVisitor, ClassScope, ASTVisitor, CompilationUnitScope) : StringBuffer\l}"
+	 ]
+
+	 AnnotationTypeDeclaration [
+		 label = "{AnnotationTypeDeclaration|+ annotationTypeMemberDeclarations : AnnotationTypeMemberDeclaration\l|# AnnotationTypeDeclaration(CompilationResult) : \l# printHeader(int, StringBuffer) : StringBuffer\l# printBody(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# traverse(ASTVisitor, CompilationUnitScope) : \l}"
+	 ]
+
+	 AnnotationTypeMemberDeclaration [
+		 label = "{AnnotationTypeMemberDeclaration|+ returnType : TypeReference\l+ memberValue : Expression\l+ extendedDimensions : int\l|# AnnotationTypeMemberDeclaration(CompilationResult) : \l# analyseCode(ClassScope, InitializationFlowContext, FlowInfo) : \l# parseStatements(Parser, CompilationUnitDeclaration) : \l# printReturnType(int, StringBuffer) : StringBuffer\l# resolve(ClassScope) : \l# resolveStatements() : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 Argument [
+		 label = "{Argument|- SET : char\l+ isVarArgs : boolean\l|# Argument(char, long, TypeReference, int, boolean) : \l# bind(MethodScope, TypeBinding, boolean) : \l# print(int, StringBuffer) : StringBuffer\l# printStatement(int, StringBuffer) : StringBuffer\l# resolveForCatch(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ArrayAllocationExpression [
+		 label = "{ArrayAllocationExpression|+ type : TypeReference\l+ dimensions : Expression\l+ initializer : ArrayInitializer\l|# ArrayAllocationExpression() : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream, boolean) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ArrayInitializer [
+		 label = "{ArrayInitializer|+ expressions : Expression\l+ binding : ArrayBinding\l|# ArrayInitializer() : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream, boolean) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveTypeExpecting(BlockScope, TypeBinding) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ArrayQualifiedTypeReference [
+		 label = "{ArrayQualifiedTypeReference|# dimensions : int\l|# ArrayQualifiedTypeReference(char, int, long) : \l# dimensions() : int\l# getParameterizedTypeName() : char\l# getTypeBinding(Scope) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 ArrayReference [
+		 label = "{ArrayReference|+ receiver : Expression\l+ position : Expression\l|# ArrayReference(Expression, Expression) : \l# analyseAssignment(BlockScope, FlowContext, FlowInfo, Assignment, boolean) : FlowInfo\l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateAssignment(BlockScope, CodeStream, Assignment, boolean) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateCompoundAssignment(BlockScope, CodeStream, Expression, int, int, boolean) : \l# generatePostIncrement(BlockScope, CodeStream, CompoundAssignment, boolean) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ArrayTypeReference [
+		 label = "{ArrayTypeReference|+ dimensions : int\l|# ArrayTypeReference(char, int, long) : \l# dimensions() : int\l# getParameterizedTypeName() : char\l# getTypeBinding(Scope) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 AssertStatement [
+		 label = "{AssertStatement|+ assertExpression : Expression\l# preAssertInitStateIndex : int\l- assertionSyntheticFieldBinding : FieldBinding\l|# AssertStatement(Expression, Expression, int) : \l# AssertStatement(Expression, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l# manageSyntheticAccessIfNecessary(BlockScope, FlowInfo) : \l# printStatement(int, StringBuffer) : StringBuffer\l}"
+	 ]
+
+	 Assignment [
+		 label = "{Assignment|+ lhs : Expression\l+ expression : Expression\l|# Assignment(Expression, Expression, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# checkAssignmentEffect(BlockScope) : \l# checkAssignment(BlockScope, TypeBinding, TypeBinding) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# getDirectBinding(Expression) : Binding\l# getLastField(Expression) : FieldBinding\l# print(int, StringBuffer) : StringBuffer\l# printExpression(int, StringBuffer) : StringBuffer\l# printExpressionNoParenthesis(int, StringBuffer) : StringBuffer\l# printStatement(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# resolveTypeExpecting(BlockScope, TypeBinding) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ASTNode [
+		 label = "{ASTNode|+ sourceStart : int\l+ NotAConstant : Constant\l+ Bit1 : int\l+ Bit2 : int\l+ Bit3 : int\l+ Bit4 : int\l+ Bit5 : int\l+ Bit6 : int\l+ Bit7 : int\l+ Bit8 : int\l+ Bit9 : int\l+ Bit10 : int\l+ Bit11 : int\l+ Bit12 : int\l+ Bit13 : int\l+ Bit14 : int\l+ Bit15 : int\l+ Bit16 : int\l+ Bit17 : int\l+ Bit18 : int\l+ Bit19 : int\l+ Bit20 : int\l+ Bit21 : int\l+ Bit22 : int\l+ Bit23 : int\l+ Bit24 : int\l+ Bit25 : int\l+ Bit26 : int\l+ Bit27 : int\l+ Bit28 : int\l+ Bit29 : int\l+ Bit30 : int\l+ Bit31 : int\l+ Bit32 : int\l+ Bit32L : long\l+ Bit33L : long\l+ Bit34L : long\l+ Bit35L : long\l+ Bit36L : long\l+ Bit37L : long\l+ Bit38L : long\l+ Bit39L : long\l+ Bit40L : long\l+ bits : int\l+ ReturnTypeIDMASK : int\l+ OperatorSHIFT : int\l+ OperatorMASK : int\l+ ValueForReturnMASK : int\l+ OnlyValueRequiredMASK : int\l+ UnnecessaryCastMask : int\l+ NeedRuntimeCheckCastMASK : int\l+ IgnoreNeedForCastCheckMASK : int\l+ RestrictiveFlagMASK : int\l+ FirstAssignmentToLocalMASK : int\l+ IsImplicitThisMask : int\l+ DepthSHIFT : int\l+ DepthMASK : int\l+ IsReachableMASK : int\l+ IsLocalDeclarationReachableMASK : int\l+ AddAssertionMASK : int\l+ IsLocalTypeMASK : int\l+ IsAnonymousTypeMASK : int\l+ AnonymousAndLocalMask : int\l+ IsMemberTypeMASK : int\l+ HasLocalTypeMASK : int\l+ ParenthesizedSHIFT : int\l+ ParenthesizedMASK : int\l+ IsAssignmentWithNoEffectMASK : int\l+ IsStrictlyAssignedMASK : int\l+ IsCompoundAssignedMASK : int\l+ IsUsefulEmptyStatementMASK : int\l+ UndocumentedEmptyBlockMASK : int\l+ HasAllMethodBodies : int\l+ InsideJavadoc : int\l+ IsElseIfStatement : int\l+ IsSuperType : int\l+ print : StringBuffer\l|# ASTNode() : \l# checkInvocationArguments(BlockScope, Expression, TypeBinding, MethodBinding, Expression, TypeBinding, boolean, InvocationSite) : \l# concreteStatement() : ASTNode\l# isFieldUseDeprecated(FieldBinding, Scope, boolean) : boolean\l# isImplicitThis() : boolean\l# isMethodUseDeprecated(MethodBinding, Scope) : boolean\l# isSuper() : boolean\l# isThis() : boolean\l# isTypeUseDeprecated(TypeBinding, Scope, int, StringBuffer) : boolean\l# printIndent(int, StringBuffer) : StringBuffer\l# printModifiers(int, StringBuffer) : StringBuffer\l# sourceStart() : int\l# sourceEnd() : int\l# toString() : String\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 BinaryExpression [
+		 label = "{BinaryExpression|+ left : Expression\l+ optimizedBooleanConstant : Constant\l|# BinaryExpression(Expression, Expression, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# computeConstant(BlockScope, int, int) : \l# optimizedBooleanConstant() : Constant\l# generateCode(BlockScope, CodeStream, boolean) : \l# generateOptimizedBoolean(BlockScope, CodeStream, Label, Label, boolean) : \l# generateOptimizedGreaterThan(BlockScope, CodeStream, Label, Label, boolean) : \l# generateOptimizedGreaterThanOrEqual(BlockScope, CodeStream, Label, Label, boolean) : \l# generateOptimizedLessThan(BlockScope, CodeStream, Label, Label, boolean) : \l# generateOptimizedLessThanOrEqual(BlockScope, CodeStream, Label, Label, boolean) : \l# generateOptimizedLogicalAnd(BlockScope, CodeStream, Label, Label, boolean) : \l# generateOptimizedLogicalOr(BlockScope, CodeStream, Label, Label, boolean) : \l# generateOptimizedLogicalXor(BlockScope, CodeStream, Label, Label, boolean) : \l# generateOptimizedStringConcatenation(BlockScope, CodeStream, int) : \l# generateOptimizedStringConcatenationCreation(BlockScope, CodeStream, int) : \l# isCompactableOperation() : boolean\l# optimizedBooleanConstant(int, int, int) : \l# printExpressionNoParenthesis(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 Block [
+		 label = "{Block|+ statements : Statement\l+ explicitDeclarations : int\l+ scope : BlockScope\l|# Block(int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# isEmptyBlock() : boolean\l# printBody(int, StringBuffer) : StringBuffer\l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# resolveUsing(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l# branchChainTo(Label) : \l}"
+	 ]
+
+	 BranchStatement [
+		 label = "{BranchStatement|+ label : char\l+ targetLabel : Label\l+ subroutines : SubRoutineStatement\l|# BranchStatement(char, int, int) : \l# generateCode(BlockScope, CodeStream) : \l# resolve(BlockScope) : \l}"
+	 ]
+
+	 BreakStatement [
+		 label = "{BreakStatement||# BreakStatement(char, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# printStatement(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 CaseStatement [
+		 label = "{CaseStatement|+ constantExpression : Expression\l+ targetLabel : CaseLabel\l|# CaseStatement(Expression, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# printStatement(int, StringBuffer) : StringBuffer\l# generateCode(BlockScope, CodeStream) : \l# resolve(BlockScope) : \l# resolveCase(BlockScope, TypeBinding, SwitchStatement) : Constant\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 CastExpression [
+		 label = "{CastExpression|+ expression : Expression\l+ type : Expression\l+ expectedType : TypeBinding\l|# CastExpression(Expression, Expression) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# checkNeedForEnclosingInstanceCast(BlockScope, Expression, TypeBinding, TypeBinding) : \l# checkNeedForArgumentCast(BlockScope, int, int, Expression, int) : \l# checkNeedForArgumentCasts(BlockScope, Expression, TypeBinding, MethodBinding, Expression, TypeBinding, InvocationSite) : \l# checkNeedForArgumentCasts(BlockScope, int, int, Expression, int, boolean, Expression, int, boolean) : \l# checkAlternateBinding(BlockScope, Expression, TypeBinding, MethodBinding, Expression, TypeBinding, TypeBinding, InvocationSite) : \l# genericTypeArguments() : TypeBinding\l# isSuperAccess() : boolean\l# isTypeAccess() : boolean\l# setActualReceiverType(ReferenceBinding) : \l# setDepth(int) : \l# setFieldIndex(int) : \l# sourceStart() : int\l# sourceEnd() : int\l# checkUnsafeCast(Scope, TypeBinding, TypeBinding, TypeBinding, boolean) : boolean\l# generateCode(BlockScope, CodeStream, boolean) : \l# innermostCastedExpression() : Expression\l# printExpression(int, StringBuffer) : StringBuffer\l# reportIllegalCast(Scope, TypeBinding, TypeBinding) : \l# resolveType(BlockScope) : TypeBinding\l# setExpectedType(TypeBinding) : \l# usedForGenericMethodReturnTypeInference() : boolean\l# tagAsNeedCheckCast() : \l# tagAsUnnecessaryCast(Scope, TypeBinding) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 CharLiteral [
+		 label = "{CharLiteral|# value : char\l|# CharLiteral(char, int, int) : \l# computeConstant() : \l# computeValue() : \l# generateCode(BlockScope, CodeStream, boolean) : \l# literalType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ClassLiteralAccess [
+		 label = "{ClassLiteralAccess|+ type : TypeReference\l+ targetType : TypeBinding\l# syntheticField : FieldBinding\l|# ClassLiteralAccess(int, TypeReference) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream, boolean) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 Clinit [
+		 label = "{Clinit|+ ConstantPoolName : char\l- assertionSyntheticFieldBinding : FieldBinding\l- classLiteralSyntheticField : FieldBinding\l|# Clinit(CompilationResult) : \l# analyseCode(ClassScope, InitializationFlowContext, FlowInfo) : \l# generateCode(ClassScope, ClassFile) : \l# generateCode(ClassScope, ClassFile, int) : \l# isClinit() : boolean\l# isInitializationMethod() : boolean\l# isStatic() : boolean\l# parseStatements(Parser, CompilationUnitDeclaration) : \l# print(int, StringBuffer) : StringBuffer\l# resolve(ClassScope) : \l# traverse(ASTVisitor, ClassScope) : \l# setAssertionSupport(FieldBinding, boolean) : \l}"
+	 ]
+
+	 CompilationUnitDeclaration [
+		 label = "{CompilationUnitDeclaration|- PACKAGE_INFO_FILE_NAME : char\l+ currentPackage : ImportReference\l+ imports : ImportReference\l+ types : TypeDeclaration\l+ comments : int\l+ ignoreFurtherInvestigation : boolean\l+ ignoreMethodBodies : boolean\l+ scope : CompilationUnitScope\l+ problemReporter : ProblemReporter\l+ compilationResult : CompilationResult\l+ localTypes : LocalTypeBinding\l+ localTypeCount : int\l+ isPropagatingInnerClassEmulation : boolean\l|# CompilationUnitDeclaration(ProblemReporter, CompilationResult, int) : \l# abort(int, IProblem) : \l# analyseCode() : \l# cleanUp() : \l# cleanUp(TypeDeclaration) : \l# checkUnusedImports() : \l# compilationResult() : CompilationResult\l# declarationOfType(char) : TypeDeclaration\l# generateCode() : \l# getFileName() : char\l# getMainTypeName() : char\l# isEmpty() : boolean\l# hasErrors() : boolean\l# print(int, StringBuffer) : StringBuffer\l# propagateInnerEmulationForAllLocalTypes() : \l# record(LocalTypeBinding) : \l# resolve() : \l# tagAsHavingErrors() : \l# traverse(ASTVisitor, CompilationUnitScope) : \l}"
+	 ]
+
+	 CompoundAssignment [
+		 label = "{CompoundAssignment|+ operator : int\l+ assignmentImplicitConversion : int\l|# CompoundAssignment(Expression, Expression, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream, boolean) : \l# operatorToString() : String\l# printExpressionNoParenthesis(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# restrainUsageToNumericTypes() : boolean\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ConditionalExpression [
+		 label = "{ConditionalExpression|+ condition : Expression\l+ optimizedBooleanConstant : Constant\l+ optimizedIfTrueConstant : Constant\l+ optimizedIfFalseConstant : Constant\l# trueInitStateIndex : int\l# falseInitStateIndex : int\l# mergedInitStateIndex : int\l|# ConditionalExpression(Expression, Expression, Expression) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream, boolean) : \l# generateOptimizedBoolean(BlockScope, CodeStream, Label, Label, boolean) : \l# optimizedBooleanConstant() : Constant\l# printExpressionNoParenthesis(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ConstructorDeclaration [
+		 label = "{ConstructorDeclaration|+ constructorCall : ExplicitConstructorCall\l+ ConstantPoolName : char\l+ isDefaultConstructor : boolean\l+ typeParameters : TypeParameter\l|# ConstructorDeclaration(CompilationResult) : \l# analyseCode(ClassScope, InitializationFlowContext, FlowInfo) : \l# generateCode(ClassScope, ClassFile) : \l# generateSyntheticFieldInitializationsIfNecessary(MethodScope, CodeStream, ReferenceBinding) : \l# internalGenerateCode(ClassScope, ClassFile) : \l# isConstructor() : boolean\l# isDefaultConstructor() : boolean\l# isInitializationMethod() : boolean\l# isRecursive(ArrayList) : boolean\l# parseStatements(Parser, CompilationUnitDeclaration) : \l# printBody(int, StringBuffer) : StringBuffer\l# resolveJavadoc() : \l# resolveStatements() : \l# traverse(ASTVisitor, ClassScope) : \l# typeParameters() : TypeParameter\l}"
+	 ]
+
+	 ContinueStatement [
+		 label = "{ContinueStatement||# ContinueStatement(char, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# printStatement(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 DoStatement [
+		 label = "{DoStatement|+ condition : Expression\l+ action : Statement\l- breakLabel : Label\l# mergedInitStateIndex : int\l|# DoStatement(Expression, Statement, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 DoubleLiteral [
+		 label = "{DoubleLiteral|# value : double\l|# DoubleLiteral(char, int, int) : \l# computeConstant() : \l# generateCode(BlockScope, CodeStream, boolean) : \l# literalType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 EmptyStatement [
+		 label = "{EmptyStatement||# EmptyStatement(int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# complainIfUnreachable(FlowInfo, BlockScope, boolean) : boolean\l# generateCode(BlockScope, CodeStream) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 EnumConstant [
+		 label = "{EnumConstant|+ arguments : Expression\l|# EnumConstant(CompilationResult) : \l# print(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, CompilationUnitScope) : \l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 EnumDeclaration [
+		 label = "{EnumDeclaration|+ enumConstants : EnumConstant\l|# EnumDeclaration(CompilationResult) : \l# printBody(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# traverse(ASTVisitor, CompilationUnitScope) : \l}"
+	 ]
+
+	 EqualExpression [
+		 label = "{EqualExpression||# EqualExpression(Expression, Expression, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# computeConstant(TypeBinding, TypeBinding) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateOptimizedBoolean(BlockScope, CodeStream, Label, Label, boolean) : \l# generateOptimizedBooleanEqual(BlockScope, CodeStream, Label, Label, boolean) : \l# generateOptimizedNonBooleanEqual(BlockScope, CodeStream, Label, Label, boolean) : \l# isCompactableOperation() : boolean\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ExplicitConstructorCall [
+		 label = "{ExplicitConstructorCall|+ arguments : Expression\l+ qualification : Expression\l+ binding : MethodBinding\l# codegenBinding : MethodBinding\l# syntheticAccessor : MethodBinding\l+ accessMode : int\l+ typeArguments : TypeReference\l+ genericTypeArguments : TypeBinding\l+ ImplicitSuper : int\l+ Super : int\l+ This : int\l+ implicitArguments : VariableBinding\l# discardEnclosingInstance : boolean\l+ typeArgumentsSourceStart : int\l|# ExplicitConstructorCall(int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# genericTypeArguments() : TypeBinding\l# isImplicitSuper() : boolean\l# isSuperAccess() : boolean\l# isTypeAccess() : boolean\l# manageEnclosingInstanceAccessIfNecessary(BlockScope, FlowInfo) : \l# manageSyntheticAccessIfNecessary(BlockScope, FlowInfo) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# setActualReceiverType(ReferenceBinding) : \l# setDepth(int) : \l# setFieldIndex(int) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 Expression [
+		 label = "{Expression|+ constant : Constant\l+ implicitConversion : int\l+ resolvedType : TypeBinding\l+ printExpression : StringBuffer\l|# isConstantValueRepresentable(Constant, int, int) : boolean\l# Expression() : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# analyseCode(BlockScope, FlowContext, FlowInfo, boolean) : FlowInfo\l# checkCastTypesCompatibility(BlockScope, TypeBinding, TypeBinding, Expression) : boolean\l# getAllInheritedMethods(ReferenceBinding) : MethodBinding\l# getAllInheritedMethods0(ReferenceBinding, ArrayList) : \l# checkUnsafeCast(Scope, TypeBinding, TypeBinding, TypeBinding, boolean) : boolean\l# computeConversion(Scope, TypeBinding, TypeBinding) : \l# generateCode(BlockScope, CodeStream) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateOptimizedBoolean(BlockScope, CodeStream, Label, Label, boolean) : \l# generateOptimizedStringConcatenation(BlockScope, CodeStream, int) : \l# generateOptimizedStringConcatenationCreation(BlockScope, CodeStream, int) : \l# isCompactableOperation() : boolean\l# isConstantValueOfTypeAssignableToType(TypeBinding, TypeBinding) : boolean\l# isTypeReference() : boolean\l# optimizedBooleanConstant() : Constant\l# print(int, StringBuffer, int, StringBuffer) : StringBuffer\l# printStatement(int, StringBuffer) : StringBuffer\l# reportIllegalCast(Scope, TypeBinding, TypeBinding) : \l# resolve(BlockScope) : \l# resolveType(BlockScope) : TypeBinding\l# resolveType(ClassScope) : TypeBinding\l# resolveTypeExpecting(BlockScope, TypeBinding) : TypeBinding\l# setExpectedType(TypeBinding) : \l# tagAsUnnecessaryCast(Scope, TypeBinding) : \l# tagAsNeedCheckCast() : \l# toTypeReference() : Expression\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# traverse(ASTVisitor, CompilationUnitScope) : \l}"
+	 ]
+
+	 ExtendedStringLiteral [
+		 label = "{ExtendedStringLiteral||# ExtendedStringLiteral(StringLiteral, CharLiteral) : \l# ExtendedStringLiteral(StringLiteral, StringLiteral) : \l# extendWith(CharLiteral) : ExtendedStringLiteral\l# extendWith(StringLiteral) : ExtendedStringLiteral\l# printExpression(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 FalseLiteral [
+		 label = "{FalseLiteral|# source : char\l|# FalseLiteral(int, int) : \l# computeConstant() : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateOptimizedBoolean(BlockScope, CodeStream, Label, Label, boolean) : \l# literalType(BlockScope) : TypeBinding\l# source() : char\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 FieldDeclaration [
+		 label = "{FieldDeclaration|+ binding : FieldBinding\l# hasBeenResolved : boolean\l+ javadoc : Javadoc\l+ endPart1Position : int\l+ endPart2Position : int\l|# FieldDeclaration() : \l# FieldDeclaration(char, int, int) : \l# analyseCode(MethodScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# isField() : boolean\l# isStatic() : boolean\l# resolve(MethodScope) : \l# traverse(ASTVisitor, MethodScope) : \l}"
+	 ]
+
+	 FieldReference [
+		 label = "{FieldReference|+ receiver : Expression\l+ token : char\l+ binding : FieldBinding\l# codegenBinding : FieldBinding\l+ syntheticAccessors : MethodBinding\l+ READ : int\l+ WRITE : int\l+ nameSourcePosition : long\l+ receiverType : TypeBinding\l+ genericCast : TypeBinding\l|# FieldReference(char, long) : \l# analyseAssignment(BlockScope, FlowContext, FlowInfo, Assignment, boolean) : FlowInfo\l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# analyseCode(BlockScope, FlowContext, FlowInfo, boolean) : FlowInfo\l# computeConversion(Scope, TypeBinding, TypeBinding) : \l# fieldBinding() : FieldBinding\l# generateAssignment(BlockScope, CodeStream, Assignment, boolean) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateCompoundAssignment(BlockScope, CodeStream, Expression, int, int, boolean) : \l# generatePostIncrement(BlockScope, CodeStream, CompoundAssignment, boolean) : \l# genericTypeArguments() : TypeBinding\l# getConstantFor(FieldBinding, Reference, boolean, Scope) : Constant\l# isSuperAccess() : boolean\l# isTypeAccess() : boolean\l# manageSyntheticAccessIfNecessary(BlockScope, FlowInfo, boolean) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# setActualReceiverType(ReferenceBinding) : \l# setDepth(int) : \l# setFieldIndex(int) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 FloatLiteral [
+		 label = "{FloatLiteral|# value : float\l# Float_MIN_VALUE : float\l|# FloatLiteral(char, int, int) : \l# computeConstant() : \l# generateCode(BlockScope, CodeStream, boolean) : \l# literalType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ForeachStatement [
+		 label = "{ForeachStatement|+ elementVariable : LocalDeclaration\l+ elementVariableImplicitWidening : int\l+ collection : Expression\l+ action : Statement\l- kind : int\l- ARRAY : int\l- RAW_ITERABLE : int\l- GENERIC_ITERABLE : int\l- arrayElementTypeID : int\l- breakLabel : Label\l- continueLabel : Label\l+ scope : BlockScope\l+ indexVariable : LocalVariableBinding\l+ collectionVariable : LocalVariableBinding\l+ maxVariable : LocalVariableBinding\l- SecretIndexVariableName : char\l- SecretCollectionVariableName : char\l- SecretMaxVariableName : char\l# postCollectionInitStateIndex : int\l# mergedInitStateIndex : int\l|# ForeachStatement(LocalDeclaration, Expression, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ForStatement [
+		 label = "{ForStatement|+ initializations : Statement\l+ condition : Expression\l+ increments : Statement\l+ action : Statement\l+ neededScope : boolean\l+ scope : BlockScope\l- breakLabel : Label\l# preCondInitStateIndex : int\l# condIfTrueInitStateIndex : int\l# mergedInitStateIndex : int\l|# ForStatement(Statement, Expression, Statement, Statement, boolean, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 IfStatement [
+		 label = "{IfStatement|+ condition : Expression\l+ thenStatement : Statement\l+ elseStatement : Statement\l# thenExit : boolean\l# thenInitStateIndex : int\l# elseInitStateIndex : int\l# mergedInitStateIndex : int\l|# IfStatement(Expression, Statement, int, int) : \l# IfStatement(Expression, Statement, Statement, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ImplicitDocTypeReference [
+		 label = "{ImplicitDocTypeReference|+ token : char\l|# ImplicitDocTypeReference(char, int) : \l# copyDims(int) : TypeReference\l# getTypeBinding(Scope) : TypeBinding\l# getTypeName() : char\l# isThis() : boolean\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# printExpression(int, StringBuffer) : StringBuffer\l}"
+	 ]
+
+	 ImportReference [
+		 label = "{ImportReference|+ tokens : char\l+ sourcePositions : long\l+ onDemand : boolean\l+ declarationEnd : int\l+ declarationSourceStart : int\l+ declarationSourceEnd : int\l+ used : boolean\l+ modifiers : int\l+ annotations : Annotation\l|# ImportReference(char, long, boolean, int) : \l# isStatic() : boolean\l# getImportName() : char\l# print(int, StringBuffer) : StringBuffer\l# print(int, StringBuffer, boolean) : StringBuffer\l# traverse(ASTVisitor, CompilationUnitScope) : \l}"
+	 ]
+
+	 Initializer [
+		 label = "{Initializer|+ block : Block\l+ lastVisibleFieldID : int\l+ bodyStart : int\l+ bodyEnd : int\l+ errorInSignature : boolean\l|# Initializer(Block, int) : \l# analyseCode(MethodScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# isField() : boolean\l# isStatic() : boolean\l# parseStatements(Parser, TypeDeclaration, CompilationUnitDeclaration) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(MethodScope) : \l# traverse(ASTVisitor, MethodScope) : \l}"
+	 ]
+
+	 InstanceOfExpression [
+		 label = "{InstanceOfExpression|+ expression : Expression\l+ type : TypeReference\l|# InstanceOfExpression(Expression, TypeReference, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream, boolean) : \l# printExpressionNoParenthesis(int, StringBuffer) : StringBuffer\l# reportIllegalCast(Scope, TypeBinding, TypeBinding) : \l# resolveType(BlockScope) : TypeBinding\l# tagAsUnnecessaryCast(Scope, TypeBinding) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 IntLiteral [
+		 label = "{IntLiteral|+ value : int\l+ One : IntLiteral\l# FORMAT_ERROR : Constant\l|# IntLiteral(char, int, int) : \l# IntLiteral(char, int, int, int) : \l# IntLiteral(int) : \l# computeConstant() : \l# generateCode(BlockScope, CodeStream, boolean) : \l# literalType(BlockScope) : TypeBinding\l# mayRepresentMIN_VALUE() : boolean\l# resolveType(BlockScope) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 IntLiteralMinValue [
+		 label = "{IntLiteralMinValue|# CharValue : char\l# MIN_VALUE : Constant\l|# IntLiteralMinValue() : \l# computeConstant() : \l}"
+	 ]
+
+	 Javadoc [
+		 label = "{Javadoc|+ parameters : JavadocSingleNameReference\l+ thrownExceptions : TypeReference\l+ returnStatement : JavadocReturnStatement\l+ references : Expression\l+ inherited : boolean\l+ invalidParameters : JavadocSingleNameReference\l|# Javadoc(int, int) : \l# print(int, StringBuffer) : StringBuffer\l# resolve(ClassScope) : \l# resolve(MethodScope) : \l# resolveReference(Expression, Scope) : \l# resolveParamTags(MethodScope, boolean) : \l# resolveThrowsTags(MethodScope, boolean) : \l# getNodeStartingAt(int) : ASTNode\l}"
+	 ]
+
+	 JavadocAllocationExpression [
+		 label = "{JavadocAllocationExpression|+ tagSourceStart : int\l+ tagValue : int\l+ superAccess : boolean\l|# JavadocAllocationExpression(long) : \l# internalResolveType(Scope) : TypeBinding\l# isSuperAccess() : boolean\l# resolveType(BlockScope) : TypeBinding\l# resolveType(ClassScope) : TypeBinding\l}"
+	 ]
+
+	 JavadocArgumentExpression [
+		 label = "{JavadocArgumentExpression|+ token : char\l+ argument : Argument\l|# JavadocArgumentExpression(char, int, int, TypeReference) : \l# internalResolveType(Scope) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# resolveType(BlockScope) : TypeBinding\l# resolveType(ClassScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 JavadocArrayQualifiedTypeReference [
+		 label = "{JavadocArrayQualifiedTypeReference|+ tagSourceStart : int\l|# JavadocArrayQualifiedTypeReference(JavadocQualifiedTypeReference, int) : \l# reportInvalidType(Scope) : \l# reportDeprecatedType(Scope) : \l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 JavadocArraySingleTypeReference [
+		 label = "{JavadocArraySingleTypeReference||# JavadocArraySingleTypeReference(char, int, long) : \l# reportInvalidType(Scope) : \l# reportDeprecatedType(Scope) : \l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 JavadocFieldReference [
+		 label = "{JavadocFieldReference|+ tagSourceStart : int\l+ tagValue : int\l+ methodBinding : MethodBinding\l+ superAccess : boolean\l|# JavadocFieldReference(char, long) : \l# internalResolveType(Scope) : TypeBinding\l# isSuperAccess() : boolean\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# resolveType(ClassScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 JavadocImportReference [
+		 label = "{JavadocImportReference|+ tagSourceStart : int\l|# JavadocImportReference(char, long, int, int) : \l}"
+	 ]
+
+	 JavadocMessageSend [
+		 label = "{JavadocMessageSend|+ tagSourceStart : int\l+ tagValue : int\l+ superAccess : boolean\l|# JavadocMessageSend(char, long) : \l# JavadocMessageSend(char, long, JavadocArgumentExpression) : \l# internalResolveType(Scope) : TypeBinding\l# isSuperAccess() : boolean\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# resolveType(ClassScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 JavadocQualifiedTypeReference [
+		 label = "{JavadocQualifiedTypeReference|+ tagSourceStart : int\l+ packageBinding : PackageBinding\l|# JavadocQualifiedTypeReference(char, long, int, int) : \l# reportInvalidType(Scope) : \l# reportDeprecatedType(Scope) : \l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# internalResolveType(Scope) : TypeBinding\l# resolveType(BlockScope) : TypeBinding\l# resolveType(ClassScope) : TypeBinding\l}"
+	 ]
+
+	 JavadocReturnStatement [
+		 label = "{JavadocReturnStatement|+ description : char\l+ empty : boolean\l|# JavadocReturnStatement(int, int, char) : \l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 JavadocSingleNameReference [
+		 label = "{JavadocSingleNameReference|+ tagSourceStart : int\l|# JavadocSingleNameReference(char, int, int) : \l# resolve(BlockScope) : \l# resolve(BlockScope, boolean) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 JavadocSingleTypeReference [
+		 label = "{JavadocSingleTypeReference|+ tagSourceStart : int\l+ packageBinding : PackageBinding\l|# JavadocSingleTypeReference(char, long, int, int) : \l# reportInvalidType(Scope) : \l# reportDeprecatedType(Scope) : \l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# internalResolveType(Scope) : TypeBinding\l# resolveType(BlockScope) : TypeBinding\l# resolveType(ClassScope) : TypeBinding\l}"
+	 ]
+
+	 LabeledStatement [
+		 label = "{LabeledStatement|+ statement : Statement\l+ label : char\l+ targetLabel : Label\l# mergedInitStateIndex : int\l|# LabeledStatement(char, Statement, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# concreteStatement() : ASTNode\l# generateCode(BlockScope, CodeStream) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 Literal [
+		 label = "{Literal|+ computeConstant : null\l+ literalType : TypeBinding\l+ source : char\l|# Literal(int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo, BlockScope) : FlowInfo\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l}"
+	 ]
+
+	 LocalDeclaration [
+		 label = "{LocalDeclaration|+ binding : LocalVariableBinding\l|# LocalDeclaration(char, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# checkModifiers() : \l# generateCode(BlockScope, CodeStream) : \l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 LongLiteral [
+		 label = "{LongLiteral|# value : long\l# FORMAT_ERROR : Constant\l|# LongLiteral(char, int, int) : \l# LongLiteral(char, int, int, long) : \l# computeConstant() : \l# generateCode(BlockScope, CodeStream, boolean) : \l# literalType(BlockScope) : TypeBinding\l# mayRepresentMIN_VALUE() : boolean\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 LongLiteralMinValue [
+		 label = "{LongLiteralMinValue|# CharValue : char\l# MIN_VALUE : Constant\l|# LongLiteralMinValue() : \l# computeConstant() : \l}"
+	 ]
+
+	 MagicLiteral [
+		 label = "{MagicLiteral||# MagicLiteral(int, int) : \l# isValidJavaStatement() : boolean\l# source() : char\l}"
+	 ]
+
+	 MarkerAnnotation [
+		 label = "{MarkerAnnotation||# MarkerAnnotation(char, long, int) : \l# MarkerAnnotation(char, long, int) : \l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# traverse(ASTVisitor, CompilationUnitScope) : \l}"
+	 ]
+
+	 MemberValuePair [
+		 label = "{MemberValuePair|+ token : char\l+ value : Expression\l|# MemberValuePair(char, int, int, Expression) : \l# print(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# traverse(ASTVisitor, CompilationUnitScope) : \l}"
+	 ]
+
+	 MessageSend [
+		 label = "{MessageSend|+ receiver : Expression\l+ selector : char\l+ arguments : Expression\l+ binding : MethodBinding\l# codegenBinding : MethodBinding\l# syntheticAccessor : MethodBinding\l+ expectedType : TypeBinding\l+ nameSourcePosition : long\l+ receiverType : TypeBinding\l+ genericCast : TypeBinding\l+ typeArguments : TypeReference\l+ genericTypeArguments : TypeBinding\l|# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# computeConversion(Scope, TypeBinding, TypeBinding) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# genericTypeArguments() : TypeBinding\l# isSuperAccess() : boolean\l# isTypeAccess() : boolean\l# manageSyntheticAccessIfNecessary(BlockScope, FlowInfo) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# setActualReceiverType(ReferenceBinding) : \l# setExpectedType(TypeBinding) : \l# setDepth(int) : \l# setFieldIndex(int) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 MethodDeclaration [
+		 label = "{MethodDeclaration|+ returnType : TypeReference\l+ typeParameters : TypeParameter\l|# MethodDeclaration(CompilationResult) : \l# analyseCode(ClassScope, InitializationFlowContext, FlowInfo) : \l# isMethod() : boolean\l# parseStatements(Parser, CompilationUnitDeclaration) : \l# printReturnType(int, StringBuffer) : StringBuffer\l# resolveStatements() : \l# traverse(ASTVisitor, ClassScope) : \l# typeParameters() : TypeParameter\l}"
+	 ]
+
+	 NameReference [
+		 label = "{NameReference|+ binding : Binding\l+ receiverType : TypeBinding\l+ actualReceiverType : TypeBinding\l+ unboundReferenceErrorName : String\l|# NameReference() : \l# fieldBinding() : FieldBinding\l# isSuperAccess() : boolean\l# isTypeAccess() : boolean\l# isTypeReference() : boolean\l# setActualReceiverType(ReferenceBinding) : \l# setDepth(int) : \l# setFieldIndex(int) : \l}"
+	 ]
+
+	 NormalAnnotation [
+		 label = "{NormalAnnotation|+ memberValuePairs : MemberValuePair\l|# NormalAnnotation(char, long, int) : \l# NormalAnnotation(char, long, int) : \l# printExpression(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# traverse(ASTVisitor, CompilationUnitScope) : \l}"
+	 ]
+
+	 NullLiteral [
+		 label = "{NullLiteral|# source : char\l|# NullLiteral(int, int) : \l# computeConstant() : \l# generateCode(BlockScope, CodeStream, boolean) : \l# literalType(BlockScope) : TypeBinding\l# source() : char\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 NumberLiteral [
+		 label = "{NumberLiteral|# source : char\l|# NumberLiteral(char, int, int) : \l# NumberLiteral(int, int) : \l# isValidJavaStatement() : boolean\l# source() : char\l}"
+	 ]
+
+	 Decode [
+		 label = "{Decode|+ OperatorSignatures : int\l+ printExpressionNoParenthesis : StringBuffer\l|# null() : \l# OperatorExpression() : \l# classInitialize() : \l# generateTableTestCase() : String\l# constant(int) : String\l# type(int) : String\l# operator(int) : String\l# get_AND() : int\l# get_AND_AND() : int\l# get_DIVIDE() : int\l# get_EQUAL_EQUAL() : int\l# get_GREATER() : int\l# get_GREATER_EQUAL() : int\l# get_LEFT_SHIFT() : int\l# get_LESS() : int\l# get_LESS_EQUAL() : int\l# get_MINUS() : int\l# get_MULTIPLY() : int\l# get_OR() : int\l# get_OR_OR() : int\l# get_PLUS() : int\l# get_REMAINDER() : int\l# get_RIGHT_SHIFT() : int\l# get_UNSIGNED_RIGHT_SHIFT() : int\l# get_XOR() : int\l# operatorToString() : String\l# printExpression(int, StringBuffer, int, StringBuffer) : StringBuffer\l}"
+	 ]
+
+	 OperatorIds [
+		 label = "{OperatorIds||# AND_AND() : int\l# OR_OR() : int\l# AND() : int\l# OR() : int\l# LESS() : int\l# LESS_EQUAL() : int\l# GREATER() : int\l# GREATER_EQUAL() : int\l# XOR() : int\l# DIVIDE() : int\l# LEFT_SHIFT() : int\l# NOT() : int\l# TWIDDLE() : int\l# MINUS() : int\l# PLUS() : int\l# MULTIPLY() : int\l# REMAINDER() : int\l# RIGHT_SHIFT() : int\l# EQUAL_EQUAL() : int\l# UNSIGNED_RIGHT_SHIFT() : int\l# NumberOfTables() : int\l# QUESTIONCOLON() : int\l# NOT_EQUAL() : int\l# EQUAL() : int\l# INSTANCEOF() : int\l# PLUS_PLUS() : int\l# MINUS_MINUS() : int\l}"
+	 ]
+
+	 OR_OR_Expression [
+		 label = "{OR_OR_Expression|# rightInitStateIndex : int\l# mergedInitStateIndex : int\l|# OR_OR_Expression(Expression, Expression, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream, boolean) : \l# generateOptimizedBoolean(BlockScope, CodeStream, Label, Label, boolean) : \l# isCompactableOperation() : boolean\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ParameterizedQualifiedTypeReference [
+		 label = "{ParameterizedQualifiedTypeReference|+ typeArguments : TypeReference\l- didResolve : boolean\l|# ParameterizedQualifiedTypeReference(char, TypeReference, int, long) : \l# checkBounds(Scope) : \l# checkBounds(ReferenceBinding, Scope, int) : \l# copyDims(int) : TypeReference\l# getParameterizedTypeName() : char\l# getTypeBinding(Scope) : TypeBinding\l# internalResolveType(Scope) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# resolveType(ClassScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 ParameterizedSingleTypeReference [
+		 label = "{ParameterizedSingleTypeReference|+ typeArguments : TypeReference\l- didResolve : boolean\l|# ParameterizedSingleTypeReference(char, TypeReference, int, long) : \l# checkBounds(Scope) : \l# copyDims(int) : TypeReference\l# getParameterizedTypeName() : char\l# getTypeBinding(Scope) : TypeBinding\l# internalResolveType(Scope, ReferenceBinding) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# resolveType(ClassScope) : TypeBinding\l# resolveTypeEnclosing(BlockScope, ReferenceBinding) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 PostfixExpression [
+		 label = "{PostfixExpression||# PostfixExpression(Expression, Expression, int, int) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# operatorToString() : String\l# printExpressionNoParenthesis(int, StringBuffer) : StringBuffer\l# restrainUsageToNumericTypes() : boolean\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 PrefixExpression [
+		 label = "{PrefixExpression||# PrefixExpression(Expression, Expression, int, int) : \l# operatorToString() : String\l# printExpressionNoParenthesis(int, StringBuffer) : StringBuffer\l# restrainUsageToNumericTypes() : boolean\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 QualifiedAllocationExpression [
+		 label = "{QualifiedAllocationExpression|+ enclosingInstance : Expression\l+ anonymousType : TypeDeclaration\l+ superTypeBinding : ReferenceBinding\l|# QualifiedAllocationExpression() : \l# QualifiedAllocationExpression(TypeDeclaration) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# enclosingInstance() : Expression\l# generateCode(BlockScope, CodeStream, boolean) : \l# isSuperAccess() : boolean\l# manageEnclosingInstanceAccessIfNecessary(BlockScope, FlowInfo) : \l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 QualifiedNameReference [
+		 label = "{QualifiedNameReference|+ tokens : char\l+ sourcePositions : long\l+ otherBindings : FieldBinding\l# otherDepths : int\l+ indexOfFirstFieldBinding : int\l# syntheticWriteAccessor : SyntheticAccessMethodBinding\l# syntheticReadAccessors : SyntheticAccessMethodBinding\l+ genericCast : TypeBinding\l+ otherGenericCasts : TypeBinding\l|# QualifiedNameReference(char, long, int, int) : \l# analyseAssignment(BlockScope, FlowContext, FlowInfo, Assignment, boolean) : FlowInfo\l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# analyseCode(BlockScope, FlowContext, FlowInfo, boolean) : FlowInfo\l# checkFieldAccess(BlockScope) : TypeBinding\l# computeConversion(Scope, TypeBinding, TypeBinding) : \l# generateAssignment(BlockScope, CodeStream, Assignment, boolean) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateCompoundAssignment(BlockScope, CodeStream, Expression, int, int, boolean) : \l# generatePostIncrement(BlockScope, CodeStream, CompoundAssignment, boolean) : \l# generateReadSequence(BlockScope, CodeStream) : FieldBinding\l# generateReceiver(CodeStream) : \l# genericTypeArguments() : TypeBinding\l# getCodegenBinding(int) : FieldBinding\l# getGenericCast(int) : TypeBinding\l# getOtherFieldBindings(BlockScope) : TypeBinding\l# manageEnclosingInstanceAccessIfNecessary(BlockScope, FlowInfo) : \l# manageSyntheticAccessIfNecessary(BlockScope, FieldBinding, TypeBinding, int, FlowInfo) : \l# printExpression(int, StringBuffer) : StringBuffer\l# reportError(BlockScope) : TypeBinding\l# resolveType(BlockScope) : TypeBinding\l# setCodegenBinding(int, FieldBinding) : \l# setGenericCast(int, TypeBinding) : \l# setSyntheticAccessor(FieldBinding, int, SyntheticAccessMethodBinding) : \l# setFieldIndex(int) : \l# traverse(ASTVisitor, BlockScope) : \l# unboundReferenceErrorName() : String\l}"
+	 ]
+
+	 QualifiedSuperReference [
+		 label = "{QualifiedSuperReference||# QualifiedSuperReference(TypeReference, int, int) : \l# isSuper() : boolean\l# isThis() : boolean\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 QualifiedThisReference [
+		 label = "{QualifiedThisReference|+ qualification : TypeReference\l# currentCompatibleType : ReferenceBinding\l|# QualifiedThisReference(TypeReference, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# analyseCode(BlockScope, FlowContext, FlowInfo, boolean) : FlowInfo\l# generateCode(BlockScope, CodeStream, boolean) : \l# resolveType(BlockScope) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 QualifiedTypeReference [
+		 label = "{QualifiedTypeReference|+ tokens : char\l+ sourcePositions : long\l|# QualifiedTypeReference(char, long) : \l# copyDims(int) : TypeReference\l# findNextTypeBinding(int, Scope, PackageBinding) : TypeBinding\l# getTypeBinding(Scope) : TypeBinding\l# getTypeName() : char\l# printExpression(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 Reference [
+		 label = "{Reference|+ analyseAssignment : FlowInfo\l+ generateAssignment : null\l+ generateCompoundAssignment : null\l+ generatePostIncrement : null\l|# Reference(BlockScope, FlowContext, FlowInfo, Assignment, boolean) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# fieldBinding() : FieldBinding\l# fieldStore(CodeStream, FieldBinding, MethodBinding, boolean, BlockScope, CodeStream, Assignment, boolean, BlockScope, CodeStream, Expression, int, int, boolean, BlockScope, CodeStream, CompoundAssignment, boolean) : \l}"
+	 ]
+
+	 ReturnStatement [
+		 label = "{ReturnStatement|+ expression : Expression\l+ isSynchronized : boolean\l+ subroutines : SubRoutineStatement\l+ isAnySubRoutineEscaping : boolean\l+ saveValueVariable : LocalVariableBinding\l|# ReturnStatement(Expression, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# generateReturnBytecode(CodeStream) : \l# generateStoreSaveValueIfNecessary(CodeStream) : \l# needValue() : boolean\l# prepareSaveValueLocation(TryStatement) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 SingleMemberAnnotation [
+		 label = "{SingleMemberAnnotation|+ memberValue : Expression\l|# SingleMemberAnnotation(char, long, int) : \l# SingleMemberAnnotation(char, long, int) : \l# printExpression(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l# traverse(ASTVisitor, CompilationUnitScope) : \l}"
+	 ]
+
+	 SingleNameReference [
+		 label = "{SingleNameReference|+ token : char\l+ syntheticAccessors : MethodBinding\l+ READ : int\l+ WRITE : int\l+ genericCast : TypeBinding\l|# SingleNameReference(char, long) : \l# analyseAssignment(BlockScope, FlowContext, FlowInfo, Assignment, boolean) : FlowInfo\l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# analyseCode(BlockScope, FlowContext, FlowInfo, boolean) : FlowInfo\l# checkFieldAccess(BlockScope) : TypeBinding\l# computeConversion(Scope, TypeBinding, TypeBinding) : \l# generateAssignment(BlockScope, CodeStream, Assignment, boolean) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateCompoundAssignment(BlockScope, CodeStream, Expression, int, int, boolean) : \l# generateCompoundAssignment(BlockScope, CodeStream, MethodBinding, Expression, int, int, boolean) : \l# generatePostIncrement(BlockScope, CodeStream, CompoundAssignment, boolean) : \l# generateReceiver(CodeStream) : \l# genericTypeArguments() : TypeBinding\l# manageEnclosingInstanceAccessIfNecessary(BlockScope, FlowInfo) : \l# manageSyntheticAccessIfNecessary(BlockScope, FlowInfo, boolean) : \l# printExpression(int, StringBuffer) : StringBuffer\l# reportError(BlockScope) : TypeBinding\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# unboundReferenceErrorName() : String\l}"
+	 ]
+
+	 SingleTypeReference [
+		 label = "{SingleTypeReference|+ token : char\l|# SingleTypeReference(char, long) : \l# copyDims(int) : TypeReference\l# getTypeBinding(Scope) : TypeBinding\l# getTypeName() : char\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveTypeEnclosing(BlockScope, ReferenceBinding) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l# traverse(ASTVisitor, ClassScope) : \l}"
+	 ]
+
+	 StringLiteral [
+		 label = "{StringLiteral|# source : char\l|# StringLiteral(char, int, int) : \l# StringLiteral(int, int) : \l# computeConstant() : \l# extendWith(CharLiteral) : ExtendedStringLiteral\l# extendWith(StringLiteral) : ExtendedStringLiteral\l# extendsWith(StringLiteral) : StringLiteralConcatenation\l# generateCode(BlockScope, CodeStream, boolean) : \l# literalType(BlockScope) : TypeBinding\l# printExpression(int, StringBuffer) : StringBuffer\l# source() : char\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 StringLiteralConcatenation [
+		 label = "{StringLiteralConcatenation|- INITIAL_SIZE : int\l+ literals : StringLiteral\l+ counter : int\l|# StringLiteralConcatenation(StringLiteral, StringLiteral) : \l# extendsWith(StringLiteral) : StringLiteralConcatenation\l# printExpression(int, StringBuffer) : StringBuffer\l# source() : char\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 SuperReference [
+		 label = "{SuperReference||# SuperReference(int, int) : \l# implicitSuperConstructorCall() : ExplicitConstructorCall\l# isImplicitThis() : boolean\l# isSuper() : boolean\l# isThis() : boolean\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 SwitchStatement [
+		 label = "{SwitchStatement|+ expression : Expression\l+ statements : Statement\l+ scope : BlockScope\l+ explicitDeclarations : int\l+ breakLabel : Label\l+ cases : CaseStatement\l+ defaultCase : CaseStatement\l+ caseCount : int\l+ blockStart : int\l# preSwitchInitStateIndex : int\l# mergedInitStateIndex : int\l|# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l# branchChainTo(Label) : \l}"
+	 ]
+
+	 SynchronizedStatement [
+		 label = "{SynchronizedStatement|+ expression : Expression\l+ block : Block\l+ scope : BlockScope\l# blockExit : boolean\l+ synchroVariable : LocalVariableBinding\l# SecretLocalDeclarationName : char\l|# SynchronizedStatement(Expression, Block, int, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# isSubRoutineEscaping() : boolean\l# generateCode(BlockScope, CodeStream) : \l# generateSubRoutineInvocation(BlockScope, CodeStream) : \l# resolve(BlockScope) : \l# printStatement(int, StringBuffer) : StringBuffer\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ThisReference [
+		 label = "{ThisReference||# implicitThis() : ThisReference\l# ThisReference(int, int) : \l# analyseAssignment(BlockScope, FlowContext, FlowInfo, Assignment, boolean) : FlowInfo\l# checkAccess(MethodScope) : boolean\l# generateAssignment(BlockScope, CodeStream, Assignment, boolean) : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateCompoundAssignment(BlockScope, CodeStream, Expression, int, int, boolean) : \l# generatePostIncrement(BlockScope, CodeStream, CompoundAssignment, boolean) : \l# isImplicitThis() : boolean\l# isThis() : boolean\l# printExpression(int, StringBuffer) : StringBuffer\l# resolveType(BlockScope) : TypeBinding\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 ThrowStatement [
+		 label = "{ThrowStatement|+ exception : Expression\l+ exceptionType : TypeBinding\l|# ThrowStatement(Expression, int) : \l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# generateCode(BlockScope, CodeStream) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 TrueLiteral [
+		 label = "{TrueLiteral|# source : char\l|# TrueLiteral(int, int) : \l# computeConstant() : \l# generateCode(BlockScope, CodeStream, boolean) : \l# generateOptimizedBoolean(BlockScope, CodeStream, Label, Label, boolean) : \l# literalType(BlockScope) : TypeBinding\l# source() : char\l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 TryStatement [
+		 label = "{TryStatement|+ tryBlock : Block\l+ catchBlocks : Block\l+ catchArguments : Argument\l+ finallyBlock : Block\l# scope : BlockScope\l- isSubRoutineEscaping : boolean\l+ subRoutineInits : UnconditionalFlowInfo\l# caughtExceptionTypes : ReferenceBinding\l# tryBlockExit : boolean\l# catchExits : boolean\l+ preserveExceptionHandler : int\l# subRoutineStartLabel : Label\l+ anyExceptionVariable : LocalVariableBinding\l+ SecretReturnName : char\l+ SecretAnyHandlerName : char\l+ SecretLocalDeclarationName : char\l# preTryInitStateIndex : int\l# mergedInitStateIndex : int\l|# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# isSubRoutineEscaping() : boolean\l# generateCode(BlockScope, CodeStream) : \l# generateSubRoutineInvocation(BlockScope, CodeStream) : \l# printStatement(int, StringBuffer) : StringBuffer\l# resolve(BlockScope) : \l# traverse(ASTVisitor, BlockScope) : \l}"
+	 ]
+
+	 TypeDeclaration [
+		 label = "{TypeDeclaration|+ ANONYMOUS_EMPTY_NAME : char\l+ modifiers : int\l+ modifiersSourceStart : int\l+ annotations : Annotation\l+ name : char\l+ superclass : TypeReference\l+ superInterfaces : TypeReference\l+ fields : FieldDeclaration\l+ methods : AbstractMethodDeclaration\l+ memberTypes : TypeDeclaration\l+ binding : SourceTypeBinding\l+ scope : ClassScope\l+ initializerScope : MethodScope\l+ staticInitializerScope : MethodScope\l+ ignoreFurtherInvestigation : boolean\l+ maxFieldCount : int\l+ declarationSourceStart : int\l+ declarationSourceEnd : int\l+ bodyStart : int\l+ bodyEnd : int\l# hasBeenGenerated : boolean\l+ compilationResult : CompilationResult\l+ missingAbstractMethods : MethodDeclaration\l+ javadoc : Javadoc\l+ allocation : QualifiedAllocationExpression\l+ enclosingType : TypeDeclaration\l+ enums : EnumDeclaration\l+ typeParameters : TypeParameter\l|# TypeDeclaration(CompilationResult) : \l# abort(int, IProblem) : \l# addClinit() : \l# addMissingAbstractMethodFor(MethodBinding) : MethodDeclaration\l# analyseCode(BlockScope, FlowContext, FlowInfo) : FlowInfo\l# analyseCode(ClassScope) : \l# analyseCode(ClassScope, FlowContext, FlowInfo) : \l# analyseCode(CompilationUnitScope) : \l# checkConstructors(Parser) : boolean\l# compilationResult() : CompilationResult\l# createsInternalConstructor(boolean, boolean) : ConstructorDeclaration\l# createsInternalConstructorWithBinding(MethodBinding) : MethodBinding\l# declarationOf(FieldBinding) : FieldDeclaration\l# declarationOf(MemberTypeBinding) : TypeDeclaration\l# declarationOf(MethodBinding) : AbstractMethodDeclaration\l# declarationOfType(ch

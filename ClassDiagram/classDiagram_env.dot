@@ -1,0 +1,257 @@
+digraph ClassDiagram {
+	 fontname = "Bitstream Vera Sans"
+	 fontsize = 8
+
+	 node [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+		 shape = "record"
+	 ]
+
+	 edge [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+	 ]
+
+	 EclipseAnnotationProcessorEnvironment [
+		 label = "{EclipseAnnotationProcessorEnvironment||# getAST() : CompilationUnit\l# getMessager() : EclipseMessager\l# getPhase() : Phase\l# getJavaProject() : IJavaProject\l# addTypeDependency(String) : \l}"
+	 ]
+
+	 EclipseAnnotationProcessorFactory [
+		 label = "{EclipseAnnotationProcessorFactory||# getProcessorFor(Set, EclipseAnnotationProcessorEnvironment) : AnnotationProcessor\l}"
+	 ]
+
+	 EnvironmentFactory [
+		 label = "{EnvironmentFactory||# getEnvironment(ICompilationUnit, IJavaProject) : AnnotationProcessorEnvironment\l}"
+	 ]
+
+	 null [
+		 label = "{null||}"
+	 ]
+
+	 EnvCallback [
+		 label = "{EnvCallback|- RTTG_ENABLED_DASH_A_OPTION : String\l- PROCESSING_IN_EDITOR_DISABLED_DASH_A_OPTION : String\l- _listeners : Set\l# _problems : List\l- _isClosed : boolean\l# _callback : EnvCallback\l- _allGeneratedSourceFiles : Set\l- _modifiedGeneratedSourceFiles : Set\l# _requestor : ASTRequestor\l- _currentProcessorFactory : AnnotationProcessorFactory\l- _currentProcessorFactoryWillReconcile : boolean\l# getASTFrom : CompilationUnit\l# addMessage : null\l+ getFiler : Filer\l|# null() : \l# run(AbstractCompilationEnv) : \l# newReconcileEnv(ReconcileContext, EnvCallback) : \l# newBuildEnv(BuildContext, BuildContext, IJavaProject, EnvCallback) : \l# doesFactorySupportReconcile(AnnotationProcessorFactory) : boolean\l# AbstractCompilationEnv(CompilationUnit, IFile, IJavaProject, Phase) : \l+ getBindingFromKey(String, ICompilationUnit) : IBinding\l# addListener(AnnotationProcessorListener) : \l# removeListener(AnnotationProcessorListener) : \l# getProcessorListeners() : Set\l# getOptions(IFile) : Map\l# getAST() : CompilationUnit\l# getMessager(IFile, int, int, Severity, String, int, String) : EclipseMessager\l# getProblems() : List\l# createProblem(IFile, int, int, Severity, String, int, String) : APTProblem\l# addGeneratedSourceFile(IFile, boolean) : \l# addGeneratedNonSourceFile(IFile) : \l# getAllGeneratedFiles() : Set\l# getModifiedGeneratedFiles() : Set\l# hasGeneratedSourceFiles() : boolean\l# getAnnotationTypes() : Map\l# checkValid() : \l# completedProcessing() : \l# close() : \l# isClosed() : boolean\l# validateTypeName(String) : \l# getCurrentProcessorFactory() : AnnotationProcessorFactory\l# setCurrentProcessorFactory(AnnotationProcessorFactory, boolean) : \l# currentProcessorSupportsRTTG() : boolean\l}"
+	 ]
+
+	 AnnotationInvocationHandler [
+		 label = "{AnnotationInvocationHandler|- JAVA_LANG_CLASS : String\l- _instance : AnnotationMirrorImpl\l- _clazz : Class\l|# AnnotationInvocationHandler(AnnotationMirrorImpl, Class) : \l# invoke(Object, Method, Object) : Object\l# getReflectionValueWithTypeConversion(Object, Class) : Object\l# _getReflectionValue(Object, Class) : Object\l# performNecessaryTypeConversion(Class, Object) : Object\l# arrayify(Class, Object) : Object\l# formatArgs(Object) : String\l}"
+	 ]
+
+	 APTProblem [
+		 label = "{APTProblem|- NO_ARGS : String\l- _severity : Severity\l- _startingOffset : int\l- _endingOffset : int\l- _line : int\l- _resource : IFile\l- _message : String\l- _markerType : String\l- _arguments : String\l|# APTProblem(String, Severity, IFile, int, int, int, String, boolean) : \l# getID() : int\l# getArguments() : String\l# getMessage() : String\l# getOriginatingFileName() : char\l# getSourceStart() : int\l# getSourceEnd() : int\l# getSourceLineNumber() : int\l# setSourceStart(int) : \l# setSourceEnd(int) : \l# setSourceLineNumber(int) : \l# isError() : boolean\l# isWarning() : boolean\l# isInfo() : boolean\l# toString() : String\l+ getCategoryID() : int\l+ getMarkerType() : String\l}"
+	 ]
+
+	 CompilationUnitRequestor [
+		 label = "{CompilationUnitRequestor|+ EMPTY_AST_UNIT : CompilationUnit\l+ NO_UNIT : ICompilationUnit\l+ NO_AST_UNITs : CompilationUnit\l+ NO_KEYS : String\l- BOOLEAN_INDEX : int\l- BYTE_INDEX : int\l- CHAR_INDEX : int\l- DOUBLE_INDEX : int\l- FLOAT_INDEX : int\l- INT_INDEX : int\l- LONG_INDEX : int\l- SHORT_INDEX : int\l- DOT_JAVA : String\l# _astRoot : CompilationUnit\l# _phase : Phase\l# _file : IFile\l# _javaProject : IJavaProject\l# _aptProject : AptProject\l# _options : Map\l# _modelCompUnit2astCompUnit : Map\l# _typeBinding2ModelCompUnit : Map\l- _voidType : VoidTypeImpl\l- _primitives : PrimitiveTypeImpl\l# _typeCache : Map\l# _packageRootsCache : IPackageFragmentRoot\l- _result : IBinding\l- _kind : int\l# parseUnits : ICompilationUnit\l# asts : CompilationUnit\l# domUnit : CompilationUnit\l|# null() : \l# BaseProcessorEnv(CompilationUnit, IFile, IJavaProject, Phase) : \l# initOptions(IJavaProject) : Map\l# getTypeUtils() : Types\l# getDeclarationUtils() : Declarations\l# addListener(AnnotationProcessorListener) : \l# removeListener(AnnotationProcessorListener) : \l# getTypeDeclarations() : Collection\l# searchLocallyForTypeDeclarations() : List\l# getTypeBindings() : List\l# getTypeBindings(ITypeBinding, List) : \l# getSpecifiedTypeDeclarations() : Collection\l# getDeclarationsAnnotatedWith(AnnotationTypeDeclaration) : Collection\l# getASTNodesWithAnnotations() : Map\l# getDeclarationsAnnotatedWith(ITypeBinding) : List\l# getFileForNode(ASTNode) : IFile\l# getDeclarations(ASTNode, List) : \l# getASTNodeForBinding(IBinding) : ASTNode\l# getOptions() : Map\l# getTypeDeclaration(String) : TypeDeclaration\l# getTypeDefinitionBindingFromCorrectName(String) : ITypeBinding\l# getTypeDefinitionBindingFromName(String) : ITypeBinding\l# getBindingFromKey(String, ICompilationUnit) : IBinding\l# acceptAST(ICompilationUnit, CompilationUnit) : \l# acceptBinding(String, IBinding) : \l# getTypeBindingFromKey(String) : ITypeBinding\l# getTypeDeclaration(IType) : TypeDeclaration\l# getPackage(String) : PackageDeclaration\l# getPackageBindingKey(String) : String\l# searchLocallyForBinding(IBinding) : CompilationUnit\l# getICompilationUnitForTopLevelType(String) : ICompilationUnit\l# getCompilationUnitForBinding(IBinding) : CompilationUnit\l# getFiler() : Filer\l# getMessager() : Messager\l# getDeclaringClass(IBinding) : ITypeBinding\l# getAllPackageFragmentRoots() : IPackageFragmentRoot\l# searchLocallyForIFile(IBinding) : IFile\l# getDeclaringFileForBinding(IBinding) : IFile\l# null() : \l# BaseRequestor(ICompilationUnit) : \l# acceptAST(ICompilationUnit, CompilationUnit) : \l# createASTs(IJavaProject, ICompilationUnit, ASTRequestor) : \l# createAST(IJavaProject, ICompilationUnit) : CompilationUnit\l# acceptAST(ICompilationUnit, CompilationUnit) : \l# getCurrentDietAST() : AST\l# initPrimitives() : \l# getBooleanType() : PrimitiveTypeImpl\l# getByteType() : PrimitiveTypeImpl\l# getCharType() : PrimitiveTypeImpl\l# getDoubleType() : PrimitiveTypeImpl\l# getFloatType() : PrimitiveTypeImpl\l# getIntType() : PrimitiveTypeImpl\l# getLongType() : PrimitiveTypeImpl\l# getShortType() : PrimitiveTypeImpl\l# getVoidType() : VoidTypeImpl\l# getAstCompilationUnit() : CompilationUnit\l# getFile() : IFile\l# getPhase() : Phase\l# getProject() : IProject\l# getJavaProject() : IJavaProject\l# getAptProject() : AptProject\l}"
+	 ]
+
+	 BinaryFileOutputStream [
+		 label = "{BinaryFileOutputStream|# _file : IFile\l- _env : BuildEnv\l|# BinaryFileOutputStream(IFile, BuildEnv) : \l+ close() : \l# closeInputStream(InputStream) : \l# saveToDisk(InputStream, boolean) : \l}"
+	 ]
+
+	 CallbackRequestor [
+		 label = "{CallbackRequestor|- _hasRaisedErrors : boolean\l- _filer : BuildFilerImpl\l- _typeDependencies : Set\l- _batchMode : boolean\l- _filesWithAnnotation : BuildContext\l- _additionFiles : BuildContext\l- _astRoots : CompilationUnit\l- _markerInfos : List\l|# BuildEnv(BuildContext, BuildContext, IJavaProject) : \l# getFiler() : Filer\l# getPackage(String) : PackageDeclaration\l# getTypeDeclaration(String) : TypeDeclaration\l# hasRaisedErrors() : boolean\l# getFileReader(IFile) : InputStreamReader\l# getInputStream(IFile) : InputStream\l# hasGeneratedClassFiles() : boolean\l# close() : \l# addMessage(IFile, int, int, Severity, String, int, String) : \l# addProblem(IFile, int, int, Severity, String, int, String) : \l# addMarker(int, int, Severity, String, int, String) : \l# getAnnotationTypes() : Map\l# getAllAnnotationTypes(Map) : Map\l# getTypeDependencies() : Set\l# beginBatchProcessing() : \l# completedBatchProcessing() : \l# createASTs(BuildContext) : \l# beginFileProcessing(BuildContext) : \l# completedFileProcessing() : \l+ completedProcessing() : \l# getProblems() : List\l# getAST() : CompilationUnit\l# addTypeDependency(String) : \l# searchLocallyForTypeDeclarations() : List\l# getTypeDeclarationsFromAdditionFiles(List) : \l# getASTNodesWithAnnotations() : Map\l# getFileForNode(ASTNode) : IFile\l# searchLocallyForBinding(IBinding) : CompilationUnit\l# searchLocallyForIFile(IBinding) : IFile\l# getASTFrom(IFile) : CompilationUnit\l# getCurrentDietAST() : AST\l# postMarkers() : \l# run(IProgressMonitor) : \l# getFilesWithAnnotation() : BuildContext\l# getFilesWithoutAnnotation() : BuildContext\l# null() : \l# CallbackRequestor(ICompilationUnit) : \l# acceptBinding(String, IBinding) : \l}"
+	 ]
+
+	 BuildFilerImpl [
+		 label = "{BuildFilerImpl|- _generatedClassFiles : boolean\l- _env : BuildEnv\l|# BuildFilerImpl(BuildEnv) : \l# createClassFile(String) : OutputStream\l# hasGeneratedClassFile() : boolean\l# createTextFile(Filer, String, File, String) : PrintWriter\l# createBinaryFile(Filer, String, File) : OutputStream\l+ getEnv() : AbstractCompilationEnv\l# validateFile(IFile) : \l}"
+	 ]
+
+	 State [
+		 label = "{State|# serialVersionUID : long\l- _env : BuildEnv\l|# EclipseRoundCompleteEvent(BuildEnv) : \l# null() : \l# State(BuildEnv) : \l# classFilesCreated() : boolean\l# errorRaised() : boolean\l# sourceFilesCreated() : boolean\l# finalRound() : boolean\l}"
+	 ]
+
+	 EncodedFileOutputStream [
+		 label = "{EncodedFileOutputStream|- _charsetName : String\l|# EncodedFileOutputStream(IFile, BuildEnv, String) : \l+ close() : \l}"
+	 ]
+
+	 EndingOffsetFinder [
+		 label = "{EndingOffsetFinder|- _sortedStartingOffset : int\l- _endingOffsets : int\l|# updateProblemLength(List, CompilationUnit) : \l# getClassNameRange(CompilationUnit) : int\l# null() : \l# EndingOffsetFinder(int) : \l# preVisit(ASTNode) : \l# getEndingOffset(int) : int\l}"
+	 ]
+
+	 FilerImpl [
+		 label = "{FilerImpl|# getEnv : AbstractCompilationEnv\l|# createSourceFile(String) : PrintWriter\l# getOutputFileForLocation(Filer, String, File) : IPath\l}"
+	 ]
+
+	 ITypeConstants [
+		 label = "{ITypeConstants||# BOOLEAN() : String\l# BYTE() : String\l# CHAR() : String\l# DOUBLE() : String\l# FLOAT() : String\l# INT() : String\l# LONG() : String\l# SHORT() : String\l# VOID() : String\l}"
+	 ]
+
+	 JavaSourceFilePrintWriter [
+		 label = "{JavaSourceFilePrintWriter|- _sw : StringWriter\l- _typeName : String\l- _env : AbstractCompilationEnv\l|# JavaSourceFilePrintWriter(String, StringWriter, AbstractCompilationEnv) : \l# close() : \l}"
+	 ]
+
+	 MarkerInfo [
+		 label = "{MarkerInfo|- start : int\l- end : int\l- severity : Severity\l- msg : String\l- line : int\l|# MarkerInfo(int, int, Severity, String, int) : \l# getSeverity() : int\l# isError() : boolean\l# copyIntoMarker(IMarker) : \l}"
+	 ]
+
+	 MessagerImpl [
+		 label = "{MessagerImpl|- _env : AbstractCompilationEnv\l|# null() : \l# MessagerImpl(AbstractCompilationEnv) : \l# printError(SourcePosition, String, String) : \l# printError(ASTNode, String) : \l# printError(String) : \l# printNotice(SourcePosition, String, String) : \l# printNotice(ASTNode, String) : \l# printNotice(String) : \l# printWarning(SourcePosition, String, String) : \l# printWarning(ASTNode, String) : \l# printWarning(String) : \l# printError(SourcePosition, String) : \l# printWarning(SourcePosition, String) : \l# printNotice(SourcePosition, String) : \l# printFixableError(SourcePosition, String, String, String) : \l# printFixableWarning(SourcePosition, String, String, String) : \l# printFixableNotice(SourcePosition, String, String, String) : \l# printFixableError(String, String, String) : \l# printFixableWarning(String, String, String) : \l# printFixableNotice(String, String, String) : \l# print(SourcePositionImpl, Severity, String, String) : \l# print(SourcePosition, Severity, String, String) : \l# print(Severity, String, String) : \l}"
+	 ]
+
+	 NoOpOutputStream [
+		 label = "{NoOpOutputStream||# NoOpOutputStream() : \l+ write(byte, int, int) : \l+ write(byte) : \l+ write(int) : \l}"
+	 ]
+
+	 NoOpPrintWriter [
+		 label = "{NoOpPrintWriter||# NoOpPrintWriter() : \l}"
+	 ]
+
+	 CallbackRequestor [
+		 label = "{CallbackRequestor|- _workingCopy : ICompilationUnit\l- _context : ReconcileContext\l|# newEnv(ReconcileContext) : ReconcileEnv\l# ReconcileEnv(ReconcileContext, ICompilationUnit, IFile, IJavaProject) : \l# addMessage(IFile, int, int, Severity, String, int, String) : \l# getASTFrom(IFile) : CompilationUnit\l# addTypeDependency(String) : \l# getFiler() : Filer\l# openPipeline() : \l+ close() : \l# null() : \l+ acceptAST(ICompilationUnit, CompilationUnit) : \l+ acceptBinding(String, IBinding) : \l# getCompilationUnit() : ICompilationUnit\l}"
+	 ]
+
+	 NoOpWriter [
+		 label = "{NoOpWriter|- _env : ReconcileEnv\l- NO_OP_STREAM : OutputStream\l- NO_OP_WRITER : PrintWriter\l|# write(int) : \l# null() : \l# write(char, int, int) : \l# flush() : \l# close() : \l# ReconcileFilerImpl(ReconcileEnv) : \l+ getEnv() : AbstractCompilationEnv\l# createBinaryFile(Filer, String, File) : OutputStream\l# createClassFile(String) : OutputStream\l# createTextFile(Filer, String, File, String) : PrintWriter\l}"
+	 ]
+
+	 AccessRestriction [
+		 label = "{AccessRestriction|- accessRule : AccessRule\l+ classpathEntryType : byte\l+ COMMAND_LINE : byte\l+ classpathEntryName : String\l|# AccessRestriction(AccessRule, byte, String) : \l# getProblemId() : int\l# ignoreIfBetter() : boolean\l}"
+	 ]
+
+	 AccessRule [
+		 label = "{AccessRule|+ IgnoreIfBetter : int\l+ pattern : char\l+ problemId : int\l|# AccessRule(char, int) : \l# AccessRule(char, int, boolean) : \l# hashCode() : int\l# equals(Object) : boolean\l# getProblemId() : int\l# ignoreIfBetter() : boolean\l# toString() : String\l}"
+	 ]
+
+	 AccessRuleSet [
+		 label = "{AccessRuleSet|- accessRules : AccessRule\l+ classpathEntryType : byte\l+ classpathEntryName : String\l|# AccessRuleSet(AccessRule, byte, String) : \l# equals(Object) : boolean\l# getAccessRules() : AccessRule\l# getViolatedRestriction(char) : AccessRestriction\l# hashCode() : int\l# hashCode(AccessRule) : int\l# toString() : String\l# toString(boolean) : String\l}"
+	 ]
+
+	 ClassSignature [
+		 label = "{ClassSignature|# className : char\l|# ClassSignature(char) : \l# getTypeName() : char\l# toString() : String\l# hashCode() : int\l# equals(Object) : boolean\l}"
+	 ]
+
+	 EnumConstantSignature [
+		 label = "{EnumConstantSignature|# typeName : char\l# constName : char\l|# EnumConstantSignature(char, char) : \l# getTypeName() : char\l# getEnumConstantName() : char\l# toString() : String\l# hashCode() : int\l# equals(Object) : boolean\l}"
+	 ]
+
+	 IBinaryAnnotation [
+		 label = "{IBinaryAnnotation||# getTypeName() : char\l# getElementValuePairs() : IBinaryElementValuePair\l}"
+	 ]
+
+	 IBinaryElementValuePair [
+		 label = "{IBinaryElementValuePair||# getName() : char\l# getValue() : Object\l}"
+	 ]
+
+	 IBinaryField [
+		 label = "{IBinaryField||# getAnnotations() : IBinaryAnnotation\l# getTypeAnnotations() : IBinaryTypeAnnotation\l# getConstant() : Constant\l# getGenericSignature() : char\l# getName() : char\l# getTagBits() : long\l# getTypeName() : char\l}"
+	 ]
+
+	 IBinaryMethod [
+		 label = "{IBinaryMethod||# getAnnotations() : IBinaryAnnotation\l# getDefaultValue() : Object\l# getExceptionTypeNames() : char\l# getGenericSignature() : char\l# getMethodDescriptor() : char\l# getParameterAnnotations(int, char) : IBinaryAnnotation\l# getAnnotatedParametersCount() : int\l# getSelector() : char\l# getTagBits() : long\l# isClinit() : boolean\l# getTypeAnnotations() : IBinaryTypeAnnotation\l}"
+	 ]
+
+	 IBinaryNestedType [
+		 label = "{IBinaryNestedType||# getEnclosingTypeName() : char\l# getModifiers() : int\l# getName() : char\l}"
+	 ]
+
+	 IBinaryType [
+		 label = "{IBinaryType||# NoInterface() : char\l# NoNestedType() : IBinaryNestedType\l# NoField() : IBinaryField\l# NoMethod() : IBinaryMethod\l# getAnnotations() : IBinaryAnnotation\l# getTypeAnnotations() : IBinaryTypeAnnotation\l# getEnclosingMethod() : char\l# getEnclosingTypeName() : char\l# getFields() : IBinaryField\l# getGenericSignature() : char\l# getInterfaceNames() : char\l# getMemberTypes() : IBinaryNestedType\l# getMethods() : IBinaryMethod\l# getMissingTypeNames() : char\l# getName() : char\l# getSourceName() : char\l# getSuperclassName() : char\l# getTagBits() : long\l# isAnonymous() : boolean\l# isLocal() : boolean\l# isMember() : boolean\l# sourceFileName() : char\l# enrichWithExternalAnnotationsFor(ITypeAnnotationWalker, Object, LookupEnvironment) : ITypeAnnotationWalker\l}"
+	 ]
+
+	 IBinaryTypeAnnotation [
+		 label = "{IBinaryTypeAnnotation||# NO_TYPE_PATH() : int\l# getAnnotation() : IBinaryAnnotation\l# getTargetType() : int\l# getTypePath() : int\l# getSupertypeIndex() : int\l# getTypeParameterIndex() : int\l# getBoundIndex() : int\l# getMethodFormalParameterIndex() : int\l# getThrowsTypeIndex() : int\l}"
+	 ]
+
+	 ICompilationUnit [
+		 label = "{ICompilationUnit||# getContents() : char\l# getMainTypeName() : char\l# getPackageName() : char\l# ignoreOptionalProblems() : boolean\l}"
+	 ]
+
+	 IDependent [
+		 label = "{IDependent||# JAR_FILE_ENTRY_SEPARATOR() : char\l# getFileName() : char\l}"
+	 ]
+
+	 IGenericField [
+		 label = "{IGenericField||# getModifiers() : int\l}"
+	 ]
+
+	 IGenericMethod [
+		 label = "{IGenericMethod||# getModifiers() : int\l# isConstructor() : boolean\l# getArgumentNames() : char\l}"
+	 ]
+
+	 IGenericType [
+		 label = "{IGenericType||# getModifiers() : int\l# isBinaryType() : boolean\l}"
+	 ]
+
+	 INameEnvironment [
+		 label = "{INameEnvironment||# findType(char) : NameEnvironmentAnswer\l# findType(char, char) : NameEnvironmentAnswer\l# isPackage(char, char) : boolean\l# cleanup() : \l}"
+	 ]
+
+	 ISourceField [
+		 label = "{ISourceField||# getDeclarationSourceEnd() : int\l# getDeclarationSourceStart() : int\l# getInitializationSource() : char\l# getNameSourceEnd() : int\l# getNameSourceStart() : int\l# getTypeName() : char\l}"
+	 ]
+
+	 ISourceImport [
+		 label = "{ISourceImport||# getDeclarationSourceEnd() : int\l# getDeclarationSourceStart() : int\l# getModifiers() : int\l}"
+	 ]
+
+	 ISourceMethod [
+		 label = "{ISourceMethod||# getDeclarationSourceEnd() : int\l# getDeclarationSourceStart() : int\l# getExceptionTypeNames() : char\l# getNameSourceEnd() : int\l# getNameSourceStart() : int\l# getReturnTypeName() : char\l# getTypeParameterNames() : char\l# getTypeParameterBounds() : char\l}"
+	 ]
+
+	 ISourceType [
+		 label = "{ISourceType||# getDeclarationSourceEnd() : int\l# getDeclarationSourceStart() : int\l# getEnclosingType() : ISourceType\l# getFields() : ISourceField\l# getInterfaceNames() : char\l# getMemberTypes() : ISourceType\l# getMethods() : ISourceMethod\l# getName() : char\l# getNameSourceEnd() : int\l# getNameSourceStart() : int\l# getSuperclassName() : char\l# getTypeParameterBounds() : char\l# getTypeParameterNames() : char\l# isAnonymous() : boolean\l}"
+	 ]
+
+	 ITypeAnnotationWalker [
+		 label = "{ITypeAnnotationWalker||# NO_ANNOTATIONS() : IBinaryAnnotation\l# EMPTY_ANNOTATION_WALKER() : ITypeAnnotationWalker\l# toField() : ITypeAnnotationWalker\l# toThrows(int) : ITypeAnnotationWalker\l# toTypeArgument(int) : ITypeAnnotationWalker\l# toMethodParameter(short) : ITypeAnnotationWalker\l# toSupertype(short, char) : ITypeAnnotationWalker\l# toTypeParameterBounds(boolean, int) : ITypeAnnotationWalker\l# toTypeBound(short) : ITypeAnnotationWalker\l# toTypeParameter(boolean, int) : ITypeAnnotationWalker\l# toMethodReturn() : ITypeAnnotationWalker\l# toReceiver() : ITypeAnnotationWalker\l# toWildcardBound() : ITypeAnnotationWalker\l# toNextArrayDimension() : ITypeAnnotationWalker\l# toNextNestedType() : ITypeAnnotationWalker\l# getAnnotationsAtCursor(int) : IBinaryAnnotation\l# toField() : ITypeAnnotationWalker\l# toMethodReturn() : ITypeAnnotationWalker\l# toReceiver() : ITypeAnnotationWalker\l# toTypeParameter(boolean, int) : ITypeAnnotationWalker\l# toTypeParameterBounds(boolean, int) : ITypeAnnotationWalker\l# toTypeBound(short) : ITypeAnnotationWalker\l# toSupertype(short, char) : ITypeAnnotationWalker\l# toMethodParameter(short) : ITypeAnnotationWalker\l# toThrows(int) : ITypeAnnotationWalker\l# toTypeArgument(int) : ITypeAnnotationWalker\l# toWildcardBound() : ITypeAnnotationWalker\l# toNextArrayDimension() : ITypeAnnotationWalker\l# toNextNestedType() : ITypeAnnotationWalker\l# getAnnotationsAtCursor(int) : IBinaryAnnotation\l}"
+	 ]
+
+	 NameEnvironmentAnswer [
+		 label = "{NameEnvironmentAnswer|# binaryType : IBinaryType\l# compilationUnit : ICompilationUnit\l# sourceTypes : ISourceType\l# accessRestriction : AccessRestriction\l|# NameEnvironmentAnswer(IBinaryType, AccessRestriction) : \l# NameEnvironmentAnswer(ICompilationUnit, AccessRestriction) : \l# NameEnvironmentAnswer(ISourceType, AccessRestriction) : \l# getAccessRestriction() : AccessRestriction\l# getBinaryType() : IBinaryType\l# getCompilationUnit() : ICompilationUnit\l# getSourceTypes() : ISourceType\l# isBinaryType() : boolean\l# isCompilationUnit() : boolean\l# isSourceType() : boolean\l# ignoreIfBetter() : boolean\l# isBetter(NameEnvironmentAnswer) : boolean\l}"
+	 ]
+
+	 IBinaryField [
+		 label = "{IBinaryField||# getConstant() : Constant\l# getTypeName() : char\l# getGenericSignature() : char\l}"
+	 ]
+
+	 IBinaryMethod [
+		 label = "{IBinaryMethod||# getExceptionTypeNames() : char\l# getMethodDescriptor() : char\l# getGenericSignature() : char\l# isClinit() : boolean\l}"
+	 ]
+
+	 IBinaryNestedType [
+		 label = "{IBinaryNestedType||# getEnclosingTypeName() : char\l# getModifiers() : int\l# getName() : char\l}"
+	 ]
+
+	 IBinaryType [
+		 label = "{IBinaryType||# NoInterface() : char\l# NoNestedType() : IBinaryNestedType\l# NoField() : IBinaryField\l# NoMethod() : IBinaryMethod\l# getEnclosingTypeName() : char\l# getFields() : IBinaryField\l# getInterfaceNames() : char\l# getMemberTypes() : IBinaryNestedType\l# getMethods() : IBinaryMethod\l# getName() : char\l# getGenericSignature() : char\l# getSuperclassName() : char\l# isAnonymous() : boolean\l# isLocal() : boolean\l# isMember() : boolean\l# sourceFileName() : char\l}"
+	 ]
+
+	 ICompilationUnit [
+		 label = "{ICompilationUnit||# getContents() : char\l# getMainTypeName() : char\l# getPackageName() : char\l}"
+	 ]
+
+	 IConstants [
+		 label = "{IConstants||# AccDefault() : int\l# AccPublic() : int\l# AccPrivate() : int\l# AccProtected() : int\l# AccStatic() : int\l# AccFinal() : int\l# AccSynchronized() : int\l# AccVolatile() : int\l# AccBridge() : int\l# AccTransient() : int\l# AccVarargs() : int\l# AccNative() : int\l# AccInterface() : int\l# AccAbstract() : int\l# AccStrictfp() : int\l# AccSynthetic() : int\l# AccAnnotation() : int\l# AccEnum() : int\l# AccSuper() : int\l# AccDeprecated() : int\l}"
+	 ]
+
+	 IDependent [
+		 label = "{IDependent||# JAR_FILE_ENTRY_SEPARATOR() : char\l# getFileName() : char\l}"
+	 ]
+
+	 IGenericField [
+		 label = "{IGenericField||# getModifiers() : int\l# getName() : char\l}"
+	 ]
+
+	 IGenericMethod [
+		 label = "{IGenericMethod||# getModifiers() : int\l# getSelector() : char\l# isConstructor() : boolean\l# getArgumentNames() : char\l}"
+	 ]
+
+	 IGenericType [
+		 label = "{IGenericType||# getModifiers() : int\l# isBinaryType() : boolean\l# isClass() : boolean\l# isInterface() : boolean\l}"
+	 ]
+
+	 INameEnvironment [
+		 label = "{INameEnvironment||# findType(char) : NameEnvironmentAnswer\l# findType(char, char) : NameEnvironmentAnswer\l# isPackage(char, char) : boolean\l# cleanup() : \l}"
+	 ]
+
+	 ISourceField [
+		 label = "{ISourceField||# getDeclarationSourceEnd() : int\l# getDeclarationSourceStart() : int\l# getInitializationSource() : char\l# getNameSourceEnd() : int\l# getNameSourceStart() : int\l# getTypeName() : char\l}"
+	 ]
+
+	 ISourceImport [
+		 label = "{ISourceImport||# getDeclarationSourceEnd() : int\l# getDeclarationSourceStart() : int\l# getModifiers() : int\l# getName() : char\l# onDemand() : boolean\l}"
+	 ]
+
+	 ISourceMethod [
+		 label = "{ISourceMethod||# getArgumentTypeNames() : char\l# getDeclarationSourceEnd() : int\l# getDeclarationSourceStart() : int\l# getExceptionTypeNames() : char\l#

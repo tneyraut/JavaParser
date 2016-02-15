@@ -1,0 +1,1873 @@
+/*
+Copyright (c) 2013-2015, Thierry Lavoie
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+3. All advertising materials mentioning features or use of this software
+   must display the following acknowledgement:
+   This product includes software developed by the Thierry Lavoie and Polytechnique Montreal.
+4. Neither the name of the <organization> nor the
+   names of its contributors may be used to endorse or promote products
+   derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY Thierry Lavoie ''AS IS'' AND ANY
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL Thierry Lavoie BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+/*
+This grammar has been written in accordance with the Java 1.7 specification by Oracle(TM).
+
+*/
+
+options {
+    STATIC = false;                 // 1 seul parseur actif a la fois (+ rapide)
+    UNICODE_INPUT = true;
+    JAVA_UNICODE_ESCAPE = false;
+    DEBUG_TOKEN_MANAGER = false;
+    DEBUG_PARSER = false;
+    DEBUG_LOOKAHEAD = false;
+    VISITOR = true;                 // Cree une methode accept(visiteur)
+    MULTI=true;                     // type noeud = f(nom noeud)
+    TRACK_TOKENS=true;
+    NODE_DEFAULT_VOID=false;
+    NODE_CLASS = "";
+    NODE_PREFIX = "";
+    LOOKAHEAD=3;
+    FORCE_LA_CHECK=false;
+}
+
+PARSER_BEGIN(JavaParser1_7)
+
+package javaparser;
+import java.io.*;
+import java.util.*;
+
+public class JavaParser1_7 {
+
+   private static int parseFilesFromFileList(String fileName)
+   {
+      DataInputStream str = null;
+      int cnt = 0;
+      try
+      {
+         str = new DataInputStream(new FileInputStream(new File(fileName)));
+         String s;
+
+         while ((s = str.readLine()) != null)
+         {
+            try
+            {
+               cnt++;
+               System.out.println("Parsing: " + s);
+               JavaParser1_7 parser = new JavaParser1_7(s);
+
+               // Dump syntax tree
+               // SimpleNode n = parser.CompilationUnit();
+               // n.dump(" ");
+
+		       ExampleVisitor vis = new ExampleVisitor();
+               parser.CompilationUnit().jjtAccept(vis, null);
+
+            }
+            catch(ParseException e) { e.printStackTrace(); }
+            catch(TokenMgrError tme) { tme.printStackTrace(); }
+	        catch(Exception e) {e.printStackTrace(); }
+         }
+      }
+      catch(Exception e) { e.printStackTrace(); }
+      finally { if (str != null) try { str.close(); } catch(Exception e) {}  }
+
+      return cnt;
+   }
+
+   public JavaParser1_7(String fileName)
+   {
+      this(System.in);
+      try { ReInit(new FileInputStream(new File(fileName))); }
+      catch(Exception e) { e.printStackTrace(); }
+   }
+
+
+  public static void m(String args[]) {
+    JavaParser1_7 parser;
+	String fileName = new String();
+    if (args.length == 0) {
+      System.out.println("Java Parser Version 0.1:  Reading from standard input . . .");
+      parser = new JavaParser1_7(System.in);
+	  fileName = "_default_";
+    } else if (args.length == 1) {
+      System.out.println("Java Parser Version 0.1:  Reading from file " + args[0] + " . . .");
+	  fileName = args[0];
+      try {
+        parser = new JavaParser1_7(new java.io.FileInputStream(args[0]));
+      } catch (java.io.FileNotFoundException e) {
+        System.out.println("Java Parser Version 0.1:  File " + args[0] + " not found.");
+        return;
+      }
+    } else {
+      System.out.println("Java Parser Version 0.1:  Usage is one of:");
+      System.out.println("         java JavaParser < inputfile");
+      System.out.println("OR");
+      System.out.println("         java JavaParser inputfile");
+      return;
+    }
+    try {
+	  ExampleVisitor vis = new ExampleVisitor();
+      parser.CompilationUnit().jjtAccept(vis, null);
+
+      // Dump syntax tree
+      // SimpleNode n = parser.CompilationUnit();
+      // n.dump(" ");
+
+      System.out.println("Java Parser Version 0.1:  Java program parsed successfully.");
+    } catch (ParseException e) {
+      System.out.println(e.getMessage());
+      System.out.println("Java Parser Version 0.1:  Encountered errors during parse.");
+    }
+  }
+
+
+   public static void main(String[] args) throws Throwable
+   {
+      int cnt = 1;
+      long l = System.currentTimeMillis();
+      if (args.length > 0 && args[0].charAt(0) == '@')
+      {
+         cnt = parseFilesFromFileList(args[0].substring(1));
+      }
+      else
+      {
+         JavaParser1_7.m(args);
+      }
+      System.out.println("Parsed " + cnt + " files in: " + (System.currentTimeMillis() - l));
+   }
+
+}
+
+PARSER_END(JavaParser1_7)
+
+// TOKEN SPECIFICATION
+
+// WHITESPACES
+
+SKIP:
+{
+  " " | "\n" | "\r" | "\n\r" | "\t" | "\f"
+}
+
+// COMMENTS
+
+SPECIAL_TOKEN:
+{
+  <END_OF_LINE_COMMENT: "//" (~["\n","\r"]|"\\u")* ("\n"|"\r"|"\r\n")? >
+}
+
+MORE:
+{
+  <"/*"> : IN_MULTILINE_COMMENT
+}
+
+<IN_MULTILINE_COMMENT>
+MORE:
+{
+  <~[]>
+}
+
+<IN_MULTILINE_COMMENT>
+SPECIAL_TOKEN:
+{
+  <MULTILINE_COMMENT: "*/"> :DEFAULT
+}
+
+
+//KEYWORDS
+
+TOKEN:
+{
+   <ABSTRACT: "abstract">
+   |
+   <ASSERT: "assert">
+   |
+   <BOOLEAN: "boolean">
+   |
+   <BREAK: "break">
+   |
+   <BYTE: "byte">
+   |
+   <CASE: "case">
+   |
+   <CATCH: "catch">
+   |
+   <CHAR: "char">
+   |
+   <CLASS: "class">
+   |
+   <CONST: "const">	// Reserved but unused
+   |
+   <CONTINUE: "continue">
+   |
+   <DEFAULTTK: "default">  // Required KEYWORD suffix to avoid ambiguity
+   |
+   <DO: "do">
+   |
+   <DOUBLE: "double">
+   |
+   <ELSE: "else">
+   |
+   <ENUM: "enum"> // This feature was introduced only in Java 1.5, and thus with sources in Java <= 1.4, it can be used as a valid Identifier. This grammar can only be used with 1.5, 1.6 and 1.7
+   |
+   <EXTENDS: "extends">
+   |
+   <FINAL: "final">
+   |
+   <FINALLY: "finally">
+   |
+   <FLOAT: "float">
+   |
+   <FOR: "for">
+   |
+   <IF: "if">
+   |
+   <GOTO: "goto">	//Reserved, but unused!
+   |
+   <IMPLEMENTS: "implements">
+   |
+   <IMPORT: "import">
+   |
+   <INSTANCEOF: "instanceof">
+   |
+   <INT: "int">
+   |
+   <INTERFACE: "interface">
+   |
+   <LONG: "long">
+   |
+   <NATIVE: "native">
+   |
+   <NEW: "new">
+   |
+   <PACKAGE: "package">
+   |
+   <PRIVATE: "private">
+   |
+   <PROTECTED: "protected">
+   |
+   <PUBLIC: "public">
+   |
+   <RETURN: "return">
+   |
+   <SHORT: "short">
+   |
+   <STATIC: "static">
+   |
+   <STRICTFP: "strictfp">
+   |
+   <SUPER: "super">
+   |
+   <SWITCH: "switch">
+   |
+   <SYNCHRONIZED: "synchronized">
+   |
+   <THIS: "this">
+   |
+   <THROW: "throw">
+   |
+   <THROWS: "throws">
+   |
+   <TRANSIENT: "transient">
+   |
+   <TRY: "try">
+   |
+   <VOID: "void">
+   |
+   <VOLATILE: "volatile">
+   |
+   <WHILE: "while">
+}
+
+
+// OPERATORS
+TOKEN:{
+	<EQUAL: ("=")>
+	|
+	<LOGICALEQUAL: ("==")>
+	|
+	<GT: (">") >
+	|
+	<LT: ("<") >
+	|
+	<NOT: ("!") >
+	|
+	<BINARYNOT: ("~") >
+	|
+	<QMARK: ("?") >
+	|
+	<COLON: (":") >
+	|
+	<LTEQUAL: ("<=") >
+	|
+	<GTEQUAL: (">=") >
+	|
+	<NOTEQUAL: ("!=") >
+	|
+	<LOGICALAND: ("&&") >
+	|
+	<LOGICALOR: ("||") >
+	|
+	<PLUSPLUS: ("++") >
+	|
+	<MINUSMINUS: ("--") >
+	|
+	<PLUS: ("+") >
+	|
+	<MINUS: ("-") >
+	|
+	<STAR: ("*") >
+	|
+	<DIVIDE: ("/") >
+	|
+	<BINARYAND: ("&") >
+	|
+	<BINARYOR: ("|") >
+	|
+	<BINARYXOR: ("^") >
+	|
+	<MODULO: ("%") >
+	|
+	<LBINARYSHIFT: ("<<") >
+	//|
+	//<RBINARYSHIFT: (">>") >
+	//|
+	//<TRIPLESHIFT: (">>>") >
+	|
+	<PLUSEQUAL: ("+=") >
+	|
+	<MINUSEQUAL: ("-=") >
+	|
+	<TIMESEQUAL: ("*=") >
+	|
+	<DIVIDEEQUAL: ("/=") >
+	|
+	<BINARYANDEQUAL: ("&=") >
+	|
+	<BINARYOREQUAL: ("|=") >
+	|
+	<BINARYXOREQUAL: ("^=") >
+	|
+	<MODULOEQUAL: ("%=") >
+	|
+	<LBINARYSHIFTEQUAL: ("<<=") >
+	|
+	<RBINARYSHIFTEQUAL: (">>=") >
+	|
+	<TRIPLESHIFTEQUAL: (">>>=") >
+}
+
+// SEPARATORS
+TOKEN: {
+	<LPAR: ("(")>
+	|
+	<RPAR: (")")>
+	|
+	<LBRACE: ("{")>
+	|
+	<RBRACE: ("}")>
+	|
+	<LBRACKET: ("[")>
+	|
+	<RBRACKET: ("]")>
+	|
+	<SEMICOLON: (";")>
+	|
+	<COMA: (",")>
+	|
+	<DOT: (".")>
+}
+
+// MISC
+TOKEN: {
+	<AROBAS: ("@")>
+	|
+	<ELLIPSIS: ("...")>
+}
+
+// LITERALS
+
+TOKEN:
+{
+   <INTEGER_LITERAL: (<DECIMAL_LITERAL>|<HEX_LITERAL>|<OCTAL_LITERAL>|<BINARY_LITERAL> ) >
+   |
+   <FLOATING_POINT_LITERAL: (<DECIMAL_FLOATING_POINT_LITERAL> |<HEX_FLOATING_POINT_LITERAL>) >
+   |
+   <#DECIMAL_LITERAL: (<DECIMAL_NUMERAL> (<INTEGER_SUFFIX>)?) >
+   |
+   <#HEX_LITERAL: (<HEX_NUMERAL> (<INTEGER_SUFFIX>)? ) >
+   |
+   <#OCTAL_LITERAL: (<OCTAL_NUMERAL> (<INTEGER_SUFFIX>)? ) >
+   |
+   <#BINARY_LITERAL: (<BINARY_NUMERAL> (<INTEGER_SUFFIX>)?) >
+   |
+   <#INTEGER_SUFFIX: ("l"|"L") >
+   |
+   <#FLOAT_TYPE_SUFFIX: ("f"|"F") >
+   |
+   <#DECIMAL_NUMERAL: ( ("0") | (<NON_ZERO_DIGIT> (<DIGITS>)?) | (<NON_ZERO_DIGIT><UNDERSCORES><DIGITS>) ) >
+   |
+   <#DIGITS: ( (<DIGIT>) | (<DIGIT> (<DIGITS_AND_UNDERSCORES>)? <DIGIT>) )>
+   |
+   <#DIGITS_AND_UNDERSCORES: (<DIGIT_OR_UNDERSCORE>)+ >
+   |
+   <#DIGIT_OR_UNDERSCORE: (<DIGIT>|"_") >
+   |
+   <#DIGIT: ("0"|<NON_ZERO_DIGIT>) >
+   |
+   <#NON_ZERO_DIGIT: ["1"-"9"] >
+   |
+   <#UNDERSCORES: ("_")+ >
+   |
+   <#HEX_NUMERAL: ("0"("x"|"X") (<HEX_DIGITS>)? ) > // Allowing for 0x 0X alone for 0 representation. Happens in OpenJDK and compiles
+   |
+   <#HEX_DIGITS: (<HEX_DIGIT> ( (<HEX_DIGITS_AND_UNDERSCORES> )? <HEX_DIGIT> )? ) >
+   |
+   <#HEX_DIGIT: (["0"-"9", "a"-"f", "A"-"F"]) >
+   |
+   <#HEX_DIGITS_AND_UNDERSCORES: (<HEX_DIGIT_OR_UNDERSCORE>)+ >
+   |
+   <#HEX_DIGIT_OR_UNDERSCORE: (<HEX_DIGIT>|"_") >
+   |
+   <#OCTAL_NUMERAL: ("0" <OCTAL_DIGITS>) >
+   |
+   <#OCTAL_DIGITS: (<OCTAL_DIGIT> ( (<OCTAL_DIGITS_AND_UNDERSCORES>)? <OCTAL_DIGIT> )? ) >
+   |
+   <#OCTAL_DIGIT: (["0"-"7"]) >
+   |
+   <#OCTAL_DIGITS_AND_UNDERSCORES: (<OCTAL_DIGIT_OR_UNDERSCORE>)+ >
+   |
+   <#OCTAL_DIGIT_OR_UNDERSCORE: (<OCTAL_DIGIT>|"_") >
+   |
+   <#BINARY_NUMERAL: ("0"("b"|"B") (<BINARY_DIGITS>)? ) > // Allowing for 0b 0B alone for 0 representation. Happens in OpenJDK and compiles
+   |
+   <#BINARY_DIGITS: (<BINARY_DIGIT> ( (<BINARY_DIGITS_AND_UNDERSCORES> )? <BINARY_DIGIT> )? ) >
+   |
+   <#BINARY_DIGIT: (["0"-"1"]) >
+   |
+   <#BINARY_DIGITS_AND_UNDERSCORES: (<BINARY_DIGIT_OR_UNDERSCORE>)+ >
+   |
+   <#BINARY_DIGIT_OR_UNDERSCORE: (<BINARY_DIGIT>|"_") >
+   |
+   <#DECIMAL_FLOATING_POINT_LITERAL: (<DIGITS> "." (<DIGITS>)? (<EXPONENT_PART>)? (<FLOAT_SUFFIX>)?) | ("." <DIGITS> (<EXPONENT_PART>)? (<FLOAT_SUFFIX>)?) | (<DIGITS> <EXPONENT_PART> (<FLOAT_SUFFIX>)?) | (<DIGITS> (<EXPONENT_PART>)? <FLOAT_SUFFIX> ) >
+   |
+   <#EXPONENT_PART: (<EXPONENT_INDICATOR> <SIGNED_INTEGER>) >
+   |
+   <#EXPONENT_INDICATOR: ("e"|"E") >
+   |
+   <#SIGNED_INTEGER: ((<SIGN>)? <DIGITS>) >
+   |
+   <#SIGN: ("+"|"-") >
+   |
+   <#FLOAT_SUFFIX: ("f"|"F"|"d"|"D") >
+   |
+   <#HEX_FLOATING_POINT_LITERAL : (<HEX_SIGNIFICAND> <BINARY_EXPONENT> (<FLOAT_TYPE_SUFFIX>)? ) >
+   |
+   <#HEX_SIGNIFICAND: (<HEX_NUMERAL> (<DOT>)? ) | ("0" ("x"|"X") (<HEX_DIGITS>)? <DOT> <HEX_DIGITS> ) >
+   |
+   <#BINARY_EXPONENT: (<BINARY_EXPONENT_INDICATOR> <SIGNED_INTEGER>) >
+   |
+   <#BINARY_EXPONENT_INDICATOR: ("p"|"P")>
+}
+
+TOKEN:
+{
+	<BOOLEAN_LITERAL: ("true"|"false")>
+	|
+	<NULL_LITERAL: ("null")>
+}
+
+// IDENTIFIERS AFTER ALL KEYWORDS AND RESERVED LITERAL
+
+TOKEN:
+{
+  <IDENTIFIER: <JAVA_LETTER> (<JAVA_LETTER>|<JAVA_DIGIT>)* >
+  |
+  <#JAVA_LETTER:  ["\u0041"-"\u005a", "\u0061"-"\u007a", "_", "$"] >
+  |
+  <#JAVA_DIGIT: ["\u0030"-"\u0039"] >
+}
+
+TOKEN:
+{
+  < CHARACTER_LITERAL:
+      "'"
+      (   (~["'","\\","\n","\r"])
+        | ("\\"
+            ( ["n","t","b","r","f","\\","'","\""]
+            | ["0"-"7"] ( ["0"-"7"] )?
+            | ["0"-"3"] ["0"-"7"] ["0"-"7"]
+            )
+          )
+        | ("\\u"
+                ["0"-"9","A"-"F","a"-"f"]
+                ["0"-"9","A"-"F","a"-"f"]
+                ["0"-"9","A"-"F","a"-"f"]
+                ["0"-"9","A"-"F","a"-"f"]
+          )
+      )
+      "'"
+  >
+|
+  < STRING_LITERAL:
+      "\""
+      (   (~["\"","\\","\n","\r"])
+        | ("\\"
+            ( ["n","t","b","r","f","\\","'","\""]
+            | ["0"-"7"] ( ["0"-"7"] )?
+            | ["0"-"3"] ["0"-"7"] ["0"-"7"]
+            )
+          )
+        | ("\\u"
+                ["0"-"9","A"-"F","a"-"f"]
+                ["0"-"9","A"-"F","a"-"f"]
+                ["0"-"9","A"-"F","a"-"f"]
+                ["0"-"9","A"-"F","a"-"f"]
+          )
+      )*
+      "\""
+  >
+}
+
+void Identifier():
+{
+}
+{
+	<IDENTIFIER>
+}
+
+void QualifiedIdentifier():
+{
+}
+{
+	Identifier() ( <DOT> Identifier() )*
+}
+
+void QualifiedIdentifierList():
+{
+}
+{
+	QualifiedIdentifier() ( <COMA> QualifiedIdentifier() )*
+}
+
+CompilationUnit CompilationUnit():
+{
+}
+{
+	// LOOKAHEAD required because Annotation can also be part of class modifiers
+	[ LOOKAHEAD([Annotations()] <PACKAGE>) [Annotations()] <PACKAGE> QualifiedIdentifier() <SEMICOLON> ]
+		( ImportDeclaration() )*
+		( TypeDeclaration() )*
+
+	<EOF>
+
+	{return jjtThis;}
+}
+
+void ImportDeclaration():
+{
+}
+{
+	<IMPORT> PossibleStaticModifier() Identifier() ( <DOT> Identifier() )* Ellipsis() <SEMICOLON>
+}
+
+void Ellipsis():
+{
+}
+{
+	( (<DOT> <STAR>) #HasEllipsis)? #HasNotEllipsis(jjtree.nodeArity()==0)
+}
+
+void PossibleStaticModifier():
+{
+}
+{
+	(<STATIC> #HasStaticModifier())? #HasNotStaticModifier(jjtree.nodeArity()==0)
+}
+
+void TypeDeclaration():
+{
+}
+{
+	ClassOrInterfaceDeclaration()
+	|
+	(<SEMICOLON>) #EmptyInterfaceDeclaration()
+}
+
+void ClassOrInterfaceDeclaration():
+{
+}
+{
+	(( Modifier() )*)#ModifierList(true) ( ClassDeclaration() | InterfaceDeclaration() )
+}
+
+void ClassDeclaration():
+{
+}
+{
+	NormalClassDeclaration()
+	|
+	EnumDeclaration()
+}
+
+void InterfaceDeclaration():
+{
+}
+{
+	NormalInterfaceDeclaration()
+	|
+	AnnotationTypeDeclaration()
+}
+
+void NormalClassDeclaration():
+{
+}
+{
+	<CLASS> Identifier() [TypeParameters()] [<EXTENDS> Type()] [<IMPLEMENTS> TypeList()] ClassBody()
+}
+
+void EnumDeclaration():
+{
+}
+{
+	<ENUM> Identifier() [<IMPLEMENTS> TypeList()] EnumBody()
+}
+
+void NormalInterfaceDeclaration():
+{
+}
+{
+	<INTERFACE> Identifier() [TypeParameters()] [<EXTENDS> TypeList()] InterfaceBody()
+}
+
+void AnnotationTypeDeclaration():
+{
+}
+{
+	<AROBAS> <INTERFACE> Identifier() AnnotationTypeBody()
+}
+
+void Type():
+{
+}
+{
+	( BasicType() ( <LBRACKET> <RBRACKET> )* )
+	|
+	( ReferenceType() ( <LBRACKET> <RBRACKET> )* )
+}
+
+void BasicType():
+{
+}
+{
+	<BYTE>|<SHORT>|<CHAR>|<INT>|<LONG>|<FLOAT>|<DOUBLE>|<BOOLEAN>
+}
+
+// Added lookahead but not sure why it made it work...but it is necessary for proper behaviour
+void ReferenceType():
+{
+}
+{
+	Identifier() [LOOKAHEAD(<LT>) TypeArguments() ] (<DOT> Identifier() [ LOOKAHEAD(<LT>) TypeArguments()] )*
+}
+
+// Added support for array type in generics
+void TypeArguments():
+{
+}
+{
+	<LT> TypeArgument() ( <LBRACKET> <RBRACKET> )* ( LOOKAHEAD(<COMA>) <COMA> TypeArgument() ( <LBRACKET> <RBRACKET> )* )*  <GT>
+	//  <LT> TypeArgument() (<COMA> TypeArgument() )*  <GT>
+}
+
+void TypeArgument():
+{
+}
+{
+	ReferenceType()
+	|
+	BasicType()  // For sake of int[]... and other basic[]. Not sure why, but compiles with gnu javac
+	|
+	( <QMARK> [ (<EXTENDS>|<SUPER>) ReferenceType()] )
+}
+
+void NonWildcardTypeArguments():
+{
+}
+{
+	<LT> TypeList() <GT>
+}
+
+void TypeList():
+{
+}
+{
+	ReferenceType() (<COMA> ReferenceType() )*
+}
+
+void TypeArgumentsOrDiamond():
+{
+}
+{
+	(<LT> <GT>)
+	|
+	( TypeArguments() )
+}
+
+void NonWildcardTypeArgumentsOrDiamond():
+{
+}
+{
+	(<LT> <GT>)
+	|
+	( NonWildcardTypeArguments() )
+}
+
+void TypeParameters():
+{
+}
+{
+	<LT> TypeParameter() ( <COMA> TypeParameter() )* <GT>
+}
+
+void TypeParameter():
+{
+}
+{
+	Identifier() [<EXTENDS> Bound()]
+}
+
+void Bound():
+{
+}
+{
+	ReferenceType() ( <BINARYAND> ReferenceType() )*
+}
+
+void Modifier():
+{
+}
+{
+	Annotation()|(<PUBLIC>|<PRIVATE>|<PROTECTED>|<STATIC>|<ABSTRACT>|<FINAL>|<NATIVE>|<SYNCHRONIZED>|<TRANSIENT>|<VOLATILE>|<STRICTFP>)#KeywordModifier()
+}
+
+void Annotations():
+{
+}
+{
+	Annotation() ( Annotation() )*
+}
+
+void Annotation():
+{
+}
+{
+	<AROBAS> QualifiedIdentifier() [ <LPAR> [AnnotationElement()] <RPAR> ]
+}
+
+void AnnotationElement():
+{
+}
+{
+	ElementValuePairs()
+	|
+	ElementValue()
+}
+
+void ElementValuePairs():
+{
+}
+{
+	ElementValuePair() ( <COMA> ElementValuePair() )*
+}
+
+void ElementValuePair():
+{
+}
+{
+	Identifier() <EQUAL> ElementValue()
+}
+
+void ElementValue():
+{
+}
+{
+	Annotation()
+	|
+	Expression1()
+	|
+	ElementValueArrayInitializer()
+}
+
+void ElementValueArrayInitializer():
+{
+}
+{
+	<LBRACE> [ElementValues()] [<COMA>] <RBRACE>
+}
+
+void ElementValues():
+{
+}
+{
+	ElementValue() ( <COMA> ElementValue() )*
+}
+
+void ClassBody():
+{
+}
+{
+	<LBRACE> ( ClassBodyDeclaration() )* <RBRACE>
+}
+
+void ClassBodyDeclaration():
+{
+}
+{
+	<SEMICOLON>
+	|
+	( ((Modifier())*)#ModifierList MemberDecl() )
+	|
+	( [<STATIC>] Block() ) #StaticInitBlock()
+}
+
+void MemberDecl():
+{
+}
+{
+	MethodOrFieldDecl()
+	|
+	( <VOID> Identifier() VoidMethodDeclaratorRest() ) #VoidMethodDecl()
+	|
+	( Identifier() ConstructorDeclaratorRest() ) #ConstructorDecl()
+	|
+	GenericMethodOrConstructorDecl()
+	|
+	ClassDeclaration()
+	|
+	InterfaceDeclaration()
+}
+
+void MethodOrFieldDecl():
+{
+}
+{
+	Type() Identifier() MethodOrFieldRest()
+}
+
+// Choice inversion from original specification because of epsilon production
+void MethodOrFieldRest():
+{
+}
+{
+        MethodDeclaratorRest()
+	|
+	( FieldDeclaratorsRest() <SEMICOLON> )
+}
+
+void FieldDeclaratorsRest():
+{
+}
+{
+	VariableDeclaratorRest() ( <COMA> VariableDeclarator() )*
+}
+
+void MethodDeclaratorRest():
+{
+}
+{
+	FormalParameters() ( <LBRACKET><RBRACKET> )* [<THROWS> QualifiedIdentifierList() ] (Block() #MethodBody() | <SEMICOLON> #EmptyBody() )
+}
+
+void VoidMethodDeclaratorRest():
+{
+}
+{
+	FormalParameters() [<THROWS> QualifiedIdentifierList() ] (Block() #MethodBody() | <SEMICOLON> #EmptyBody() )
+}
+
+void ConstructorDeclaratorRest():
+{
+}
+{
+	FormalParameters() [<THROWS> QualifiedIdentifierList() ] Block() #MethodBody()
+}
+
+void GenericMethodOrConstructorDecl():
+{
+}
+{
+	TypeParameters() GenericMethodOrConstructorRest()
+}
+
+void GenericMethodOrConstructorRest():
+{
+}
+{
+	( (Type() | <VOID>) Identifier() MethodDeclaratorRest() )
+	|
+	( Identifier() ConstructorDeclaratorRest() )
+}
+
+void InterfaceBody():
+{
+}
+{
+	<LBRACE> ( InterfaceBodyDeclaration() )* <RBRACE>
+}
+
+void InterfaceBodyDeclaration():
+{
+}
+{
+	(<SEMICOLON>) #EmptyInterfaceDeclaration()
+	|
+	( (( Modifier() )*)#ModifierList InterfaceMemberDecl() ) #NonEmptyInterfaceDeclaration()
+}
+
+void InterfaceMemberDecl():
+{
+}
+{
+	InterfaceMethodOrFieldDecl()
+	|
+	( <VOID> Identifier() VoidInterfaceMethodDeclaratorRest() )
+	|
+	InterfaceGenericMethodDecl()
+	|
+	ClassDeclaration()
+	|
+	InterfaceDeclaration()
+}
+
+void InterfaceMethodOrFieldDecl():
+{
+}
+{
+	Type() Identifier() InterfaceMethodOrFieldRest()
+}
+
+void InterfaceMethodOrFieldRest():
+{
+}
+{
+	( ConstantDeclaratorsRest() <SEMICOLON> )
+	|
+	InterfaceMethodDeclaratorRest()
+}
+
+void ConstantDeclaratorsRest():
+{
+}
+{
+	ConstantDeclaratorRest() ( <COMA> ConstantDeclarator() )*
+}
+
+void ConstantDeclaratorRest():
+{
+}
+{
+	 (<LBRACKET><RBRACKET>)* <EQUAL> VariableInitializer()
+}
+
+void ConstantDeclarator():
+{
+}
+{
+	Identifier() ConstantDeclaratorRest()
+}
+
+void InterfaceMethodDeclaratorRest():
+{
+}
+{
+	FormalParameters() (<LBRACKET><RBRACKET>)* [<THROWS> QualifiedIdentifierList()] <SEMICOLON>
+}
+
+void VoidInterfaceMethodDeclaratorRest():
+{
+}
+{
+	FormalParameters() [<THROWS> QualifiedIdentifierList()] <SEMICOLON>
+}
+
+void InterfaceGenericMethodDecl():
+{
+}
+{
+	TypeParameters() ( Type() | <VOID> ) Identifier() InterfaceMethodDeclaratorRest()
+}
+
+void FormalParameters():
+{
+}
+{
+	<LPAR>[ FormalParameterDecls() ]<RPAR>
+}
+
+void FormalParameterDecls():
+{
+}
+{
+	( VariableModifier() )* Type() FormalParameterDeclsRest()
+}
+
+void VariableModifier():
+{
+}
+{
+	<FINAL>
+	|
+	Annotation()
+}
+
+void FormalParameterDeclsRest():
+{
+}
+{
+	( VariableDeclaratorId() [<COMA> FormalParameterDecls()] )
+	|
+	( <ELLIPSIS> VariableDeclaratorId() )
+}
+
+void VariableDeclaratorId():
+{
+}
+{
+	Identifier() (<LBRACKET> <RBRACKET>)*
+}
+
+
+// Slightly changed because this was defined as left recursive in intial grammar! Odd since it defines it as LL(k)
+void VariableDeclarators():
+{
+}
+{
+	VariableDeclarator() ( <COMA> VariableDeclarator() )*
+}
+
+void VariableDeclarator():
+{
+}
+{
+	Identifier() VariableDeclaratorRest()
+}
+
+void VariableDeclaratorRest():
+{
+}
+{
+	(<LBRACKET><RBRACKET>)* [<EQUAL> VariableInitializer()]
+}
+
+void VariableInitializer():
+{
+}
+{
+	Expression()
+	|
+	ArrayInitializer()
+	//|
+	//Expression()
+}
+
+void ArrayInitializer():
+{
+}
+{
+	<LBRACE> [ VariableInitializer() (<COMA> VariableInitializer())* [<COMA>] ]  <RBRACE>
+}
+
+void Block():
+{
+}
+{
+	<LBRACE> BlockStatements() <RBRACE>
+}
+
+void BlockStatements():
+{
+}
+{
+	( BlockStatement() )*
+}
+
+void BlockStatement():
+{
+}
+{
+	LOOKAHEAD( ( VariableModifier() )* Type() VariableDeclarators() ) LocalVariableDeclarationStatement()
+	|
+	ClassOrInterfaceDeclaration()
+	|
+	( /*Identifier() <COLON> ]*/ Statement() ) // Weird original spec at that place considering statement definition. Unless counter-example found, leave prefix in comments
+}
+
+void LocalVariableDeclarationStatement():
+{
+}
+{
+	( VariableModifier() )* Type() VariableDeclarators() <SEMICOLON>
+}
+
+void Statement():
+{
+}
+{
+	Block()
+	|
+	EmptyStatement()
+	|
+	IdentifierStatement()
+	|
+	StatementExpression()
+	|
+	IfStatement()
+	|
+	AssertStatement()
+	|
+	SwitchStatement()
+	|
+	WhileStatement()
+	|
+	DoStatement()
+	|
+	ForStatement()
+	|
+	BreakStatement()
+	|
+	ContinueStatement()
+	|
+	ReturnStatement()
+	|
+	ThrowStatement()
+	|
+	SynchronizedStatement()
+	|
+	TryStatement()
+}
+
+void EmptyStatement():
+{
+}
+{
+	<SEMICOLON>
+}
+
+void IdentifierStatement():
+{
+}
+{
+	Identifier() <COLON> Statement()
+}
+
+void StatementExpression():
+{
+}
+{
+	Expression() <SEMICOLON>
+}
+
+void IfStatement():
+{
+}
+{
+	<IF> ParExpression() Statement() ( <ELSE> Statement() #ElseStatement() )? #NoElseStatement(jjtree.nodeArity()==0)
+}
+
+void AssertStatement():
+{
+}
+{
+	<ASSERT> Expression() [ <COLON> Expression() ] <SEMICOLON>
+}
+
+void SwitchStatement():
+{
+}
+{
+	<SWITCH> ParExpression() <LBRACE> SwitchBlockStatementGroups() <RBRACE>
+}
+
+void WhileStatement():
+{
+}
+{
+	<WHILE> ParExpression() Statement()
+}
+
+void DoStatement():
+{
+}
+{
+	<DO> Statement() <WHILE> ParExpression() <SEMICOLON>
+}
+
+void ForStatement():
+{
+}
+{
+	<FOR> <LPAR> ForControl() <RPAR> Statement()
+}
+
+void BreakStatement():
+{
+}
+{
+	<BREAK> (Identifier() #LabeledBreak())? #UnlabeledBreak(jjtree.nodeArity()==0) <SEMICOLON>
+}
+
+void ContinueStatement():
+{
+}
+{
+	<CONTINUE> (Identifier() #LabeledContinue())? #UnlabeledContinue(jjtree.nodeArity()==0) <SEMICOLON>
+}
+
+void ReturnStatement():
+{
+}
+{
+	<RETURN> [Expression()] <SEMICOLON>
+}
+
+void ThrowStatement():
+{
+}
+{
+	<THROW> [Expression()] <SEMICOLON>
+}
+
+void SynchronizedStatement():
+{
+}
+{
+	<SYNCHRONIZED> ParExpression() Block()
+}
+
+// Rule inversion required for epsilon production and LOOKAHEAD
+// Changed weird Catches/Finally rule to make both optionnal
+void TryStatement():
+{
+}
+{
+	<TRY>
+	(
+		//( Block() (( [Catches()] Finally() ) | Catches() ) )
+		( Block() [Catches()] [Finally()] )
+		|
+		(ResourceSpecification() Block() [Catches()] [Finally()] )
+	)
+}
+
+void Catches():
+{
+}
+{
+	CatchClause() ( CatchClause() )*
+}
+
+void CatchClause():
+{
+}
+{
+	<CATCH> <LPAR> ( VariableModifier() )* CatchType() Identifier() <RPAR> Block()
+}
+
+// Possible mistake from | to .
+// Definitely not a mistake, but can't tell semantic yet! Construct found in OpenJDK
+void CatchType():
+{
+}
+{
+	QualifiedIdentifier() ( <BINARYOR> QualifiedIdentifier() )*
+	//Identifier() (<DOT> Identifier() ) *
+}
+
+void Finally():
+{
+}
+{
+	<FINALLY> Block()
+}
+
+void ResourceSpecification():
+{
+}
+{
+	<LPAR> Resources() [ <SEMICOLON> ] <RPAR>
+}
+
+void Resources():
+{
+}
+{
+	Resource() ( <SEMICOLON> Resource() )*
+}
+
+void Resource():
+{
+}
+{
+	( VariableModifier() )* ReferenceType() VariableDeclaratorId() <EQUAL> Expression()
+}
+
+void SwitchBlockStatementGroups():
+{
+}
+{
+	( SwitchBlockStatementGroup() )*
+}
+
+void SwitchBlockStatementGroup():
+{
+}
+{
+	SwitchLabels() BlockStatements()
+}
+
+void SwitchLabels():
+{
+}
+{
+	SwitchLabel() ( SwitchLabel() )*
+}
+
+void SwitchLabel():
+{
+}
+{
+	( <CASE> Expression() <COLON> )
+	|
+	( <CASE> EnumConstantName() <COLON> )
+	|
+	( <DEFAULTTK> <COLON> )
+}
+
+void EnumConstantName():
+{
+}
+{
+	Identifier()
+}
+
+
+// Spec has mandatory Init, but it is optionnal in many compilers
+void ForControl():
+{
+}
+{
+	LOOKAHEAD(ForVarControl()) ForVarControl() // Lookahead on Type because of ambiguity on variable ID and type ID
+	|
+	( [ForInit()] <SEMICOLON> [Expression()] <SEMICOLON> [ForUpdate()] )
+}
+
+void ForVarControl():
+{
+}
+{
+	( VariableModifier() )* Type() VariableDeclaratorId() ForVarControlRest()
+}
+
+void ForVarControlRest():
+{
+}
+{
+	( ForVariableDeclaratorsRest() <SEMICOLON> [Expression()] <SEMICOLON> [ LOOKAHEAD(2) ForUpdate() ] )
+	|
+	(<COLON>  Expression() )
+}
+
+void ForVariableDeclaratorsRest():
+{
+}
+{
+	[ <EQUAL> VariableInitializer()] ( <COMA> VariableDeclarator() )*
+}
+
+void ForInit():
+{
+}
+{
+	ForUpdate()
+}
+
+void ForUpdate():
+{
+}
+{
+	Expression() ( <COMA> Expression() )*
+}
+
+
+// Breaking the original rule to follow the classic expression pattern. Oddly, the original spec of the grammar shouldn't allow a = b = c, but compilers
+// allow it, hence the change.
+void Expression():
+{
+}
+{
+	Expression1() [ExpressionRest()]
+}
+
+void ExpressionRest():
+{
+}
+{
+	AssignmentOperator() Expression()
+}
+
+void AssignmentOperator():
+{
+}
+{
+	<EQUAL>
+	|
+	<PLUSEQUAL>
+	|
+	<MINUSEQUAL>
+	|
+	<TIMESEQUAL>
+	|
+	<DIVIDEEQUAL>
+	|
+	<BINARYANDEQUAL>
+	|
+	<BINARYOREQUAL>
+	|
+	<BINARYXOREQUAL>
+	|
+	<MODULOEQUAL>
+	|
+	<LBINARYSHIFTEQUAL>
+	|
+	<RBINARYSHIFTEQUAL>
+	|
+	<TRIPLESHIFTEQUAL>
+}
+
+void Expression1():
+{
+}
+{
+	Expression2() [Expression1Rest()]
+}
+
+void Expression1Rest():
+{
+}
+{
+	<QMARK> Expression() <COLON> Expression1()
+}
+
+void Expression2():
+{
+}
+{
+	Expression3() Expression2Rest()
+}
+
+// Rule inversion to prevent epsilon production to be of higher precedence
+void Expression2Rest():
+{
+}
+{
+(
+        LOOKAHEAD(<INSTANCEOF> Type()) ( <INSTANCEOF> Type())
+	|
+	( InfixOp() Expression3() )
+)*
+}
+
+void InfixOp():
+{
+}
+{
+	<LOGICALOR>
+	|
+	<LOGICALAND>
+	|
+	<BINARYOR>
+	|
+	<BINARYXOR>
+	|
+	<BINARYAND>
+	|
+	<LOGICALEQUAL>
+	|
+	<NOTEQUAL>
+	|
+	<LT>
+	|
+	(<GT> [ <GT> [<GT>]])
+	|
+	<LTEQUAL>
+	|
+	<GTEQUAL>
+	|
+	<LBINARYSHIFT>
+	//|
+	//<RBINARYSHIFT>
+	//|
+	//<TRIPLESHIFT>
+	|
+	<PLUS>
+	|
+	<MINUS>
+	|
+	<STAR>
+	|
+	<DIVIDE>
+	|
+	<MODULO>
+}
+
+// Possible typo in original spec (maybe not...)
+// order change for conflict resolution
+// Original is ambiguous; this is a satisfying parse instead
+void Expression3():
+{
+}
+{
+	( PrefixOp() Expression3() )
+	//( ( Expression()|Type() ) Expression3() )
+	|
+	( Primary() ( Selector() )* (PostfixOp() )* )
+	//( ( Expression()|Type() ) Expression3() )
+	//|
+	//( Primary() [Expression3()] ( Selector() )* (PostfixOp() )* )
+}
+
+void PrefixOp():
+{
+}
+{
+	<PLUSPLUS>
+	|
+	<MINUSMINUS>
+	|
+	<NOT>
+	|
+	<BINARYNOT>
+	|
+	<PLUS>
+	|
+	<MINUS>
+}
+
+void PostfixOp():
+{
+}
+{
+	<PLUSPLUS>
+	|
+	<MINUSMINUS>
+}
+
+void Primary():
+{
+}
+{
+	Literal()
+	|
+	( ParExpression() [LOOKAHEAD(Expression3()) Expression3()] ) // This Lookahead makes sure the expression can parse as Expression3 completely; avoid ambiguity with < from template and infix op
+	|
+	( <THIS> [Arguments()] )
+	|
+	( <SUPER> SuperSuffix() )
+	|
+	( <NEW> Creator() )
+	|
+	( NonWildcardTypeArguments() ( ExplicitGenericInvocationSuffix() | (<THIS> Arguments() ) ) )
+	|
+	( Identifier() [LOOKAHEAD(TypeArguments()) TypeArguments()]  (<LBRACKET><RBRACKET>)* ( <DOT> Identifier() [LOOKAHEAD(TypeArguments()) TypeArguments()] (<LBRACKET><RBRACKET>)* )* [ IdentifierSuffix()] )
+	|
+	( BasicType() (<LBRACKET><RBRACKET>)* [<DOT> <CLASS>] )
+	|
+	( <VOID> <DOT> <CLASS> )
+	//|
+	//Type()
+}
+
+void Literal():
+{
+}
+{
+	IntegerLiteral()
+	|
+	FloatingPointLiteral()
+	|
+	CharacterLiteral()
+	|
+	StringLiteral()
+	|
+	BooleanLiteral()
+	|
+	NullLiteral()
+}
+
+void IntegerLiteral():
+{
+}
+{
+	<INTEGER_LITERAL>
+}
+
+void FloatingPointLiteral():
+{
+}
+{
+	<FLOATING_POINT_LITERAL>
+}
+
+void CharacterLiteral():
+{
+}
+{
+	<CHARACTER_LITERAL>
+}
+
+void StringLiteral():
+{
+}
+{
+	<STRING_LITERAL>
+}
+
+void BooleanLiteral():
+{
+}
+{
+	<BOOLEAN_LITERAL>
+}
+
+void NullLiteral():
+{
+}
+{
+	<NULL_LITERAL>
+}
+
+void ParExpression():
+{
+}
+{
+	<LPAR>
+	(
+		//LOOKAHEAD( <LPAR> | Expression() <RPAR> ) Expression() // Weird LOOKAHEAD, but prefix with <LPAR> guarantees an expression so it is enough, else need to check whole expression to avoid type ambiguity (because of generics)
+		//|
+		//Type()
+		Expression()
+	)
+	<RPAR>
+}
+
+void Arguments():
+{
+}
+{
+	<LPAR> [Expression() ( <COMA> Expression() )*] <RPAR>
+}
+
+void SuperSuffix():
+{
+}
+{
+	Arguments()
+	|
+	( <DOT> Identifier() [Arguments()] )
+}
+
+void ExplicitGenericInvocationSuffix():
+{
+}
+{
+	( <SUPER> SuperSuffix() )
+	|
+	( Identifier() Arguments() )
+}
+
+// Additionnal rule for arrays
+void Creator():
+{
+}
+{
+	( NonWildcardTypeArguments() CreatedName() ClassCreatorRest() )
+	|
+	( CreatedName() (ClassCreatorRest() | ArrayCreatorRest() ) )
+	|
+	( BasicType() ArrayCreatorRest() )
+}
+
+void CreatedName():
+{
+}
+{
+	Identifier() [TypeArgumentsOrDiamond()] ( <DOT> Identifier() [TypeArgumentsOrDiamond()] )*
+}
+
+void ClassCreatorRest():
+{
+}
+{
+	Arguments() [ ClassBody() ]
+}
+
+
+// Maybe incorrect in spec ???
+void ArrayCreatorRest():
+{
+}
+{
+	<LBRACKET> ( (<RBRACKET> (<LBRACKET><RBRACKET>)* ArrayInitializer() ) | ( Expression() <RBRACKET> (<LBRACKET> Expression() <RBRACKET> )* (<LBRACKET><RBRACKET>)* ) ) //<RBRACKET>
+}
+
+void IdentifierSuffix():
+{
+}
+{
+	( <LBRACKET> [ ( (<RBRACKET><LBRACKET>)* <RBRACKET> <DOT><CLASS>)|Expression() <RBRACKET>]  ) // Making index optionnal allows for ParExpression to parse with array types to. Definitely a hack but it allows more flexible parsing
+	|
+	Arguments()
+	|
+	( <DOT> (<CLASS> | ExplicitGenericInvocation() | <THIS> | (<SUPER> Arguments() ) | (<NEW> [NonWildcardTypeArguments()]InnerCreator() ) ) )
+}
+
+void ExplicitGenericInvocation():
+{
+}
+{
+	NonWildcardTypeArguments() ExplicitGenericInvocationSuffix()
+}
+
+void InnerCreator():
+{
+}
+{
+	Identifier() [NonWildcardTypeArgumentsOrDiamond()] ClassCreatorRest()
+}
+
+void Selector():
+{
+}
+{
+	(<DOT> Identifier() [Arguments()] )
+	|
+	(<DOT> ExplicitGenericInvocation() )
+	|
+	(<DOT> <THIS>)
+	|
+	(<DOT> <SUPER> SuperSuffix() )
+	|
+	(<DOT> <NEW> NonWildcardTypeArguments() InnerCreator() )
+	|
+	( <LBRACKET> Expression() <RBRACKET> )
+}
+
+void EnumBody():
+{
+}
+{
+	<LBRACE> [EnumConstants()] [<COMA>] [EnumBodyDeclarations()] <RBRACE>
+}
+
+// Possible inversion in original spec
+// Left recursive in original spec
+void EnumConstants():
+{
+}
+{
+	EnumConstant()
+	//|
+	// ( EnumConstants() <COMA> EnumConstant() )
+	//( EnumConstant() <COMA> EnumConstants() )
+	[ <COMA> EnumConstants() ]
+}
+
+void EnumConstant():
+{
+}
+{
+	[Annotations()] Identifier() [Arguments()] [ClassBody()]
+}
+
+void EnumBodyDeclarations():
+{
+}
+{
+	<SEMICOLON> (ClassBodyDeclaration())*
+}
+
+// Written loc cit as in the spec, but I believe it is inconsistent; changed due to epsilon production, but spec is clearly inconsistent
+void AnnotationTypeBody():
+{
+}
+{
+	//( [AnnotationTypeElementDeclarations()] )*
+	<LBRACE> ( AnnotationTypeElementDeclarations() )* <RBRACE>
+}
+
+// Possible inversion in original spec
+void AnnotationTypeElementDeclarations():
+{
+}
+{
+	AnnotationTypeElementDeclaration()
+	|
+	( AnnotationTypeElementDeclaration() AnnotationTypeElementDeclarations() )
+}
+
+void AnnotationTypeElementDeclaration():
+{
+}
+{
+	(( Modifier() )*)#ModifierList AnnotationTypeElementRest()
+}
+
+void AnnotationTypeElementRest():
+{
+}
+{
+	( Type() Identifier() AnnotationMethodOrConstantRest() <SEMICOLON> )
+	|
+	ClassDeclaration()
+	|
+	InterfaceDeclaration()
+	|
+	EnumDeclaration()
+	|
+	AnnotationTypeDeclaration()
+}
+
+void AnnotationMethodOrConstantRest():
+{
+}
+{
+	AnnotationMethodRest() | ConstantDeclaratorsRest()
+}
+
+void AnnotationMethodRest():
+{
+}
+{
+	<LPAR><RPAR> [<LBRACKET><RBRACKET>] [<DEFAULTTK> ElementValue() ]
+}

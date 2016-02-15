@@ -1,0 +1,53 @@
+digraph ClassDiagram {
+	 fontname = "Bitstream Vera Sans"
+	 fontsize = 8
+
+	 node [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+		 shape = "record"
+	 ]
+
+	 edge [
+		 fontname = "Bistream Vera Sans"
+		 fontsize = 8
+	 ]
+
+	 AbstractIndexer [
+		 label = "{AbstractIndexer|# document : SearchDocument\l+ indexDocument : null\l|# AbstractIndexer(SearchDocument) : \l# addAnnotationTypeDeclaration(int, char, char, char, boolean) : \l# addAnnotationTypeReference(char) : \l# addClassDeclaration(int, char, char, char, char, char, char, boolean) : \l# erasure(char) : char\l# addConstructorDeclaration(char, int, char, char, char, int, char, int, char, int) : \l# addConstructorReference(char, int) : \l# addDefaultConstructorDeclaration(char, char, int, int) : \l# addEnumDeclaration(int, char, char, char, char, char, boolean) : \l# addFieldDeclaration(char, char) : \l# addFieldReference(char) : \l# addIndexEntry(char, char) : \l# addInterfaceDeclaration(int, char, char, char, char, char, boolean) : \l# addMethodDeclaration(char, char, char, int, char, char, char, char, int, char, int, char, int) : \l# addMethodDeclaration(char, char, char, char) : \l# addMethodReference(char, int) : \l# addNameReference(char) : \l# addTypeDeclaration(int, char, char, char, boolean) : \l# addTypeReference(char) : \l# indexResolvedDocument() : \l}"
+	 ]
+
+	 AddFolderToIndex [
+		 label = "{AddFolderToIndex|# folderPath : IPath\l# project : IProject\l# inclusionPatterns : char\l# exclusionPatterns : char\l|# AddFolderToIndex(IPath, IProject, char, char, IndexManager) : \l# execute(IProgressMonitor) : boolean\l# visit(IResourceProxy) : boolean\l# visit(IResourceProxy) : boolean\l# toString() : String\l}"
+	 ]
+
+	 AddJarFileToIndex [
+		 label = "{AddJarFileToIndex|- JAR_SEPARATOR : char\l# resource : IFile\l# scanner : Scanner\l- indexFileURL : IndexLocation\l- forceIndexUpdate : boolean\l|# AddJarFileToIndex(IFile, IndexLocation, IndexManager) : \l# AddJarFileToIndex(IFile, IndexLocation, IndexManager, boolean) : \l# AddJarFileToIndex(IPath, IndexLocation, IndexManager) : \l# AddJarFileToIndex(IPath, IndexLocation, IndexManager, boolean) : \l# equals(Object) : boolean\l# hashCode() : int\l# execute(IProgressMonitor) : boolean\l# getJobFamily() : String\l# isIdentifier() : boolean\l# isValidPackageNameForClass(String) : boolean\l# updatedIndexState() : Integer\l# toString() : String\l# hasPreBuiltIndex() : boolean\l}"
+	 ]
+
+	 BinaryIndexer [
+		 label = "{BinaryIndexer|- BYTE : char\l- CHAR : char\l- DOUBLE : char\l- FLOAT : char\l- INT : char\l- LONG : char\l- SHORT : char\l- BOOLEAN : char\l- VOID : char\l- INIT : char\l|# BinaryIndexer(SearchDocument) : \l# addBinaryStandardAnnotations(long) : \l# addBinaryTargetAnnotation(long) : \l# addBinaryRetentionAnnotation(long) : \l# addBinaryAnnotation(IBinaryAnnotation) : \l# addPairValue(Object) : \l# addTypeReference(char) : \l# convertToArrayType(char, int, int) : \l# convertToArrayType(char, int) : char\l# decodeFieldType(char) : char\l# decodeParameterTypes(char, boolean) : char\l# decodeReturnType(char) : char\l# extractArgCount(char, char) : int\l# extractClassName(int, ClassFileReader, int) : char\l# extractName(int, ClassFileReader, int) : char\l# extractClassReference(int, ClassFileReader, int) : char\l# extractReferenceFromConstantPool(byte, ClassFileReader) : \l# extractType(int, ClassFileReader, int) : char\l# indexDocument() : \l# removeFirstSyntheticParameter(char) : char\l# replace(char, char, char) : char\l# replace(char, char, char) : char\l}"
+	 ]
+
+	 DefaultJavaIndexer [
+		 label = "{DefaultJavaIndexer|- JAR_SEPARATOR : char\l|# generateIndexForJar(String, String) : \l}"
+	 ]
+
+	 IIndexConstants [
+		 label = "{IIndexConstants||# REF() : char\l# ANNOTATION_REF() : char\l# METHOD_REF() : char\l# CONSTRUCTOR_REF() : char\l# SUPER_REF() : char\l# TYPE_DECL() : char\l# METHOD_DECL() : char\l# METHOD_DECL_PLUS() : char\l# CONSTRUCTOR_DECL() : char\l# FIELD_DECL() : char\l# OBJECT() : char\l# COUNTS() : char\l# DEFAULT_CONSTRUCTOR() : char\l# CLASS_SUFFIX() : char\l# INTERFACE_SUFFIX() : char\l# ENUM_SUFFIX() : char\l# ANNOTATION_TYPE_SUFFIX() : char\l# TYPE_SUFFIX() : char\l# CLASS_AND_ENUM_SUFFIX() : char\l# CLASS_AND_INTERFACE_SUFFIX() : char\l# INTERFACE_AND_ANNOTATION_SUFFIX() : char\l# SEPARATOR() : char\l# PARAMETER_SEPARATOR() : char\l# SECONDARY_SUFFIX() : char\l# ONE_STAR() : char\l# ONE_STAR_CHAR() : char\l# ZERO_CHAR() : char\l# ONE_ZERO() : char\l# ONE_ZERO_CHAR() : char\l# PKG_REF_PATTERN() : int\l# PKG_DECL_PATTERN() : int\l# TYPE_REF_PATTERN() : int\l# TYPE_DECL_PATTERN() : int\l# SUPER_REF_PATTERN() : int\l# CONSTRUCTOR_PATTERN() : int\l# FIELD_PATTERN() : int\l# METHOD_PATTERN() : int\l# OR_PATTERN() : int\l# LOCAL_VAR_PATTERN() : int\l# TYPE_PARAM_PATTERN() : int\l# AND_PATTERN() : int\l# ANNOT_REF_PATTERN() : int\l}"
+	 ]
+
+	 IndexAllProject [
+		 label = "{IndexAllProject|# project : IProject\l|# IndexAllProject(IProject, IndexManager) : \l# equals(Object) : boolean\l# execute(IProgressMonitor) : boolean\l# visit(IResourceProxy) : boolean\l# visit(IResourceProxy) : boolean\l# hashCode() : int\l# updatedIndexState() : Integer\l# toString() : String\l}"
+	 ]
+
+	 IndexBinaryFolder [
+		 label = "{IndexBinaryFolder|# folder : IContainer\l|# IndexBinaryFolder(IContainer, IndexManager) : \l# equals(Object) : boolean\l# execute(IProgressMonitor) : boolean\l# visit(IResourceProxy) : boolean\l# visit(IResourceProxy) : boolean\l# hashCode() : int\l# updatedIndexState() : Integer\l# toString() : String\l}"
+	 ]
+
+	 IndexingParser [
+		 label = "{IndexingParser|# singleNameReference : SingleNameReference\l# qualifiedNameReference : QualifiedNameReference\l# importReference : ImportReference\l|# IndexingParser(ISourceElementRequestor, IProblemFactory, CompilerOptions, boolean, boolean, boolean) : \l# newImportReference(char, long, boolean, int) : ImportReference\l# newSingleNameReference(char, long) : SingleNameReference\l# newQualifiedNameReference(char, long, int, int) : QualifiedNameReference\l}"
+	 ]
+
+	 IndexManager [
+		 label = "{IndexManager|+ indexLocations : SimpleLookupTable\l- indexes : SimpleLookupTable\l- needToSave : boolean\l- javaPluginLocation : IPath\l- indexStates : SimpleLookupTable\l- indexNamesMapFile : File\l- savedIndexNamesFile : File\l- participantIndexNamesFile : File\l- javaLikeNamesChanged : boolean\l+ SAVED_STATE : Integer\l+ UPDATING_STATE : Integer\l+ UNKNOWN_STATE : Integer\l+ REBUILDING_STATE : Integer\l+ REUSE_STATE : Integer\l- participantsContainers : SimpleLookupTable\l- participantUpdated : boolean\l+ MANAGE_PRODUCT_INDEXES_PROPERTY : String\l- IS_MANAGING_PRODUCT_INDEXES_PROPERTY : boolean\l+ DEBUG : boolean\l|# aboutToUpdateIndex(IPath, Integer) : \l# addBinary(IFile, IPath) : \l# addSource(IFile, IPath, SourceElementParser) : \l# cleanUpIndexes() : \l# computeIndexLocation(IPath, URL) : IndexLocation\l# computeIndexLocation(IPath) : IndexLocation\l# deleteIndexFiles() : \l# deleteIndexFiles(SimpleSet) : \l# ensureIndexExists(IndexLocation, IPath) : \l# getSourceElementParser(IJavaProject, ISourceElementRequestor) : SourceElementParser\l# getIndex(IndexLocation) : Index\l# getIndex(IPath, boolean, boolean) : Index\l# getIndex(IPath, IndexLocation, boolean, boolean) : Index\l# getIndexes(IndexLocation, IProgressMonitor) : Index\l# getIndexForUpdate(IPath, boolean, boolean) : Index\l# getIndexStates() : SimpleLookupTable\l# getParticipantsContainer(IndexLocation) : IPath\l# getJavaPluginWorkingLocation() : IPath\l# getSavedIndexesDirectory() : File\l# hasJavaLikeNamesChanged() : boolean\l# indexDocument(SearchDocument, SearchParticipant, Index, IPath) : \l# indexResolvedDocument(SearchDocument, SearchParticipant, Index, IPath) : \l# indexAll(IProject) : \l# indexLibrary(IPath, IProject, URL) : \l# indexLibrary(IPath, IProject, URL, boolean) : \l# addIndex(IPath, IndexLocation) : boolean\l# indexSourceFolder(JavaProject, IPath, char, char) : \l# jobWasCancelled(IPath) : \l# moveToNextJob() : \l# notifyIdle(long) : \l# processName() : String\l# readJavaLikeNamesFile() : char\l# rebuildIndex(IndexLocation, IPath) : \l# rebuildIndex(IndexLocation, IPath, boolean) : \l# recreateIndex(IPath) 
