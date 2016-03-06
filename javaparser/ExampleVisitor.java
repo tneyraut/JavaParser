@@ -26,6 +26,8 @@ public class ExampleVisitor extends AbstractVisitor
     private ArrayList<String> methodArray = new ArrayList<String>();
     private ArrayList<String> interfaceArray = new ArrayList<String>();
     
+    private boolean elseFind = false;
+    
     private void initMetriquesMethod()
     {
         this.numberIf = 0;
@@ -143,7 +145,10 @@ public class ExampleVisitor extends AbstractVisitor
     
     public Object visit(IfStatement node, Object data)
     {
-        this.numberIf++;
+        if (!this.elseFind)
+        {
+            this.numberIf++;
+        }
         
         propagate(node, data);
         return data;
@@ -152,7 +157,15 @@ public class ExampleVisitor extends AbstractVisitor
     public Object visit(ElseStatement node, Object data)
     {
         this.numberElse++;
+        this.elseFind = true;
         
+        propagate(node, data);
+        return data;
+    }
+    
+    public Object visit(Block node, Object data)
+    {
+        this.elseFind = false;
         propagate(node, data);
         return data;
     }

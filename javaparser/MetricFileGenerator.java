@@ -19,6 +19,7 @@ public class MetricFileGenerator
         this.fileWriter = null;
         try {
             File directory = new File("MetricFile");
+            directory.mkdirs();
             this.fileWriter = new FileWriter("MetricFile/resultats" + fileFormat);
         } catch (IOException e) {
             e.printStackTrace();

@@ -10,10 +10,14 @@ public class Method
     private String accessibility;
     private ArrayList<Variable> parameters;
     
+    private int id;
+    private ArrayList<Structure> statement;
+    
     public Method()
     {
         this.typeReturn = "";
         this.parameters = new ArrayList<Variable>();
+        this.statement = new ArrayList<Structure>();
     }
     
     public void setName(String name)
@@ -70,6 +74,66 @@ public class Method
             resultat += this.parameters.get(i).toString();
         }
         resultat += "){}\n";
+        
+        return resultat;
+    }
+    
+    // CFG
+    
+    public Method(int id, String name)
+    {
+        this.statement = new ArrayList<Structure>();
+        this.id = id;
+        this.name = name;
+    }
+    
+    public int getId()
+    {
+        return this.id;
+    }
+    
+    public void addStatement(Structure structure)
+    {
+        this.statement.add(structure);
+    }
+    
+    public String getCFGFormatGraphviz()
+    {
+        String resultat = "\tEntry" + this.name + this.id + " [\n\t\tlabel = \"Entry " + this.name +"\"\n\t]\n";
+        
+        for (int i=0;i<this.statement.size();i++)
+        {
+            resultat += this.statement.get(i).getCFGFormatGraphviz();
+        }
+        
+        resultat += "\tExit" + this.name + this.id + " [\n\t\tlabel = \"Exit " + this.name +"\"\n\t]\n";
+        
+        if (this.statement.size() > 0)
+        {
+            resultat += "\tEntry" + this.name + this.id + " -> " + this.statement.get(0).getNameNodeBegin() + "\n";
+            
+            boolean returnPresent = false;
+            for (int i=0;i<this.statement.size()-1;i++)
+            {
+                if (this.statement.get(i).getType().equals("Return"))
+                {
+                    returnPresent = true;
+                    break;
+                }
+                else
+                {
+                    resultat += "\t" + this.statement.get(i).getNameNodeEnd() + " -> " + this.statement.get(i+1).getNameNodeBegin() + "\n";
+                }
+            }
+            if (!returnPresent && !this.statement.get(this.statement.size() -1).getType().equals("Return"))
+            {
+                resultat += "\t" + this.statement.get(this.statement.size() - 1).getNameNodeEnd() + " -> Exit" + this.name + this.id + "\n";
+            }
+        }
+        else
+        {
+            resultat += "\tEntry" + this.name + this.id + " -> Exit" + this.name + this.id + "\n";
+        }
         
         return resultat;
     }

@@ -21,13 +21,18 @@ public class JavaParser1_7/*@bgen(jjtree)*/implements JavaParser1_7TreeConstants
 
           ClassDiagramGenerator classDiagramGenerator = null;
           MetricFileGenerator metricFileGenerator = null;
+          CFGGenerator generator = null;
           if (mode == 0)
           {
               metricFileGenerator = new MetricFileGenerator(formatFile);
           }
-          else
+          else if (mode == 1)
           {
               classDiagramGenerator = new ClassDiagramGenerator();
+          }
+          else if (mode == 2)
+          {
+              generator = new CFGGenerator();
           }
           
          while ((s = str.readLine()) != null)
@@ -52,7 +57,7 @@ public class JavaParser1_7/*@bgen(jjtree)*/implements JavaParser1_7TreeConstants
                         classDiagramGenerator.addClassToDiagram(umlVisitor.getClasse(i));
                     }
                 }
-                else
+                else if (mode == 0)
                 {
                     ExampleVisitor vis = new ExampleVisitor();
                     parser.CompilationUnit().jjtAccept(vis, null);
@@ -60,6 +65,31 @@ public class JavaParser1_7/*@bgen(jjtree)*/implements JavaParser1_7TreeConstants
                     File file = new File(s);
                     
                     metricFileGenerator.write(vis, file.getName());
+                }
+                else if (mode == 2)
+                {
+                    CFGVisitor visitor = new CFGVisitor();
+                    parser.CompilationUnit().jjtAccept(visitor, null);
+                    
+                    File file = new File(s);
+                    
+                    int compteur = 0;
+                    int id = 0;
+                    generator.createNewFile(file.getName(), id);
+                    id++;
+                    for (int i=0;i<visitor.getSizeMethodsArray();i++)
+                    {
+                        if (compteur == 20)
+                        {
+                            generator.endWriter();
+                            generator.createNewFile(file.getName(), id);
+                            compteur = 0;
+                            id++;
+                        }
+                        generator.addMethodFlux(visitor.getMethod(i));
+                        compteur++;
+                    }
+                    generator.endWriter();
                 }
             }
             catch(ParseException e) { e.printStackTrace(); }
@@ -127,7 +157,7 @@ public class JavaParser1_7/*@bgen(jjtree)*/implements JavaParser1_7TreeConstants
             }
             classDiagramGenerator.writeEndAndCloseAllFile();
         }
-        else
+        else if (mode == 0)
         {
             ExampleVisitor vis = new ExampleVisitor();
             parser.CompilationUnit().jjtAccept(vis, null);
@@ -139,6 +169,32 @@ public class JavaParser1_7/*@bgen(jjtree)*/implements JavaParser1_7TreeConstants
             metricFileGenerator.write(vis, file.getName());
             
             metricFileGenerator.endWriter();
+        }
+        else if (mode == 2)
+        {
+            CFGVisitor visitor = new CFGVisitor();
+            parser.CompilationUnit().jjtAccept(visitor, null);
+            
+            File file = new File(args[0]);
+            
+            CFGGenerator generator = new CFGGenerator();
+            int compteur = 0;
+            int id = 0;
+            generator.createNewFile(file.getName(), id);
+            id++;
+            for (int i=0;i<visitor.getSizeMethodsArray();i++)
+            {
+                if (compteur == 20)
+                {
+                    generator.endWriter();
+                    generator.createNewFile(file.getName(), id);
+                    compteur = 0;
+                    id++;
+                }
+                generator.addMethodFlux(visitor.getMethod(i));
+                compteur++;
+            }
+            generator.endWriter();
         }
         
       // Dump syntax tree
@@ -159,10 +215,15 @@ public class JavaParser1_7/*@bgen(jjtree)*/implements JavaParser1_7TreeConstants
       long l = System.currentTimeMillis();
        
        mode = 0;
-       if (args.length > 1 && !args[1].equals("0"))
+       if (args.length > 1 && args[1].equals("1"))
        {
            mode = 1;
        }
+       else if (args.length > 1 && args[1].equals("2"))
+       {
+           mode = 2;
+       }
+       
        
        formatFile = ".json";
        if (mode == 0)

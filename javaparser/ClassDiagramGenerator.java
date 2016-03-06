@@ -11,10 +11,14 @@ public class ClassDiagramGenerator
     private ArrayList<String> packageArray;
     private ArrayList<FileWriter> fileWriterArray;
     private ArrayList<ArrayList<Classe>> classArrayList;
+    private ArrayList<Integer> compteurs;
+    
+    private int id;
     
     public ClassDiagramGenerator()
     {
         File directory = new File("ClassDiagram");
+        directory.mkdirs();
         File[] files = directory.listFiles();
         for (int i=0;i<files.length;i++)
         {
@@ -25,6 +29,8 @@ public class ClassDiagramGenerator
         this.extendsLinksArray = new ArrayList<ArrayList<String>>();
         this.implementsArrayList = new ArrayList<ArrayList<String>>();
         this.classArrayList = new ArrayList<ArrayList<Classe>>();
+        this.compteurs = new ArrayList<Integer>();
+        this.id = 0;
     }
     
     public void writeEndAndCloseAllFile()
@@ -123,7 +129,8 @@ public class ClassDiagramGenerator
     {
         FileWriter fileWriter = null;
         try {
-            fileWriter = new FileWriter("ClassDiagram/classDiagram_"+ packageName + ".dot");
+            fileWriter = new FileWriter("ClassDiagram/classDiagram_" + this.id + "_"+ packageName + ".dot");
+            this.id++;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -149,6 +156,7 @@ public class ClassDiagramGenerator
         
         this.fileWriterArray.add(fileWriter);
         this.packageArray.add(packageName);
+        this.compteurs.add(0);
         
         ArrayList<String> extendsLinks = new ArrayList<String>();
         this.extendsLinksArray.add(extendsLinks);
@@ -169,6 +177,35 @@ public class ClassDiagramGenerator
         }
         int index = this.packageArray.indexOf(packageName);
         FileWriter fileWriter = this.fileWriterArray.get(index);
+        
+        //MODIF
+        if (this.compteurs.get(index) == 20)
+        {
+            this.compteurs.set(index, 0);
+            this.writeEndFileAndClose(fileWriter, index);
+            this.writeBeginFile(packageName);
+            
+            this.extendsLinksArray.set(index, this.extendsLinksArray.get(this.extendsLinksArray.size() - 1));
+            this.extendsLinksArray.remove(this.extendsLinksArray.get(this.extendsLinksArray.size() - 1));
+            
+            this.implementsArrayList.set(index, this.implementsArrayList.get(this.implementsArrayList.size() - 1));
+            this.implementsArrayList.remove(this.implementsArrayList.get(this.implementsArrayList.size() - 1));
+            
+            this.classArrayList.set(index, this.classArrayList.get(this.classArrayList.size() - 1));
+            this.classArrayList.remove(this.classArrayList.get(this.classArrayList.size() - 1));
+            
+            this.fileWriterArray.set(index, this.fileWriterArray.get(this.fileWriterArray.size() - 1));
+            this.fileWriterArray.remove(this.fileWriterArray.get(this.fileWriterArray.size() - 1));
+            
+            this.packageArray.remove(this.packageArray.get(this.packageArray.size() - 1));
+            
+            this.compteurs.remove(this.compteurs.get(this.compteurs.size() - 1));
+            
+            fileWriter = this.fileWriterArray.get(index);
+        }
+        // MODIF
+        
+        this.compteurs.set(index, this.compteurs.get(index) + 1);
         
         ArrayList<String> extendsLinks = this.extendsLinksArray.get(index);
         ArrayList<String> implementsArray = this.implementsArrayList.get(index);
