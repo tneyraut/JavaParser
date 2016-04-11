@@ -3,14 +3,14 @@ package javaparser;
 import java.io.*;
 import java.util.*;
 
-public class CFGGenerator
+public class GraphDependancesControleGenerator
 {
     
     private FileWriter fileWriter;
     
-    public CFGGenerator()
+    public GraphDependancesControleGenerator()
     {
-        File directory = new File("CFG");
+        File directory = new File("GraphDependancesControle");
         directory.mkdirs();
         File[] files = directory.listFiles();
         for (int i=0;i<files.length;i++)
@@ -23,7 +23,7 @@ public class CFGGenerator
     {
         this.fileWriter = null;
         try {
-            this.fileWriter = new FileWriter("CFG/"+ nameFile + "_" + id + ".dot");
+            this.fileWriter = new FileWriter("GraphDependancesControle/"+ nameFile + "_" + id + ".dot");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -49,10 +49,9 @@ public class CFGGenerator
         }
     }
     
-    public void addMethodFlux(Method method)
+    public void addMethodGraphDependancesControle(Method method)
     {
-        String text = method.getCFGFormatGraphviz();
-        
+        String text = method.getDependancesControleGraphViz();
         try {
             this.fileWriter.write(text);
         } catch (IOException e) {

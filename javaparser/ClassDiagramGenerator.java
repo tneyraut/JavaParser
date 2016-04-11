@@ -178,7 +178,6 @@ public class ClassDiagramGenerator
         int index = this.packageArray.indexOf(packageName);
         FileWriter fileWriter = this.fileWriterArray.get(index);
         
-        //MODIF
         if (this.compteurs.get(index) == 20)
         {
             this.compteurs.set(index, 0);
@@ -203,7 +202,6 @@ public class ClassDiagramGenerator
             
             fileWriter = this.fileWriterArray.get(index);
         }
-        // MODIF
         
         this.compteurs.set(index, this.compteurs.get(index) + 1);
         

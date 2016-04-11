@@ -7,7 +7,7 @@ public class JavaParser1_7/*@bgen(jjtree)*/implements JavaParser1_7TreeConstants
   
     protected JJTJavaParser1_7State jjtree = new JJTJavaParser1_7State();
    
-    static private int mode; // 0 => Calcul des métriques ; 1 => Calcul du diagramme de classes
+    static private int mode;
     static private String formatFile;
     
     private static int parseFilesFromFileList(String fileName)
@@ -22,6 +22,13 @@ public class JavaParser1_7/*@bgen(jjtree)*/implements JavaParser1_7TreeConstants
           ClassDiagramGenerator classDiagramGenerator = null;
           MetricFileGenerator metricFileGenerator = null;
           CFGGenerator generator = null;
+          DominateurGenerator dominateurGenerator = null;
+          PostDominateurGenerator postDominateurGenerator = null;
+          GraphEntryOutGenerator graphEntryOutGenerator = null;
+          GraphDependancesDonneesGenerator graphDependancesDonneesGenerator = null;
+          GraphDependancesControleGenerator graphDependancesControleGenerator = null;
+          GraphBackwardSlicingGenerator graphBackwardSlicingGenerator = null;
+          GraphForwardSlicingGenerator graphForwardSlicingGenerator = null;
           if (mode == 0)
           {
               metricFileGenerator = new MetricFileGenerator(formatFile);
@@ -33,6 +40,34 @@ public class JavaParser1_7/*@bgen(jjtree)*/implements JavaParser1_7TreeConstants
           else if (mode == 2)
           {
               generator = new CFGGenerator();
+          }
+          else if (mode == 3)
+          {
+              dominateurGenerator = new DominateurGenerator();
+          }
+          else if (mode == 4)
+          {
+              postDominateurGenerator = new PostDominateurGenerator();
+          }
+          else if (mode == 5)
+          {
+              graphEntryOutGenerator = new GraphEntryOutGenerator();
+          }
+          else if (mode == 6)
+          {
+              graphDependancesDonneesGenerator = new GraphDependancesDonneesGenerator();
+          }
+          else if (mode == 7)
+          {
+              graphDependancesControleGenerator = new GraphDependancesControleGenerator();
+          }
+          else if (mode == 8)
+          {
+              graphBackwardSlicingGenerator = new GraphBackwardSlicingGenerator();
+          }
+          else if (mode == 9)
+          {
+              graphForwardSlicingGenerator = new GraphForwardSlicingGenerator();
           }
           
          while ((s = str.readLine()) != null)
@@ -91,6 +126,183 @@ public class JavaParser1_7/*@bgen(jjtree)*/implements JavaParser1_7TreeConstants
                     }
                     generator.endWriter();
                 }
+                else if (mode == 3)
+                {
+                    CFGVisitor visitor = new CFGVisitor();
+                    parser.CompilationUnit().jjtAccept(visitor, null);
+                    
+                    File file = new File(s);
+                    
+                    int compteur = 0;
+                    int id = 0;
+                    dominateurGenerator.createNewFile(file.getName(), id);
+                    id++;
+                    for (int i=0;i<visitor.getSizeMethodsArray();i++)
+                    {
+                        if (compteur == 20)
+                        {
+                            dominateurGenerator.endWriter();
+                            dominateurGenerator.createNewFile(file.getName(), id);
+                            compteur = 0;
+                            id++;
+                        }
+                        dominateurGenerator.addMethodDominateurs(visitor.getMethod(i));
+                        compteur++;
+                    }
+                    dominateurGenerator.endWriter();
+                }
+                else if (mode == 4)
+                {
+                    CFGVisitor visitor = new CFGVisitor();
+                    parser.CompilationUnit().jjtAccept(visitor, null);
+                    
+                    File file = new File(s);
+                    
+                    int compteur = 0;
+                    int id = 0;
+                    postDominateurGenerator.createNewFile(file.getName(), id);
+                    id++;
+                    for (int i=0;i<visitor.getSizeMethodsArray();i++)
+                    {
+                        if (compteur == 20)
+                        {
+                            postDominateurGenerator.endWriter();
+                            postDominateurGenerator.createNewFile(file.getName(), id);
+                            compteur = 0;
+                            id++;
+                        }
+                        postDominateurGenerator.addMethodPostDominateurs(visitor.getMethod(i));
+                        compteur++;
+                    }
+                    postDominateurGenerator.endWriter();
+                }
+                else if (mode == 5)
+                {
+                    CFGVisitor visitor = new CFGVisitor();
+                    parser.CompilationUnit().jjtAccept(visitor, null);
+                    
+                    File file = new File(s);
+                    
+                    int compteur = 0;
+                    int id = 0;
+                    graphEntryOutGenerator.createNewFile(file.getName(), id);
+                    id++;
+                    for (int i=0;i<visitor.getSizeMethodsArray();i++)
+                    {
+                        if (compteur == 20)
+                        {
+                            graphEntryOutGenerator.endWriter();
+                            graphEntryOutGenerator.createNewFile(file.getName(), id);
+                            compteur = 0;
+                            id++;
+                        }
+                        graphEntryOutGenerator.addMethodGraphEntryOut(visitor.getMethod(i));
+                        compteur++;
+                    }
+                    graphEntryOutGenerator.endWriter();
+                }
+                else if (mode == 6)
+                {
+                    CFGVisitor visitor = new CFGVisitor();
+                    parser.CompilationUnit().jjtAccept(visitor, null);
+                    
+                    File file = new File(s);
+                    
+                    int compteur = 0;
+                    int id = 0;
+                    graphDependancesDonneesGenerator.createNewFile(file.getName(),id);
+                    id++;
+                    for (int i=0;i<visitor.getSizeMethodsArray();i++)
+                    {
+                        if (compteur == 20)
+                        {
+                            graphDependancesDonneesGenerator.endWriter();
+                            graphDependancesDonneesGenerator.createNewFile(file.getName(), id);
+                            compteur = 0;
+                            id++;
+                        }
+                        graphDependancesDonneesGenerator.addMethodGraphDependancesDonnees(visitor.getMethod(i));
+                        compteur++;
+                    }
+                    graphDependancesDonneesGenerator.endWriter();
+                }
+                else if (mode == 7)
+                {
+                    CFGVisitor visitor = new CFGVisitor();
+                    parser.CompilationUnit().jjtAccept(visitor, null);
+                    
+                    File file = new File(s);
+                    
+                    int compteur = 0;
+                    int id = 0;
+                    graphDependancesControleGenerator.createNewFile(file.getName(),id);
+                    id++;
+                    for (int i=0;i<visitor.getSizeMethodsArray();i++)
+                    {
+                        if (compteur == 20)
+                        {
+                            graphDependancesControleGenerator.endWriter();
+                            graphDependancesControleGenerator.createNewFile(file.getName(), id);
+                            compteur = 0;
+                            id++;
+                        }
+                        graphDependancesControleGenerator.addMethodGraphDependancesControle(visitor.getMethod(i));
+                        compteur++;
+                    }
+                    graphDependancesControleGenerator.endWriter();
+                }
+                else if (mode == 8)
+                {
+                    CFGVisitor visitor = new CFGVisitor();
+                    parser.CompilationUnit().jjtAccept(visitor, null);
+                    
+                    File file = new File(s);
+                    
+                    int compteur = 0;
+                    int id = 0;
+                    graphBackwardSlicingGenerator.createNewFile(file.getName(),id);
+                    id++;
+                    for (int i=0;i<visitor.getSizeMethodsArray();i++)
+                    {
+                        if (compteur == 20)
+                        {
+                            graphBackwardSlicingGenerator.endWriter();
+                            graphBackwardSlicingGenerator.createNewFile(file.getName(), id);
+                            compteur = 0;
+                            id++;
+                        }
+                        graphBackwardSlicingGenerator.addMethodGraphBackwardSlicing(visitor.getMethod(i));
+                        compteur++;
+                    }
+                    graphBackwardSlicingGenerator.endWriter();
+                }
+                else if (mode == 9)
+                {
+                    CFGVisitor visitor = new CFGVisitor();
+                    parser.CompilationUnit().jjtAccept(visitor, null);
+                    
+                    File file = new File(s);
+                    
+                    int compteur = 0;
+                    int id = 0;
+                    graphForwardSlicingGenerator.createNewFile(file.getName(),id);
+                    graphForwardSlicingGenerator.createNewCSVFile(file.getName());
+                    id++;
+                    for (int i=0;i<visitor.getSizeMethodsArray();i++)
+                    {
+                        if (compteur == 20)
+                        {
+                            graphForwardSlicingGenerator.endWriter();
+                            graphForwardSlicingGenerator.createNewFile(file.getName(), id);
+                            compteur = 0;
+                            id++;
+                        }
+                        graphForwardSlicingGenerator.addMethodGraphForwardSlicing(visitor.getMethod(i));
+                        compteur++;
+                    }
+                    graphForwardSlicingGenerator.endWriter();
+                    graphForwardSlicingGenerator.endCSVWriter();
+                }
             }
             catch(ParseException e) { e.printStackTrace(); }
             catch(TokenMgrError tme) { tme.printStackTrace(); }
@@ -101,7 +313,7 @@ public class JavaParser1_7/*@bgen(jjtree)*/implements JavaParser1_7TreeConstants
           {
               metricFileGenerator.endWriter();
           }
-          else
+          else if (mode == 1)
           {
               classDiagramGenerator.writeEndAndCloseAllFile();
           }
@@ -121,6 +333,23 @@ public class JavaParser1_7/*@bgen(jjtree)*/implements JavaParser1_7TreeConstants
 
 
   public static void m(String args[]) {
+      
+      if (args.length > 0 && args[0].equals("help"))
+      {
+          System.out.println("java Javaparser1_7 path_name_file_java_or_list_file 0 json : permet de récupérer les métriques dans un fichier json\n");
+          System.out.println("java Javaparser1_7 path_name_file_java_or_list_file 0 csv : permet de récupérer les métriques dans un fichier csv\n");
+          System.out.println("java Javaparser1_7 path_name_file_java_or_list_file 1 : permet de générer le diagramme de classes via plusieurs fichiers .dot\n");
+          System.out.println("java Javaparser1_7 path_name_file_java_or_list_file 2 : permet de générer le diagramme de flux de contrôle via plusieurs fichiers .dot\n");
+          System.out.println("java Javaparser1_7 path_name_file_java_or_list_file 3 : permet de générer le diagramme des dominateurs via plusieurs fichiers .dot\n");
+          System.out.println("java Javaparser1_7 path_name_file_java_or_list_file 4 : permet de générer le diagramme des post- dominateurs via plusieurs fichiers .dot\n");
+          System.out.println("java Javaparser1_7 path_name_file_java_or_list_file 5 : permet de générer le diagramme des définitions valides via plusieurs fichiers .dot\n");
+          System.out.println("java Javaparser1_7 path_name_file_java_or_list_file 6 : permet de générer le diagramme des dépendances de données via plusieurs fichiers .dot\n");
+          System.out.println("java Javaparser1_7 path_name_file_java_or_list_file 7 : permet de générer le diagramme des dépendances de contrôle via plusieurs fichiers .dot\n");
+          System.out.println("java Javaparser1_7 path_name_file_java_or_list_file 8 : permet de générer le diagramme des résultats du backward slicing via plusieurs fichiers .dot\n");
+          System.out.println("java Javaparser1_7 path_name_file_java_or_list_file 9 : permet de générer le diagramme des résultats du forward slicing via plusieurs fichiers .dot\n");
+          return;
+      }
+      
     JavaParser1_7 parser;
         String fileName = new String();
     if (args.length == 0) {
@@ -196,6 +425,190 @@ public class JavaParser1_7/*@bgen(jjtree)*/implements JavaParser1_7TreeConstants
             }
             generator.endWriter();
         }
+        else if (mode == 3)
+        {
+            CFGVisitor visitor = new CFGVisitor();
+            parser.CompilationUnit().jjtAccept(visitor, null);
+            
+            File file = new File(args[0]);
+            
+            DominateurGenerator dominateurGenerator = new DominateurGenerator();
+            int compteur = 0;
+            int id = 0;
+            dominateurGenerator.createNewFile(file.getName(), id);
+            id++;
+            for (int i=0;i<visitor.getSizeMethodsArray();i++)
+            {
+                if (compteur == 20)
+                {
+                    dominateurGenerator.endWriter();
+                    dominateurGenerator.createNewFile(file.getName(), id);
+                    compteur = 0;
+                    id++;
+                }
+                dominateurGenerator.addMethodDominateurs(visitor.getMethod(i));
+                compteur++;
+            }
+            dominateurGenerator.endWriter();
+        }
+        else if (mode == 4)
+        {
+            CFGVisitor visitor = new CFGVisitor();
+            parser.CompilationUnit().jjtAccept(visitor, null);
+            
+            File file = new File(args[0]);
+            
+            PostDominateurGenerator postDominateurGenerator = new PostDominateurGenerator();
+            int compteur = 0;
+            int id = 0;
+            postDominateurGenerator.createNewFile(file.getName(), id);
+            id++;
+            for (int i=0;i<visitor.getSizeMethodsArray();i++)
+            {
+                if (compteur == 20)
+                {
+                    postDominateurGenerator.endWriter();
+                    postDominateurGenerator.createNewFile(file.getName(), id);
+                    compteur = 0;
+                    id++;
+                }
+                postDominateurGenerator.addMethodPostDominateurs(visitor.getMethod(i));
+                compteur++;
+            }
+            postDominateurGenerator.endWriter();
+        }
+        else if (mode == 5)
+        {
+            CFGVisitor visitor = new CFGVisitor();
+            parser.CompilationUnit().jjtAccept(visitor, null);
+            
+            File file = new File(args[0]);
+            
+            GraphEntryOutGenerator graphEntryOutGenerator = new GraphEntryOutGenerator();
+            int compteur = 0;
+            int id = 0;
+            graphEntryOutGenerator.createNewFile(file.getName(), id);
+            id++;
+            for (int i=0;i<visitor.getSizeMethodsArray();i++)
+            {
+                if (compteur == 20)
+                {
+                    graphEntryOutGenerator.endWriter();
+                    graphEntryOutGenerator.createNewFile(file.getName(), id);
+                    compteur = 0;
+                    id++;
+                }
+                graphEntryOutGenerator.addMethodGraphEntryOut(visitor.getMethod(i));
+                compteur++;
+            }
+            graphEntryOutGenerator.endWriter();
+        }
+        else if (mode == 6)
+        {
+            CFGVisitor visitor = new CFGVisitor();
+            parser.CompilationUnit().jjtAccept(visitor, null);
+            
+            File file = new File(args[0]);
+            
+            GraphDependancesDonneesGenerator graphDependancesDonneesGenerator = new GraphDependancesDonneesGenerator();
+            int compteur = 0;
+            int id = 0;
+            graphDependancesDonneesGenerator.createNewFile(file.getName(),id);
+            id++;
+            for (int i=0;i<visitor.getSizeMethodsArray();i++)
+            {
+                if (compteur == 20)
+                {
+                    graphDependancesDonneesGenerator.endWriter();
+                    graphDependancesDonneesGenerator.createNewFile(file.getName(), id);
+                    compteur = 0;
+                    id++;
+                }
+                graphDependancesDonneesGenerator.addMethodGraphDependancesDonnees(visitor.getMethod(i));
+                compteur++;
+            }
+            graphDependancesDonneesGenerator.endWriter();
+        }
+        else if (mode == 7)
+        {
+            CFGVisitor visitor = new CFGVisitor();
+            parser.CompilationUnit().jjtAccept(visitor, null);
+            
+            File file = new File(args[0]);
+            
+            GraphDependancesControleGenerator graphDependancesControleGenerator = new GraphDependancesControleGenerator();
+            int compteur = 0;
+            int id = 0;
+            graphDependancesControleGenerator.createNewFile(file.getName(),id);
+            id++;
+            for (int i=0;i<visitor.getSizeMethodsArray();i++)
+            {
+                if (compteur == 20)
+                {
+                    graphDependancesControleGenerator.endWriter();
+                    graphDependancesControleGenerator.createNewFile(file.getName(), id);
+                    compteur = 0;
+                    id++;
+                }
+                graphDependancesControleGenerator.addMethodGraphDependancesControle(visitor.getMethod(i));
+                compteur++;
+            }
+            graphDependancesControleGenerator.endWriter();
+        }
+        else if (mode == 8)
+        {
+            CFGVisitor visitor = new CFGVisitor();
+            parser.CompilationUnit().jjtAccept(visitor, null);
+            
+            File file = new File(args[0]);
+            
+            GraphBackwardSlicingGenerator graphBackwardSlicingGenerator = new GraphBackwardSlicingGenerator();
+            int compteur = 0;
+            int id = 0;
+            graphBackwardSlicingGenerator.createNewFile(file.getName(),id);
+            id++;
+            for (int i=0;i<visitor.getSizeMethodsArray();i++)
+            {
+                if (compteur == 20)
+                {
+                    graphBackwardSlicingGenerator.endWriter();
+                    graphBackwardSlicingGenerator.createNewFile(file.getName(), id);
+                    compteur = 0;
+                    id++;
+                }
+                graphBackwardSlicingGenerator.addMethodGraphBackwardSlicing(visitor.getMethod(i));
+                compteur++;
+            }
+            graphBackwardSlicingGenerator.endWriter();
+        }
+        else if (mode == 9)
+        {
+            CFGVisitor visitor = new CFGVisitor();
+            parser.CompilationUnit().jjtAccept(visitor, null);
+            
+            File file = new File(args[0]);
+            
+            GraphForwardSlicingGenerator graphForwardSlicingGenerator = new GraphForwardSlicingGenerator();
+            int compteur = 0;
+            int id = 0;
+            graphForwardSlicingGenerator.createNewFile(file.getName(),id);
+            graphForwardSlicingGenerator.createNewCSVFile(file.getName());
+            id++;
+            for (int i=0;i<visitor.getSizeMethodsArray();i++)
+            {
+                if (compteur == 20)
+                {
+                    graphForwardSlicingGenerator.endWriter();
+                    graphForwardSlicingGenerator.createNewFile(file.getName(), id);
+                    compteur = 0;
+                    id++;
+                }
+                graphForwardSlicingGenerator.addMethodGraphForwardSlicing(visitor.getMethod(i));
+                compteur++;
+            }
+            graphForwardSlicingGenerator.endWriter();
+            graphForwardSlicingGenerator.endCSVWriter();
+        }
         
       // Dump syntax tree
       // SimpleNode n = parser.CompilationUnit();
@@ -223,15 +636,39 @@ public class JavaParser1_7/*@bgen(jjtree)*/implements JavaParser1_7TreeConstants
        {
            mode = 2;
        }
-       
+       else if (args.length > 1 && args[1].equals("3"))
+       {
+           mode = 3;
+       }
+       else if (args.length > 1 && args[1].equals("4"))
+       {
+           mode = 4;
+       }
+       else if (args.length > 1 && args[1].equals("5"))
+       {
+           mode = 5;
+       }
+       else if (args.length > 1 && args[1].equals("6"))
+       {
+           mode = 6;
+       }
+       else if (args.length > 1 && args[1].equals("7"))
+       {
+           mode = 7;
+       }
+       else if (args.length > 1 && args[1].equals("8"))
+       {
+           mode = 8;
+       }
+       else if (args.length > 1 && args[1].equals("9"))
+       {
+           mode = 9;
+       }
        
        formatFile = ".json";
-       if (mode == 0)
+       if (args.length > 2 && !args[2].equals("json"))
        {
-           if (args.length > 2 && !args[2].equals("json"))
-           {
-               formatFile = ".csv";
-           }
+           formatFile = ".csv";
        }
        
       if (args.length > 0 && args[0].charAt(0) == '@')

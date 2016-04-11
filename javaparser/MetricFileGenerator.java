@@ -14,7 +14,7 @@ public class MetricFileGenerator
     
     public MetricFileGenerator(String fileFormat)
     {
-        this.id = 1;
+        this.id = 0;
         this.fileFormat = fileFormat;
         this.fileWriter = null;
         try {
@@ -67,7 +67,7 @@ public class MetricFileGenerator
         }
         obj.put("interfacesNames", listInterface);
         
-        String[] tab = {"numberIf", "numberElse", "numberSwitch", "numberCase", "valeurCyclomatique", "numberWhile", "numberFor", "nombreTotalBoucle", "numberLocalVariable", "numberBreak", "numberContinue"};
+        String[] tab = {"numberIf", "numberElse", "numberElseIf", "numberSwitch", "numberCase", "valeurCyclomatique", "numberWhile", "numberFor", "nombreTotalBoucle", "numberLocalVariable", "numberBreak", "numberContinue"};
         
         JSONArray listMethod = new JSONArray();
         for (int i=0;i<vis.getSizeMethodArray();i++)
@@ -99,9 +99,10 @@ public class MetricFileGenerator
         
         String text = "";
         
-        if (id == 1)
+        if (this.id == 0)
         {
-            text = "id;FileName;ClassName;MethodName;NumberOfIf;NumberOfElse;NumberOfSwitch;NumberCase;ValeurCyclomatique;NumberOfWhile;NumberOfFor;NombreTotalDeBoucles;NumberOfLocalVariable;NumberOfBreak;NumberOfContinue\n";
+            text = "id;FileName;ClassName;MethodName;NumberOfIf;NumberOfElse;numberOfElseIf;NumberOfSwitch;NumberCase;ValeurCyclomatique;NumberOfWhile;NumberOfFor;NombreTotalDeBoucles;NumberOfLocalVariable;NumberOfBreak;NumberOfContinue\n";
+            this.id++;
         }
         
         for (int i=0;i<vis.getSizeMethodArray();i++)
@@ -115,9 +116,9 @@ public class MetricFileGenerator
             {
                 className = fileName.replace(".java","");
             }
-            text += id + ";" + fileName + ";" + className + ";" + vis.getElementMethodArray(i);
-            id++;
-            for (int j=0;j<11;j++)
+            text += this.id + ";" + fileName + ";" + className + ";" + vis.getElementMethodArray(i);
+            this.id++;
+            for (int j=0;j<vis.getElementMetriquesMethodArray(i).length;j++)
             {
                 text += ";" + vis.getElementMetriquesMethodArray(i)[j];
             }

@@ -7,6 +7,7 @@ public class ExampleVisitor extends AbstractVisitor
     
     private int numberIf = 0;
     private int numberElse = 0;
+    private int numberElseIf = 0;
     private int numberSwitch = 0;
     private int numberCase = 0;
     private int numberWhile = 0;
@@ -26,12 +27,11 @@ public class ExampleVisitor extends AbstractVisitor
     private ArrayList<String> methodArray = new ArrayList<String>();
     private ArrayList<String> interfaceArray = new ArrayList<String>();
     
-    private boolean elseFind = false;
-    
     private void initMetriquesMethod()
     {
         this.numberIf = 0;
         this.numberElse = 0;
+        this.numberElseIf = 0;
         this.numberSwitch = 0;
         this.numberCase = 0;
         this.numberWhile = 0;
@@ -43,18 +43,19 @@ public class ExampleVisitor extends AbstractVisitor
     
     public void addMetriquesMethod()
     {
-        int []tab = new int[11];
+        int []tab = new int[12];
         tab[0] = this.numberIf;
         tab[1] = this.numberElse;
-        tab[2] = this.numberSwitch;
-        tab[3] = this.numberCase;
-        tab[4] = this.numberCase + this.numberIf + this.numberElse;
-        tab[5] = this.numberWhile;
-        tab[6] = this.numberFor;
-        tab[7] = this.numberFor + this.numberWhile;
-        tab[8] = this.numberLocalVariable;
-        tab[9] = this.numberBreak;
-        tab[10] = this.numberContinue;
+        tab[2] = this.numberElseIf;
+        tab[3] = this.numberSwitch;
+        tab[4] = this.numberCase;
+        tab[5] = this.numberCase + this.numberIf + this.numberElse + this.numberElseIf;
+        tab[6] = this.numberWhile;
+        tab[7] = this.numberFor;
+        tab[8] = this.numberFor + this.numberWhile;
+        tab[9] = this.numberLocalVariable;
+        tab[10] = this.numberBreak;
+        tab[11] = this.numberContinue;
         
         this.metriquesMethodArray.add(tab);
     }
@@ -126,6 +127,7 @@ public class ExampleVisitor extends AbstractVisitor
     
     public Object visit(Identifier node, Object data)
     {
+        //System.out.println(node.jjtGetFirstToken().image + " / " + node.jjtGetParent() + " / " + node.jjtGetLastToken());
         if (node.jjtGetParent().toString().equals("NormalClassDeclaration"))
         {
             this.classArray.add(node.jjtGetFirstToken().image.toString());
@@ -145,27 +147,22 @@ public class ExampleVisitor extends AbstractVisitor
     
     public Object visit(IfStatement node, Object data)
     {
-        if (!this.elseFind)
-        {
-            this.numberIf++;
-        }
-        
+        this.numberIf++;
         propagate(node, data);
         return data;
     }
     
     public Object visit(ElseStatement node, Object data)
     {
-        this.numberElse++;
-        this.elseFind = true;
-        
-        propagate(node, data);
-        return data;
-    }
-    
-    public Object visit(Block node, Object data)
-    {
-        this.elseFind = false;
+        if (node.jjtGetFirstToken().toString().equals("if"))
+        {
+            this.numberIf--;
+            this.numberElseIf++;
+        }
+        else
+        {
+            this.numberElse++;
+        }
         propagate(node, data);
         return data;
     }
@@ -194,10 +191,9 @@ public class ExampleVisitor extends AbstractVisitor
         return data;
     }
     
-    public Object visit(LocalVariableDeclarationStatement node, Object data)
+    public Object visit(VariableDeclarator node, Object data)
     {
         this.numberLocalVariable++;
-        
         propagate(node, data);
         return data;
     }

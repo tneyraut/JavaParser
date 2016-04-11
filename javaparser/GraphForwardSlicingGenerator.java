@@ -3,14 +3,15 @@ package javaparser;
 import java.io.*;
 import java.util.*;
 
-public class CFGGenerator
+public class GraphForwardSlicingGenerator
 {
     
     private FileWriter fileWriter;
+    private FileWriter csvFileWriter;
     
-    public CFGGenerator()
+    public GraphForwardSlicingGenerator()
     {
-        File directory = new File("CFG");
+        File directory = new File("ForwardSlicing");
         directory.mkdirs();
         File[] files = directory.listFiles();
         for (int i=0;i<files.length;i++)
@@ -19,11 +20,27 @@ public class CFGGenerator
         }
     }
     
+    public void createNewCSVFile(String nameFile)
+    {
+        this.csvFileWriter = null;
+        try {
+            this.csvFileWriter = new FileWriter("ForwardSlicing/" + nameFile + ".csv");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String enTete = "NodeType;VariableName;NodeId;;NodeTypeAffecté;VariableNameAffectée;NodeIdAffecté\n";
+        try {
+            this.csvFileWriter.write(enTete);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
     public void createNewFile(String nameFile, int id)
     {
         this.fileWriter = null;
         try {
-            this.fileWriter = new FileWriter("CFG/"+ nameFile + "_" + id + ".dot");
+            this.fileWriter = new FileWriter("ForwardSlicing/" + nameFile + "_" + id + ".dot");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -49,12 +66,18 @@ public class CFGGenerator
         }
     }
     
-    public void addMethodFlux(Method method)
+    public void addMethodGraphForwardSlicing(Method method)
     {
-        String text = method.getCFGFormatGraphviz();
-        
+        String text = method.getForwardSlicingGraphViz();
         try {
             this.fileWriter.write(text);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        String textcsv = method.getForwardSlicingCSV();
+        try {
+            this.csvFileWriter.write(textcsv);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -66,6 +89,16 @@ public class CFGGenerator
             this.fileWriter.write("}");
             this.fileWriter.flush();
             this.fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void endCSVWriter()
+    {
+        try {
+            this.csvFileWriter.flush();
+            this.csvFileWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
