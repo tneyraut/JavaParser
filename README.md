@@ -16,4 +16,4 @@ Fonctionnalités :
 
 La commande "java Javaparser1_7 help" fournit l'ensemble des commandes exécutables avec les effets.
 
-Utiliser la commande "java FileList cheminAbsolueDeLaRacineDeVotreProjet" pour générer un fichier .txt comportant la liste des fichiers .java de votre projet.
+Utiliser la commande "java FileList cheminAbsolueDeLaRacineDeVotreProjet" pour générer un fichier .txt comportant la liste des fichiers .java de votre projet (le fichier FileList.class se situe dans le dossier programmeFileList).
